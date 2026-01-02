@@ -1,0 +1,86 @@
+.eicon-rb-archive-description:before {
+    content: url( '../icons/rb-archive-description.svg' );
+}
+.eicon-rb-archive-title:before {
+    content: url( '../icons/rb-archive-title.svg' );
+}
+.eicon-rb-author-meta:before {
+    content: url( '../icons/rb-author-meta.svg' );
+}
+.eicon-rb-button-group:before {
+    content: url( '../icons/rb-button-group.svg' );
+}
+.eicon-rb-button:before {
+    content: url( '../icons/rb-button.svg' );
+}
+.eicon-rb-contact-form:before {
+    content: url( '../icons/rb-contact-form.svg' );
+}
+.eicon-rb-contact-info:before {
+    content: url( '../icons/rb-contact-info.svg' );
+}
+.eicon-rb-divider:before {
+    content: url( '../icons/rb-divider.svg' );
+}
+.eicon-rb-dual-text:before {
+    content: url( '../icons/rb-dual-text.svg' );
+}
+.eicon-rb-list-style:before {
+    content: url( '../icons/rb-list-style.svg' );
+}
+.eicon-rb-page-title:before {
+    content: url( '../icons/rb-page-title.svg' );
+}
+.eicon-rb-post-thumbnail:before {
+    content: url( '../icons/rb-post-thumbnail.svg' );
+}
+.eicon-rb-rating-skill:before {
+    content: url( '../icons/rb-rating-skill.svg' );
+}
+.eicon-rb-resume-list:before {
+    content: url( '../icons/rb-resume-list.svg' );
+}
+.eicon-rb-scroll-down:before {
+    content: url( '../icons/rb-scroll-down.svg' );
+}
+.eicon-rb-section-header:before {
+    content: url( '../icons/rb-section-header.svg' );
+}
+.eicon-rb-service-list:before {
+    content: url( '../icons/rb-service-list.svg' );
+}
+.eicon-rb-site-logo:before {
+    content: url( '../icons/rb-site-logo.svg' );
+}
+.eicon-rb-site-tagline:before {
+    content: url( '../icons/rb-site-tagline.svg' );
+}
+.eicon-rb-site-title:before {
+    content: url( '../icons/rb-site-title.svg' );
+}
+
+.eicon-rb-archive-description:after,
+.eicon-rb-archive-title:after,
+.eicon-rb-author-meta:after,
+.eicon-rb-button-group:after,
+.eicon-rb-button::after,
+.eicon-rb-contact-form:after,
+.eicon-rb-contact-info:after,
+.eicon-rb-divider:after,
+.eicon-rb-dual-text:after,
+.eicon-rb-list-style:after,
+.eicon-rb-page-title:after,
+.eicon-rb-post-thumbnail:after,
+.eicon-rb-rating-skill:after,
+.eicon-rb-resume-list:after,
+.eicon-rb-scroll-down:after,
+.eicon-rb-section-header:after,
+.eicon-rb-service-list:after,
+.eicon-rb-site-logo:after,
+.eicon-rb-site-tagline:after,
+.eicon-rb-site-title:after {
+	position: absolute;
+	top: 0;
+	right: 6px;
+    content: url( '../icons/rb-icon.svg' );
+}

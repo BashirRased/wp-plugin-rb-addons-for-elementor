@@ -1,0 +1,248 @@
+.rb-dashboard {
+    font-family: "Roboto",sans-serif;
+}
+
+h1.rb-dashboard-title {
+    font-weight: 600;
+    font-size: 36px;
+    color: #333;
+    margin: 0;
+}
+
+.rb-dashboard-description {
+	margin: 0;
+	font-size: 16px;
+}
+
+.rb-dashboard-theme-color {
+	color: #5db429;
+}
+
+.rb-action-list {
+    margin: -4px;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/** Filter Buttons */
+.rb-action--btn {
+    display: inline-block;
+    margin: 4px;
+    padding: 5px 10px 4px;
+    outline: 0;
+    border: 1px solid;
+    border-radius: 3px;
+    background: 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.rb-action--btn[data-filter="*"]:focus, .rb-action--btn[data-filter="*"]:hover {
+    border-color: #666;
+    background-color: #666;
+    color: #fff;
+}
+
+.rb-action--btn[data-filter=free] {
+    color: #562dd4;
+}
+
+.rb-action--btn[data-filter=free]:focus,.rb-action--btn[data-filter=free]:hover {
+    border-color: #562dd4;
+    background-color: #562dd4;
+    color: #fff
+}
+
+.rb-action--btn[data-filter=pro] {
+    color: #e2498a
+}
+
+.rb-action--btn[data-filter=pro]:focus,.rb-action--btn[data-filter=pro]:hover {
+    border-color: #e2498a;
+    background-color: #e2498a;
+    color: #fff
+}
+
+.rb-action--divider {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #e8e8e8;
+}
+
+.rb-action--btn[data-action=enable],.rb-action--btn[data-action=enable_feature] {
+    color: #5db429
+}
+
+.rb-action--btn[data-action=enable]:focus,.rb-action--btn[data-action=enable]:hover,.rb-action--btn[data-action=enable_feature]:focus,.rb-action--btn[data-action=enable_feature]:hover {
+    border-color: #5db429;
+    background-color: #5db429;
+    color: #fff
+}
+
+.rb-action--btn[data-action=disable],.rb-action--btn[data-action=disable_feature] {
+    color: #e63d3d
+}
+
+.rb-action--btn[data-action=disable]:focus,.rb-action--btn[data-action=disable]:hover,.rb-action--btn[data-action=disable_feature]:focus,.rb-action--btn[data-action=disable_feature]:hover {
+    border-color: #e63d3d;
+    background-color: #e63d3d;
+    color: #fff
+}
+
+/** Widget List */
+.rb-dashboard-widgets__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	padding: 40px;
+	border-radius: 0 0 5px 5px;
+	background-color: #fff;
+	margin-top: 20px;
+}
+
+.rb-dashboard-widgets__item {
+    position: relative;
+    padding: 30px 20px;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 21%;
+    background-color: #f0f0f0;
+}
+
+.rb-dashboard-widgets__item img {
+	width: 40px;
+	height: 40px;
+}
+
+.rb-dashboard-widgets__item-title {
+    margin: 0;
+    font-size: 18px;
+    color: #562dd4;
+    font-weight: 600;
+}
+
+.rb-dashboard-widgets__item-demo {
+	display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: #5db429;
+    border: 1px solid #5db429;
+    padding: 5px 10px;
+    border-radius: 5px;
+	margin-top: 10px;
+	transition: all 0.4s ease-in-out;
+}
+
+.rb-dashboard-widgets__item-demo:hover,
+.rb-dashboard-widgets__item-demo:focus {
+	color: #fff;
+	background-color: #562dd4;
+	border-color: #562dd4;
+}
+
+.rb-dashboard-widgets__item-button {
+	position: relative;
+
+}
+
+.rb-dashboard-widgets__item-button {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 40px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: #e8e8e8;
+    -webkit-box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+	right: 20px;
+}
+
+input.rb-toggle__check[type=checkbox] {
+	position: relative;
+	display: block;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rb-toggle__switch {
+	position: absolute;
+    display: block;
+    top: 2px;
+    right: 18px;
+    bottom: 2px;
+    left: 2px;
+    z-index: 1;
+    border-radius: 36px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -webkit-transition-delay: 0s,.05s;
+    transition-delay: 0s,.05s;
+    -webkit-transition-property: left,right;
+    transition-property: left,right;
+	transition: .35s cubic-bezier(.785,.135,.15,.86);
+}
+
+.rb-toggle__track {
+	position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 40px;
+    -webkit-box-shadow: inset 0 0 0 2px rgba(0,0,0,.01);
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,.01);
+	transition: .35s cubic-bezier(.785,.135,.15,.86);
+}
+
+.rb-toggle__check:checked~.rb-toggle__track {
+    -webkit-box-shadow: inset 0 0 0 20px #562dd4;
+    box-shadow: inset 0 0 0 20px #562dd4;
+}
+
+.rb-toggle__check:checked~.rb-toggle__switch {
+    right: 2px;
+    left: 18px;
+    -webkit-transition: .35s cubic-bezier(.785,.135,.15,.86);
+    transition: .35s cubic-bezier(.785,.135,.15,.86);
+    -webkit-transition-delay: .05s,0s;
+    transition-delay: .05s,0s;
+    -webkit-transition-property: left,right;
+    transition-property: left,right
+}
+
+/** Submit Button */
+.rb-dashboard .button.button-primary {
+    background-color: #5db429;
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+}
+
+.rb-dashboard .button.button-primary:active,
+.rb-dashboard .button.button-primary:hover,
+.rb-dashboard .button.button-primary:focus {
+    background-color: #562dd4;
+    color: #fff
+}

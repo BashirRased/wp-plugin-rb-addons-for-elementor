@@ -1,0 +1,546 @@
+/* Multi Text & Auto Typing Widget */
+.elementor-widget-rb-dual-text .rb-dual-text-heading,
+.elementor-widget-rb-auto-typing .rb-auto-typing {
+	margin: 0;
+}
+
+/* Social Icon Widget */
+.elementor-widget-rb-social-icon {
+	.rb-social-icon-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		.rb-social-icon-item {
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+		}
+	}
+	
+	.style-1 {
+		.rb-social-icon-item {
+			margin: 25px 19px;
+			width: 50px;
+			height: 50px;
+			transform: rotate(-35deg) skew(25deg);
+			.rb-social-icon-item-child {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&:nth-child(5) {
+					width: 50px;
+					height: 50px;
+					display: inline-block;
+					line-height: 50px;
+					text-align: center;
+				}
+			}
+			&:hover,
+			&:focus {
+				.rb-social-icon-item-child:nth-child(1) {
+					transform: translate(0,0);
+					opacity: .2;
+				}
+				.rb-social-icon-item-child:nth-child(2) {
+					transform: translate(10px,-10px);
+					opacity: .4;
+				}
+				.rb-social-icon-item-child:nth-child(3) {
+					transform: translate(20px,-20px);
+					opacity: .6;
+				}
+				.rb-social-icon-item-child:nth-child(4) {
+					transform: translate(30px,-30px);
+					opacity: .8;
+				}
+				.rb-social-icon-item-child:nth-child(5) {
+					transform: translate(40px,-40px);
+					opacity: 1;
+				}
+			}
+		}	
+	}
+
+	.style-2 {
+		.rb-social-icon-item {
+			text-align: center;
+			.rb-social-icon-item-child {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+			}
+			.before-child {
+				transform-origin: top;
+				background-color: transparent;
+			}
+			.after-child {
+				transform-origin: bottom;
+				transform: rotateX(90deg) translateY(50%);
+			}			
+			&:hover,
+			&:focus {
+				.before-child {
+					transform: rotateX(90deg) translateY(-50%);
+				}
+				.after-child {
+					transform: rotateX(0deg) translateY(0);
+				}
+			}
+		}
+	}
+}
+
+/* Button Group Widget */
+.elementor-widget-rb-button-group {
+	.rb-button-group {
+		display: flex;
+		flex-wrap: wrap;
+		.style-1 {
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			border: none;
+			outline: 0;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -25%;
+				width: 0;
+				height: 100%;
+				transform: skew(50deg);
+				z-index: 9;
+			}
+			&:hover::before {
+				width: 150%;
+			}
+			span {
+				position: relative;
+				z-index: 99;
+			}
+		}
+		.style-2 {
+			position: relative;
+			display: inline-block;
+			text-decoration: none;
+			cursor: pointer;
+			overflow: hidden;
+			z-index: 0;
+			border: none;
+			outline: 0;
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 100%;
+				transition: all 0.4s ease-in-out;
+				z-index: -1;	
+			}
+			&:hover:before {
+				width: 100%;
+			}
+			& a {
+				text-decoration: none;
+				display: block;
+			}
+		}
+	}
+}
+
+/* Section Header Widget */
+.elementor-widget-rb-section-header {
+	.rb-section-subtitle {
+		display: inline-block;
+	}
+	.rb-section-title-wrapper {
+		display: block;
+		.rb-section-title {
+			display: inline-block;
+			position: relative;
+			margin: 0;
+			.rb-section-title-before {
+				position: absolute;
+				bottom: -15px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.rb-section-title-after {
+				position: absolute;
+				bottom: -24px;
+				left: 50%;
+				&.triangle {
+					transform: translateX(-50%) rotate(45deg);
+				}
+				&.circle {
+					transform: translateX(-50%);
+					border-radius: 50%;
+				}
+				&.square {
+					transform: translateX(-50%);
+				}
+			}
+		}
+	}	
+	.rb-section-description {
+		margin: 0;
+	}
+}
+
+/* Divider Widget */
+.elementor-widget-rb-divider .rb-divider-container {
+	display: flex;
+	.rb-divider {
+		opacity: 1;
+	}
+}
+
+/* Site Tagline Widget */
+.elementor-widget-rb-site-tagline .rb-site-tagline {
+	margin-bottom: 0;
+}
+
+/* List Style Widget */
+.elementor-widget-rb-list-style .rb-list-style {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	.rb-list-item {
+		display: flex;
+		align-items: center;
+		.rb-list-item-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+/* Button Widget */
+.elementor-widget-rb-button {
+	.rb-btn-item-wrap {
+		display: flex;			
+		.style-1 {
+			text-decoration: none;
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+			border: none;
+			outline: 0;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -25%;
+				width: 0;
+				height: 100%;
+				transform: skew(50deg);
+				z-index: 9;
+			}
+			&:hover::before {
+				width: 150%;
+			}
+			span {
+				position: relative;
+				z-index: 99;
+			}
+		}
+		.style-2 {
+			position: relative;
+			display: inline-block;
+			text-decoration: none;
+			cursor: pointer;
+			overflow: hidden;
+			z-index: 0;
+			border: none;
+			outline: 0;
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 100%;
+				transition: all 0.4s ease-in-out;
+				z-index: -1;	
+			}
+			&:hover:before {
+				width: 100%;
+			}
+			& a {
+				text-decoration: none;
+				display: block;
+			}
+		}
+		/** end */
+	}
+}
+
+/* Archive Description Widget */
+.elementor-widget-rb-archive-description {
+	.rb-archive-description {
+		margin-bottom: 0;
+	}
+}
+
+/* Post Thumbnail Widget */
+.elementor-widget-rb-post-thumbnail {
+	.rb-post-thumbnail {
+		position: relative;
+		transition: all 0.5s ease-in-out;
+		.rb-post-caption {
+			margin: 0;
+			&.hover {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				display: none;
+			}
+		}
+		&:hover .rb-post-caption.hover,
+		&:focus .rb-post-caption.hover {
+			display: block;
+		}
+	}
+}
+
+/* Scroll Down Widget */
+.elementor-widget-rb-scroll-down {
+	.rb-scroll-down {
+		cursor: pointer;
+		position: relative;
+		display: inline-block;
+		&::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);			
+			opacity: 1;
+			animation: scroll_down_effect 2s ease 0s infinite;
+		}
+	}
+}
+
+/* Scroll Down Widget Animation */
+@-webkit-keyframes scroll_down_effect {
+    0% {
+    	opacity: 1;
+    	top: 10px;
+    }
+	100% {
+    	opacity: 0;
+    	top: 25px;
+    }
+}
+@keyframes scroll_down_effect {
+    0% {
+    	opacity: 1;
+    	top: 10px;
+    }
+	100% {
+    	opacity: 0;
+    	top: 25px;
+    }
+}
+
+/* Resume List Widget */
+.elementor-widget-rb-resume-list {
+	.resume-list-item {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		.resume-list-label {
+			max-width: max-content;
+		}
+		.resume-list-description {
+			margin: 0;
+		}
+	}
+}
+
+/* Rating Skill Widget */
+.elementor-widget-rb-rating-skill {
+	.rb-rating-skill {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+/* Service List Widget */
+.elementor-widget-rb-service-list {
+	.rb-service-item-wrap.style-1 {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		.rb-service-icon {
+			display: inline-flex;
+			max-width: max-content;
+			align-self: center;
+		}
+		.rb-service-item {
+			z-index: 9;
+			transition: all 0.3s ease-in-out;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.rb-service-item-hover {
+			display: none;
+			position: relative;
+			z-index: 99;
+			transition: all 0.5s ease-in-out;
+		}
+		&:hover,
+		&:focus {
+			.rb-service-item {
+				display: none;
+			}.rb-service-item-hover {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+	}
+	.rb-service-item-wrap.style-2 {
+		position: relative;
+		z-index: 1;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			transition: all 0.4s ease-in-out;
+			z-index: 2;
+		}
+		.rb-service-item {
+			position: relative;
+			z-index: 3;
+		}
+		&:hover::before,&:focus::before {
+			width: 100%;
+		}
+	}
+	.rb-service-description {
+		margin-bottom: 0;
+	}
+}
+
+/* Contact Info Widget */
+.elementor-widget-rb-contact-info {
+	.rb-contact-info {
+		display: flex;
+		flex-wrap: wrap;
+		.rb-contact-info-item {
+			position: relative;
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				transition: all 0.4s ease-in-out;
+			} 
+			&:before {
+				top: 0;
+				left: 0;
+			}
+			&:after {
+				bottom: 0;
+				right: 0;
+				transform: rotate(180deg);
+			}
+			.rb-contact-info-icon {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				transition: all 0.4s ease-in-out;
+			}
+		}
+	}
+}
+
+/* Contact Form Widget */
+.elementor-widget-rb-contact-form {
+	.rb-contact-form-item {
+		position: relative;
+		.rb-contact-form-item-input.style-1 {
+			padding: 0 0 0 39px;
+		}
+		.rb-contact-form-item-icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;			
+			width: 40px;
+			height: 40px;
+		}
+	}
+	.rb-contact-form-submit-btn.style-1 {
+		text-decoration: none;
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		border: none;
+		outline: 0;		
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -25%;
+			width: 0;
+			height: 100%;
+			transform: skew(50deg);
+			z-index: 9;
+		}
+		&:hover::before {
+			width: 150%; 
+		}
+		& span {
+			position: relative;
+			z-index: 99;
+		}
+	}
+	.rb-contact-form-submit-btn.style-2 {
+		position: relative;
+		display: inline-block;
+		text-decoration: none;
+		cursor: pointer;
+		overflow: hidden;
+		z-index: 0;
+		border: none;
+		outline: 0;		
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 100%;
+			transition: all 0.4s ease-in-out;
+			z-index: -1;	
+		}
+		&:hover:before {
+			width: 100%;
+		}
+		& a {
+			text-decoration: none;
+			display: block;
+		}
+	}
+}
