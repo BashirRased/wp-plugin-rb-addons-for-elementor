@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Admin Dashboard page handler.
  *
- * Provides the UI and logic for managing RB Elementor Addons
+ * Provides the UI and logic for managing RB Addons for Elementor
  * settings and widget controls inside the WordPress dashboard.
  *
  * @package RB_Elementor_Addons
@@ -40,7 +40,7 @@ class Dashboard {
 	public static function add_menu() {
 		// Top-level menu (this will act as "Home").
 		add_menu_page(
-			'RB Elementor Addons Dashboard',
+			'RB Addons for Elementor Dashboard',
 			'RB Addons',
 			'manage_options',
 			'rbelad_dashboard',
@@ -123,7 +123,7 @@ class Dashboard {
 
 		$current_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'home';
 
-		echo '<div class="wrap"><h1 class="wp-heading-inline">RB Elementor Addons</h1>';
+		echo '<div class="wrap"><h1 class="wp-heading-inline">RB Addons for Elementor</h1>';
 		echo '<h2 class="nav-tab-wrapper">';
 		foreach ( $tabs as $slug => $label ) {
 			$active  = $slug === $current_tab ? ' nav-tab-active' : '';

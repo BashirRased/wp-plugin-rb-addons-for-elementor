@@ -1,6 +1,6 @@
 <?php
 /**
- * Common control options for RB Elementor Addons.
+ * Common control options for RB Addons for Elementor.
  *
  * @package RB_Elementor_Addons
  */

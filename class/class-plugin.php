@@ -62,7 +62,7 @@ class Plugin {
 		$this->add_page_settings_controls();
 
 		/**
-		 * Fires after RB Elementor Addons has fully loaded.
+		 * Fires after RB Addons for Elementor has fully loaded.
 		 */
 		do_action( 'rbelad_addons_loaded' );
 	}

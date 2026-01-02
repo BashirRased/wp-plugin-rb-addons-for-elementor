@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: RB Elementor Addons
- * Plugin URI:  https://github.com/BashirRased/wp-plugin-rb-elementor-addons
+ * Plugin Name: RB Addons for Elementor
+ * Plugin URI:  https://github.com/BashirRased/wp-plugin-rb-addons-for-elementor
  * Description: Adds 45+ Elementor widgets, including WordPress core widgets and custom widgets.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      Bashir Rased
  * Author URI:  https://bashirrased.com/
  * Text Domain: rb-elementor-addons
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'RBELAD_PLUGIN_FILE', __FILE__ );
 define( 'RBELAD_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RBELAD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'RBELAD_VERSION', '1.0.1' );
+define( 'RBELAD_VERSION', '1.0.2' );
 
 // Extra helpful constants.
 define( 'RBELAD_ASSETS', trailingslashit( RBELAD_PLUGIN_URL . 'assets' ) );

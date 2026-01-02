@@ -1,6 +1,6 @@
 <?php
 /**
- * RB Elementor Addons main class.
+ * RB Addons for Elementor main class.
  *
  * @package RB_Elementor_Addons
  */
@@ -80,7 +80,7 @@ final class RBELAD_Elementor_Addons {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Elementor Addons', 'rb-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
@@ -103,7 +103,7 @@ final class RBELAD_Elementor_Addons {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Elementor Addons', 'rb-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
@@ -126,7 +126,7 @@ final class RBELAD_Elementor_Addons {
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
 			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Elementor Addons', 'rb-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );

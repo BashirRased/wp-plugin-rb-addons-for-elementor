@@ -13,7 +13,7 @@ use RBELAD_Elementor_Addons\Widget_Manager;
 defined( 'ABSPATH' ) || die();
 
 /**
- * Base Class for RB Elementor Addons widgets.
+ * Base Class for RB Addons for Elementor widgets.
  *
  * Provides common functionality for all custom widgets,
  * including naming, titles, icons, and category assignment.
