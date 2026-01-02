@@ -1,96 +1,116 @@
 <?php
+/**
+ * Section Header widget - Subtitle style controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
-// Start Section Tab - Style
+// Controls variables.
+$prefix = 'rbelad_section_header_subtitle_';
+$cls_1  = '{{WRAPPER}} .rbelad-section-subtitle';
+
+// Start Section Tab - Style.
 $this->start_controls_section(
-	'subtitle_style',
-	[
-		'label' => esc_html__( 'Subtitle', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_STYLE,		
-		'condition' => [
-			'subtitle_switch' => 'yes',
-		],
-	]
+	$prefix . 'section_style',
+	array(
+		'label'     => esc_html__( 'Subtitle', 'rb-elementor-addons' ),
+		'tab'       => Controls_Manager::TAB_STYLE,
+		'condition' => array(
+			'rbelad_section_header_subtitle_content_switch' => 'yes',
+		),
+	)
 );
 
-// All content add here
+// All content add here.
 $this->add_style_controls(
-	'section_header_subtitle_style',
-	[
-		'controls' => [
-			// Typography
-			'typography' 		=> [
-				'name'        			=> 'subtitle_typography',
-				'global'      			=> ['default' => Global_Typography::TYPOGRAPHY_TEXT],
-				'select_class' 			=> '{{WRAPPER}} rb-section-subtitle',
-			],			
-			'text_stroke' 				=> [
-				'name'        			=> 'subtitle_text_stroke',
-				'select_class' 			=> '{{WRAPPER}} rb-section-subtitle',
-			],
-			'text_shadow' 				=> [
-				'name'        			=> 'subtitle_text_shadow',
-				'select_class' 			=> '{{WRAPPER}} rb-section-subtitle',
-			],
-			'typography_separator' 		=> [],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Typography.
+			'typography'           => array(
+				'name'         => $prefix . 'typography',
+				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
+				'select_class' => $cls_1,
+			),
+			'text_stroke'          => array(
+				'name'         => $prefix . 'text_stroke',
+				'select_class' => $cls_1,
+			),
+			'text_shadow'          => array(
+				'name'         => $prefix . 'text_shadow',
+				'select_class' => $cls_1,
+			),
+			'typography_separator' => array(
+				'id' => $prefix . 'typography_separator',
+			),
 
-			// Colors
-			'color' 					=> [
-				'id' 					=> 'subtitle_color',
-				'default' 				=> '#ffffff',
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-			'bg_color' 			=> [				
-				'id' 					=> 'subtitle_bg_color',
-				'default' 				=> '#007bff',				
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-			'color_separator' 			=> [],
+			// Colors.
+			'color'                => array(
+				'id'           => $prefix . 'color',
+				'default'      => '#ffffff',
+				'select_class' => $cls_1,
+			),
+			'bg_color'             => array(
+				'id'           => $prefix . 'bg_color',
+				'default'      => '#007bff',
+				'select_class' => $cls_1,
+			),
+			'color_separator'      => array(
+				'id' => $prefix . 'color_separator',
+			),
 
-			// Margin & Padding		
-			'margin_bottom' 			=> [				
-				'id' 					=> 'subtitle_margin_bottom',
-				'default' 				=> [
-					'unit' 				=> 'px',
-					'size' 				=> 20,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-			'padding' 					=> [								
-				'id' 					=> 'subtitle_padding',
-				'default' 				=> [
-					'top' 				=> '5',
-					'right' 			=> '20',
-					'bottom' 			=> '5',
-					'left' 				=> '20',
-					'unit' 				=> 'px',
-					'isLinked' 			=> false,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-			'spacing_separator' 		=> [],
+			// Margin & Padding.
+			'margin_bottom'        => array(
+				'id'           => $prefix . 'margin_bottom',
+				'default'      => array(
+					'unit' => 'px',
+					'size' => 20,
+				),
+				'select_class' => $cls_1,
+			),
+			'padding'              => array(
+				'id'           => $prefix . 'padding',
+				'default'      => array(
+					'top'      => '5',
+					'right'    => '20',
+					'bottom'   => '5',
+					'left'     => '20',
+					'unit'     => 'px',
+					'isLinked' => false,
+				),
+				'select_class' => $cls_1,
+			),
+			'spacing_separator'    => array(
+				'id' => $prefix . 'spacing_separator',
+			),
 
-			// Border & Border Radius
-			'border' 					=> [								
-				'name'        			=> 'subtitle_border',
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-			'border_radius' 			=> [
-				'id' 					=> 'subtitle_border_radius',
-				'default' 				=> [
-					'top' 				=> 20,
-					'right' 			=> 20,
-					'bottom' 			=> 20,
-					'left' 				=> 20,
-					'unit' 				=> 'px',
-					'isLinked' 			=> true,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-section-subtitle',
-			],
-		],
-	],
+			// Border & Border Radius.
+			'border'               => array(
+				'name'         => $prefix . 'border',
+				'select_class' => $cls_1,
+			),
+			'border_radius'        => array(
+				'id'           => $prefix . 'border_radius',
+				'default'      => array(
+					'top'      => 20,
+					'right'    => 20,
+					'bottom'   => 20,
+					'left'     => 20,
+					'unit'     => 'px',
+					'isLinked' => true,
+				),
+				'select_class' => $cls_1,
+			),
+		),
+	),
 );
 
-// End Section Tab
+// End Section Tab.
 $this->end_controls_section();

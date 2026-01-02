@@ -1,56 +1,74 @@
 <?php
+/**
+ * Button Group widget - Button::Before style controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 use Elementor\Controls_Manager;
 
+// Controls variables.
+$prefix = 'rbelad_button_group_button_before_';
+$cls_1  = '{{WRAPPER}} .rbelad-btn-item::before';
+
+// Start Section Tab - Style.
 $this->start_controls_section(
-	'btn_before_style',
-	[
+	$prefix . 'section_style',
+	array(
 		'label' => esc_html__( 'Button Before', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_STYLE,
-	]
+		'tab'   => Controls_Manager::TAB_STYLE,
+	)
 );
 
+// All content add here.
 $this->add_style_controls(
-	'btn_group_btn_before_style',	
-	[
-		'controls' => [
-			// Colors
-			'bg_color' 		=> [
-				'id' 	  			=> 'btn_before_bg_color',
-				'default' 			=> '#000',
-				'select_class' 		=> '{{WRAPPER}} .rb-btn-item::before',
-			],
-			'color_separator' 		=> [],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Colors.
+			'bg_color'            => array(
+				'id'           => $prefix . 'bg_color',
+				'default'      => '#000000',
+				'select_class' => $cls_1,
+			),
+			'color_separator'     => array(
+				'id' => $prefix . 'color_separator',
+			),
 
-			// Transition
-			'transition_property' 	=> [
-				'id' 				=> 'btn_before_transition_property',
-				'default' 			=> 'all',
-				'select_class' 		=> '{{WRAPPER}} .rb-btn-item::before',
-			],
-			'transition_duration' 	=> [
-				'id' 	          	=> 'btn_before_transition_duration',
-				'default'         	=> [
-					'unit' 			=> 's',
-					'size' 			=> 0.5,
-				],
-				'select_class' 	  	=> '{{WRAPPER}} .rb-btn-item::before',
-			],
-			'timing_function'   	=> [
-				'id' 	        	=> 'btn_before_timing_function',
-				'default'       	=> 'ease-in-out',
-				'select_class' 		=> '{{WRAPPER}} .rb-btn-item::before',
-			],
-			'transition_delay'  	=> [
-				'id' 				=> 'btn_before_transition_delay',
-				'default' 			=> [
-					'unit' 			=> 's',
-					'size' 			=> 0,
-				],
-				'select_class' 		=> '{{WRAPPER}} .rb-btn-item::before',
-			],
-		],
-	],
+			// Transition.
+			'transition_property' => array(
+				'id'           => $prefix . 'transition_property',
+				'default'      => 'all',
+				'select_class' => $cls_1,
+			),
+			'transition_duration' => array(
+				'id'           => $prefix . 'transition_duration',
+				'default'      => array(
+					'unit' => 's',
+					'size' => 0.5,
+				),
+				'select_class' => $cls_1,
+			),
+			'timing_function'     => array(
+				'id'           => $prefix . 'timing_function',
+				'default'      => 'ease-in-out',
+				'select_class' => $cls_1,
+			),
+			'transition_delay'    => array(
+				'id'           => $prefix . 'transition_delay',
+				'default'      => array(
+					'unit' => 's',
+					'size' => 0,
+				),
+				'select_class' => $cls_1,
+			),
+		),
+	),
 );
 
+// End Section Tab.
 $this->end_controls_section();

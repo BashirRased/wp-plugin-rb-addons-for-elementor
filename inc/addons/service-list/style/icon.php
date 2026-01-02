@@ -1,126 +1,134 @@
 <?php
+/**
+ * Service List widget - Icon style controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Controls_Manager;
 
-// Start Section Tab - Style
+// Controls variables.
+$prefix    = 'rbelad_service_list_icon_';
+$cls_1     = '{{WRAPPER}} .rbelad-service-icon';
+$cls_1_i   = '{{WRAPPER}} .rbelad-service-icon i';
+$cls_1_svg = '{{WRAPPER}} .rbelad-service-icon svg';
+
+// Start Section Tab - Style.
 $this->start_controls_section(
-	'icon_style',
-	[
+	$prefix . 'section_style',
+	array(
 		'label' => esc_html__( 'Icon', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_STYLE,
-	]
+		'tab'   => Controls_Manager::TAB_STYLE,
+	)
 );
 
-// All content add here
+// All content add here.
 $this->add_style_controls(
-	'service_list_icon_style',
-	[
-		'controls' => [
-			// Width & Height
-			'icon_img_size' 			=> [
-				'label' 				=> esc_html__( 'Image Size', 'rb-elementor-addons' ),
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon img',
-				'condition' 			=> [
-					'icon_type' 		=> 'img',
-				],
-			],
-			'icon_size' 				=> [
-				'label' 				=> esc_html__( 'Icon Size', 'rb-elementor-addons' ),
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon i',
-				'select_class_2' 		=> '{{WRAPPER}} .rb-service-icon svg',
-				'condition' 			=> [
-					'icon_type' 		=> 'icon',
-				],
-			],
-			'width_height_separator'	=> [],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Colors.
+			'fill_color'             => array(
+				'id'             => $prefix . 'fill_color',
+				'default'        => '#007bff',
+				'select_class'   => $cls_1_i,
+				'select_class_2' => $cls_1_svg,
+			),
+			'bg_color'               => array(
+				'id'           => $prefix . 'bg_color',
+				'select_class' => $cls_1,
+			),
+			'color_separator'        => array(
+				'id' => $prefix . 'color_separator',
+			),
 
-			// Margin & Padding
-			'margin_bottom' 			=> [
-				'id' 					=> 'icon_margin_bottom',
-				'default' 				=> [
-					'unit' 				=> 'px',
-					'size' 				=> 10,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon',
-			],
-			'padding' 					=> [
-				'id' 					=> 'icon_padding',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon',
-			],
+			// Width & Height.
+			'icon_img_size'          => array(
+				'id'           => $prefix . 'icon_img_size',
+				'label'        => esc_html__( 'Image Size', 'rb-elementor-addons' ),
+				'select_class' => '{{WRAPPER}} .rbelad-service-icon img',
+				'condition'    => array(
+					'rbelad_service_list_general_content_icon_type' => 'img',
+				),
+			),
+			'icon_size'              => array(
+				'id'             => $prefix . 'icon_size',
+				'label'          => esc_html__( 'Icon Size', 'rb-elementor-addons' ),
+				'default'        => array(
+					'unit' => 'px',
+					'size' => 90,
+				),
+				'select_class'   => $cls_1_i,
+				'select_class_2' => $cls_1_svg,
+				'condition'      => array(
+					'rbelad_service_list_general_content_icon_type' => 'icon',
+				),
+			),
+			'width_height_separator' => array(
+				'id' => $prefix . 'width_height_separator',
+			),
 
-			// Border & Border Radius
-			'border' 					=> [								
-				'name'        			=> 'icon_border',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon',
-			],
-			'border_radius' 			=> [
-				'id' 					=> 'icon_border_radius',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-icon',
-			],
-		],
-	],
+			// Margin & Padding.
+			'margin_bottom'          => array(
+				'id'           => $prefix . 'icon_margin_bottom',
+				'default'      => array(
+					'unit' => 'px',
+					'size' => 30,
+				),
+				'select_class' => $cls_1,
+			),
+			'padding'                => array(
+				'id'           => $prefix . 'icon_padding',
+				'default'      => array(
+					'top'      => '30',
+					'right'    => '30',
+					'bottom'   => '30',
+					'left'     => '30',
+					'unit'     => 'px',
+					'isLinked' => true,
+				),
+				'select_class' => $cls_1,
+			),
+
+			// Border & Border Radius.
+			'border'                 => array(
+				'name'           => $prefix . 'icon_border',
+				'fields_options' => array(
+					'border' => array( 'default' => 'solid' ),
+					'width'  => array(
+						'default' => array(
+							'top'      => '1',
+							'right'    => '1',
+							'bottom'   => '1',
+							'left'     => '1',
+							'isLinked' => true,
+						),
+					),
+					'color'  => array(
+						'default' => '#007bff',
+					),
+				),
+				'select_class'   => $cls_1,
+			),
+			'border_radius'          => array(
+				'id'           => $prefix . 'icon_border_radius',
+				'default'      => array(
+					'top'      => '50',
+					'right'    => '50',
+					'bottom'   => '50',
+					'left'     => '50',
+					'unit'     => '%',
+					'isLinked' => true,
+				),
+				'select_class' => $cls_1,
+			),
+		),
+	),
 );
 
-// Tabs
-$this->start_controls_tabs( 'icon_tabs' );
-
-	// Normal Tab
-	$this->start_controls_tab(
-		'icon_normal_tab',
-		[
-			'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
-		]
-	);
-
-		// All content add here
-		$this->add_style_controls(
-			'service_list_icon_style',
-			[
-				'controls' => [
-					// Colors
-					'fill_color' 				=> [
-						'select_class' 			=> '{{WRAPPER}} .rb-service-icon i',
-						'select_class_2' 		=> '{{WRAPPER}} .rb-service-icon svg',
-					],
-					'bg_color' 					=> [
-						'select_class' 			=> '{{WRAPPER}} .rb-service-icon',
-					],
-				],
-			],
-		);
-
-	$this->end_controls_tab();
-
-	// Hover Tab
-	$this->start_controls_tab(
-		'icon_hover_tab',
-		[
-			'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
-		]
-	);
-
-		// All content add here
-		$this->add_style_controls(
-			'service_list_icon_style_hover',
-			[
-				'controls' => [
-					// Colors
-					'fill_color' 				=> [
-						'id' 					=> 'fill_color_hover',
-						'select_class' 			=> '{{WRAPPER}} .rb-service-item-wrap:hover .rb-service-icon i, {{WRAPPER}} .rb-service-item-wrap:focus .rb-service-icon i',
-						'select_class_2' 		=> '{{WRAPPER}} .rb-service-item-wrap:hover .rb-service-icon svg, {{WRAPPER}} .rb-service-item-wrap:focus .rb-service-icon svg',
-					],
-					'bg_color' 					=> [
-						'id' 					=> 'bg_color_hover',
-						'default' 				=> '#ffffff',
-						'select_class' 			=> '{{WRAPPER}} .rb-service-item-wrap:hover .rb-service-icon, {{WRAPPER}} .rb-service-item-wrap:focus .rb-service-icon',
-					],
-				],
-			],
-		);
-
-	$this->end_controls_tab();
-
-$this->end_controls_tabs();
-
-// End Section Tab
+// End Section Tab.
 $this->end_controls_section();

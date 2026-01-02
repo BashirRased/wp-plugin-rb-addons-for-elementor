@@ -1,39 +1,52 @@
 <?php
+/**
+ * Section Header widget - Title::After content controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+// Controls variables.
+$prefix = 'rbelad_section_header_title_after_content_';
+
 use Elementor\Controls_Manager;
 
-// Start Section Tab - Content
+// Start Section Tab - Content.
 $this->start_controls_section(
-	'title_after_content',
-	[
+	$prefix . 'section',
+	array(
 		'label' => esc_html__( 'Title After', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_CONTENT,
-	]
+		'tab'   => Controls_Manager::TAB_CONTENT,
+	)
 );
 
-// All content add here
+// All content add here.
 $this->add_style_controls(
-	'section_header_title_after_content',
-	[
-		'controls' => [
-			// Switcher
-			'switch' 					=> [								
-				'id'        			=> 'title_after_switch',
-				'label' 				=> esc_html__( 'Title After Show', 'rb-elementor-addons' ),
-			],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Switcher.
+			'switch'        => array(
+				'id'    => $prefix . 'switch',
+				'label' => esc_html__( 'Title After Show', 'rb-elementor-addons' ),
+			),
 
-			// Select Option
-			'select_option' 			=> [								
-				'id'        			=> 'title_after_icon_shape',
-				'label' 				=> esc_html__( 'Icon Shape', 'rb-elementor-addons' ),
-				'options' 				=> rb_icon_shape(),
-				'default' 				=> 'triangle',
-				'condition' 			=> [
-					'title_after_switch'=> 'yes',
-				],
-			],
-		],
-	],
+			// Select Option.
+			'select_option' => array(
+				'id'        => $prefix . 'icon_shape',
+				'label'     => esc_html__( 'Icon Shape', 'rb-elementor-addons' ),
+				'options'   => rbelad_icon_shape(),
+				'default'   => 'triangle',
+				'condition' => array(
+					$prefix . 'switch' => 'yes',
+				),
+			),
+		),
+	),
 );
 
-// End Section Tab
+// End Section Tab.
 $this->end_controls_section();

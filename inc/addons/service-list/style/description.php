@@ -1,111 +1,131 @@
 <?php
+/**
+ * Service List widget - Description style controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 use Elementor\Controls_Manager;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
-// Start Section Tab - Style
+// Controls variables.
+$prefix = 'rbelad_service_list_description_';
+$cls_1  = '{{WRAPPER}} .rbelad-service-description';
+$cls_2  = '{{WRAPPER}} .rbelad-service-item-wrap:hover .rbelad-service-description, {{WRAPPER}} .rbelad-service-item-wrap:focus .rbelad-service-description';
+
+// Start Section Tab - Style.
 $this->start_controls_section(
-	'description_style',
-	[
+	$prefix . 'section_style',
+	array(
 		'label' => esc_html__( 'Description', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_STYLE,
-	]
+		'tab'   => Controls_Manager::TAB_STYLE,
+	)
 );
 
-// All content add here
+// All content add here.
 $this->add_style_controls(
-	'service_list_description_style',
-	[
-		'controls' => [
-			// Typography
-			'typography' 		=> [
-				'name'        			=> 'description_typography',
-				'global'      			=> ['default' => Global_Typography::TYPOGRAPHY_TEXT],
-				'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-			],			
-			'text_stroke' 				=> [
-				'name'        			=> 'description_text_stroke',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-			],
-			'text_shadow' 				=> [
-				'name'        			=> 'description_text_shadow',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-			],
-			'typography_separator' 		=> [],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Typography.
+			'typography'           => array(
+				'name'         => $prefix . 'typography',
+				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
+				'select_class' => $cls_1,
+			),
+			'text_stroke'          => array(
+				'name'         => $prefix . 'text_stroke',
+				'select_class' => $cls_1,
+			),
+			'text_shadow'          => array(
+				'name'         => $prefix . 'text_shadow',
+				'select_class' => $cls_1,
+			),
+			'typography_separator' => array(
+				'id' => $prefix . 'typography_separator',
+			),
 
-			// Margin & Padding
-			'margin_bottom' 			=> [				
-				'id' 					=> 'description_margin_bottom',
-				'default' 				=> [
-					'unit' 				=> 'px',
-					'size' 				=> 10,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-			],
-			'spacing_separator' 		=> [],
+			// Margin & Padding.
+			'margin_bottom'        => array(
+				'id'           => $prefix . 'margin_bottom',
+				'default'      => array(
+					'unit' => 'px',
+					'size' => 10,
+				),
+				'select_class' => $cls_1,
+			),
+			'spacing_separator'    => array(
+				'id' => $prefix . 'spacing_separator',
+			),
 
-			// Alignment
-			'align' 					=> [
-				'id' 					=> 'description_align',
-				'options'     			=> rb_align_justify(),
-				'default'     			=> 'justify',
-				'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-			],
-		],
-	],
+			// Alignment.
+			'align'                => array(
+				'id'           => $prefix . 'align',
+				'options'      => rbelad_align_justify(),
+				'default'      => 'center',
+				'select_class' => $cls_1,
+			),
+		),
+	),
 );
 
-// Tabs
-$this->start_controls_tabs( 'description_tabs' );
+// Tabs.
+$this->start_controls_tabs( $prefix . 'tabs' );
 
-	// Normal Tab
-	$this->start_controls_tab(
-		'description_normal_tab',
-		[
-			'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
-		]
-	);
+// Normal Tab.
+$this->start_controls_tab(
+	$prefix . 'normal_tab',
+	array(
+		'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+	)
+);
 
-		// All content add here
-		$this->add_style_controls(
-			'service_list_description_style',
-			[
-				'controls' => [
-					// Colors
-					'color' 					=> [
-						'id' 					=> 'description_color',
-						'select_class' 			=> '{{WRAPPER}} .rb-service-description',
-					],
-				],
-			],
-		);
+// All content add here.
+$this->add_style_controls(
+	$prefix . 'style_2',
+	array(
+		'controls' => array(
+			// Colors.
+			'color' => array(
+				'id'           => $prefix . 'color',
+				'select_class' => $cls_1,
+			),
+		),
+	),
+);
 
-	$this->end_controls_tab();
+$this->end_controls_tab();
 
-	// Hover Tab
-	$this->start_controls_tab(
-		'description_hover_tab',
-		[
-			'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
-		]
-	);
+// Hover Tab.
+$this->start_controls_tab(
+	$prefix . 'hover_tab',
+	array(
+		'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+	)
+);
 
-		// All content add here
-		$this->add_style_controls(
-			'service_list_description_style_hover',
-			[
-				'controls' => [
-					// Colors
-					'color' 					=> [
-						'id' 					=> 'description_color_hover',
-						'select_class' 			=> '{{WRAPPER}} .rb-service-item-wrap:hover .rb-service-description, {{WRAPPER}} .rb-service-item-wrap:focus .rb-service-description',
-					],
-				],
-			],
-		);
+// All content add here.
+$this->add_style_controls(
+	$prefix . 'style_3',
+	array(
+		'controls' => array(
+			// Colors.
+			'color' => array(
+				'id'           => $prefix . 'color_hover',
+				'default'      => '#fff',
+				'select_class' => $cls_2,
+			),
+		),
+	),
+);
 
-	$this->end_controls_tab();
+$this->end_controls_tab();
 
 $this->end_controls_tabs();
 
-// End Section Tab
+// End Section Tab.
 $this->end_controls_section();

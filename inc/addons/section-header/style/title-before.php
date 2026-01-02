@@ -1,50 +1,67 @@
 <?php
+/**
+ * Section Header widget - Title::Before style controls.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 use Elementor\Controls_Manager;
 
-// Start Section Tab - Style
+// Controls variables.
+$prefix = 'rbelad_section_header_title_before_';
+$cls_1  = '{{WRAPPER}} .rbelad-section-title-before';
+
+// Start Section Tab - Style.
 $this->start_controls_section(
-	'title_before_style',
-	[
-		'label' => esc_html__( 'Title Before', 'rb-elementor-addons' ),
-		'tab' => Controls_Manager::TAB_STYLE,
-		'condition' => [
-			'title_before_switch' => 'yes',
-		],
-	]
+	$prefix . 'section_style',
+	array(
+		'label'     => esc_html__( 'Title Before', 'rb-elementor-addons' ),
+		'tab'       => Controls_Manager::TAB_STYLE,
+		'condition' => array(
+			'rbelad_section_header_title_before_content_switch' => 'yes',
+		),
+	)
 );
 
-// All content add here
+// All content add here.
 $this->add_style_controls(
-	'section_header_title_before_style',
-	[
-		'controls' => [
-			// Colors
-			'bg_color' 			=> [				
-				'id' 					=> 'title_before_bg_color',
-				'default' 				=> '#777',				
-				'select_class' 			=> '{{WRAPPER}} .rb-section-title-before',
-			],
-			'color_separator' 			=> [],
-			
-			// Width & Height
-			'width' 					=> [
-				'default' 				=> [
-					'unit' 				=> '%',
-					'size' 				=> 100,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-section-title-before',
-			],
-			'height' 					=> [
-				'default' 				=> [
-					'unit' 				=> 'px',
-					'size' 				=> 2,
-				],
-				'select_class' 			=> '{{WRAPPER}} .rb-section-title-before',
-			],
-		],
-	],
+	$prefix . 'style_1',
+	array(
+		'controls' => array(
+			// Colors.
+			'bg_color'        => array(
+				'id'           => $prefix . 'bg_color',
+				'default'      => '#000000',
+				'select_class' => $cls_1,
+			),
+			'color_separator' => array(
+				'id' => $prefix . 'color_separator',
+			),
+
+			// Width & Height.
+			'width'           => array(
+				'id'           => $prefix . 'width',
+				'default'      => array(
+					'unit' => '%',
+					'size' => 100,
+				),
+				'select_class' => $cls_1,
+			),
+			'height'          => array(
+				'id'           => $prefix . 'height',
+				'default'      => array(
+					'unit' => 'px',
+					'size' => 2,
+				),
+				'select_class' => $cls_1,
+			),
+		),
+	),
 );
 
-// End Section Tab
+// End Section Tab.
 $this->end_controls_section();

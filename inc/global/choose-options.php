@@ -1,97 +1,126 @@
 <?php
+/**
+ * Common control options for RB Elementor Addons.
+ *
+ * @package RB_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
- * H1-H6 HTML tags
+ * H1-H6 HTML tags.
  */
-if (!function_exists('rb_heading_tags')) {
-	function rb_heading_tags() {
-		$heading_tag_list = array (
-			'h1' => [
+if ( ! function_exists( 'rbelad_heading_tags' ) ) {
+	/**
+	 * Returns available heading tags (H1–H6).
+	 *
+	 * @return array<string, array{title: string, icon: string}> List of heading tags with titles and icons.
+	 */
+	function rbelad_heading_tags() {
+		$heading_tag_list = array(
+			'h1' => array(
 				'title' => esc_html__( 'H1', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h1',
-			],
-			'h2' => [
+			),
+			'h2' => array(
 				'title' => esc_html__( 'H2', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h2',
-			],
-			'h3' => [
+			),
+			'h3' => array(
 				'title' => esc_html__( 'H3', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h3',
-			],
-			'h4' => [
+			),
+			'h4' => array(
 				'title' => esc_html__( 'H4', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h4',
-			],
-			'h5' => [
+			),
+			'h5' => array(
 				'title' => esc_html__( 'H5', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h5',
-			],
-			'h6' => [
+			),
+			'h6' => array(
 				'title' => esc_html__( 'H6', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-editor-h6',
-			],
+			),
 		);
 		return $heading_tag_list;
 	}
 }
 
 /**
- * Alignment with justify
+ * Alignment with justify.
  */
-if (!function_exists( 'rb_align_justify' )) {
-	function rb_align_justify() {
-		$alignment = array (
-			'left' => [
+if ( ! function_exists( 'rbelad_align_justify' ) ) {
+	/**
+	 * Returns alignment options including justify.
+	 *
+	 * @return array<string, array{title: string, icon: string}> Alignment choices.
+	 */
+	function rbelad_align_justify() {
+		$alignment = array(
+			'left'    => array(
 				'title' => esc_html__( 'Left', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-left',
-			],
-			'center' => [
+				'icon'  => 'eicon-text-align-left',
+			),
+			'center'  => array(
 				'title' => esc_html__( 'Center', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-center',
-			],
-			'right' => [
+				'icon'  => 'eicon-text-align-center',
+			),
+			'right'   => array(
 				'title' => esc_html__( 'Right', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-right',
-			],
-			'justify' => [
+				'icon'  => 'eicon-text-align-right',
+			),
+			'justify' => array(
 				'title' => esc_html__( 'Justified', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-justify',
-			],
+				'icon'  => 'eicon-text-align-justify',
+			),
 		);
 		return $alignment;
 	}
 }
 
 /**
- * Alignment with text
+ * Alignment with text.
  */
-if (!function_exists( 'rb_align_text' )) {
-	function rb_align_text() {
-		$alignment = array (
-			'left' => [
+if ( ! function_exists( 'rbelad_align_text' ) ) {
+	/**
+	 * Returns alignment options.
+	 *
+	 * @return array<string, array{title: string, icon: string}> Alignment choices.
+	 */
+	function rbelad_align_text() {
+		$alignment = array(
+			'left'   => array(
 				'title' => esc_html__( 'Left', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-left',
-			],
-			'center' => [
+				'icon'  => 'eicon-text-align-left',
+			),
+			'center' => array(
 				'title' => esc_html__( 'Center', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-center',
-			],
-			'right' => [
+				'icon'  => 'eicon-text-align-center',
+			),
+			'right'  => array(
 				'title' => esc_html__( 'Right', 'rb-elementor-addons' ),
-				'icon' => 'eicon-text-align-right',
-			],
+				'icon'  => 'eicon-text-align-right',
+			),
 		);
 		return $alignment;
 	}
 }
 
 /**
- * Border style
+ * Border style.
  */
-if (!function_exists('rb_border_style')) {
-	function rb_border_style() {
+if ( ! function_exists( 'rbelad_border_style' ) ) {
+	/**
+	 * Returns border styles.
+	 *
+	 * @return array<string, string> Border style options.
+	 */
+	function rbelad_border_style() {
 		$border_style = array(
-			'none' => esc_html__( 'None', 'rb-elementor-addons' ),
+			'none'   => esc_html__( 'None', 'rb-elementor-addons' ),
 			'solid'  => esc_html__( 'Solid', 'rb-elementor-addons' ),
 			'dashed' => esc_html__( 'Dashed', 'rb-elementor-addons' ),
 			'dotted' => esc_html__( 'Dotted', 'rb-elementor-addons' ),
@@ -101,190 +130,181 @@ if (!function_exists('rb_border_style')) {
 }
 
 /**
- * Flex Direction
+ * Flex Direction.
  */
-if (!function_exists('rb_flex_direction')) {
-	function rb_flex_direction() {
+if ( ! function_exists( 'rbelad_flex_direction' ) ) {
+	/**
+	 * Returns flex-direction styles.
+	 *
+	 * @return array<string, string> Flex Direction style options.
+	 */
+	function rbelad_flex_direction() {
 		$border_style = array(
-			'column'  			=> esc_html__( 'Column', 'rb-elementor-addons' ),
-			'column-reverse'  	=> esc_html__( 'Column Reverse', 'rb-elementor-addons' ),
-			'row' 				=> esc_html__( 'Row', 'rb-elementor-addons' ),
-			'row-reverse' 		=> esc_html__( 'Row Reverse', 'rb-elementor-addons' ),
+			'column'         => esc_html__( 'Column', 'rb-elementor-addons' ),
+			'column-reverse' => esc_html__( 'Column Reverse', 'rb-elementor-addons' ),
+			'row'            => esc_html__( 'Row', 'rb-elementor-addons' ),
+			'row-reverse'    => esc_html__( 'Row Reverse', 'rb-elementor-addons' ),
 		);
 		return $border_style;
 	}
 }
 
 /**
- * Transition function
+ * Transition function.
  */
-if ( ! function_exists( 'rb_transition_function' ) ) {
-	function rb_transition_function() {
+if ( ! function_exists( 'rbelad_transition_function' ) ) {
+	/**
+	 * Returns transition_function styles.
+	 *
+	 * @return array<string, string> Transition Function style options.
+	 */
+	function rbelad_transition_function() {
 		$transition_function = array(
-			'' => esc_html__( 'Default', 'rb-elementor-addons' ),
-			'ease' => esc_html__( 'Ease', 'rb-elementor-addons' ),
-			'ease-in'  => esc_html__( 'Ease In', 'rb-elementor-addons' ),
-			'ease-out'  => esc_html__( 'Ease Out', 'rb-elementor-addons' ),
-			'ease-in-out'  => esc_html__( 'Ease In Out', 'rb-elementor-addons' ),
-			'linear'  => esc_html__( 'Linear', 'rb-elementor-addons' ),
+			''            => esc_html__( 'Default', 'rb-elementor-addons' ),
+			'ease'        => esc_html__( 'Ease', 'rb-elementor-addons' ),
+			'ease-in'     => esc_html__( 'Ease In', 'rb-elementor-addons' ),
+			'ease-out'    => esc_html__( 'Ease Out', 'rb-elementor-addons' ),
+			'ease-in-out' => esc_html__( 'Ease In Out', 'rb-elementor-addons' ),
+			'linear'      => esc_html__( 'Linear', 'rb-elementor-addons' ),
 		);
 		return $transition_function;
 	}
 }
 
 /**
- * Transition Property
+ * Transition Property.
  */
-if ( ! function_exists( 'rb_transition_property' ) ) {
-	function rb_transition_property() {
+if ( ! function_exists( 'rbelad_transition_property' ) ) {
+	/**
+	 * Returns transition_property styles.
+	 *
+	 * @return array<string, string> Transition Property style options.
+	 */
+	function rbelad_transition_property() {
 		$transition_property = array(
-			'' => esc_html__( 'Default', 'rb-elementor-addons' ),
-			'none' => esc_html__( 'None', 'rb-elementor-addons' ),
-			'all'  => esc_html__( 'All', 'rb-elementor-addons' ),
-			'color'  => esc_html__( 'Color', 'rb-elementor-addons' ),
-			'background-color'  => esc_html__( 'Background Color', 'rb-elementor-addons' ),
-			'width'  => esc_html__( 'Width', 'rb-elementor-addons' ),
-			'transform'  => esc_html__( 'Transform', 'rb-elementor-addons' ),
+			''                 => esc_html__( 'Default', 'rb-elementor-addons' ),
+			'none'             => esc_html__( 'None', 'rb-elementor-addons' ),
+			'all'              => esc_html__( 'All', 'rb-elementor-addons' ),
+			'color'            => esc_html__( 'Color', 'rb-elementor-addons' ),
+			'background-color' => esc_html__( 'Background Color', 'rb-elementor-addons' ),
+			'width'            => esc_html__( 'Width', 'rb-elementor-addons' ),
+			'transform'        => esc_html__( 'Transform', 'rb-elementor-addons' ),
 		);
 		return $transition_property;
 	}
 }
 
 /**
- * Icon Shape Type
+ * Icon Shape Type.
  */
-if ( ! function_exists( 'rb_icon_shape' ) ) {
-	function rb_icon_shape() {
+if ( ! function_exists( 'rbelad_icon_shape' ) ) {
+	/**
+	 * Returns icon shape types.
+	 *
+	 * @return array<string, string> Icon Shape Type options.
+	 */
+	function rbelad_icon_shape() {
 		$icon_shape = array(
-			'triangle'  => esc_html__('Triangle', 'rb-elementor-addons'),
-			'circle'  => esc_html__('Circle', 'rb-elementor-addons'),
-			'square'  => esc_html__('Square', 'rb-elementor-addons'),
+			'triangle' => esc_html__( 'Triangle', 'rb-elementor-addons' ),
+			'circle'   => esc_html__( 'Circle', 'rb-elementor-addons' ),
+			'square'   => esc_html__( 'Square', 'rb-elementor-addons' ),
 		);
 		return $icon_shape;
 	}
 }
 
 /**
- * Slider control range
+ * Slider control range.
  */
-if ( ! function_exists( 'rb_slider_range' ) ) {
-	function rb_slider_range() {
+if ( ! function_exists( 'rbelad_slider_range' ) ) {
+	/**
+	 * Get default slider range options.
+	 *
+	 * Provides available units (%, px, em, rem) and their
+	 * respective min, max, and step values for Elementor controls.
+	 *
+	 * @return array<string, array{min:int|float, max:int|float, step:int|float}>
+	 * Slider range definitions keyed by unit type.
+	 */
+	function rbelad_slider_range() {
 		$range = array(
-			'%'  => [
-				'min' => 0,
-				'max' => 100,
+			'%'   => array(
+				'min'  => 0,
+				'max'  => 100,
 				'step' => 1,
-			],
-			'px' => [
+			),
+			'px'  => array(
 				'min'  => 0,
 				'max'  => 2000,
 				'step' => 1,
-			],
-			'em' => [
+			),
+			'em'  => array(
 				'min'  => 0,
 				'max'  => 125,
 				'step' => 0.1,
-			],
-			'rem' => [
+			),
+			'rem' => array(
 				'min'  => 0,
 				'max'  => 125,
 				'step' => 0.1,
-			],
+			),
 		);
 		return $range;
 	}
 }
 
 /**
- * Social Icon List
+ * Social Icon List.
  */
-if ( ! function_exists( 'rb_social_icon_list' ) ) {
-	function rb_social_icon_list() {
+if ( ! function_exists( 'rbelad_social_icon_list' ) ) {
+	/**
+	 * Returns a list of default social icons for Elementor controls.
+	 *
+	 * Each item contains:
+	 * - 'icon_title' : The display name of the social network.
+	 * - 'font_icon'  : Array with 'value' (icon class) and 'library' (icon library).
+	 *
+	 * @return array<int, array{icon_title: string, font_icon: array{value: string, library: string}}>
+	 * List of social icons.
+	 */
+	function rbelad_social_icon_list() {
 		$social_icon_list = array(
-			[
+			array(
 				'icon_title' => esc_html__( 'Facebook', 'rb-elementor-addons' ),
-				'font_icon' => [
-					'value' => 'fab fa-facebook-f', 
+				'font_icon'  => array(
+					'value'   => 'fab fa-facebook-f',
 					'library' => 'fa-brands',
-				],
-				'icon_bg_color' => '#3b5998',
-			],
-			[
+				),
+			),
+			array(
 				'icon_title' => esc_html__( 'Twitter', 'rb-elementor-addons' ),
-				'font_icon' => [
-					'value' => 'fab fa-x-twitter', 
+				'font_icon'  => array(
+					'value'   => 'fab fa-x-twitter',
 					'library' => 'fa-brands',
-				],
-				'icon_bg_color' => '#1da1f2',
-			],
-			[
+				),
+			),
+			array(
 				'icon_title' => esc_html__( 'LinkedIn', 'rb-elementor-addons' ),
-				'font_icon' => [
-					'value' => 'fab fa-linkedin-in', 
+				'font_icon'  => array(
+					'value'   => 'fab fa-linkedin-in',
 					'library' => 'fa-brands',
-				],
-				'icon_bg_color' => '#007bb5',
-			],
-			[
+				),
+			),
+			array(
 				'icon_title' => esc_html__( 'Pinterest', 'rb-elementor-addons' ),
-				'font_icon' => [
-					'value' => 'fab fa-pinterest-p', 
+				'font_icon'  => array(
+					'value'   => 'fab fa-pinterest-p',
 					'library' => 'fa-brands',
-				],
-				'icon_bg_color' => '#bd081c',
-			],
-			[
+				),
+			),
+			array(
 				'icon_title' => esc_html__( 'Instagram', 'rb-elementor-addons' ),
-				'font_icon' => [
-					'value' => 'fab fa-instagram', 
+				'font_icon'  => array(
+					'value'   => 'fab fa-instagram',
 					'library' => 'fa-brands',
-				],
-				'icon_bg_color' => '#c32aa3',
-			],
+				),
+			),
 		);
 		return $social_icon_list;
-	}
-}
-
-/**
- * Render icon html with backward compatibility
- *
- * @param array $settings
- * @param string $old_icon_id
- * @param string $new_icon_id
- * @param array $attributes
- */
-function rb_render_icon( $settings = [], $old_icon_id = 'icon', $new_icon_id = 'selected_icon', $attributes = [] ) {
-	return rb_get_icon_html( $settings, $old_icon_id, $new_icon_id, $attributes );
-}
-
-/**
- * Get icon html with backward compatibility
- *
- * @param array $settings
- * @param string $old_icon_id
- * @param string $new_icon_id
- * @param array $attributes
- */
-function rb_get_icon_html( $settings = [], $old_icon_id = 'icon', $new_icon_id = 'selected_icon', $attributes = [] ) {
-	// Check if its already migrated.
-	$migrated = isset( $settings['__fa4_migrated'][ $new_icon_id ] );
-	// Check if its a new widget without previously selected icon using the old Icon control.
-
-	$is_new = empty( $settings[ $old_icon_id ] );
-
-	$attributes['aria-hidden'] = 'true';
-
-	if ( rb_is_elementor_version( '>=', '2.6.0' ) && ( $is_new || $migrated ) ) {
-		return \Elementor\Icons_Manager::try_get_icon_html( $settings[ $new_icon_id ], $attributes );
-	} else {
-		if ( empty( $attributes['class'] ) ) {
-			$attributes['class'] = $settings[ $old_icon_id ];
-		} elseif ( is_array( $attributes['class'] ) ) {
-				$attributes['class'][] = $settings[ $old_icon_id ];
-		} else {
-			$attributes['class'] .= ' ' . $settings[ $old_icon_id ];
-		}
-		return sprintf( '<i %s></i>', \Elementor\Utils::render_html_attributes( $attributes ) );
 	}
 }

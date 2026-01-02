@@ -1,76 +1,13 @@
 /* Multi Text & Auto Typing Widget */
-.elementor-widget-rb-dual-text .rb-dual-text-heading,
-.elementor-widget-rb-auto-typing .rb-auto-typing {
+.rbelad-wrap-dual-text .rbelad-dual-text-heading,
+.rbelad-wrap-auto-typing .rbelad-auto-typing {
   margin: 0; }
 
-/* Social Icon Widget */
-.elementor-widget-rb-social-icon .rb-social-icon-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-  .elementor-widget-rb-social-icon .rb-social-icon-menu .rb-social-icon-item {
-    display: inline-block;
-    position: relative;
-    cursor: pointer; }
-.elementor-widget-rb-social-icon .style-1 .rb-social-icon-item {
-  margin: 25px 19px;
-  width: 50px;
-  height: 50px;
-  transform: rotate(-35deg) skew(25deg); }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item .rb-social-icon-item-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item .rb-social-icon-item-child:nth-child(5) {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      line-height: 50px;
-      text-align: center; }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:hover .rb-social-icon-item-child:nth-child(1), .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:focus .rb-social-icon-item-child:nth-child(1) {
-    transform: translate(0, 0);
-    opacity: .2; }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:hover .rb-social-icon-item-child:nth-child(2), .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:focus .rb-social-icon-item-child:nth-child(2) {
-    transform: translate(10px, -10px);
-    opacity: .4; }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:hover .rb-social-icon-item-child:nth-child(3), .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:focus .rb-social-icon-item-child:nth-child(3) {
-    transform: translate(20px, -20px);
-    opacity: .6; }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:hover .rb-social-icon-item-child:nth-child(4), .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:focus .rb-social-icon-item-child:nth-child(4) {
-    transform: translate(30px, -30px);
-    opacity: .8; }
-  .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:hover .rb-social-icon-item-child:nth-child(5), .elementor-widget-rb-social-icon .style-1 .rb-social-icon-item:focus .rb-social-icon-item-child:nth-child(5) {
-    transform: translate(40px, -40px);
-    opacity: 1; }
-.elementor-widget-rb-social-icon .style-2 .rb-social-icon-item {
-  text-align: center; }
-  .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item .rb-social-icon-item-child {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0; }
-  .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item .before-child {
-    transform-origin: top;
-    background-color: transparent; }
-  .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item .after-child {
-    transform-origin: bottom;
-    transform: rotateX(90deg) translateY(50%); }
-  .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item:hover .before-child, .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item:focus .before-child {
-    transform: rotateX(90deg) translateY(-50%); }
-  .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item:hover .after-child, .elementor-widget-rb-social-icon .style-2 .rb-social-icon-item:focus .after-child {
-    transform: rotateX(0deg) translateY(0); }
-
-/* Button Group Widget */
-.elementor-widget-rb-button-group .rb-button-group {
+/* Button Widget */
+.rbelad-wrap-button .rbelad-btn-item-wrap {
   display: flex;
   flex-wrap: wrap; }
-  .elementor-widget-rb-button-group .rb-button-group .style-1 {
+  .rbelad-wrap-button .rbelad-btn-item-wrap .style-1 {
     text-decoration: none;
     display: inline-block;
     position: relative;
@@ -78,7 +15,7 @@
     cursor: pointer;
     border: none;
     outline: 0; }
-    .elementor-widget-rb-button-group .rb-button-group .style-1::before {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-1::before {
       content: "";
       position: absolute;
       top: 0;
@@ -87,12 +24,12 @@
       height: 100%;
       transform: skew(50deg);
       z-index: 9; }
-    .elementor-widget-rb-button-group .rb-button-group .style-1:hover::before {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-1:hover::before {
       width: 150%; }
-    .elementor-widget-rb-button-group .rb-button-group .style-1 span {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-1 span {
       position: relative;
       z-index: 99; }
-  .elementor-widget-rb-button-group .rb-button-group .style-2 {
+  .rbelad-wrap-button .rbelad-btn-item-wrap .style-2 {
     position: relative;
     display: inline-block;
     text-decoration: none;
@@ -101,7 +38,7 @@
     z-index: 0;
     border: none;
     outline: 0; }
-    .elementor-widget-rb-button-group .rb-button-group .style-2:before {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-2:before {
       content: "";
       position: absolute;
       top: 0;
@@ -110,138 +47,264 @@
       height: 100%;
       transition: all 0.4s ease-in-out;
       z-index: -1; }
-    .elementor-widget-rb-button-group .rb-button-group .style-2:hover:before {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-2:hover:before {
       width: 100%; }
-    .elementor-widget-rb-button-group .rb-button-group .style-2 a {
+    .rbelad-wrap-button .rbelad-btn-item-wrap .style-2 a {
+      text-decoration: none;
+      display: block; }
+
+/* Button Group Widget */
+.rbelad-wrap-button-group .rbelad-button-group {
+  display: flex;
+  flex-wrap: wrap; }
+  .rbelad-wrap-button-group .rbelad-button-group .style-1 {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: 0; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-1::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -25%;
+      width: 0;
+      height: 100%;
+      transform: skew(50deg);
+      z-index: 9; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-1:hover::before {
+      width: 150%; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-1 span {
+      position: relative;
+      z-index: 99; }
+  .rbelad-wrap-button-group .rbelad-button-group .style-2 {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+    border: none;
+    outline: 0; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-2:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+      z-index: -1; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-2:hover:before {
+      width: 100%; }
+    .rbelad-wrap-button-group .rbelad-button-group .style-2 a {
       text-decoration: none;
       display: block; }
 
 /* Section Header Widget */
-.elementor-widget-rb-section-header .rb-section-subtitle {
+.rbelad-wrap-section-header .rbelad-section-subtitle {
   display: inline-block; }
-.elementor-widget-rb-section-header .rb-section-title-wrapper {
+.rbelad-wrap-section-header .rbelad-section-title-wrapper {
   display: block; }
-  .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title {
+  .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title {
     display: inline-block;
     position: relative;
     margin: 0; }
-    .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title .rb-section-title-before {
+    .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title .rbelad-section-title-before {
       position: absolute;
       bottom: -15px;
       left: 50%;
       transform: translateX(-50%); }
-    .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title .rb-section-title-after {
+    .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title .rbelad-section-title-after {
       position: absolute;
       bottom: -24px;
       left: 50%; }
-      .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title .rb-section-title-after.triangle {
+      .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title .rbelad-section-title-after.triangle {
         transform: translateX(-50%) rotate(45deg); }
-      .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title .rb-section-title-after.circle {
+      .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title .rbelad-section-title-after.circle {
         transform: translateX(-50%);
         border-radius: 50%; }
-      .elementor-widget-rb-section-header .rb-section-title-wrapper .rb-section-title .rb-section-title-after.square {
+      .rbelad-wrap-section-header .rbelad-section-title-wrapper .rbelad-section-title .rbelad-section-title-after.square {
         transform: translateX(-50%); }
-.elementor-widget-rb-section-header .rb-section-description {
+.rbelad-wrap-section-header .rbelad-section-description {
   margin: 0; }
 
 /* Divider Widget */
-.elementor-widget-rb-divider .rb-divider-container {
+.rbelad-wrap-divider .rbelad-divider-container {
   display: flex; }
-  .elementor-widget-rb-divider .rb-divider-container .rb-divider {
+  .rbelad-wrap-divider .rbelad-divider-container .rbelad-divider {
     opacity: 1; }
 
 /* Site Tagline Widget */
-.elementor-widget-rb-site-tagline .rb-site-tagline {
+.rbelad-wrap-site-tagline .rbelad-site-tagline {
   margin-bottom: 0; }
 
 /* List Style Widget */
-.elementor-widget-rb-list-style .rb-list-style {
+.rbelad-wrap-list-style .rbelad-list-style {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .elementor-widget-rb-list-style .rb-list-style .rb-list-item {
+  .rbelad-wrap-list-style .rbelad-list-style .rbelad-list-item {
     display: flex;
     align-items: center; }
-    .elementor-widget-rb-list-style .rb-list-style .rb-list-item .rb-list-item-icon {
+    .rbelad-wrap-list-style .rbelad-list-style .rbelad-list-item .rbelad-list-item-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center; }
 
-/* Button Widget */
-.elementor-widget-rb-button .rb-btn-item-wrap {
+/* Resume List Widget */
+.rbelad-wrap-resume-list .resume-list-item {
   display: flex;
-  /** end */ }
-  .elementor-widget-rb-button .rb-btn-item-wrap .style-1 {
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border: none;
-    outline: 0; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-1::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -25%;
-      width: 0;
-      height: 100%;
-      transform: skew(50deg);
-      z-index: 9; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-1:hover::before {
-      width: 150%; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-1 span {
-      position: relative;
-      z-index: 99; }
-  .elementor-widget-rb-button .rb-btn-item-wrap .style-2 {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 0;
-    border: none;
-    outline: 0; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-2:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      transition: all 0.4s ease-in-out;
-      z-index: -1; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-2:hover:before {
-      width: 100%; }
-    .elementor-widget-rb-button .rb-btn-item-wrap .style-2 a {
-      text-decoration: none;
-      display: block; }
+  flex-wrap: wrap;
+  flex-direction: column; }
+  .rbelad-wrap-resume-list .resume-list-item .resume-list-label {
+    max-width: max-content; }
+  .rbelad-wrap-resume-list .resume-list-item .resume-list-description {
+    margin: 0; }
 
-/* Archive Description Widget */
-.elementor-widget-rb-archive-description .rb-archive-description {
+/* Rating Skill Widget */
+.rbelad-wrap-rating-skill .rbelad-rating-skill {
+  display: flex;
+  flex-wrap: wrap; }
+
+/* Service List Widget */
+.rbelad-wrap-service-list .rbelad-service-item-wrap.style-1 {
+  position: relative;
+  display: flex;
+  align-items: stretch; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1 .rbelad-service-icon {
+    display: inline-flex;
+    max-width: max-content;
+    align-self: center; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1 .rbelad-service-item {
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1 .rbelad-service-item-hover {
+    display: none;
+    position: relative;
+    z-index: 99;
+    transition: all 0.5s ease-in-out; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1:hover .rbelad-service-item, .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1:focus .rbelad-service-item {
+    display: none; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1:hover .rbelad-service-item-hover, .rbelad-wrap-service-list .rbelad-service-item-wrap.style-1:focus .rbelad-service-item-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+.rbelad-wrap-service-list .rbelad-service-item-wrap.style-2 {
+  position: relative;
+  z-index: 1; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
+    z-index: 2; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-2 .rbelad-service-item {
+    position: relative;
+    z-index: 3; }
+  .rbelad-wrap-service-list .rbelad-service-item-wrap.style-2:hover::before, .rbelad-wrap-service-list .rbelad-service-item-wrap.style-2:focus::before {
+    width: 100%; }
+.rbelad-wrap-service-list .rbelad-service-description {
   margin-bottom: 0; }
 
-/* Post Thumbnail Widget */
-.elementor-widget-rb-post-thumbnail .rb-post-thumbnail {
-  position: relative;
-  transition: all 0.5s ease-in-out; }
-  .elementor-widget-rb-post-thumbnail .rb-post-thumbnail .rb-post-caption {
-    margin: 0; }
-    .elementor-widget-rb-post-thumbnail .rb-post-thumbnail .rb-post-caption.hover {
+/* Contact Info Widget */
+.rbelad-wrap-contact-info .rbelad-contact-info {
+  display: flex;
+  flex-wrap: wrap; }
+  .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item {
+    position: relative; }
+    .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item:before, .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item:after {
+      content: "";
       position: absolute;
+      transition: all 0.4s ease-in-out; }
+    .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item:before {
+      top: 0;
+      left: 0; }
+    .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item:after {
       bottom: 0;
-      left: 0;
-      width: 100%;
-      display: none; }
-  .elementor-widget-rb-post-thumbnail .rb-post-thumbnail:hover .rb-post-caption.hover, .elementor-widget-rb-post-thumbnail .rb-post-thumbnail:focus .rb-post-caption.hover {
+      right: 0;
+      transform: rotate(180deg); }
+    .rbelad-wrap-contact-info .rbelad-contact-info .rbelad-contact-info-item .rbelad-contact-info-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s ease-in-out; }
+
+/* Contact Form Widget */
+.rbelad-wrap-contact-form .rbelad-contact-form-item {
+  position: relative; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-item .rbelad-contact-form-item-input.style-1 {
+    padding: 0 0 0 39px; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-item .rbelad-contact-form-item-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px; }
+.rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-1 {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  outline: 0; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -25%;
+    width: 0;
+    height: 100%;
+    transform: skew(50deg);
+    z-index: 9; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-1:hover::before {
+    width: 150%; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-1 span {
+    position: relative;
+    z-index: 99; }
+.rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-2 {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 0;
+  border: none;
+  outline: 0; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-2:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
+    z-index: -1; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-2:hover:before {
+    width: 100%; }
+  .rbelad-wrap-contact-form .rbelad-contact-form-submit-btn.style-2 a {
+    text-decoration: none;
     display: block; }
 
 /* Scroll Down Widget */
-.elementor-widget-rb-scroll-down .rb-scroll-down {
+.rbelad-wrap-scroll-down .rbelad-scroll-down {
   cursor: pointer;
   position: relative;
   display: inline-block; }
-  .elementor-widget-rb-scroll-down .rb-scroll-down::after {
+  .rbelad-wrap-scroll-down .rbelad-scroll-down::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -264,149 +327,102 @@
   100% {
     opacity: 0;
     top: 25px; } }
-/* Resume List Widget */
-.elementor-widget-rb-resume-list .resume-list-item {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column; }
-  .elementor-widget-rb-resume-list .resume-list-item .resume-list-label {
-    max-width: max-content; }
-  .elementor-widget-rb-resume-list .resume-list-item .resume-list-description {
-    margin: 0; }
-
-/* Rating Skill Widget */
-.elementor-widget-rb-rating-skill .rb-rating-skill {
-  display: flex;
-  flex-wrap: wrap; }
-
-/* Service List Widget */
-.elementor-widget-rb-service-list .rb-service-item-wrap.style-1 {
-  position: relative;
-  display: flex;
-  align-items: stretch; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-1 .rb-service-icon {
-    display: inline-flex;
-    max-width: max-content;
-    align-self: center; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-1 .rb-service-item {
-    z-index: 9;
-    transition: all 0.3s ease-in-out;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-1 .rb-service-item-hover {
-    display: none;
-    position: relative;
-    z-index: 99;
-    transition: all 0.5s ease-in-out; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-1:hover .rb-service-item, .elementor-widget-rb-service-list .rb-service-item-wrap.style-1:focus .rb-service-item {
-    display: none; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-1:hover .rb-service-item-hover, .elementor-widget-rb-service-list .rb-service-item-wrap.style-1:focus .rb-service-item-hover {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-.elementor-widget-rb-service-list .rb-service-item-wrap.style-2 {
-  position: relative;
-  z-index: 1; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transition: all 0.4s ease-in-out;
-    z-index: 2; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-2 .rb-service-item {
-    position: relative;
-    z-index: 3; }
-  .elementor-widget-rb-service-list .rb-service-item-wrap.style-2:hover::before, .elementor-widget-rb-service-list .rb-service-item-wrap.style-2:focus::before {
-    width: 100%; }
-.elementor-widget-rb-service-list .rb-service-description {
+/* Archive Description Widget */
+.rbelad-wrap-archive-description .rbelad-archive-description {
   margin-bottom: 0; }
 
-/* Contact Info Widget */
-.elementor-widget-rb-contact-info .rb-contact-info {
+/* Post Thumbnail Widget */
+.rbelad-wrap-post-thumbnail .rbelad-post-thumbnail {
+  position: relative;
+  transition: all 0.5s ease-in-out; }
+  .rbelad-wrap-post-thumbnail .rbelad-post-thumbnail .rbelad-post-caption {
+    margin: 0; }
+    .rbelad-wrap-post-thumbnail .rbelad-post-thumbnail .rbelad-post-caption.hover {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: none; }
+  .rbelad-wrap-post-thumbnail .rbelad-post-thumbnail:hover .rbelad-post-caption.hover, .rbelad-wrap-post-thumbnail .rbelad-post-thumbnail:focus .rbelad-post-caption.hover {
+    display: block; }
+
+/* PDF View Widget */
+.rbelad-wrap-pdf-view .rbelad-pdf-view-header,
+.rbelad-wrap-pdf-view .rbelad-pdf-view-body {
+  width: 100%; }
+
+/* Lottie Animation Widget */
+.rbelad-wrap-lottie-animation .rbelad-lottie-animation-wrapper {
   display: flex;
   flex-wrap: wrap; }
-  .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item {
-    position: relative; }
-    .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item:before, .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item:after {
-      content: "";
+
+/* Auto Typing Widget */
+.rbelad-wrap-auto-typing .rbelad-auto-typing {
+  margin: 0; }
+
+/* Social Icon Widget */
+.rbelad-wrap-social-icon .rbelad-social-icon-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Style - 1 */
+  /* Style - 2 */ }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .rbelad-social-icon-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1 .rbelad-social-icon-item {
+    margin: 25px 19px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(-35deg) skew(25deg); }
+    .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1 .rbelad-social-icon-item .rbelad-social-icon-item-child {
       position: absolute;
-      transition: all 0.4s ease-in-out; }
-    .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item:before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1 .rbelad-social-icon-item .rbelad-social-icon-item-child:nth-child(5) {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        line-height: 50px;
+        text-align: center; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:hover .rbelad-social-icon-item-child:nth-child(1), .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:focus .rbelad-social-icon-item-child:nth-child(1) {
+    transform: translate(0, 0);
+    opacity: .2; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:hover .rbelad-social-icon-item-child:nth-child(2), .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:focus .rbelad-social-icon-item-child:nth-child(2) {
+    transform: translate(10px, -10px);
+    opacity: .4; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:hover .rbelad-social-icon-item-child:nth-child(3), .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:focus .rbelad-social-icon-item-child:nth-child(3) {
+    transform: translate(20px, -20px);
+    opacity: .6; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:hover .rbelad-social-icon-item-child:nth-child(4), .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:focus .rbelad-social-icon-item-child:nth-child(4) {
+    transform: translate(30px, -30px);
+    opacity: .8; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:hover .rbelad-social-icon-item-child:nth-child(5), .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-1:focus .rbelad-social-icon-item-child:nth-child(5) {
+    transform: translate(40px, -40px);
+    opacity: 1; }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2 .rbelad-social-icon-item {
+    text-align: center; }
+    .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2 .rbelad-social-icon-item .rbelad-social-icon-item-child {
+      position: absolute;
+      width: 100%;
+      height: 100%;
       top: 0;
       left: 0; }
-    .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item:after {
-      bottom: 0;
-      right: 0;
-      transform: rotate(180deg); }
-    .elementor-widget-rb-contact-info .rb-contact-info .rb-contact-info-item .rb-contact-info-icon {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.4s ease-in-out; }
-
-/* Contact Form Widget */
-.elementor-widget-rb-contact-form .rb-contact-form-item {
-  position: relative; }
-  .elementor-widget-rb-contact-form .rb-contact-form-item .rb-contact-form-item-input.style-1 {
-    padding: 0 0 0 39px; }
-  .elementor-widget-rb-contact-form .rb-contact-form-item .rb-contact-form-item-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px; }
-.elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-1 {
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  border: none;
-  outline: 0; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-1::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -25%;
-    width: 0;
-    height: 100%;
-    transform: skew(50deg);
-    z-index: 9; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-1:hover::before {
-    width: 150%; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-1 span {
-    position: relative;
-    z-index: 99; }
-.elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-2 {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 0;
-  border: none;
-  outline: 0; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-2:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    transition: all 0.4s ease-in-out;
-    z-index: -1; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-2:hover:before {
-    width: 100%; }
-  .elementor-widget-rb-contact-form .rb-contact-form-submit-btn.style-2 a {
-    text-decoration: none;
-    display: block; }
+    .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2 .rbelad-social-icon-item .before-child {
+      transform-origin: top;
+      background-color: transparent; }
+    .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2 .rbelad-social-icon-item .after-child {
+      transform-origin: bottom;
+      transform: rotateX(90deg) translateY(50%); }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2:hover .before-child, .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2:focus .before-child {
+    transform: rotateX(90deg) translateY(-50%); }
+  .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2:hover .after-child, .rbelad-wrap-social-icon .rbelad-social-icon-menu .style-2:focus .after-child {
+    transform: rotateX(0deg) translateY(0); }
 
 /*# sourceMappingURL=style.css.map */

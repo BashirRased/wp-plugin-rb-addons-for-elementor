@@ -1,86 +1,182 @@
-.eicon-rb-archive-description:before {
-    content: url( '../icons/rb-archive-description.svg' );
+.eicon-rbelad-accordion:before {
+    content: url( '../icons/rbelad-accordion.svg' );
 }
-.eicon-rb-archive-title:before {
-    content: url( '../icons/rb-archive-title.svg' );
+.eicon-rbelad-archive-description:before {
+    content: url( '../icons/rbelad-archive-description.svg' );
 }
-.eicon-rb-author-meta:before {
-    content: url( '../icons/rb-author-meta.svg' );
+.eicon-rbelad-archive-posts:before {
+    content: url( '../icons/rbelad-archive-posts.svg' );
 }
-.eicon-rb-button-group:before {
-    content: url( '../icons/rb-button-group.svg' );
+.eicon-rbelad-archive-title:before {
+    content: url( '../icons/rbelad-archive-title.svg' );
 }
-.eicon-rb-button:before {
-    content: url( '../icons/rb-button.svg' );
+.eicon-rbelad-author-meta:before {
+    content: url( '../icons/rbelad-author-meta.svg' );
 }
-.eicon-rb-contact-form:before {
-    content: url( '../icons/rb-contact-form.svg' );
+.eicon-rbelad-auto-typing:before {
+    content: url( '../icons/rbelad-auto-typing.svg' );
 }
-.eicon-rb-contact-info:before {
-    content: url( '../icons/rb-contact-info.svg' );
+.eicon-rbelad-business-hours:before {
+    content: url( '../icons/rbelad-business-hours.svg' );
 }
-.eicon-rb-divider:before {
-    content: url( '../icons/rb-divider.svg' );
+.eicon-rbelad-button-group:before {
+    content: url( '../icons/rbelad-button-group.svg' );
 }
-.eicon-rb-dual-text:before {
-    content: url( '../icons/rb-dual-text.svg' );
+.eicon-rbelad-button:before {
+    content: url( '../icons/rbelad-button.svg' );
 }
-.eicon-rb-list-style:before {
-    content: url( '../icons/rb-list-style.svg' );
+.eicon-rbelad-category-meta:before {
+    content: url( '../icons/rbelad-category-meta.svg' );
 }
-.eicon-rb-page-title:before {
-    content: url( '../icons/rb-page-title.svg' );
+.eicon-rbelad-comment-template:before {
+    content: url( '../icons/rbelad-comment-template.svg' );
 }
-.eicon-rb-post-thumbnail:before {
-    content: url( '../icons/rb-post-thumbnail.svg' );
+.eicon-rbelad-contact-form:before {
+    content: url( '../icons/rbelad-contact-form.svg' );
 }
-.eicon-rb-rating-skill:before {
-    content: url( '../icons/rb-rating-skill.svg' );
+.eicon-rbelad-contact-info:before {
+    content: url( '../icons/rbelad-contact-info.svg' );
 }
-.eicon-rb-resume-list:before {
-    content: url( '../icons/rb-resume-list.svg' );
+.eicon-rbelad-count-down:before {
+    content: url( '../icons/rbelad-count-down.svg' );
 }
-.eicon-rb-scroll-down:before {
-    content: url( '../icons/rb-scroll-down.svg' );
+.eicon-rbelad-divider:before {
+    content: url( '../icons/rbelad-divider.svg' );
 }
-.eicon-rb-section-header:before {
-    content: url( '../icons/rb-section-header.svg' );
+.eicon-rbelad-dual-text:before {
+    content: url( '../icons/rbelad-dual-text.svg' );
 }
-.eicon-rb-service-list:before {
-    content: url( '../icons/rb-service-list.svg' );
+.eicon-rbelad-fun-fact:before {
+    content: url( '../icons/rbelad-fun-fact.svg' );
 }
-.eicon-rb-site-logo:before {
-    content: url( '../icons/rb-site-logo.svg' );
+.eicon-rbelad-list-style:before {
+    content: url( '../icons/rbelad-list-style.svg' );
 }
-.eicon-rb-site-tagline:before {
-    content: url( '../icons/rb-site-tagline.svg' );
+.eicon-rbelad-lottie-animation:before {
+    content: url( '../icons/rbelad-lottie-animation.svg' );
 }
-.eicon-rb-site-title:before {
-    content: url( '../icons/rb-site-title.svg' );
+.eicon-rbelad-mega-menu:before {
+    content: url( '../icons/rbelad-mega-menu.svg' );
+}
+.eicon-rbelad-navigation-menu:before {
+    content: url( '../icons/rbelad-navigation-menu.svg' );
+}
+.eicon-rbelad-news-ticker:before {
+    content: url( '../icons/rbelad-news-ticker.svg' );
+}
+.eicon-rbelad-page-title:before {
+    content: url( '../icons/rbelad-page-title.svg' );
+}
+.eicon-rbelad-pdf-view:before {
+    content: url( '../icons/rbelad-pdf-view.svg' );
+}
+.eicon-rbelad-portfolio-section:before {
+    content: url( '../icons/rbelad-portfolio-section.svg' );
+}
+.eicon-rbelad-post-grid:before {
+    content: url( '../icons/rbelad-post-grid.svg' );
+}
+.eicon-rbelad-post-thumbnail:before {
+    content: url( '../icons/rbelad-post-thumbnail.svg' );
+}
+.eicon-rbelad-post-view-meta:before {
+    content: url( '../icons/rbelad-post-view-meta.svg' );
+}
+.eicon-rbelad-rating-skill:before {
+    content: url( '../icons/rbelad-rating-skill.svg' );
+}
+.eicon-rbelad-resume-list:before {
+    content: url( '../icons/rbelad-resume-list.svg' );
+}
+.eicon-rbelad-scroll-down:before {
+    content: url( '../icons/rbelad-scroll-down.svg' );
+}
+.eicon-rbelad-search-box:before {
+    content: url( '../icons/rbelad-search-box.svg' );
+}
+.eicon-rbelad-section-header:before {
+    content: url( '../icons/rbelad-section-header.svg' );
+}
+.eicon-rbelad-service-list:before {
+    content: url( '../icons/rbelad-service-list.svg' );
+}
+.eicon-rbelad-share-button:before {
+    content: url( '../icons/rbelad-share-button.svg' );
+}
+.eicon-rbelad-site-logo:before {
+    content: url( '../icons/rbelad-site-logo.svg' );
+}
+.eicon-rbelad-site-tagline:before {
+    content: url( '../icons/rbelad-site-tagline.svg' );
+}
+.eicon-rbelad-site-title:before {
+    content: url( '../icons/rbelad-site-title.svg' );
+}
+.eicon-rbelad-skill-bar:before {
+    content: url( '../icons/rbelad-skill-bar.svg' );
+}
+.eicon-rbelad-social-icon:before {
+    content: url( '../icons/rbelad-social-icon.svg' );
+}
+.eicon-rbelad-subscribe-form:before {
+    content: url( '../icons/rbelad-subscribe-form.svg' );
+}
+.eicon-rbelad-tag-meta:before {
+    content: url( '../icons/rbelad-tag-meta.svg' );
+}
+.eicon-rbelad-team-member:before {
+    content: url( '../icons/rbelad-team-member.svg' );
+}
+.eicon-rbelad-testimonial:before {
+    content: url( '../icons/rbelad-testimonial.svg' );
 }
 
-.eicon-rb-archive-description:after,
-.eicon-rb-archive-title:after,
-.eicon-rb-author-meta:after,
-.eicon-rb-button-group:after,
-.eicon-rb-button::after,
-.eicon-rb-contact-form:after,
-.eicon-rb-contact-info:after,
-.eicon-rb-divider:after,
-.eicon-rb-dual-text:after,
-.eicon-rb-list-style:after,
-.eicon-rb-page-title:after,
-.eicon-rb-post-thumbnail:after,
-.eicon-rb-rating-skill:after,
-.eicon-rb-resume-list:after,
-.eicon-rb-scroll-down:after,
-.eicon-rb-section-header:after,
-.eicon-rb-service-list:after,
-.eicon-rb-site-logo:after,
-.eicon-rb-site-tagline:after,
-.eicon-rb-site-title:after {
+.eicon-rbelad-accordion:after,
+.eicon-rbelad-archive-description:after,
+.eicon-rbelad-archive-posts:after,
+.eicon-rbelad-archive-title:after,
+.eicon-rbelad-author-meta:after,
+.eicon-rbelad-auto-typing:after,
+.eicon-rbelad-business-hours:after,
+.eicon-rbelad-button-group:after,
+.eicon-rbelad-button:after,
+.eicon-rbelad-category-meta:after,
+.eicon-rbelad-comment-template:after,
+.eicon-rbelad-contact-form:after,
+.eicon-rbelad-contact-info:after,
+.eicon-rbelad-count-down:after,
+.eicon-rbelad-divider:after,
+.eicon-rbelad-dual-text:after,
+.eicon-rbelad-fun-fact:after,
+.eicon-rbelad-list-style:after,
+.eicon-rbelad-lottie-animation:after,
+.eicon-rbelad-mega-menu:after,
+.eicon-rbelad-navigation-menu:after,
+.eicon-rbelad-news-ticker:after,
+.eicon-rbelad-page-title:after,
+.eicon-rbelad-pdf-view:after,
+.eicon-rbelad-portfolio-section:after,
+.eicon-rbelad-post-grid:after,
+.eicon-rbelad-post-thumbnail:after,
+.eicon-rbelad-post-view-meta:after,
+.eicon-rbelad-rating-skill:after,
+.eicon-rbelad-resume-list:after,
+.eicon-rbelad-scroll-down:after,
+.eicon-rbelad-search-box:after,
+.eicon-rbelad-section-header:after,
+.eicon-rbelad-service-list:after,
+.eicon-rbelad-share-button:after,
+.eicon-rbelad-site-logo:after,
+.eicon-rbelad-site-tagline:after,
+.eicon-rbelad-site-title:after,
+.eicon-rbelad-skill-bar:after,
+.eicon-rbelad-social-icon:after,
+.eicon-rbelad-subscribe-form:after,
+.eicon-rbelad-tag-meta:after,
+.eicon-rbelad-team-member:after,
+.eicon-rbelad-testimonial:after {
 	position: absolute;
 	top: 0;
 	right: 6px;
-    content: url( '../icons/rb-icon.svg' );
+    content: url( '../icons/rbelad-icon.svg' );
 }

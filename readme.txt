@@ -4,7 +4,7 @@ Tags: elementor, addons, widgets, page builder
 Requires at least: 5.8
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,12 +38,14 @@ Yes, this plugin requires Elementor to be installed and activated.
 = 1.0.0 =
 * Initial release with general and pro widgets.
 
-== Upgrade Notice ==
-
-= 1.0.0 =
-First release. Safe to install.
+= 1.0.1 =
+* Added `Requires Plugins` header in main file.
+* Removed unneeded folder: `rb-elementor-addons/assets/.sass-cache`.
+* Correctly defined required files.
+* Changed prefix from `rb` to `rbelad` (unique & conflict-free).
+* Added `if ( ! defined( 'ABSPATH' ) ) exit;` to every PHP file for security.
+* Checked with **WP_DEBUG**, **Plugin Check**, **PHPCS** and **WPCS** → 100% passed.
 
 == Credits ==
 
 Built with ❤️ by Bashir Rased.
-
