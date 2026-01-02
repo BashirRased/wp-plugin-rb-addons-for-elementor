@@ -2,7 +2,7 @@
 /**
  * Elementor widgets manage.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Widget_Manager Class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Widget_Manager {
 
@@ -20,157 +20,380 @@ class Widget_Manager {
 	 * All free widgets list
 	 */
 	public static function get_free_widgets_map() {
-		return array(
+		// Widgets variables.
+		$demo_url     = 'https://bashir-rased.com/rb-elementor-addons/demos/';
+		$doc_url      = 'https://bashir-rased.com/rb-elementor-addons/docs/';
+		$import_url   = 'https://bashir-rased.com/rb-elementor-addons/blocks/';
+		$tutorial_url = 'https://www.youtube.com/watch?v=';
+
+		$addons = array(
 			// General Addons.
 			'dual-text'           => array(
-				'cat'  => 'rbelad_addons_general',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/dual-text',
+				'cat' => 'rbelad_addons_general',
 			),
 			'button-group'        => array(
-				'cat'  => 'rbelad_addons_general',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/button-group',
+				'cat' => 'rbelad_addons_general',
 			),
 			'section-header'      => array(
-				'cat'  => 'rbelad_addons_general',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/section-header',
+				'cat' => 'rbelad_addons_general',
 			),
 			'divider'             => array(
-				'cat'  => 'rbelad_addons_general',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/divider',
+				'cat' => 'rbelad_addons_general',
 			),
-			'service-list'        => array(
-				'cat'  => 'rbelad_addons_general',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/service-list',
+			'list-style'          => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'button'              => array(
+				'cat' => 'rbelad_addons_general',
 			),
 
-			// WordPress Addons.
+			// Creative Addons.
+			'scroll-down'         => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+			'resume-list'         => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+			'rating-skill'        => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+			'service-list'        => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+			'contact-info'        => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+			'contact-form'        => array(
+				'cat' => 'rbelad_addons_creative',
+			),
+
+			// Theme Builder Addons.
+			'site-logo'           => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'site-title'          => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'site-tagline'        => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'page-title'          => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-thumbnail'      => array(
+				'cat' => 'rbelad_addons_builder',
+			),
 			'archive-title'       => array(
-				'cat'  => 'rbelad_addons_core',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/archive-title',
+				'cat' => 'rbelad_addons_builder',
 			),
 			'archive-description' => array(
-				'cat'  => 'rbelad_addons_core',
-				'demo' => 'https://bashirrased.com/rb-elementor-addons/archive-description',
+				'cat' => 'rbelad_addons_builder',
+			),
+			'author-meta'         => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'category-meta'       => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'tag-meta'            => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'date-meta'           => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'comment-meta'        => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-edit-meta'      => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-meta-separator' => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-excerpt'        => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'read-more-button'    => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-navigation'     => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'post-pagination'     => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'page-pagination'     => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'comment-pagination'  => array(
+				'cat' => 'rbelad_addons_builder',
+			),
+			'comment-header'      => array(
+				'cat' => 'rbelad_addons_builder',
 			),
 		);
+		$return = array();
+
+		foreach ( $addons as $slug => $data ) {
+			$return[ $slug ] = array_merge(
+				$data,
+				array(
+					'demo'     => $demo_url . $slug,
+					'doc'      => $doc_url . $slug,
+					'import'   => $import_url . $slug,
+					'tutorial' => $tutorial_url . $slug,
+				)
+			);
+		}
+
+		return $return;
 	}
 
 	/**
 	 * All pro widgets list
 	 */
 	public static function get_pro_widgets_map() {
-		return array(
-			'social-icon'       => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/social-icon',
-				'is_pro' => true,
+		// Widgets variables.
+		$demo_url     = 'https://bashir-rased.com/rb-elementor-addons/demos/';
+		$doc_url      = 'https://bashir-rased.com/rb-elementor-addons/docs/';
+		$import_url   = 'https://bashir-rased.com/rb-elementor-addons/blocks/';
+		$tutorial_url = 'https://www.youtube.com/watch?v=';
+
+		$addons = array(
+			// Creative Addons.
+			'social-icon'            => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'auto-typing'       => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/auto-typing',
-				'is_pro' => true,
+			'business-hours'         => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'pdf-view'          => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/pdf-view',
-				'is_pro' => true,
+			'hero-section'           => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'lottie-animation'  => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/lottie-animation',
-				'is_pro' => true,
+			'page-list'              => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'skill-bar'         => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/skill-bar',
-				'is_pro' => true,
+			'icon-box'               => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'portfolio-section' => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/portfolio-section',
-				'is_pro' => true,
+			'alert'                  => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'subscribe-form'    => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/subscribe-form',
-				'is_pro' => true,
+			'drop-cap'               => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'fun-fact'          => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/fun-fact',
-				'is_pro' => true,
+			'call-to-action'         => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'testimonial'       => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/testimonial',
-				'is_pro' => true,
+			'gradient-text'          => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'comment-template'  => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/comment-template',
-				'is_pro' => true,
+			'about-image-section'    => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'archive-posts'     => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/archive-posts',
-				'is_pro' => true,
+			'logo-list'              => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'navigation-menu'   => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/navigation-menu',
-				'is_pro' => true,
+			'featured-list'          => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'post-view-meta'    => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/post-view-meta',
-				'is_pro' => true,
+			'featured-banner'        => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'search-box'        => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/search-box',
-				'is_pro' => true,
+			'image-grid'             => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'team-member'       => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/team-member',
-				'is_pro' => true,
+			'latest-post-list'       => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'share-button'      => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/share-button',
-				'is_pro' => true,
+			'simple-menu'            => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'business-hours'    => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/business-hours',
-				'is_pro' => true,
+			'video-section'          => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'count-down'        => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/count-down',
-				'is_pro' => true,
+			'faq'                    => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'news-ticker'       => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/news-ticker',
-				'is_pro' => true,
+			'faq-section'            => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'accordion'         => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/accordion',
-				'is_pro' => true,
+			'timeline'               => array(
+				'cat' => 'rbelad_pro_creative',
 			),
-			'mega-menu'         => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/mega-menu',
-				'is_pro' => true,
+
+			// Slider & Carousel Addons.
+			'auto-typing'            => array(
+				'cat' => 'rbelad_pro_slider',
 			),
-			'post-grid'         => array(
-				'cat'    => 'rbelad_addons_pro',
-				'demo'   => 'https://bashirrased.com/rb-elementor-addons/post-grid',
-				'is_pro' => true,
+			'pdf-view'               => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'lottie-animation'       => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'skill-bar'              => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'subscribe-form'         => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'fun-fact'               => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'share-button'           => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'news-ticker'            => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'accordion'              => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'hero-section-slider'    => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'logo-sliding'           => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'logo-carousel'          => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'post-carousel'          => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'service-post-carousel'  => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'portfolio-section'      => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'project-post-carousel'  => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'testimonial-carousel'   => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'team-carousel'          => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'donation-post-carousel' => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'featured-slider'        => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'twitter-feed'           => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'text-scrolling'         => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'advanced-tabs'          => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'google-map'             => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'google-map-section'     => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'countdown'              => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+			'countdown-section'      => array(
+				'cat' => 'rbelad_pro_slider',
+			),
+
+			// Post Addons.
+			'post-list'              => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'post-grid'              => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'service-post-grid'      => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'service-latest-posts'   => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'event-post-list'        => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'event-post-grid'        => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'project-post-list'      => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'project-post-grid'      => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'testimonial-section'    => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'testimonial-grid'       => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'team-grid'              => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'donation-post-section'  => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'donation-post-grid'     => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'donation-post-category' => array(
+				'cat' => 'rbelad_pro_post',
+			),
+			'donation-latest-posts'  => array(
+				'cat' => 'rbelad_pro_post',
+			),
+
+			// Theme Builder Addons.
+			'archive-posts'          => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'navigation-menu'        => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'mega-menu'              => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'post-view-meta'         => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'post-reading-time-meta' => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'search-box'             => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'comment-list'           => array(
+				'cat' => 'rbelad_pro_builder',
+			),
+			'comment-form'           => array(
+				'cat' => 'rbelad_pro_builder',
 			),
 		);
+		$return = array();
+
+		foreach ( $addons as $slug => $data ) {
+			$return[ $slug ] = array_merge(
+				$data,
+				array(
+					'demo'     => $demo_url . $slug,
+					'doc'      => $doc_url . $slug,
+					'import'   => $import_url . $slug,
+					'tutorial' => $tutorial_url . $slug,
+					'is_pro'   => true,
+				)
+			);
+		}
+
+		return $return;
 	}
 
 	/**
@@ -201,7 +424,10 @@ class Widget_Manager {
 	 */
 	public static function get_widget_category( $widget_name ) {
 		$map = self::get_all_widgets_map();
-		return $map[ $widget_name ]['cat'] ?? 'rbelad_addons_general';
+		if ( isset( $map[ $widget_name ]['cat'] ) ) {
+			return $map[ $widget_name ]['cat'];
+		}
+		return 'rbelad_addons_general';
 	}
 
 	/**
@@ -214,6 +440,42 @@ class Widget_Manager {
 	public static function get_widget_demo( $widget_name ) {
 		$map = self::get_all_widgets_map();
 		return $map[ $widget_name ]['demo'] ?? '';
+	}
+
+	/**
+	 * Get widget tutorial URL by name.
+	 *
+	 * @param string $widget_name Widget slug or class name.
+	 *
+	 * @return string Tutorial URL.
+	 */
+	public static function get_widget_tutorial( $widget_name ) {
+		$map = self::get_all_widgets_map();
+		return $map[ $widget_name ]['tutorial'] ?? '';
+	}
+
+	/**
+	 * Get widget documentation URL by name.
+	 *
+	 * @param string $widget_name Widget slug or class name.
+	 *
+	 * @return string Documentation URL.
+	 */
+	public static function get_widget_doc( $widget_name ) {
+		$map = self::get_all_widgets_map();
+		return $map[ $widget_name ]['doc'] ?? '';
+	}
+
+	/**
+	 * Get widget import blocks URL by name.
+	 *
+	 * @param string $widget_name Widget slug or class name.
+	 *
+	 * @return string Import Blocks URL.
+	 */
+	public static function get_widget_import( $widget_name ) {
+		$map = self::get_all_widgets_map();
+		return $map[ $widget_name ]['import'] ?? '';
 	}
 
 	/**
@@ -232,16 +494,44 @@ class Widget_Manager {
 		);
 
 		$elements_manager->add_category(
-			'rbelad_addons_core',
+			'rbelad_addons_creative',
+			array(
+				'title' => esc_html__( 'RB Creative Addons', 'rb-elementor-addons' ),
+			)
+		);
+
+		$elements_manager->add_category(
+			'rbelad_addons_builder',
 			array(
 				'title' => esc_html__( 'RB WordPress Addons', 'rb-elementor-addons' ),
 			)
 		);
 
 		$elements_manager->add_category(
-			'rbelad_addons_pro',
+			'rbelad_pro_creative',
 			array(
-				'title' => esc_html__( 'RB Addons Pro', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'RB Creative Pro', 'rb-elementor-addons' ),
+			)
+		);
+
+		$elements_manager->add_category(
+			'rbelad_pro_slider',
+			array(
+				'title' => esc_html__( 'RB Slider Pro', 'rb-elementor-addons' ),
+			)
+		);
+
+		$elements_manager->add_category(
+			'rbelad_pro_post',
+			array(
+				'title' => esc_html__( 'RB Post Pro', 'rb-elementor-addons' ),
+			)
+		);
+
+		$elements_manager->add_category(
+			'rbelad_pro_builder',
+			array(
+				'title' => esc_html__( 'RB WordPress Pro', 'rb-elementor-addons' ),
 			)
 		);
 	}

@@ -2,7 +2,7 @@
 /**
  * Service List widget output.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +31,7 @@ $icon = sprintf( '<div %1$s>%2$s</div>', $icon_attr, $icon_html );
 // Title HTML.
 $service_title_attr = '';
 $service_title_html = '';
-$html_tag           = Utils::validate_html_tag( $settings['rbelad_service_list_general_content_html_tag'] );
+$html_tag           = Utils::validate_html_tag( $settings['rbelad_service_list_general_content_heading_tag'] );
 if ( isset( $settings ['rbelad_service_list_general_content_servie_title'] ) ) {
 	$this->add_render_attribute( 'service_title', 'class', 'rbelad-service-title' );
 	$service_title_attr = $this->get_render_attribute_string( 'service_title' );

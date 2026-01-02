@@ -2,7 +2,7 @@
 /**
  * Section Header widget output.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,7 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Utils;
-$settings = $this->get_settings_for_display();
+$settings       = $this->get_settings_for_display();
+$general_prefix = $this->get_section_prefix( 'content_section_general_' );
 
 // Subtitle.
 $subtitle_html = '';
@@ -46,29 +47,34 @@ foreach ( $settings['rbelad_section_header_title_content_list'] as $item ) {
 	}
 }
 
-// Title After.
-$title_after_html = '';
-$icon_type_class  = 'triangle';
-if ( 'circle' === $settings['rbelad_section_header_title_after_content_icon_shape'] ) {
+// Title Separator.
+$title_separator_html = '';
+$icon_type_class      = 'triangle';
+if ( 'circle' === $settings['rbelad_section_header_title_separator_content_icon_shape'] ) {
 	$icon_type_class = 'circle';
-} elseif ( 'square' === $settings['rbelad_section_header_title_after_content_icon_shape'] ) {
+} elseif ( 'square' === $settings['rbelad_section_header_title_separator_content_icon_shape'] ) {
 	$icon_type_class = 'square';
 }
-$this->add_render_attribute( 'title_after_attr', 'class', 'rbelad-section-title-after' );
-$this->add_render_attribute( 'title_after_attr', 'class', $icon_type_class );
-$title_after_attr = $this->get_render_attribute_string( 'title_after_attr' );
-if ( 'yes' === $settings['rbelad_section_header_title_after_content_switch'] ) {
-	$title_after_html = sprintf( '<span %1$s></span>', $title_after_attr );
+$this->add_render_attribute( 'title_separator_attr', 'class', 'rbelad-section-title-separator' );
+$this->add_render_attribute( 'title_separator_attr', 'class', $icon_type_class );
+$title_separator_attr = $this->get_render_attribute_string( 'title_separator_attr' );
+if ( 'yes' === $settings['rbelad_section_header_title_separator_content_switch'] ) {
+	$title_separator_html = sprintf( '<span %1$s></span>', $title_separator_attr );
 }
 
 // Title Wrapper.
+$title_html = '';
 $this->add_render_attribute( 'title_wrapper_attr', 'class', 'rbelad-section-title-wrapper' );
 $title_wrapper_attr = $this->get_render_attribute_string( 'title_wrapper_attr' );
-$html_tag           = Utils::validate_html_tag( $settings['rbelad_section_header_title_content_html_tag'] );
+$html_tag           = Utils::validate_html_tag( $settings['rbelad_section_header_title_content_heading_tag'] );
 $this->add_render_attribute( 'title_attr', 'class', 'rbelad-section-title' );
 $title_attr = $this->get_render_attribute_string( 'title_attr' );
 $title_item = implode( ' ', $title_item_array );
-$title_html = sprintf( '<div %1$s><%2$s %3$s>%4$s %5$s %6$s</%2$s></div>', $title_wrapper_attr, $html_tag, $title_attr, $title_before_html, $title_item, $title_after_html );
+if ( 'style-1' === $settings[ $general_prefix . 'style' ] ) {
+	$title_html = sprintf( '<div %1$s><%2$s %3$s>%4$s %5$s %6$s</%2$s></div>', $title_wrapper_attr, $html_tag, $title_attr, $title_before_html, $title_item, $title_separator_html );
+} elseif ( 'style-2' === $settings[ $general_prefix . 'style' ] ) {
+	$title_html = sprintf( '<div %1$s><%2$s %3$s>%4$s</%2$s></div>', $title_wrapper_attr, $html_tag, $title_attr, $title_item );
+}
 
 // Description.
 $description_html = '';
@@ -82,6 +88,15 @@ if ( 'yes' === $settings['rbelad_section_header_description_content_switch'] && 
 // Wrapper HTML.
 $html = '';
 $this->add_render_attribute( 'wrapper_attr', 'class', 'rbelad-section-header' );
+if ( 'style-1' === $settings[ $general_prefix . 'style' ] ) {
+	$this->add_render_attribute( 'wrapper_attr', 'class', 'style-1' );
+} elseif ( 'style-2' === $settings[ $general_prefix . 'style' ] ) {
+	$this->add_render_attribute( 'wrapper_attr', 'class', 'style-2' );
+}
 $wrapper_attr = $this->get_render_attribute_string( 'wrapper_attr' );
-$html         = sprintf( '<div %1$s>%2$s %3$s %4$s</div>', $wrapper_attr, $subtitle_html, $title_html, $description_html );
+if ( 'style-1' === $settings[ $general_prefix . 'style' ] ) {
+	$html = sprintf( '<div %1$s>%2$s %3$s %4$s</div>', $wrapper_attr, $subtitle_html, $title_html, $description_html );
+} elseif ( 'style-2' === $settings[ $general_prefix . 'style' ] ) {
+	$html = sprintf( '<div %1$s>%2$s %3$s %4$s %5$s %6$s</div>', $wrapper_attr, $subtitle_html, $title_html, $description_html, $title_before_html, $title_separator_html );
+}
 echo wp_kses_post( $html );

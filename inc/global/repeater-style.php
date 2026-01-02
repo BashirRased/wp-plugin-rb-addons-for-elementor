@@ -2,7 +2,7 @@
 /**
  * All repeater controls load file.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -113,6 +113,7 @@ if ( ! empty( $controls ) && is_array( $controls ) ) {
 			// Image.
 			case 'img':
 			case 'img_2':
+			case 'img_3':
 				$repeater->add_control(
 					! empty( $values['id'] ) ? $values['id'] : 'img',
 					array(
@@ -140,6 +141,7 @@ if ( ! empty( $controls ) && is_array( $controls ) ) {
 
 			// Custom Link.
 			case 'custom_link':
+			case 'custom_link_2':
 				$repeater->add_control(
 					! empty( $values['id'] ) ? $values['id'] : 'custom_link',
 					array(

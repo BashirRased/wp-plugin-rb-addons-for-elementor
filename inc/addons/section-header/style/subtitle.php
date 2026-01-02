@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Subtitle style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,7 +36,7 @@ $this->add_style_controls(
 			// Typography.
 			'typography'           => array(
 				'name'         => $prefix . 'typography',
-				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
+				'global'       => array( 'default' => RBELAD_GENERAL_TEXT ),
 				'select_class' => $cls_1,
 			),
 			'text_stroke'          => array(
@@ -54,12 +54,12 @@ $this->add_style_controls(
 			// Colors.
 			'color'                => array(
 				'id'           => $prefix . 'color',
-				'default'      => '#ffffff',
+				'default'      => RBELAD_WHITE_COLOR,
 				'select_class' => $cls_1,
 			),
 			'bg_color'             => array(
 				'id'           => $prefix . 'bg_color',
-				'default'      => '#007bff',
+				'default'      => RBELAD_PRIMARY_COLOR,
 				'select_class' => $cls_1,
 			),
 			'color_separator'      => array(

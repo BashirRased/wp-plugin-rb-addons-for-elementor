@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Title content controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -60,8 +60,8 @@ $this->add_style_controls(
 	array(
 		'controls' => array(
 			// HTML Tag.
-			'html_tag' => array(
-				'id'      => $prefix . 'html_tag',
+			'heading_tag' => array(
+				'id'      => $prefix . 'heading_tag',
 				'default' => 'h2',
 			),
 		),

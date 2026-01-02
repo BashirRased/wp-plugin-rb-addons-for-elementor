@@ -2,7 +2,7 @@
 /**
  * All style controls
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -129,6 +129,22 @@ switch ( $key ) {
 		);
 		break;
 
+	// Heading.
+	case 'heading':
+		$this->add_control(
+			! empty( $values['id'] ) ? $values['id'] : 'heading',
+			array(
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Heading', 'rb-elementor-addons' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::HEADING,
+				'ai'          => false,
+				'default'     => ! empty( $values['default'] ) ? $values['default'] : '',
+				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+				'classes'     => 'rbelad-editor-heading-control',
+			)
+		);
+		break;
+
 	// Switcher.
 	case 'switch':
 		$this->add_control(
@@ -168,6 +184,7 @@ switch ( $key ) {
 				'label_block' => true,
 				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
 				'default'     => array( 'url' => Utils::get_placeholder_image_src() ),
+				'ai'          => false,
 				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			)
 		);
@@ -181,6 +198,7 @@ switch ( $key ) {
 				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Icon', 'rb-elementor-addons' ),
 				'type'        => Controls_Manager::ICONS,
 				'label_block' => true,
+				'skin'        => 'inline',
 				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
 				'default'     => ! empty( $values['default'] ) ? $values['default'] : array(),
 				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
@@ -284,9 +302,14 @@ switch ( $key ) {
 
 		// Default units & range.
 		if ( $is_transition ) {
-			$size_units = array( 's' );
+			$size_units = array( 's', 'ms' );
 			$range      = array(
-				's' => array(
+				's'  => array(
+					'min'  => 0,
+					'max'  => 1,
+					'step' => 0.1,
+				),
+				'ms' => array(
 					'min'  => 0,
 					'max'  => 1,
 					'step' => 0.1,
@@ -333,69 +356,239 @@ switch ( $key ) {
 		break;
 
 	// All Choose Controls.
-	case 'html_tag':
+	case 'link_type':
+	case 'heading_tag':
 	case 'align':
-	case 'justify_align':
+	case 'item_align':
 	case 'multi_align':
-		// Detect type.
-		$is_html_tag = ( 'html_tag' === $key );
-		$is_align    = ( 'align' === $key );
-		$is_justify  = ( 'justify_align' === $key );
-		$is_multi    = ( 'multi_align' === $key );
+		// -------------------------------------------------
+		// Detect type
+		// -------------------------------------------------
+		$is_link_type   = ( 'link_type' === $key );
+		$is_heading_tag = ( 'heading_tag' === $key );
+		$is_align       = ( 'align' === $key );
+		$is_justify     = ( 'item_align' === $key );
+		$is_multi       = ( 'multi_align' === $key );
 
-		// Decide control method.
-		$method = ( $is_html_tag ) ? 'add_control' : 'add_responsive_control';
+		// -------------------------------------------------
+		// Decide control method
+		// -------------------------------------------------
+		$method = ( $is_heading_tag || $is_link_type )
+			? 'add_control'
+			: 'add_responsive_control';
 
-		// Build options.
-		if ( $is_html_tag ) {
+		// -------------------------------------------------
+		// Build options
+		// -------------------------------------------------
+		if ( $is_link_type ) {
+
+			$options = array(
+				'none'    => array(
+					'title' => esc_html__( 'None', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-ban',
+				),
+				'default' => array(
+					'title' => esc_html__( 'Default', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-link',
+				),
+				'page'    => array(
+					'title' => esc_html__( 'Page', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-post-list',
+				),
+				'custom'  => array(
+					'title' => esc_html__( 'Custom', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-editor-external-link',
+				),
+			);
+
+		} elseif ( $is_heading_tag ) {
+
 			$options = rbelad_heading_tags();
+
 		} else {
+
 			$options = ! empty( $values['options'] ) ? $values['options'] : array();
 		}
 
-		// Label.
-		$label_text = ! empty( $values['label'] )
-			? $values['label']
-			: ( $is_html_tag ? esc_html__( 'HTML Tag', 'rb-elementor-addons' ) : esc_html__( 'Alignment', 'rb-elementor-addons' ) );
+		// -------------------------------------------------
+		// Label
+		// -------------------------------------------------
+		if ( ! empty( $values['label'] ) ) {
+			$label_text = $values['label'];
+		} elseif ( $is_link_type ) {
+			$label_text = esc_html__( 'Link Type', 'rb-elementor-addons' );
+		} elseif ( $is_heading_tag ) {
+			$label_text = esc_html__( 'HTML Tag', 'rb-elementor-addons' );
+		} else {
+			$label_text = esc_html__( 'Alignment', 'rb-elementor-addons' );
+		}
 
-		// Build selectors.
+		// -------------------------------------------------
+		// Selectors (alignment only)
+		// -------------------------------------------------
 		$selectors = array();
-		if ( $is_align || $is_justify ) {
+
+		if ( ! $is_link_type && ( $is_align || $is_justify ) ) {
+
 			$css_property = $is_align ? 'text-align' : 'justify-content';
-			$selectors    = array(
-				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
-			);
-		} elseif ( $is_multi ) {
+
 			$selectors = array(
-				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				! empty( $values['select_class_2'] ) ? $values['select_class_2'] : '{{WRAPPER}}' => 'justify-content: {{VALUE}};',
+				! empty( $values['select_class'] )
+					? $values['select_class']
+					: '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
+			);
+
+		} elseif ( ! $is_link_type && $is_multi ) {
+
+			$selectors = array(
+				! empty( $values['select_class'] )
+					? $values['select_class']
+					: '{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				! empty( $values['select_class_2'] )
+					? $values['select_class_2']
+					: '{{WRAPPER}}' => 'justify-content: {{VALUE}};',
 			);
 		}
 
-		// Control arguments.
+		// -------------------------------------------------
+		// Control arguments
+		// -------------------------------------------------
 		$control_args = array(
 			'label'     => $label_text,
 			'type'      => Controls_Manager::CHOOSE,
 			'options'   => $options,
-			'default'   => ! empty( $values['default'] ) ? $values['default'] : ( $is_html_tag ? 'h2' : '' ),
-			'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+			'default'   => ! empty( $values['default'] )
+				? $values['default']
+				: ( $is_heading_tag ? 'h2' : ( $is_link_type ? 'none' : '' ) ),
+			'condition' => ! empty( $values['condition'] )
+				? $values['condition']
+				: array(),
 		);
+
 		if ( ! empty( $selectors ) ) {
 			$control_args['selectors'] = $selectors;
 		}
 
-		// Add control.
+		if ( $is_link_type ) {
+			$control_args['toggle'] = false;
+		}
+
+		// -------------------------------------------------
+		// Add control
+		// -------------------------------------------------
 		if ( 'add_control' === $method ) {
+
 			$this->add_control(
 				! empty( $values['id'] ) ? $values['id'] : $key,
 				$control_args
 			);
+
 		} else {
+
 			$this->add_responsive_control(
 				! empty( $values['id'] ) ? $values['id'] : $key,
 				$control_args
 			);
 		}
+
+		break;
+
+
+	// Flex Direction (separate choose control).
+	case 'flex_direction':
+		$end   = is_rtl() ? 'left' : 'right';
+		$start = is_rtl() ? 'right' : 'left';
+
+		$control_args = array(
+			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Flex Direction', 'rb-elementor-addons' ),
+			'type'                 => Controls_Manager::CHOOSE,
+			'options'              => array(
+				'row'            => array(
+					'title' => esc_html__( 'Row - horizontal', 'elementor' ),
+					'icon'  => 'eicon-arrow-' . $end,
+				),
+				'column'         => array(
+					'title' => esc_html__( 'Column - vertical', 'elementor' ),
+					'icon'  => 'eicon-arrow-down',
+				),
+				'row-reverse'    => array(
+					'title' => esc_html__( 'Row - reversed', 'elementor' ),
+					'icon'  => 'eicon-arrow-' . $start,
+				),
+				'column-reverse' => array(
+					'title' => esc_html__( 'Column - reversed', 'elementor' ),
+					'icon'  => 'eicon-arrow-up',
+				),
+			),
+			'default'              => ! empty( $values['default'] ) ? $values['default'] : '',
+			'condition'            => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+			'selectors_dictionary' => array(
+				'row'            => 'flex-direction: row;',
+				'column'         => 'flex-direction: column;',
+				'row-reverse'    => 'flex-direction: row-reverse;',
+				'column-reverse' => 'flex-direction: column-reverse;',
+			),
+			'selectors'            => array(
+				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => '{{VALUE}};',
+			),
+			'responsive'           => true,
+		);
+
+		$this->add_responsive_control(
+			! empty( $values['id'] ) ? $values['id'] : $key,
+			$control_args
+		);
+		break;
+
+
+	// Display Layout (separate choose control).
+	case 'display_layout':
+		$control_args = array(
+			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Display Layout', 'rb-elementor-addons' ),
+			'type'                 => Controls_Manager::CHOOSE,
+			'options'              => array(
+				'inline' => array(
+					'title' => esc_html__( 'Inline', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-ellipsis-h',
+				),
+				'block'  => array(
+					'title' => esc_html__( 'Block', 'rb-elementor-addons' ),
+					'icon'  => 'eicon-editor-list-ul',
+				),
+			),
+			'default'              => ! empty( $values['default'] ) ? $values['default'] : '',
+			'condition'            => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+			'selectors_dictionary' => array(
+				'inline' => 'display: inline-block;',
+				'block'  => 'display: block;',
+			),
+			'selectors'            => array(
+				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => '{{VALUE}};',
+			),
+			'responsive'           => true,
+		);
+
+		$this->add_responsive_control(
+			! empty( $values['id'] ) ? $values['id'] : $key,
+			$control_args
+		);
+		break;
+
+	// Choose Design.
+	case 'choose_design':
+		$this->add_control(
+			! empty( $values['id'] ) ? $values['id'] : 'choose_design',
+			array(
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Choose Design', 'rb-elementor-addons' ),
+				'type'        => Controls_Manager::VISUAL_CHOICE,
+				'label_block' => true,
+				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
+				'default'     => ! empty( $values['default'] ) ? $values['default'] : 'style-1',
+				'columns'     => ! empty( $values['columns'] ) ? $values['columns'] : 1,
+				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+				'selectors'   => ! empty( $values['selectors'] ) ? $values['selectors'] : array(),
+			)
+		);
 		break;
 
 	// Dimensions Controls.
@@ -436,24 +629,24 @@ switch ( $key ) {
 		);
 		break;
 
-	// All Select-Type Controls (custom, pages, timing, flex, border-style).
+	// All Select-Type Controls (custom, pages, timing, border-style, HTML tags).
 	case 'select_option':
 	case 'page_link':
 	case 'timing_function':
-	case 'flex_direction':
 	case 'border_style_right':
-		$is_timing    = ( 'timing_function' === $key );
-		$is_page      = ( 'page_link' === $key );
-		$is_direction = ( 'flex_direction' === $key );
-		$is_border    = ( 'border_style_right' === $key );
+	case 'html_tag': // <-- New case
+		$is_timing = ( 'timing_function' === $key );
+		$is_page   = ( 'page_link' === $key );
+		$is_border = ( 'border_style_right' === $key );
+		$is_html   = ( 'html_tag' === $key ); // <-- New flag
 
 		// Label mapping.
 		$label_map  = array(
 			'select_option'      => esc_html__( 'Select Option', 'rb-elementor-addons' ),
 			'page_link'          => esc_html__( 'Select Page', 'rb-elementor-addons' ),
 			'timing_function'    => esc_html__( 'Timing Function', 'rb-elementor-addons' ),
-			'flex_direction'     => esc_html__( 'Flex Direction', 'rb-elementor-addons' ),
 			'border_style_right' => esc_html__( 'Border Style Right', 'rb-elementor-addons' ),
+			'html_tag'           => esc_html__( 'HTML Tag', 'rb-elementor-addons' ), // <-- New label
 		);
 		$label_text = $label_map[ $key ] ?? esc_html__( 'Select Option', 'rb-elementor-addons' );
 
@@ -461,11 +654,21 @@ switch ( $key ) {
 		if ( ! empty( $values['options'] ) ) {
 			$options = $values['options'];
 		} elseif ( $is_page ) {
-			$options = rbelad_get_all_pages();
+			$options = rbelad_get_all_type_post_links();
 		} elseif ( $is_timing ) {
 			$options = rbelad_transition_function();
-		} elseif ( $is_direction ) {
-			$options = rbelad_flex_direction();
+		} elseif ( $is_html ) {
+			$options = array(
+				'h1'   => 'H1',
+				'h2'   => 'H2',
+				'h3'   => 'H3',
+				'h4'   => 'H4',
+				'h5'   => 'H5',
+				'h6'   => 'H6',
+				'div'  => 'div',
+				'span' => 'span',
+				'p'    => 'p',
+			);
 		} else {
 			$options = array();
 		}
@@ -484,10 +687,6 @@ switch ( $key ) {
 		if ( $is_timing ) {
 			$control_args['selectors'] = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'animation-timing-function: {{VALUE}};',
-			);
-		} elseif ( $is_direction ) {
-			$control_args['selectors'] = array(
-				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'flex-direction: {{VALUE}};',
 			);
 		} elseif ( $is_border ) {
 			$control_args['selectors'] = array(
@@ -529,23 +728,6 @@ switch ( $key ) {
 		);
 		break;
 
-	// Choose Design.
-	case 'choose_design':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'choose_design',
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Choose Design', 'rb-elementor-addons' ),
-				'type'        => Controls_Manager::VISUAL_CHOICE,
-				'label_block' => true,
-				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : 'style-1',
-				'columns'     => ! empty( $values['columns'] ) ? $values['columns'] : 1,
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selectors'   => ! empty( $values['selectors'] ) ? $values['selectors'] : array(),
-			)
-		);
-		break;
-
 	// Max Items.
 	case 'number':
 		$this->add_control(
@@ -562,4 +744,380 @@ switch ( $key ) {
 			)
 		);
 		break;
+
+	// Transform Controls.
+	case 'transform_controls':
+		$id_prefix   = ! empty( $values['id'] ) ? $values['id'] : $key;
+		$flip_x      = '-webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1);';
+		$flip_y      = '-webkit-transform: scaleY(-1); -ms-transform: scaleY(-1); transform: scaleY(-1);';
+		$skew_y      = '-webkit-transform: skewY({{SIZE}}deg); -ms-transform: skewY({{SIZE}}deg); transform: skewY({{SIZE}}deg);';
+		$skew_x      = '-webkit-transform: skewX({{SIZE}}deg); -ms-transform: skewX({{SIZE}}deg); transform: skewX({{SIZE}}deg);';
+		$scale_x     = '-webkit-transform: scaleX({{SIZE}}); -ms-transform: scaleX({{SIZE}}); transform: scaleX({{SIZE}});';
+		$scale_y     = '-webkit-transform: scaleY({{SIZE}}); -ms-transform: scaleY({{SIZE}}); transform: scaleY({{SIZE}});';
+		$scale_xy    = '-webkit-transform: scale({{SIZE}}); -ms-transform: scale({{SIZE}}); transform: scale({{SIZE}});';
+		$translate_x = '-webkit-transform: translateX({{SIZE}}{{UNIT}}); -ms-transform: translateX({{SIZE}}{{UNIT}}); transform: translateX({{SIZE}}{{UNIT}});';
+		$translate_y = '-webkit-transform: translateY({{SIZE}}{{UNIT}}); -ms-transform: translateY({{SIZE}}{{UNIT}}); transform: translateY({{SIZE}}{{UNIT}});';
+		$perspective = '-webkit-transform: perspective({{SIZE}}px); transform: perspective({{SIZE}}px);';
+		$rotate_x    = '-webkit-transform: rotateX({{SIZE}}deg); -ms-transform: rotateX({{SIZE}}deg); transform: rotateX({{SIZE}}deg);';
+		$rotate_y    = '-webkit-transform: rotateY({{SIZE}}deg); -ms-transform: rotateY({{SIZE}}deg); transform: rotateY({{SIZE}}deg);';
+		$rotate_z    = '-webkit-transform: rotateZ({{SIZE}}deg); -ms-transform: rotateZ({{SIZE}}deg); transform: rotateZ({{SIZE}}deg);';
+		$rotate_3d   = '-webkit-transform: rotateX(1deg) perspective(20px); -ms-transform: rotateX(1deg) perspective(20px); transform: rotateX(1deg) perspective(20px);';
+
+		/** -------------------------
+		 *  ROTATE POPOVER
+		 * ------------------------- */
+		$this->add_control(
+			$id_prefix . '_rotate_popover_tab',
+			array(
+				'label' => esc_html__( 'Rotate', 'elementor' ),
+				'type'  => Controls_Manager::POPOVER_TOGGLE,
+			)
+		);
+
+		$this->start_popover();
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_rotateZ_effect_tab',
+			array(
+				'label'     => esc_html__( 'Rotate', 'elementor' ) . ' (deg)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => -360,
+						'max' => 360,
+					),
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $rotate_z,
+				),
+				'condition' => array(
+					$id_prefix . '_rotate_popover_tab!' => '',
+				),
+			)
+		);
+
+		$this->add_control(
+			$id_prefix . '_transform_rotate_3d_tab',
+			array(
+				'label'     => esc_html__( '3D Rotate', 'elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => esc_html__( 'On', 'elementor' ),
+				'label_off' => esc_html__( 'Off', 'elementor' ),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $rotate_3d,
+				),
+				'condition' => array(
+					$id_prefix . '_rotate_popover_tab!' => '',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_rotateX_effect_tab',
+			array(
+				'label'     => esc_html__( 'Rotate X', 'elementor' ) . ' (deg)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => -360,
+						'max' => 360,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_rotate_3d_tab!' => '',
+					$id_prefix . '_rotate_popover_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $rotate_x,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_rotateY_effect_tab',
+			array(
+				'label'     => esc_html__( 'Rotate Y', 'elementor' ) . ' (deg)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => -360,
+						'max' => 360,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_rotate_3d_tab!' => '',
+					$id_prefix . '_rotate_popover_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $rotate_y,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_perspective_effect_tab',
+			array(
+				'label'     => esc_html__( 'Perspective', 'elementor' ) . ' (px)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array( 'max' => 1000 ),
+				),
+				'condition' => array(
+					$id_prefix . '_rotate_popover_tab!' => '',
+					$id_prefix . '_transform_rotate_3d_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $perspective,
+				),
+			)
+		);
+
+		$this->end_popover();
+
+		/** -------------------------
+		 *  TRANSLATE POPOVER
+		 * ------------------------- */
+		$this->add_control(
+			$id_prefix . '_transform_translate_popover_tab',
+			array(
+				'label' => esc_html__( 'Offset', 'elementor' ),
+				'type'  => Controls_Manager::POPOVER_TOGGLE,
+			)
+		);
+
+		$this->start_popover();
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_translateX_effect_tab',
+			array(
+				'label'      => esc_html__( 'Offset X', 'elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
+				'range'      => array(
+					'%'  => array(
+						'min' => -100,
+						'max' => 100,
+					),
+					'px' => array(
+						'min' => -1000,
+						'max' => 1000,
+					),
+				),
+				'condition'  => array(
+					$id_prefix . '_transform_translate_popover_tab!' => '',
+				),
+				'selectors'  => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $translate_x,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_translateY_effect_tab',
+			array(
+				'label'      => esc_html__( 'Offset Y', 'elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'em', 'rem', 'vh', 'custom' ),
+				'range'      => array(
+					'%'  => array(
+						'min' => -100,
+						'max' => 100,
+					),
+					'px' => array(
+						'min' => -1000,
+						'max' => 1000,
+					),
+				),
+				'condition'  => array(
+					$id_prefix . '_transform_translate_popover_tab!' => '',
+				),
+				'selectors'  => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $translate_y,
+				),
+			)
+		);
+
+		$this->end_popover();
+
+		/** -------------------------
+		 *  SCALE POPOVER
+		 * ------------------------- */
+		$this->add_control(
+			$id_prefix . '_transform_scale_popover_tab',
+			array(
+				'label' => esc_html__( 'Scale', 'elementor' ),
+				'type'  => Controls_Manager::POPOVER_TOGGLE,
+			)
+		);
+
+		$this->start_popover();
+
+		$this->add_control(
+			$id_prefix . '_transform_keep_proportions_tab',
+			array(
+				'label'   => esc_html__( 'Keep Proportions', 'elementor' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_scale_effect_tab',
+			array(
+				'label'     => esc_html__( 'Scale', 'elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max'  => 2,
+						'step' => 0.1,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_keep_proportions_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $scale_xy,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_scaleX_effect_tab',
+			array(
+				'label'     => esc_html__( 'Scale X', 'elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max'  => 2,
+						'step' => 0.1,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_keep_proportions_tab' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $scale_x,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_scaleY_effect_tab',
+			array(
+				'label'     => esc_html__( 'Scale Y', 'elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'max'  => 2,
+						'step' => 0.1,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_keep_proportions_tab' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $scale_y,
+				),
+			)
+		);
+
+		$this->end_popover();
+
+		/** -------------------------
+		 *  SKEW POPOVER
+		 * ------------------------- */
+		$this->add_control(
+			$id_prefix . '_transform_skew_popover_tab',
+			array(
+				'label' => esc_html__( 'Skew', 'elementor' ),
+				'type'  => Controls_Manager::POPOVER_TOGGLE,
+			)
+		);
+
+		$this->start_popover();
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_skewX_effect_tab',
+			array(
+				'label'     => esc_html__( 'Skew X', 'elementor' ) . ' (deg)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => -360,
+						'max' => 360,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_skew_popover_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $skew_x,
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			$id_prefix . '_transform_skewY_effect_tab',
+			array(
+				'label'     => esc_html__( 'Skew Y', 'elementor' ) . ' (deg)',
+				'type'      => Controls_Manager::SLIDER,
+				'range'     => array(
+					'px' => array(
+						'min' => -360,
+						'max' => 360,
+					),
+				),
+				'condition' => array(
+					$id_prefix . '_transform_skew_popover_tab!' => '',
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $skew_y,
+				),
+			)
+		);
+
+		$this->end_popover();
+
+		/** -------------------------
+		 *  FLIP CONTROLS
+		 * ------------------------- */
+		$this->add_control(
+			$id_prefix . '_transform_flipX_effect_tab',
+			array(
+				'label'     => esc_html__( 'Flip Horizontal', 'elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'transform' => array(
+						'title' => esc_html__( 'Flip Horizontal', 'elementor' ),
+						'icon'  => 'eicon-flip eicon-tilted',
+					),
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $flip_x,
+				),
+			)
+		);
+
+		$this->add_control(
+			$id_prefix . '_transform_flipY_effect_tab',
+			array(
+				'label'     => esc_html__( 'Flip Vertical', 'elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'transform' => array(
+						'title' => esc_html__( 'Flip Vertical', 'elementor' ),
+						'icon'  => 'eicon-flip',
+					),
+				),
+				'selectors' => array(
+					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $flip_y,
+				),
+			)
+		);
+
+		break;
+
 }

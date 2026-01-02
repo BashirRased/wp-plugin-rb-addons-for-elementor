@@ -2,7 +2,7 @@
 /**
  * Elementor assets.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons;
@@ -12,16 +12,17 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Assets_Manager Class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Assets_Manager {
 	/**
 	 * Elementor Editor (Admin) CSS & JS
 	 */
 	public static function elementor_editor_assets() {
+		// Editor CSS.
 		wp_enqueue_style(
-			'rbelad-icon-style',
-			RBELAD_ASSETS . 'css/all-icon.css',
+			'rbelad-editor',
+			RBELAD_ASSETS . 'css/editor.css',
 			array(),
 			time(),
 			'all'

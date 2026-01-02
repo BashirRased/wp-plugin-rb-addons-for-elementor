@@ -2,7 +2,7 @@
 /**
  * Section Header Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Section_Header class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Section_Header extends Base {
 	/**
@@ -48,11 +48,19 @@ class Section_Header extends Base {
 	 * Widget content tab
 	 */
 	protected function register_content_tab() {
+		$this->__general_content();
 		$this->__subtitle_content();
 		$this->__title_content();
 		$this->__title_before_content();
-		$this->__title_after_content();
+		$this->__title_separator_content();
 		$this->__description_content();
+	}
+
+	/**
+	 * Content - Subtitle
+	 */
+	protected function __general_content() {
+		require RBELAD_WIDGETS . '/section-header/content/general.php';
 	}
 
 	/**
@@ -77,10 +85,10 @@ class Section_Header extends Base {
 	}
 
 	/**
-	 * Content - Title After
+	 * Content - Title Separator
 	 */
-	protected function __title_after_content() {
-		require RBELAD_WIDGETS . '/section-header/content/title-after.php';
+	protected function __title_separator_content() {
+		require RBELAD_WIDGETS . '/section-header/content/title-separator.php';
 	}
 
 	/**
@@ -97,7 +105,7 @@ class Section_Header extends Base {
 		$this->__subtitle_style();
 		$this->__title_style();
 		$this->__title_before_style();
-		$this->__title_after_style();
+		$this->__title_separator_style();
 		$this->__description_style();
 		$this->__wrapper_style();
 	}
@@ -124,10 +132,10 @@ class Section_Header extends Base {
 	}
 
 	/**
-	 * Style - Title After
+	 * Style - Title Separator
 	 */
-	protected function __title_after_style() {
-		require RBELAD_WIDGETS . '/section-header/style/title-after.php';
+	protected function __title_separator_style() {
+		require RBELAD_WIDGETS . '/section-header/style/title-separator.php';
 	}
 
 	/**

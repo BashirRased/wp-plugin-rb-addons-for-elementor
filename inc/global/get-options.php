@@ -2,7 +2,7 @@
 /**
  * All repeater controls load file.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,15 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function rbelad_elementor() {
 	return \Elementor\Plugin::instance();
-}
-
-/**
- * Check whether pro version is defined.
- *
- * @return bool whether pro version is active
- */
-function rbelad_has_pro() {
-	return defined( 'RB_Elementor_Pro' );
 }
 
 /**
@@ -307,6 +298,9 @@ function rbelad_get_custom_icon() {
 	return 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNC44LDEwLjNoLTEuOVYxM2gxLjhjMC41LDAsMC45LTAuMSwxLjEtMC4zYzAuMy0wLjIsMC40LTAuNiwwLjQtMUMxNi4yLDEwLjgsMTUuNywxMC4zLDE0LjgsMTAuM3oiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNS42LDYuNEgzLjl2M2gxLjdjMC41LDAsMC45LTAuMSwxLjItMC40czAuNC0wLjYsMC40LTEuMVM3LjEsNy4xLDYuOCw2LjhDNi42LDYuNSw2LjIsNi40LDUuNiw2LjR6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2LDcuN2MwLTAuNS0wLjEtMC44LTAuNC0xcy0wLjctMC4zLTEuMy0wLjNoLTEuNHYyLjVoMS41QzE1LjQsOC45LDE2LDguNSwxNiw3Ljd6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwLDBDNC41LDAsMCw0LjUsMCwxMHM0LjUsMTAsMTAsMTBzMTAtNC41LDEwLTEwUzE1LjUsMCwxMCwweiBNOS44LDE0LjdINy41TDUuNiwxMUgzLjl2My43aC0ydi0xMGgzLjcNCgkJYzEuMiwwLDIuMSwwLjMsMi43LDAuOGMwLjYsMC41LDEsMS4zLDEsMi4yYzAsMC43LTAuMSwxLjMtMC40LDEuN2MtMC4zLDAuNS0wLjcsMC44LTEuMywxLjFsMi4yLDQuMVYxNC43eiBNMTQuNywxNC43aC0zLjh2LTEwDQoJCWgzLjVjMS4yLDAsMi4xLDAuMiwyLjgsMC43YzAuNiwwLjUsMC45LDEuMiwwLjksMmMwLDAuNS0wLjEsMC45LTAuNCwxLjNjLTAuMywwLjQtMC42LDAuNi0xLjEsMC44YzAuNSwwLjEsMC45LDAuNCwxLjIsMC44DQoJCWMwLjMsMC40LDAuNCwwLjksMC40LDEuNGMwLDEtMC4zLDEuNy0wLjksMi4yQzE2LjcsMTQuNCwxNS44LDE0LjYsMTQuNywxNC43eiIvPg0KPC9nPg0KPC9zdmc+DQo=';
 }
 
+/**
+ * Load All Page
+ */
 if ( ! function_exists( 'rbelad_get_all_pages' ) ) {
 	/**
 	 * Get a list of all pages.
@@ -333,6 +327,38 @@ if ( ! function_exists( 'rbelad_get_all_pages' ) ) {
 			}
 		}
 		return $pages;
+	}
+}
+
+/**
+ * Load All Post Type Links
+ */
+if ( ! function_exists( 'rbelad_get_all_type_post_links' ) ) {
+	/**
+	 * Get a list of all type_post_links.
+	 *
+	 * Retrieves all WordPress type_post_links and returns an array where the keys are
+	 * page IDs and the values are the page titles.
+	 *
+	 * @return array List of type_post_links with ID as key and title as value.
+	 */
+	function rbelad_get_all_type_post_links() {
+		$post_link = get_posts(
+			array(
+				'post_type'      => 'any',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'posts_per_page' => -1,
+			)
+		);
+
+		$all_type_post_links = array();
+		if ( ! empty( $post_link ) && ! is_wp_error( $post_link ) ) {
+			foreach ( $post_link as $link ) {
+				$all_type_post_links[ $link->ID ] = $link->post_title;
+			}
+		}
+		return $all_type_post_links;
 	}
 }
 

@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Description style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,7 +36,7 @@ $this->add_style_controls(
 			// Typography.
 			'typography'           => array(
 				'name'         => $prefix . 'typography',
-				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
+				'global'       => array( 'default' => RBELAD_GENERAL_TEXT ),
 				'select_class' => $cls_1,
 			),
 			'text_stroke'          => array(
@@ -54,7 +54,7 @@ $this->add_style_controls(
 			// Colors.
 			'color'                => array(
 				'id'           => $prefix . 'color',
-				'default'      => '#777',
+				'default'      => RBELAD_TEXT_COLOR,
 				'select_class' => $cls_1,
 			),
 		),

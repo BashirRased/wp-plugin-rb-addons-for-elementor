@@ -2,7 +2,7 @@
 /**
  * Divider widget style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,7 +45,7 @@ $this->add_style_controls(
 						),
 					),
 					'color'  => array(
-						'default' => '#007bff',
+						'default' => RBELAD_PRIMARY_COLOR,
 					),
 				),
 				'select_class'   => $cls_1,
@@ -72,9 +72,9 @@ $this->add_style_controls(
 			),
 
 			// Text Align.
-			'justify_align'          => array(
-				'id'           => $prefix . 'justify_align',
-				'options'      => rbelad_align_text(),
+			'item_align'          => array(
+				'id'           => $prefix . 'item_align',
+				'options'      => rbelad_align_justify(),
 				'default'      => is_rtl() ? 'right' : 'left',
 				'select_class' => $cls_2,
 			),

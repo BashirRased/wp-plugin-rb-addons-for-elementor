@@ -2,7 +2,7 @@
 /**
  * Widgets ID, Title, Category & Wrapper Classes.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || die();
  * Provides common functionality for all custom widgets,
  * including naming, titles, icons, and category assignment.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 abstract class Base extends Widget_Base {
 
@@ -60,7 +60,7 @@ abstract class Base extends Widget_Base {
 	 */
 	public function get_icon() {
 		$slug = $this->get_name();
-		return 'eicon-' . $slug;
+		return 'rbelad-icon ' . $slug;
 	}
 
 	/**
@@ -96,5 +96,17 @@ abstract class Base extends Widget_Base {
 		$slug                = $this->get_name();
 		$slug_without_prefix = preg_replace( '/^rbelad-/', '', $slug );
 		return 'rbelad-wrap rbelad-wrap-' . $slug_without_prefix . ' ' . $this->get_custom_wrapper_class();
+	}
+
+	/**
+	 * Get a unique section prefix for the widget.
+	 *
+	 * @param string $section Section name.
+	 * @return string Section prefix.
+	 */
+	public function get_section_prefix( string $section ): string {
+		$slug = $this->get_name(); // rbelad-archive-description.
+		$slug = str_replace( '-', '_', $slug ); // rbelad_archive_description.
+		return $slug . '_' . $section;
 	}
 }

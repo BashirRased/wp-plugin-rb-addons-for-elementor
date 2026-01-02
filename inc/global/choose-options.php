@@ -2,7 +2,7 @@
 /**
  * Common control options for RB Addons for Elementor.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -75,34 +75,6 @@ if ( ! function_exists( 'rbelad_align_justify' ) ) {
 			'justify' => array(
 				'title' => esc_html__( 'Justified', 'rb-elementor-addons' ),
 				'icon'  => 'eicon-text-align-justify',
-			),
-		);
-		return $alignment;
-	}
-}
-
-/**
- * Alignment with text.
- */
-if ( ! function_exists( 'rbelad_align_text' ) ) {
-	/**
-	 * Returns alignment options.
-	 *
-	 * @return array<string, array{title: string, icon: string}> Alignment choices.
-	 */
-	function rbelad_align_text() {
-		$alignment = array(
-			'left'   => array(
-				'title' => esc_html__( 'Left', 'rb-elementor-addons' ),
-				'icon'  => 'eicon-text-align-left',
-			),
-			'center' => array(
-				'title' => esc_html__( 'Center', 'rb-elementor-addons' ),
-				'icon'  => 'eicon-text-align-center',
-			),
-			'right'  => array(
-				'title' => esc_html__( 'Right', 'rb-elementor-addons' ),
-				'icon'  => 'eicon-text-align-right',
 			),
 		);
 		return $alignment;
@@ -229,22 +201,22 @@ if ( ! function_exists( 'rbelad_slider_range' ) ) {
 	function rbelad_slider_range() {
 		$range = array(
 			'%'   => array(
-				'min'  => 0,
+				'min'  => -100,
 				'max'  => 100,
 				'step' => 1,
 			),
 			'px'  => array(
-				'min'  => 0,
+				'min'  => -2000,
 				'max'  => 2000,
 				'step' => 1,
 			),
 			'em'  => array(
-				'min'  => 0,
+				'min'  => -125,
 				'max'  => 125,
 				'step' => 0.1,
 			),
 			'rem' => array(
-				'min'  => 0,
+				'min'  => -125,
 				'max'  => 125,
 				'step' => 0.1,
 			),
@@ -270,36 +242,36 @@ if ( ! function_exists( 'rbelad_social_icon_list' ) ) {
 	function rbelad_social_icon_list() {
 		$social_icon_list = array(
 			array(
-				'icon_title' => esc_html__( 'Facebook', 'rb-elementor-addons' ),
-				'font_icon'  => array(
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Facebook', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-facebook-f',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'icon_title' => esc_html__( 'Twitter', 'rb-elementor-addons' ),
-				'font_icon'  => array(
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Twitter', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-x-twitter',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'icon_title' => esc_html__( 'LinkedIn', 'rb-elementor-addons' ),
-				'font_icon'  => array(
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'LinkedIn', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-linkedin-in',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'icon_title' => esc_html__( 'Pinterest', 'rb-elementor-addons' ),
-				'font_icon'  => array(
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Pinterest', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-pinterest-p',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'icon_title' => esc_html__( 'Instagram', 'rb-elementor-addons' ),
-				'font_icon'  => array(
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Instagram', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-instagram',
 					'library' => 'fa-brands',
 				),

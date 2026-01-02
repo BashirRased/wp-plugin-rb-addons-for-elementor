@@ -2,7 +2,7 @@
 /**
  * Plugins functions
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,6 +32,22 @@ add_action( 'wp_enqueue_scripts', 'rbelad_addons_styles' );
  * Add CSS & JS Files
  */
 function rbelad_addons_admin_dashboard() {
-	wp_enqueue_style( 'rbelad-admin-style', RBELAD_ASSETS . 'css/admin-dashboard.css', array(), time(), 'all' );
+	// Admin Dashboard CSS.
+	wp_enqueue_style(
+		'rbelad-admin-style',
+		RBELAD_ASSETS . 'css/admin.css',
+		array(),
+		time(),
+		'all'
+	);
+
+	// Admin Dashboard JS.
+	wp_enqueue_script(
+		'rbelad-admin',
+		RBELAD_ASSETS . 'js/admin.js',
+		array( 'jquery' ),
+		RBELAD_VERSION,
+		true
+	);
 }
 add_action( 'admin_enqueue_scripts', 'rbelad_addons_admin_dashboard' );

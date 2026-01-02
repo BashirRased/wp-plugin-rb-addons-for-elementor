@@ -2,7 +2,7 @@
 /**
  * Divider Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Divider class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Divider extends Base {
 	/**
@@ -40,7 +40,22 @@ class Divider extends Base {
 	 * Register widget control
 	 */
 	protected function register_controls() {
+		$this->register_content_tab();
 		$this->register_style_tab();
+	}
+
+	/**
+	 * Widget content tab
+	 */
+	protected function register_content_tab() {
+		$this->__general_content();
+	}
+
+	/**
+	 * Content - General
+	 */
+	protected function __general_content() {
+		require RBELAD_WIDGETS . '/divider/content/general.php';
 	}
 
 	/**

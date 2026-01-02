@@ -1,0 +1,48 @@
+:root {
+	--color-primary: #007bff;
+	--color-secondary: #f93601;
+	--color-white: #ffffff;
+}
+
+.elementor-icons-manager__tab-link {
+	display: flex;
+	align-items: center;
+}
+
+.elementor-control.elementor-control-type-heading.rbelad-editor-heading-control .elementor-control-title {
+	font-family: "Josefin Sans", sans-sarif;
+	font-size: 20px;
+	color: var(--color-primary);
+	border-bottom: 2px solid var(--color-secondary);
+	padding-bottom: 2px;
+}
+
+.elementor-control-rbelad_library_buttons .rbelad-library-buttons {
+    display: flex;
+    flex-wrap: wrap;
+	flex-direction: row;
+	column-gap: 4%;
+	row-gap: 4%;
+}
+
+.elementor-control-rbelad_library_buttons .rbelad-library-buttons a {
+    display: inline-flex;
+    text-decoration: none;
+    text-transform: uppercase;
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+    border-radius: 4px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    font-size: 14px;
+    width: 48%;
+    padding: 10px;
+	transition: all 0.4s ease-in-out;
+	margin-bottom: 10px;
+}
+
+.elementor-control-rbelad_library_buttons .rbelad-library-buttons > a:hover,
+.elementor-control-rbelad_library_buttons .rbelad-library-buttons > a:focus {
+	background-color: var(--color-secondary);
+}

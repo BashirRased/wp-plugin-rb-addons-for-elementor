@@ -2,19 +2,42 @@
 /**
  * Dual Text Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
+
+use RBELAD_Elementor_Addons\Traits\Display_Style;
+use RBELAD_Elementor_Addons\Traits\Text_Style;
+use RBELAD_Elementor_Addons\Traits\Link_Style;
+use RBELAD_Elementor_Addons\Traits\Background_Style;
+use RBELAD_Elementor_Addons\Traits\Border_Style;
+use RBELAD_Elementor_Addons\Traits\Spacing_Style;
+use RBELAD_Elementor_Addons\Traits\Transform_Style;
+use RBELAD_Elementor_Addons\Traits\Transition_Style;
+use RBELAD_Elementor_Addons\Traits\Text_Alignment_Style;
 
 defined( 'ABSPATH' ) || die();
 
 /**
  * Dual_Text class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Dual_Text extends Base {
+	/**
+	 * Use all trait.
+	 */
+	use Display_Style;
+	use Text_Style;
+	use Link_Style;
+	use Background_Style;
+	use Border_Style;
+	use Spacing_Style;
+	use Transform_Style;
+	use Transition_Style;
+	use Text_Alignment_Style;
+
 	/**
 	 * Register widget search keywords
 	 */

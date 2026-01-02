@@ -2,7 +2,7 @@
 /**
  * Service List widget - Icon style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,7 +34,7 @@ $this->add_style_controls(
 			// Colors.
 			'fill_color'             => array(
 				'id'             => $prefix . 'fill_color',
-				'default'        => '#007bff',
+				'default'        => RBELAD_PRIMARY_COLOR,
 				'select_class'   => $cls_1_i,
 				'select_class_2' => $cls_1_svg,
 			),
@@ -109,7 +109,7 @@ $this->add_style_controls(
 						),
 					),
 					'color'  => array(
-						'default' => '#007bff',
+						'default' => RBELAD_PRIMARY_COLOR,
 					),
 				),
 				'select_class'   => $cls_1,

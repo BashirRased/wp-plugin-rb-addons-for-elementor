@@ -2,7 +2,7 @@
 /**
  * Archive Description widget style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,64 +10,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 // Controls variables.
-$prefix = 'rbelad_archive_description_';
-$cls_1  = '{{WRAPPER}} .rbelad-archive-description';
+$section_prefix = $this->get_section_prefix( 'style_section_' );
+$prefix         = $section_prefix . 'general';
+$class_1        = '{{WRAPPER}} .rbelad-archive-description-widget';
 
 // Start Section Tab - Content.
 $this->start_controls_section(
-	$prefix . 'general_style',
+	$prefix,
 	array(
 		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
 
-// All content add here.
-$this->add_style_controls(
-	'archive_description_general_style',
-	array(
-		'controls' => array(
-			// Text Align.
-			'align'                => array(
-				'id'           => $prefix . 'align',
-				'options'      => rbelad_align_text(),
-				'default'      => is_rtl() ? 'right' : 'left',
-				'select_class' => $cls_1,
-			),
-			'align_separator'      => array(
-				'id' => $prefix . 'align_separator',
-			),
+// Text Style.
+$this->register_text_style( $prefix, $class_1 );
 
-			// Typography.
-			'typography'           => array(
-				'name'         => $prefix . 'typography',
-				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
-				'select_class' => $cls_1,
-			),
-			'text_stroke'          => array(
-				'name'         => $prefix . 'text_stroke',
-				'select_class' => $cls_1,
-			),
-			'text_shadow'          => array(
-				'name'         => $prefix . 'text_shadow',
-				'select_class' => $cls_1,
-			),
-			'typography_separator' => array(
-				'id' => $prefix . 'typography_separator',
-			),
+// Color Style.
+$this->register_color_style( $prefix, $class_1 );
 
-			// Colors.
-			'color'                => array(
-				'id'           => $prefix . 'color',
-				'default'      => '#777',
-				'select_class' => $cls_1,
-			),
-		),
-	),
-);
+// Alignment Style.
+$this->register_text_alignment_style( $prefix, $class_1 );
 
 // End Section Tab.
 $this->end_controls_section();

@@ -2,7 +2,7 @@
 /**
  * Dual Text widget content controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
+use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
 $prefix = 'rbelad_dual_text_general_content_';
@@ -23,19 +24,22 @@ $this->start_controls_section(
 	)
 );
 
+// Widgets Buttons.
+Utilities::add_library_buttons( $this, 'dual-text' );
+
 // All repeater content add here.
 $this->add_repeater_controls(
 	$prefix . 'repeater',
 	array(
 		'controls'    => array(
-			'switch' => array(
+			'switch'   => array(
 				'id'      => $prefix . 'title_highlight',
-				'label'   => esc_html__( 'Title Text Highlight', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Text Highlight', 'rb-elementor-addons' ),
 				'default' => 'no',
 			),
-			'text'   => array(
+			'textarea' => array(
 				'id'    => $prefix . 'title_text',
-				'label' => esc_html__( 'Title Text', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Text', 'rb-elementor-addons' ),
 			),
 		),
 		'id'          => $prefix . 'title_repeater',

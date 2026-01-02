@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Title style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,7 +35,7 @@ $this->add_style_controls(
 			// Typography.
 			'typography'           => array(
 				'name'         => $prefix . 'typography',
-				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_PRIMARY ),
+				'global'       => array( 'default' => RBELAD_PRIMARY_TEXT ),
 				'select_class' => $cls_1,
 			),
 			'text_stroke'          => array(
@@ -63,7 +63,7 @@ $this->add_style_controls(
 			// Colors.
 			'color'                => array(
 				'id'           => $prefix . 'color',
-				'default'      => '#000000',
+				'default'      => RBELAD_BLACK_COLOR,
 				'select_class' => $cls_1,
 			),
 		),
@@ -79,7 +79,7 @@ $this->add_style_controls(
 			'color' => array(
 				'id'           => $prefix . 'highlight_color',
 				'label'        => esc_html__( 'Highlight Color', 'rb-elementor-addons' ),
-				'default'      => '#007bff',
+				'default'      => RBELAD_PRIMARY_COLOR,
 				'select_class' => $cls_2,
 			),
 		),

@@ -4,7 +4,7 @@
  *
  * Adds a custom settings tab and controls in Elementor editor.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons;

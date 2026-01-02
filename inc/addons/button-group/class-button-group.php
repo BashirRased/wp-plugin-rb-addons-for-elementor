@@ -2,7 +2,7 @@
 /**
  * Button Group Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Button_Group class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Button_Group extends Base {
 	/**

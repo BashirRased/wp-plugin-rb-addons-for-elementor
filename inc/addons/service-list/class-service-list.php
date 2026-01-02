@@ -2,7 +2,7 @@
 /**
  * Service List Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || die();
 /**
  * Service_List class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Service_List extends Base {
 	/**

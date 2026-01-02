@@ -2,7 +2,7 @@
 /**
  * Service List widget content controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
+use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
 $prefix = 'rbelad_service_list_general_content_';
@@ -22,6 +23,9 @@ $this->start_controls_section(
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
 );
+
+// Widgets Buttons.
+Utilities::add_library_buttons( $this, 'service-list' );
 
 // All content add here.
 $this->add_style_controls(
@@ -84,8 +88,8 @@ $this->add_style_controls(
 			),
 
 			// HTML Tag.
-			'html_tag'      => array(
-				'id'      => $prefix . 'html_tag',
+			'heading_tag'      => array(
+				'id'      => $prefix . 'heading_tag',
 				'default' => 'h4',
 			),
 

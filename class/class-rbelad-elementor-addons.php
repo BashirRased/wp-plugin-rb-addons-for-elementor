@@ -2,7 +2,7 @@
 /**
  * RB Addons for Elementor main class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * RBELAD_Elementor_Addons Class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 final class RBELAD_Elementor_Addons {
 	/**

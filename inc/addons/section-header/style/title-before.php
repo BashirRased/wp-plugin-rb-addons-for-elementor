@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Title::Before style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,7 +35,7 @@ $this->add_style_controls(
 			// Colors.
 			'bg_color'        => array(
 				'id'           => $prefix . 'bg_color',
-				'default'      => '#000000',
+				'default'      => RBELAD_BLACK_COLOR,
 				'select_class' => $cls_1,
 			),
 			'color_separator' => array(
@@ -56,6 +56,15 @@ $this->add_style_controls(
 				'default'      => array(
 					'unit' => 'px',
 					'size' => 2,
+				),
+				'select_class' => $cls_1,
+			),
+			'bottom'          => array(
+				'id'           => $prefix . 'bottom',
+				'label'        => esc_html__( 'Before Bottom', 'rb-elementor-addons' ),
+				'default'      => array(
+					'unit' => 'px',
+					'size' => -15,
 				),
 				'select_class' => $cls_1,
 			),

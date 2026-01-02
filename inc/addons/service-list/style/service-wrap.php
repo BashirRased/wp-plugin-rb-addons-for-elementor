@@ -2,7 +2,7 @@
 /**
  * Service List widget - Wrap style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -34,7 +34,7 @@ $this->add_style_controls(
 			// Text Align.
 			'align'             => array(
 				'id'           => $prefix . 'wrap_align',
-				'options'      => rbelad_align_text(),
+				'options'      => rbelad_align_justify(),
 				'default'      => 'center',
 				'select_class' => $cls_1,
 			),
@@ -84,7 +84,7 @@ $this->add_style_controls(
 						),
 					),
 					'color'  => array(
-						'default' => '#007bff',
+						'default' => RBELAD_PRIMARY_COLOR,
 					),
 				),
 				'select_class'   => $cls_1,
@@ -135,7 +135,7 @@ $this->add_style_controls(
 			'bg_color' => array(
 				'id'           => $prefix . 'wrap_before_bg_color',
 				'label'        => esc_html__( 'Before Background Color', 'rb-elementor-addons' ),
-				'default'      => '#007bff',
+				'default'      => RBELAD_PRIMARY_COLOR,
 				'select_class' => $cls_2,
 			),
 		),
@@ -159,7 +159,7 @@ $this->add_style_controls(
 		'controls' => array(
 			'bg_color'     => array(
 				'id'           => $prefix . 'service_wrap_bg_color_hover',
-				'default'      => '#007bff',
+				'default'      => RBELAD_PRIMARY_COLOR,
 				'select_class' => $cls_3,
 			),
 			'border_color' => array(

@@ -2,7 +2,7 @@
 /**
  * Widgets Page Template
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,17 +27,30 @@ function rbelad_widgets_manager_page() {
 
 	// Group widgets by category.
 	$widgets_by_category = array(
-		'rbelad_addons_general' => array(),
-		'rbelad_addons_core'    => array(),
-		'rbelad_addons_pro'     => array(),
+		'rbelad_addons_general'  => array(),
+		'rbelad_addons_creative' => array(),
+		'rbelad_addons_builder'  => array(),
+		'rbelad_pro_creative'    => array(),
+		'rbelad_pro_slider'      => array(),
+		'rbelad_pro_post'        => array(),
+		'rbelad_pro_builder'     => array(),
 	);
 
 	foreach ( $all_widgets_map as $slug => $data ) {
-		$is_pro = $data['is_pro'] ?? false;
+		$is_pro  = ! empty( $data['is_pro'] );
+		$cat_key = $data['cat'] ?? 'rbelad_addons_general';
 
-		$category = $is_pro ? 'rbelad_addons_pro' : ( $data['cat'] ?? 'rbelad_addons_general' );
+		// Force PRO widgets into their respective PRO category.
+		if ( $is_pro ) {
+			$cat_key = $data['cat'] ?? 'rbelad_pro_creative';
+		}
 
-		$widgets_by_category[ $category ][ $slug ] = array(
+		// Fallback if category is not registered.
+		if ( ! isset( $widgets_by_category[ $cat_key ] ) ) {
+			$cat_key = 'rbelad_addons_general';
+		}
+
+		$widgets_by_category[ $cat_key ][ $slug ] = array(
 			'label'  => ucwords( str_replace( '-', ' ', $slug ) ),
 			'is_pro' => $is_pro,
 		);
@@ -49,30 +62,26 @@ function rbelad_widgets_manager_page() {
 		? $saved_widgets
 		: array_keys( $all_widgets_map );
 
-	$icon_path = defined( 'RBELAD_ICONS' ) ? RBELAD_ICONS . 'rbelad-' : '';
-
 	// Begin markup.
 	echo '<div class="wrap rbelad-dashboard">';
 
 	echo '<h1 class="rbelad-dashboard-title">' . esc_html__( 'RB Elementor Widgets', 'rb-elementor-addons' ) . '</h1>';
 
-	printf(
-		'<p class="rbelad-dashboard-description">%s</p>',
-		sprintf(
-			/* translators: 1: Number of widgets. 2: Opening <strong> tag. 3: Closing </strong> tag. */
-			esc_html__(
-				'Here is the list of our all %1$d widgets. You can enable or disable widgets from here to optimize loading speed and Elementor editor experience. After enabling or disabling any widget make sure to click the %2$sSave Changes%3$s button.',
-				'rb-elementor-addons'
-			),
-			absint( count( $all_widgets_map ) ),
-			'<strong class="rbelad-dashboard-theme-color">',
-			'</strong>'
-		)
-	);
+	$total_widgets = count( $all_widgets_map );
+	$free_widgets  = 0;
+	$pro_widgets   = 0;
+
+	foreach ( $all_widgets_map as $data ) {
+		if ( ! empty( $data['is_pro'] ) ) {
+			++$pro_widgets;
+		} else {
+			++$free_widgets;
+		}
+	}
 
 	// Filter Buttons.
 	echo '<div class="rbelad-action-list">';
-	echo '<button type="button" class="rbelad-action--btn" data-filter="*">' . esc_html__( 'All', 'rb-elementor-addons' ) . '</button>';
+	echo '<button type="button" class="rbelad-action--btn rbelad-active--btn" data-filter="*">' . esc_html__( 'All', 'rb-elementor-addons' ) . '</button>';
 	echo '<button type="button" class="rbelad-action--btn" data-filter="free">' . esc_html__( 'Free', 'rb-elementor-addons' ) . '</button>';
 	echo '<button type="button" class="rbelad-action--btn" data-filter="pro">' . esc_html__( 'Pro', 'rb-elementor-addons' ) . '</button>';
 	echo '<span class="rbelad-action--divider">|</span>';
@@ -94,12 +103,28 @@ function rbelad_widgets_manager_page() {
 				$category_title = esc_html__( 'RB General Addons', 'rb-elementor-addons' );
 				$category_class = 'rbelad-widget-free';
 				break;
-			case 'rbelad_addons_core':
+			case 'rbelad_addons_creative':
+				$category_title = esc_html__( 'RB Creative Addons', 'rb-elementor-addons' );
+				$category_class = 'rbelad-widget-free';
+				break;
+			case 'rbelad_addons_builder':
 				$category_title = esc_html__( 'RB WordPress Addons', 'rb-elementor-addons' );
 				$category_class = 'rbelad-widget-free';
 				break;
-			case 'rbelad_addons_pro':
-				$category_title = esc_html__( 'RB Addons Pro', 'rb-elementor-addons' );
+			case 'rbelad_pro_creative':
+				$category_title = esc_html__( 'RB Creative Pro', 'rb-elementor-addons' );
+				$category_class = 'rbelad-widget-pro';
+				break;
+			case 'rbelad_pro_slider':
+				$category_title = esc_html__( 'RB Slider Pro', 'rb-elementor-addons' );
+				$category_class = 'rbelad-widget-pro';
+				break;
+			case 'rbelad_pro_post':
+				$category_title = esc_html__( 'RB Post Pro', 'rb-elementor-addons' );
+				$category_class = 'rbelad-widget-pro';
+				break;
+			case 'rbelad_pro_builder':
+				$category_title = esc_html__( 'RB WordPress Pro', 'rb-elementor-addons' );
 				$category_class = 'rbelad-widget-pro';
 				break;
 			default:
@@ -108,7 +133,8 @@ function rbelad_widgets_manager_page() {
 				break;
 		}
 
-		echo '<h2 class="rbelad-widget-title">' . esc_html( $category_title ) . '</h2>';
+		$category_total_widgets = count( $widgets );
+		echo '<div class="' . esc_attr( $category_class ) . '"><div class="rbelad-dashboard-widgets__list-header"><h2 class="rbelad-widget-title">' . esc_html( $category_title ) . ' - <strong class="rbelad-dashboard-theme-color">(' . absint( $category_total_widgets ) . ' Widgets)</strong></h2><div class="rbelad-cat-action-btns"><button type="button" class="rbelad-action--btn" data-action="enable_category">Enable Category</button><button type="button" class="rbelad-action--btn" data-action="disable_category">Disable Category</button></div></div>';
 		echo '<div class="rbelad-dashboard-widgets__list">';
 
 		foreach ( $widgets as $slug => $info ) {
@@ -116,16 +142,12 @@ function rbelad_widgets_manager_page() {
 			$is_pro      = $info['is_pro'];
 			$is_disabled = ( $is_pro && ! $is_pro_active );
 
-			// Safe WordPress helpers (return HTML attribute if condition is true).
-			$checked_attr  = checked( in_array( $slug, $enabled, true ), true, false );
-			$disabled_attr = disabled( $is_disabled, true, false );
-
 			$demo_url       = Widget_Manager::get_widget_demo( $slug );
 			$disabled_class = $is_disabled ? 'rbelad-toggle-disabled' : '';
 			$tooltip        = $is_disabled ? esc_attr__( 'Activate Pro plugin to enable this widget.', 'rb-elementor-addons' ) : '';
 
-			echo '<div class="rbelad-dashboard-widgets__item ' . esc_attr( $category_class ) . '">';
-			echo '<img src="' . esc_url( $icon_path . $slug . '.svg' ) . '" alt="' . esc_attr( $label ) . '">';
+			echo '<div class="rbelad-dashboard-widgets__item">';
+			echo '<i class="rbelad-icon rbelad-' . esc_attr( $slug ) . '"></i>';
 
 			echo '<div class="rbelad-dashboard-widgets__item-text">';
 			echo '<h3 class="rbelad-dashboard-widgets__item-title">' . esc_html( $label ) . '</h3>';
@@ -148,7 +170,7 @@ function rbelad_widgets_manager_page() {
 			echo '</div>'; // .item
 		}
 
-		echo '</div>'; // .list
+		echo '</div></div>'; // .list
 	}
 
 	submit_button();

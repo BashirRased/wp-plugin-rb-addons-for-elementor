@@ -2,19 +2,36 @@
 /**
  * Archive Title Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
+
+use RBELAD_Elementor_Addons\Traits\Heading_Tag_Content;
+use RBELAD_Elementor_Addons\Traits\Link_Style;
+use RBELAD_Elementor_Addons\Traits\Link_Type_Content;
+use RBELAD_Elementor_Addons\Traits\Link_Type_Render;
+use RBELAD_Elementor_Addons\Traits\Text_Alignment_Style;
+use RBELAD_Elementor_Addons\Traits\Text_Style;
 
 defined( 'ABSPATH' ) || die();
 
 /**
  * Archive_Title class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Archive_Title extends Base {
+	/**
+	 * Use all trait.
+	 */
+	use Link_Type_Content;
+	use Heading_Tag_Content;
+	use Text_Style;
+	use Link_Style;
+	use Text_Alignment_Style;
+	use Link_Type_Render;
+
 	/**
 	 * Register widget search keywords
 	 */

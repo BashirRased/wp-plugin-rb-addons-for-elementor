@@ -2,7 +2,7 @@
 /**
  * Section Header widget - Description content controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

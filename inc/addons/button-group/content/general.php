@@ -2,7 +2,7 @@
 /**
  * Button Group widget content controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
+use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
 $prefix = 'rbelad_button_group_general_content_';
@@ -23,6 +24,9 @@ $this->start_controls_section(
 	)
 );
 
+// Widgets Buttons.
+Utilities::add_library_buttons( $this, 'button-group' );
+
 // All content add here.
 $this->add_style_controls(
 	$prefix . 'style_1',
@@ -34,6 +38,7 @@ $this->add_style_controls(
 				'options' => array(
 					'style-1' => esc_html__( 'Style - 01', 'rb-elementor-addons' ),
 					'style-2' => esc_html__( 'Style - 02', 'rb-elementor-addons' ),
+					'style-3' => esc_html__( 'Style - 03', 'rb-elementor-addons' ),
 				),
 				'default' => 'style-1',
 			),
@@ -55,6 +60,7 @@ $this->add_repeater_controls(
 				'id'      => $prefix . 'link_type',
 				'label'   => esc_html__( 'Link Type', 'rb-elementor-addons' ),
 				'options' => array(
+					'none'   => esc_html__( 'None', 'rb-elementor-addons' ),
 					'page'   => esc_html__( 'Page Link', 'rb-elementor-addons' ),
 					'custom' => esc_html__( 'Custom Link', 'rb-elementor-addons' ),
 				),
@@ -69,7 +75,7 @@ $this->add_repeater_controls(
 			'custom_link' => array(
 				'id'        => $prefix . 'custom_link',
 				'condition' => array(
-					'link_type' => 'custom',
+					$prefix . 'link_type' => 'custom',
 				),
 			),
 		),

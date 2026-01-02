@@ -2,7 +2,7 @@
 /**
  * Button Group widget - General style controls.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,12 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 // Controls variables.
 $prefix = 'rbelad_button_group_general_';
 $cls_1  = '{{WRAPPER}} .rbelad-button-group';
 $cls_2  = '{{WRAPPER}} .rbelad-btn-item';
+$cls_3  = '{{WRAPPER}} .rbelad-btn-item, {{WRAPPER}} .style-3.rbelad-btn-item::after';
+$cls_4  = '{{WRAPPER}} .rbelad-btn-item::before';
+$cls_5  = '{{WRAPPER}} .style-1.rbelad-btn-item span, {{WRAPPER}} .style-2.rbelad-btn-item span, {{WRAPPER}} .style-3.rbelad-btn-item, {{WRAPPER}} .style-3.rbelad-btn-item a';
+$cls_6  = '{{WRAPPER}} .style-1.rbelad-btn-item:hover span, {{WRAPPER}} .style-1.rbelad-btn-item:focus span, {{WRAPPER}} .style-2.rbelad-btn-item:hover span, {{WRAPPER}} .style-2.rbelad-btn-item:focus span, {{WRAPPER}} .style-3.rbelad-btn-item:hover, {{WRAPPER}} .style-3.rbelad-btn-item:focus, {{WRAPPER}} .style-3.rbelad-btn-item:hover a, {{WRAPPER}} .style-3.rbelad-btn-item:focus a';
+$cls_7  = '{{WRAPPER}} .rbelad-btn-item::before, {{WRAPPER}} .style-3.rbelad-btn-item span::before, {{WRAPPER}} .style-3.rbelad-btn-item:focus span';
+$cls_8  = '{{WRAPPER}} .style-1.rbelad-btn-item::before, {{WRAPPER}} .style-2.rbelad-btn-item::before, {{WRAPPER}} .style-3.rbelad-btn-item span::before, {{WRAPPER}} .style-3.rbelad-btn-item, {{WRAPPER}} .style-3.rbelad-btn-item::after';
+$cls_9  = '{{WRAPPER}} .style-3.rbelad-btn-item:hover, {{WRAPPER}} .style-3.rbelad-btn-item:hover span::before, {{WRAPPER}} .style-3.rbelad-btn-item:focus, {{WRAPPER}} .style-3.rbelad-btn-item:focus span::before';
 
 // Start Section Tab - Style.
 $this->start_controls_section(
@@ -32,9 +38,9 @@ $this->add_style_controls(
 	array(
 		'controls' => array(
 			// Text Align.
-			'justify_align'        => array(
-				'id'           => $prefix . 'justify_align',
-				'options'      => rbelad_align_text(),
+			'item_align'        => array(
+				'id'           => $prefix . 'item_align',
+				'options'      => rbelad_align_justify(),
 				'default'      => is_rtl() ? 'right' : 'left',
 				'select_class' => $cls_1,
 			),
@@ -61,7 +67,7 @@ $this->add_style_controls(
 			// Typography.
 			'typography'           => array(
 				'name'         => $prefix . 'typography',
-				'global'       => array( 'default' => Global_Typography::TYPOGRAPHY_TEXT ),
+				'global'       => array( 'default' => RBELAD_GENERAL_TEXT ),
 				'select_class' => $cls_2,
 			),
 			'text_stroke'          => array(
@@ -74,21 +80,6 @@ $this->add_style_controls(
 			),
 			'typography_separator' => array(
 				'id' => $prefix . 'typography_separator',
-			),
-
-			// Colors.
-			'color'                => array(
-				'id'           => $prefix . 'color',
-				'default'      => '#ffffff',
-				'select_class' => $cls_2,
-			),
-			'bg_color'             => array(
-				'id'           => $prefix . 'bg_color',
-				'default'      => '#007bff',
-				'select_class' => $cls_2,
-			),
-			'color_separator'      => array(
-				'id' => $prefix . 'color_separator',
 			),
 
 			// Margin & Padding.
@@ -117,9 +108,115 @@ $this->add_style_controls(
 				'id'           => $prefix . 'border_radius',
 				'select_class' => $cls_2,
 			),
+			'border_separator'     => array(
+				'id' => $prefix . 'border_separator',
+			),
+
+			// Transition.
+			'transition_property'  => array(
+				'id'           => $prefix . 'transition_property',
+				'default'      => 'all',
+				'select_class' => $cls_8,
+			),
+			'transition_duration'  => array(
+				'id'           => $prefix . 'transition_duration',
+				'default'      => array(
+					'unit' => 's',
+					'size' => 0.5,
+				),
+				'select_class' => $cls_8,
+			),
+			'timing_function'      => array(
+				'id'           => $prefix . 'timing_function',
+				'default'      => 'ease-in-out',
+				'select_class' => $cls_8,
+			),
+			'transition_delay'     => array(
+				'id'           => $prefix . 'transition_delay',
+				'default'      => array(
+					'unit' => 's',
+					'size' => 0,
+				),
+				'select_class' => $cls_8,
+			),
 		),
 	),
 );
+
+// Tabs.
+$this->start_controls_tabs( $prefix . 'tabs' );
+
+// Normal Tab.
+$this->start_controls_tab(
+	$prefix . 'normal_tab',
+	array(
+		'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+	)
+);
+
+$this->add_style_controls(
+	$prefix . 'style_2',
+	array(
+		'controls' => array(
+			// Colors.
+			'color'    => array(
+				'id'           => $prefix . 'color',
+				'default'      => RBELAD_WHITE_COLOR,
+				'select_class' => $cls_5,
+			),
+			'bg_color' => array(
+				'id'           => $prefix . 'bg_color',
+				'default'      => RBELAD_PRIMARY_COLOR,
+				'select_class' => $cls_3,
+			),
+		),
+	),
+);
+
+$this->end_controls_tab();
+
+// Hover Tab.
+$this->start_controls_tab(
+	$prefix . 'hover_tab',
+	array(
+		'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+	)
+);
+
+$this->add_style_controls(
+	$prefix . 'style_3',
+	array(
+		'controls' => array(
+			// Colors.
+			'color'            => array(
+				'id'           => $prefix . 'hover_color',
+				'default'      => RBELAD_WHITE_COLOR,
+				'select_class' => $cls_6,
+			),
+			'bg_color'         => array(
+				'id'           => $prefix . 'hover_bg_color',
+				'default'      => RBELAD_BLACK_COLOR,
+				'select_class' => $cls_7,
+			),
+			'border_color'     => array(
+				'id'           => $prefix . 'hover_border_color',
+				'select_class' => $cls_6,
+			),
+			'transition_delay' => array(
+				'id'           => $prefix . 'hover_transition_delay',
+				'default'      => array(
+					'unit' => 's',
+					'size' => 0.4,
+				),
+				'select_class' => $cls_9,
+			),
+		),
+	),
+);
+
+$this->end_controls_tab();
+
+$this->end_controls_tabs();
 
 // End Section Tab.
 $this->end_controls_section();

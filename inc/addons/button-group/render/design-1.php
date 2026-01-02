@@ -2,7 +2,7 @@
 /**
  * Button Group widget output.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,6 +26,8 @@ foreach ( $settings['rbelad_button_group_general_content_repeater'] as $index =>
 		$this->add_render_attribute( $item_key, 'class', 'style-1' );
 	} elseif ( 'style-2' === $settings['rbelad_button_group_general_content_choose_style'] ) {
 		$this->add_render_attribute( $item_key, 'class', 'style-2' );
+	} elseif ( 'style-3' === $settings['rbelad_button_group_general_content_choose_style'] ) {
+		$this->add_render_attribute( $item_key, 'class', 'style-3' );
 	}
 
 	// Button Text.
@@ -33,40 +35,78 @@ foreach ( $settings['rbelad_button_group_general_content_repeater'] as $index =>
 		$btn_text = $item['rbelad_button_group_general_content_btn_text'];
 	}
 
-	if ( 'custom' === $item['rbelad_button_group_general_content_link_type'] && ! empty( $item['rbelad_button_group_general_content_custom_link']['url'] ) ) {
-		// Add dynamic class per item.
-		$this->add_link_attributes( $item_key, $item['rbelad_button_group_general_content_custom_link'] );
-		$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
-		$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+	if ( 'style-1' === $settings['rbelad_button_group_general_content_choose_style'] || 'style-2' === $settings['rbelad_button_group_general_content_choose_style'] ) {
+		if ( 'custom' === $item['rbelad_button_group_general_content_link_type'] && ! empty( $item['rbelad_button_group_general_content_custom_link']['url'] ) ) {
+			// Add dynamic class per item.
+			$this->add_link_attributes( $item_key, $item['rbelad_button_group_general_content_custom_link'] );
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
 
-		// Get final class attribute for this item.
-		$item_attr = $this->get_render_attribute_string( $item_key );
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
 
-		// Build item HTML.
-		$btn_item_array[] = sprintf( '<a %1$s><span>%2$s</span></a>', $item_attr, $btn_text );
-	} elseif ( 'page' === $item['rbelad_button_group_general_content_link_type'] ) {
-		// Add dynamic class per item.
-		$this->add_render_attribute( $item_key, 'href', esc_url( get_permalink( $settings['rbelad_button_group_general_content_page_link'] ) ) );
-		$this->add_render_attribute( $item_key, 'target', '_self' );
-		$this->add_render_attribute( $item_key, 'rel', 'nofollow' );
-		$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
-		$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<a %1$s><span>%2$s</span></a>', $item_attr, $btn_text );
+		} elseif ( 'page' === $item['rbelad_button_group_general_content_link_type'] ) {
+			// Add dynamic class per item.
+			$this->add_render_attribute( $item_key, 'href', esc_url( get_permalink( $settings['rbelad_button_group_general_content_page_link'] ) ) );
+			$this->add_render_attribute( $item_key, 'target', '_self' );
+			$this->add_render_attribute( $item_key, 'rel', 'nofollow' );
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
 
-		// Get final class attribute for this item.
-		$item_attr = $this->get_render_attribute_string( $item_key );
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
 
-		// Build item HTML.
-		$btn_item_array[] = sprintf( '<a %1$s><span>%2$s</span></a>', $item_attr, $btn_text );
-	} else {
-		// Add dynamic class per item.
-		$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
-		$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<a %1$s><span>%2$s</span></a>', $item_attr, $btn_text );
+		} else {
+			// Add dynamic class per item.
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
 
-		// Get final class attribute for this item.
-		$item_attr = $this->get_render_attribute_string( $item_key );
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
 
-		// Build item HTML.
-		$btn_item_array[] = sprintf( '<button %1$s><span>%2$s</span></button>', $item_attr, $btn_text );
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<button %1$s><span>%2$s</span></button>', $item_attr, $btn_text );
+		}
+	} elseif ( 'style-3' === $settings['rbelad_button_group_general_content_choose_style'] ) {
+		if ( 'custom' === $item['rbelad_button_group_general_content_link_type'] && ! empty( $item['rbelad_button_group_general_content_custom_link']['url'] ) ) {
+			// Add dynamic class per item.
+			$this->add_link_attributes( $item_key, $item['rbelad_button_group_general_content_custom_link'] );
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
+
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<a %1$s><span></span>%2$s</a>', $item_attr, $btn_text );
+		} elseif ( 'page' === $item['rbelad_button_group_general_content_link_type'] ) {
+			// Add dynamic class per item.
+			$this->add_render_attribute( $item_key, 'href', esc_url( get_permalink( $settings['rbelad_button_group_general_content_page_link'] ) ) );
+			$this->add_render_attribute( $item_key, 'target', '_self' );
+			$this->add_render_attribute( $item_key, 'rel', 'nofollow' );
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
+
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<a %1$s><span></span>%2$s</a>', $item_attr, $btn_text );
+		} else {
+			// Add dynamic class per item.
+			$this->add_render_attribute( $item_key, 'class', 'rbelad-btn-item' );
+			$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
+
+			// Get final class attribute for this item.
+			$item_attr = $this->get_render_attribute_string( $item_key );
+
+			// Build item HTML.
+			$btn_item_array[] = sprintf( '<button %1$s><span></span>%2$s</button>', $item_attr, $btn_text );
+		}
 	}
 }
 

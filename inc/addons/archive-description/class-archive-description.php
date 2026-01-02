@@ -2,19 +2,30 @@
 /**
  * Archive Description Widget.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
+
+use RBELAD_Elementor_Addons\Traits\Text_Style;
+use RBELAD_Elementor_Addons\Traits\Color_Style;
+use RBELAD_Elementor_Addons\Traits\Text_Alignment_Style;
 
 defined( 'ABSPATH' ) || die();
 
 /**
  * Archive_Description class.
  *
- * @package RB_Elementor_Addons
+ * @package RBELAD_Elementor_Addons
  */
 class Archive_Description extends Base {
+	/**
+	 * Use all trait.
+	 */
+	use Text_Style;
+	use Color_Style;
+	use Text_Alignment_Style;
+
 	/**
 	 * Register widget search keywords
 	 */
@@ -40,7 +51,22 @@ class Archive_Description extends Base {
 	 * Register widget control
 	 */
 	protected function register_controls() {
+		$this->register_content_tab();
 		$this->register_style_tab();
+	}
+
+	/**
+	 * Widget content tab
+	 */
+	protected function register_content_tab() {
+		$this->__general_content();
+	}
+
+	/**
+	 * Content - General
+	 */
+	protected function __general_content() {
+		require RBELAD_WIDGETS . '/archive-description/content/general.php';
 	}
 
 	/**
