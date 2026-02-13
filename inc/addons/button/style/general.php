@@ -10,109 +10,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 // Controls variables.
-$prefix = 'rbelad_button_general_';
-$cls_1  = '{{WRAPPER}} .rbelad-btn-item';
-$cls_2  = '{{WRAPPER}} .rbelad-btn-item-wrap';
+$section_prefix           = $this->get_section_prefix( 'style_section_' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$prefix                   = $section_prefix . 'general'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_1                  = '{{WRAPPER}} .rbelad-button-widget-item'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_hover_1            = '{{WRAPPER}} .rbelad-button-widget-item:hover'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_focus_1            = '{{WRAPPER}} .rbelad-button-widget-item:focus'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$link_class_hover_1       = '{{WRAPPER}} .rbelad-button-widget-item:hover'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$link_class_focus_1       = '{{WRAPPER}} .rbelad-button-widget-item:focus'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$link_default_color       = ''; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$link_default_color_hover = ''; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
-	$prefix . 'section_style',
+	$prefix . 'general',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
 
-// All content add here.
-$this->add_style_controls(
-	$prefix . 'style_1',
-	array(
-		'controls' => array(
-			// Typography.
-			'typography'           => array(
-				'id'           => $prefix . 'typography',
-				'global'       => array( 'default' => RBELAD_GENERAL_TEXT ),
-				'select_class' => $cls_1,
-			),
-			'text_stroke'          => array(
-				'id'           => $prefix . 'text_stroke',
-				'select_class' => $cls_1,
-			),
-			'text_shadow'          => array(
-				'id'           => $prefix . 'text_shadow',
-				'select_class' => $cls_1,
-			),
-			'typography_separator' => array(
-				'id' => $prefix . 'typography_separator',
-			),
+// Text Style.
+$this->register_text_style( $prefix, $class_1 ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-			// Text Align.
-			'align'                => array(
-				'id'           => $prefix . 'align',
-				'options'      => rbelad_align_justify(),
-				'default'      => is_rtl() ? 'right' : 'left',
-				'select_class' => '{{WRAPPER}} .rbelad-btn-item-wrap',
-			),
-			'align_separator'      => array(
-				'id' => $prefix . 'align_separator',
-			),
+// Spacing Style.
+$this->register_spacing_style( $prefix, $class_1 ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-			// Colors.
-			'color'                => array(
-				'id'           => $prefix . 'color',
-				'default'      => RBELAD_WHITE_COLOR,
-				'select_class' => $cls_1,
-			),
-			'bg_color'             => array(
-				'id'           => $prefix . 'bg_color',
-				'default'      => RBELAD_PRIMARY_COLOR,
-				'select_class' => $cls_1,
-			),
-			'border_color'         => array(
-				'id'           => $prefix . 'border_color',
-				'default'      => RBELAD_WHITE_COLOR,
-				'select_class' => $cls_1,
-			),
-			'color_separator'      => array(
-				'id' => $prefix . 'color_separator',
-			),
+// Border Style.
+$this->register_border_style( $prefix, $class_1, $class_hover_1, $class_focus_1 ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-			// Margin & Padding.
-			'margin'               => array(
-				'id'           => $prefix . 'margin',
-				'select_class' => $cls_1,
-			),
-			'padding'              => array(
-				'id'           => $prefix . 'padding',
-				'default'      => array(
-					'top'      => '10',
-					'right'    => '45',
-					'bottom'   => '10',
-					'left'     => '45',
-					'unit'     => 'px',
-					'isLinked' => false,
-				),
-				'select_class' => $cls_1,
-			),
-			'spacing_separator'    => array(
-				'id' => $prefix . 'spacing_separator',
-			),
+// Transition Style.
+$this->register_transition_style( $prefix, $class_1, $class_hover_1, $class_focus_1 ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-			// Border & Border Radius.
-			'border'               => array(
-				'id'           => $prefix . 'border',
-				'select_class' => $cls_1,
-			),
-			'border_radius'        => array(
-				'id'           => $prefix . 'border_radius',
-				'select_class' => $cls_1,
-			),
-		),
-	),
-);
+// Link Style.
+$this->register_link_style( $prefix, $class_1, $link_class_hover_1, $link_class_focus_1, $link_default_color, $link_default_color_hover ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Background Style.
+$this->register_bg_style( $prefix, $class_1, $class_hover_1, $class_focus_1 ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // End Section Tab.
 $this->end_controls_section();

@@ -37,7 +37,6 @@ class List_Style extends Base {
 		);
 	}
 
-
 	/**
 	 * Register widget control
 	 */

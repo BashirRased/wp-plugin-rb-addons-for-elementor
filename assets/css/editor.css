@@ -1,6 +1,7 @@
 :root {
 	--color-primary: #007bff;
 	--color-secondary: #f93601;
+	--color-black: #000000;
 	--color-white: #ffffff;
 }
 
@@ -13,7 +14,6 @@
 	font-family: "Josefin Sans", sans-sarif;
 	font-size: 20px;
 	color: var(--color-primary);
-	border-bottom: 2px solid var(--color-secondary);
 	padding-bottom: 2px;
 }
 

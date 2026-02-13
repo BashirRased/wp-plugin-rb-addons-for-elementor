@@ -11,8 +11,8 @@
 }
 
 .rbelad-icon {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'RB-Elementor-Font' !important;
+  /* use to prevent issues with browser extensions that change fonts */
+  font-family: 'RB-Elementor-Font';
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -25,345 +25,184 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.elementor-panel .elementor-element .icon .rbelad-icon:after {
+.elementor-panel .elementor-element .icon .rbelad-icon::after {
     position: absolute;
     top: 5px;
     right: 6px;
-    content: "\e918";
+    content: "\e90a";
     font-size: 20px;
 	color: #f93601;
 }
 
-.rbelad-search-box:before {
+.elementor-navigator__element__element-type .rbelad-auto-typing::after,
+.elementor-navigator__element__element-type .rbelad-button::after,
+.elementor-navigator__element__element-type .rbelad-button-group::after,
+.elementor-navigator__element__element-type .rbelad-divider::after,
+.elementor-navigator__element__element-type .rbelad-dual-text::after,
+.elementor-navigator__element__element-type .rbelad-list-style::after,
+.elementor-navigator__element__element-type .rbelad-lottie-animation::after,
+.elementor-navigator__element__element-type .rbelad-page-list::after,
+.elementor-navigator__element__element-type .rbelad-pdf-view::after,
+.elementor-navigator__element__element-type .rbelad-rating-star::after,
+.elementor-navigator__element__element-type .rbelad-scroll-down::after,
+.elementor-navigator__element__element-type .rbelad-section-header::after,
+.elementor-navigator__element__element-type .rbelad-social-icon::after {
+	content: "\e90a";
+	right: 10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+    font-size: 16px;
+	color: #f93601;
+}
+
+.rbelad-auto-typing:before {
   content: "\e900";
 }
-.rbelad-section-header:before {
+.rbelad-button:before {
   content: "\e901";
 }
-.rbelad-service-latest-posts:before {
+.rbelad-button-group:before {
   content: "\e902";
 }
-.rbelad-service-list:before {
+.rbelad-divider:before {
   content: "\e903";
 }
-.rbelad-service-post-carousel:before {
+.rbelad-dual-text:before {
   content: "\e904";
 }
-.rbelad-service-post-grid:before {
+.rbelad-list-style:before {
   content: "\e905";
 }
-.rbelad-share-button:before {
+.rbelad-lottie-animation:before {
   content: "\e906";
 }
-.rbelad-simple-menu:before {
+.rbelad-page-list:before {
   content: "\e907";
 }
-.rbelad-site-logo:before {
+.rbelad-pdf-view:before {
   content: "\e908";
 }
-.rbelad-site-tagline:before {
+.rbelad-rating-star:before {
   content: "\e909";
 }
-.rbelad-site-title:before {
+.rbelad-rb-addons:before {
   content: "\e90a";
 }
-.rbelad-skill-bar:before {
+.rbelad-scroll-down:before {
   content: "\e90b";
 }
-.rbelad-social-icon:before {
+.rbelad-section-header:before {
   content: "\e90c";
 }
-.rbelad-subscribe-form:before {
+.rbelad-social-icon:before {
   content: "\e90d";
 }
-.rbelad-tag-meta:before {
+.rbelad-behance:before {
   content: "\e90e";
 }
-.rbelad-team-carousel:before {
+.rbelad-codepen:before {
   content: "\e90f";
 }
-.rbelad-team-grid:before {
+.rbelad-dribbble:before {
   content: "\e910";
 }
-.rbelad-testimonial-carousel:before {
+.rbelad-facebook:before {
   content: "\e911";
 }
-.rbelad-testimonial-grid:before {
+.rbelad-github:before {
   content: "\e912";
 }
-.rbelad-testimonial-section:before {
+.rbelad-instagram:before {
   content: "\e913";
 }
-.rbelad-text-scrolling:before {
+.rbelad-linkedin:before {
   content: "\e914";
 }
-.rbelad-timeline:before {
+.rbelad-pinterest:before {
   content: "\e915";
 }
-.rbelad-twitter-feed:before {
+.rbelad-tiktok:before {
   content: "\e916";
 }
-.rbelad-video-section:before {
+.rbelad-twitter:before {
   content: "\e917";
 }
-.rbelad-rb-addons:before {
+.rbelad-twitter-x:before {
   content: "\e918";
 }
-.rbelad-about-image-section:before {
+.rbelad-whatsapp:before {
   content: "\e919";
 }
-.rbelad-accordion:before {
+.rbelad-youtube:before {
   content: "\e91a";
 }
-.rbelad-advanced-tabs:before {
+.rbelad-box-open:before {
   content: "\e91b";
 }
-.rbelad-alert:before {
+.rbelad-calendar:before {
   content: "\e91c";
 }
-.rbelad-archive-description:before {
+.rbelad-credit-card:before {
   content: "\e91d";
 }
-.rbelad-archive-posts:before {
+.rbelad-dollar:before {
   content: "\e91e";
 }
-.rbelad-archive-title:before {
+.rbelad-email:before {
   content: "\e91f";
 }
-.rbelad-author-meta:before {
+.rbelad-faq:before {
   content: "\e920";
 }
-.rbelad-auto-typing:before {
+.rbelad-flim:before {
   content: "\e921";
 }
-.rbelad-business-hours:before {
+.rbelad-heading:before {
   content: "\e922";
 }
-.rbelad-button:before {
+.rbelad-helpline:before {
   content: "\e923";
 }
-.rbelad-button-group:before {
+.rbelad-link-broken:before {
   content: "\e924";
 }
-.rbelad-call-to-action:before {
+.rbelad-location:before {
   content: "\e925";
 }
-.rbelad-category-meta:before {
+.rbelad-location-2:before {
   content: "\e926";
 }
-.rbelad-comment-form:before {
+.rbelad-marquee:before {
   content: "\e927";
 }
-.rbelad-comment-header:before {
+.rbelad-massage:before {
   content: "\e928";
 }
-.rbelad-comment-list:before {
+.rbelad-menu:before {
   content: "\e929";
 }
-.rbelad-comment-meta:before {
+.rbelad-movie-camera:before {
   content: "\e92a";
 }
-.rbelad-comment-pagination:before {
+.rbelad-next-link:before {
   content: "\e92b";
 }
-.rbelad-contact-form:before {
+.rbelad-phone:before {
   content: "\e92c";
 }
-.rbelad-contact-info:before {
+.rbelad-quotation:before {
   content: "\e92d";
 }
-.rbelad-countdown:before {
+.rbelad-ribbon-arrow-1:before {
   content: "\e92e";
 }
-.rbelad-count-down:before {
+.rbelad-right-top-arrow-1:before {
   content: "\e92f";
 }
-.rbelad-countdown-section:before {
+.rbelad-teamwork:before {
   content: "\e930";
 }
-.rbelad-date-meta:before {
+.rbelad-trophy:before {
   content: "\e931";
-}
-.rbelad-divider:before {
-  content: "\e932";
-}
-.rbelad-donation-latest-posts:before {
-  content: "\e933";
-}
-.rbelad-donation-post-carousel:before {
-  content: "\e934";
-}
-.rbelad-donation-post-category:before {
-  content: "\e935";
-}
-.rbelad-donation-post-grid:before {
-  content: "\e936";
-}
-.rbelad-donation-post-section:before {
-  content: "\e937";
-}
-.rbelad-drop-cap:before {
-  content: "\e938";
-}
-.rbelad-dual-text:before {
-  content: "\e939";
-}
-.rbelad-email:before {
-  content: "\e93a";
-}
-.rbelad-event-post-grid:before {
-  content: "\e93b";
-}
-.rbelad-event-post-list:before {
-  content: "\e93c";
-}
-.rbelad-faq:before {
-  content: "\e93d";
-}
-.rbelad-faq-section:before {
-  content: "\e93e";
-}
-.rbelad-featured-banner:before {
-  content: "\e93f";
-}
-.rbelad-featured-slider:before {
-  content: "\e940";
-}
-.rbelad-feature-list:before {
-  content: "\e941";
-}
-.rbelad-fun-fact:before {
-  content: "\e942";
-}
-.rbelad-google-map:before {
-  content: "\e943";
-}
-.rbelad-google-map-section:before {
-  content: "\e944";
-}
-.rbelad-gradient-text:before {
-  content: "\e945";
-}
-.rbelad-hero-section:before {
-  content: "\e946";
-}
-.rbelad-hero-section-slider:before {
-  content: "\e947";
-}
-.rbelad-icon-box:before {
-  content: "\e948";
-}
-.rbelad-image-grid:before {
-  content: "\e949";
-}
-.rbelad-latest-post-list:before {
-  content: "\e94a";
-}
-.rbelad-list-style:before {
-  content: "\e94b";
-}
-.rbelad-location:before {
-  content: "\e94c";
-}
-.rbelad-location-2:before {
-  content: "\e94d";
-}
-.rbelad-logo-carousel:before {
-  content: "\e94e";
-}
-.rbelad-logo-list:before {
-  content: "\e94f";
-}
-.rbelad-logo-sliding:before {
-  content: "\e950";
-}
-.rbelad-lottie-animation:before {
-  content: "\e951";
-}
-.rbelad-massage:before {
-  content: "\e952";
-}
-.rbelad-mega-menu:before {
-  content: "\e953";
-}
-.rbelad-navigation-menu:before {
-  content: "\e954";
-}
-.rbelad-news-ticker:before {
-  content: "\e955";
-}
-.rbelad-page-list:before {
-  content: "\e956";
-}
-.rbelad-page-pagination:before {
-  content: "\e957";
-}
-.rbelad-page-title:before {
-  content: "\e958";
-}
-.rbelad-pdf-view:before {
-  content: "\e959";
-}
-.rbelad-phone:before {
-  content: "\e95a";
-}
-.rbelad-portfolio-section:before {
-  content: "\e95b";
-}
-.rbelad-post-carousel:before {
-  content: "\e95c";
-}
-.rbelad-post-edit-meta:before {
-  content: "\e95d";
-}
-.rbelad-post-excerpt:before {
-  content: "\e95e";
-}
-.rbelad-post-grid:before {
-  content: "\e95f";
-}
-.rbelad-post-list:before {
-  content: "\e960";
-}
-.rbelad-post-meta-separator:before {
-  content: "\e961";
-}
-.rbelad-post-navigation:before {
-  content: "\e962";
-}
-.rbelad-post-pagination:before {
-  content: "\e963";
-}
-.rbelad-post-reading-time-meta:before {
-  content: "\e964";
-}
-.rbelad-post-thumbnail:before {
-  content: "\e965";
-}
-.rbelad-post-view-meta:before {
-  content: "\e966";
-}
-.rbelad-project-post-carousel:before {
-  content: "\e967";
-}
-.rbelad-project-post-grid:before {
-  content: "\e968";
-}
-.rbelad-project-post-list:before {
-  content: "\e969";
-}
-.rbelad-rating-skill:before {
-  content: "\e96a";
-}
-.rbelad-read-more-button:before {
-  content: "\e96b";
-}
-.rbelad-resume-list:before {
-  content: "\e96c";
-}
-.rbelad-ribbon-arrow-1:before {
-  content: "\e96d";
-}
-.rbelad-scroll-down:before {
-  content: "\e96e";
 }

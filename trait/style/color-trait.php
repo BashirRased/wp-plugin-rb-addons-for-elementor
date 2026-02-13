@@ -32,7 +32,7 @@ trait Color_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_color_heading',
-						'label' => esc_html__( 'Color', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Color', 'rb-addons-for-elementor' ),
 					),
 					'color'   => array(
 						'id'           => $prefix . '_color',

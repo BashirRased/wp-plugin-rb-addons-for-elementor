@@ -21,6 +21,25 @@ defined( 'ABSPATH' ) || die();
  * @package RBELAD_Elementor_Addons
  */
 abstract class Base extends Widget_Base {
+	/**
+	 * Get choose design options for a widget.
+	 *
+	 * @param string $widget_slug Widget slug (without prefix).
+	 * @return array
+	 */
+	protected function get_choose_design_options( string $widget_slug ): array {
+		$options      = array();
+		$free_widgets = Widget_Manager::get_free_widgets_map();
+		if ( isset( $free_widgets[ $widget_slug ]['styles'] ) ) {
+			foreach ( $free_widgets[ $widget_slug ]['styles'] as $key => $style ) {
+				$options[ $key ] = array(
+					'title' => $style['name'],
+					'image' => $style['thumb'],
+				);
+			}
+		}
+		return $options;
+	}
 
 	/**
 	 * Get the widget name.

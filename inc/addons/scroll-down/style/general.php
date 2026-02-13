@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = 'rbelad_scroll_down_general_';
-$cls_1  = '{{WRAPPER}} .rbelad-scroll-down';
+$prefix = 'rbelad_scroll_down_general_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1  = '{{WRAPPER}} .rbelad-scroll-down-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );

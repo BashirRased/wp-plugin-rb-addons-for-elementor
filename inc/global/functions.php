@@ -10,6 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Check whether pro version is defined.
+ *
+ * @return bool whether pro version is active
+ */
+function rbelad_has_pro() {
+	return defined( 'RBELAD_PRO_VERSION' );
+}
+
+/**
  * Check elementor version
  *
  * @param string $operator '<'.
@@ -27,27 +36,3 @@ function rbelad_addons_styles() {
 	wp_enqueue_style( 'rbelad-addons-style', RBELAD_ASSETS . 'css/style.css', null, time(), 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'rbelad_addons_styles' );
-
-/**
- * Add CSS & JS Files
- */
-function rbelad_addons_admin_dashboard() {
-	// Admin Dashboard CSS.
-	wp_enqueue_style(
-		'rbelad-admin-style',
-		RBELAD_ASSETS . 'css/admin.css',
-		array(),
-		time(),
-		'all'
-	);
-
-	// Admin Dashboard JS.
-	wp_enqueue_script(
-		'rbelad-admin',
-		RBELAD_ASSETS . 'js/admin.js',
-		array( 'jquery' ),
-		RBELAD_VERSION,
-		true
-	);
-}
-add_action( 'admin_enqueue_scripts', 'rbelad_addons_admin_dashboard' );

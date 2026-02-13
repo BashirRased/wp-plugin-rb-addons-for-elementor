@@ -12,15 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix          = 'rbelad_lis_style_info_';
-$description_cls = '{{WRAPPER}} .rbelad-list-item-info';
-$cls_1           = '{{WRAPPER}} .rbelad-list-item-info';
+$prefix          = 'rbelad_lis_style_info_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$description_cls = '{{WRAPPER}} .rbelad-list-item-info'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1           = '{{WRAPPER}} .rbelad-list-item-info'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section_info',
 	array(
-		'label' => esc_html__( 'Info', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'Info', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );

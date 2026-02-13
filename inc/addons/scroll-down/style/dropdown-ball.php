@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = 'rbelad_scroll_down_dropdown_ball_';
-$cls_1  = '{{WRAPPER}} .rbelad-scroll-down::after';
+$prefix = 'rbelad_scroll_down_dropdown_ball_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1  = '{{WRAPPER}} .rbelad-scroll-down-widget::after'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'Dropdown Ball', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'Dropdown Ball', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );

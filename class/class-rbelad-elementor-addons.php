@@ -69,7 +69,7 @@ final class RBELAD_Elementor_Addons {
 	 * Admin notice
 	 */
 	public function admin_notice_missing_main_plugin() {
-		$plugin_file = 'rb-elementor-addons/rb-elementor-addons.php'; // Define this correctly!
+		$plugin_file = 'rb-addons-for-elementor/rb-addons-for-elementor.php'; // Define this correctly!
 		if (
 			isset( $_GET['activate'] )
 			&& isset( $_GET['_wpnonce'] )
@@ -79,9 +79,9 @@ final class RBELAD_Elementor_Addons {
 		}
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-addons-for-elementor' ),
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-addons-for-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'rb-addons-for-elementor' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 	}
@@ -92,7 +92,7 @@ final class RBELAD_Elementor_Addons {
 	 * Warning when the site doesn't have a minimum required Elementor version.
 	 */
 	public function admin_notice_minimum_elementor_version() {
-		$plugin_file = 'rb-elementor-addons/rb-elementor-addons.php'; // Define this correctly!
+		$plugin_file = 'rb-addons-for-elementor/rb-addons-for-elementor.php'; // Define this correctly!
 		if (
 			isset( $_GET['activate'] )
 			&& isset( $_GET['_wpnonce'] )
@@ -102,9 +102,9 @@ final class RBELAD_Elementor_Addons {
 		}
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-addons-for-elementor' ),
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-addons-for-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'rb-addons-for-elementor' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 	}
@@ -115,7 +115,7 @@ final class RBELAD_Elementor_Addons {
 	 * Warning when the site doesn't have a minimum required PHP version.
 	 */
 	public function admin_notice_minimum_php_version() {
-		$plugin_file = 'rb-elementor-addons/rb-elementor-addons.php'; // Define this correctly!
+		$plugin_file = 'rb-addons-for-elementor/rb-addons-for-elementor.php'; // Define this correctly!
 		if (
 			isset( $_GET['activate'] )
 			&& isset( $_GET['_wpnonce'] )
@@ -125,9 +125,9 @@ final class RBELAD_Elementor_Addons {
 		}
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-elementor-addons' ),
-			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'rb-elementor-addons' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'rb-addons-for-elementor' ),
+			'<strong>' . esc_html__( 'RB Addons for Elementor', 'rb-addons-for-elementor' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'rb-addons-for-elementor' ) . '</strong>'
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 	}

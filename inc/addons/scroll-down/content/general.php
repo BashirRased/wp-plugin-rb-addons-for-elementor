@@ -10,22 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
-$prefix = 'rbelad_scroll_down_general_content_';
+$prefix = 'rbelad_scroll_down_general_content_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Content.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
 );
-
-// Widgets Buttons.
-Utilities::add_library_buttons( $this, 'scroll-down' );
 
 // All content add here.
 $this->add_style_controls(
@@ -35,10 +31,10 @@ $this->add_style_controls(
 			// Select Option.
 			'select_option' => array(
 				'id'      => $prefix . 'link_type',
-				'label'   => esc_html__( 'Link Type', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Link Type', 'rb-addons-for-elementor' ),
 				'options' => array(
-					'page'   => esc_html__( 'Page Link', 'rb-elementor-addons' ),
-					'custom' => esc_html__( 'Custom Link', 'rb-elementor-addons' ),
+					'page'   => esc_html__( 'Page Link', 'rb-addons-for-elementor' ),
+					'custom' => esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
 				),
 				'default' => 'custom',
 			),

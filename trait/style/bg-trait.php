@@ -36,7 +36,7 @@ trait Background_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_bg_heading',
-						'label' => esc_html__( 'Background Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Background Style', 'rb-addons-for-elementor' ),
 					),
 				),
 			)
@@ -53,7 +53,7 @@ trait Background_Style {
 		$this->start_controls_tab(
 			$prefix . '_bg_normal_tab',
 			array(
-				'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Normal', 'rb-addons-for-elementor' ),
 			)
 		);
 
@@ -77,7 +77,7 @@ trait Background_Style {
 		$this->start_controls_tab(
 			$prefix . '_bg_hover_tab',
 			array(
-				'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Hover', 'rb-addons-for-elementor' ),
 			)
 		);
 

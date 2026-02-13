@@ -48,7 +48,7 @@ class Page_Settings {
 	public function add_panel_tab() {
 		Controls_Manager::add_tab(
 			self::PANEL_TAB,
-			esc_html__( 'New Tab', 'rb-elementor-addons' )
+			esc_html__( 'New Tab', 'rb-addons-for-elementor' )
 		);
 	}
 
@@ -70,7 +70,7 @@ class Page_Settings {
 		$document->start_controls_section(
 			'rbelad_section',
 			array(
-				'label' => esc_html__( 'Settings', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Settings', 'rb-addons-for-elementor' ),
 				'tab'   => self::PANEL_TAB,
 			)
 		);
@@ -78,9 +78,9 @@ class Page_Settings {
 		$document->add_control(
 			'rbelad_text',
 			array(
-				'label'   => esc_html__( 'Title', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Title', 'rb-addons-for-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Title', 'rb-elementor-addons' ),
+				'default' => esc_html__( 'Title', 'rb-addons-for-elementor' ),
 			)
 		);
 

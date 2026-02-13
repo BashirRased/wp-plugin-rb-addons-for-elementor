@@ -33,7 +33,7 @@ trait Item_Alignment_Style {
 				'controls' => array(
 					'heading'    => array(
 						'id'    => $prefix . '_item_align_heading',
-						'label' => esc_html__( 'Item Alignment', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Item Alignment', 'rb-addons-for-elementor' ),
 					),
 					'item_align' => array(
 						'id'           => $prefix . '_item_align',

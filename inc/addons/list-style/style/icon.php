@@ -12,21 +12,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = 'rbelad_lis_style_icon_';
-$cls_1  = '{{WRAPPER}} .rbelad-list-item-icon i';
-$cls_2  = '{{WRAPPER}} .rbelad-list-item-icon svg';
-$cls_3  = '{{WRAPPER}} .rbelad-list-item-icon';
-$cls_4  = '{{WRAPPER}} .rbelad-list-item-icon img';
+$prefix = 'rbelad_lis_style_icon_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1  = '{{WRAPPER}} .rbelad-list-item-icon i'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_2  = '{{WRAPPER}} .rbelad-list-item-icon svg'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_3  = '{{WRAPPER}} .rbelad-list-item-icon'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_4  = '{{WRAPPER}} .rbelad-list-item-icon img'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section_icon',
 	array(
-		'label'     => esc_html__( 'Icon', 'rb-elementor-addons' ),
-		'tab'       => Controls_Manager::TAB_STYLE,
-		'condition' => array(
-			'rbelad_list_style_general_content_icon_switch' => 'yes',
-		),
+		'label' => esc_html__( 'Icon', 'rb-addons-for-elementor' ),
+		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
 
@@ -70,7 +67,7 @@ $this->add_style_controls(
 			),
 			'icon_img_size'          => array(
 				'id'           => $prefix . 'img_size',
-				'label'        => esc_html__( 'Image Icon Size', 'rb-elementor-addons' ),
+				'label'        => esc_html__( 'Image Icon Size', 'rb-addons-for-elementor' ),
 				'default'      => array(
 					'unit' => 'px',
 					'size' => 20,
@@ -79,7 +76,7 @@ $this->add_style_controls(
 			),
 			'icon_size'              => array(
 				'id'             => $prefix . 'font_size',
-				'label'          => esc_html__( 'Font Icon Size', 'rb-elementor-addons' ),
+				'label'          => esc_html__( 'Font Icon Size', 'rb-addons-for-elementor' ),
 				'default'        => array(
 					'unit' => 'px',
 					'size' => 20,

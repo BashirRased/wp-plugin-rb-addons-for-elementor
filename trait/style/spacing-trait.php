@@ -32,7 +32,7 @@ trait Spacing_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_spacing_heading',
-						'label' => esc_html__( 'Spacing Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Spacing Style', 'rb-addons-for-elementor' ),
 					),
 					'margin'  => array(
 						'id'           => $prefix . '_margin',

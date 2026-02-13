@@ -25,8 +25,8 @@ switch ( $key ) {
 			Group_Control_Typography::get_type(),
 			array(
 				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'global_typography',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Typography', 'rb-elementor-addons' ),
-				$control_args['default'] = ! empty( $values['default'] ) ? $values['default'] : '',
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Typography', 'rb-addons-for-elementor' ),
+				$control_args['default'] = ! empty( $values['default'] ) ? $values['default'] : '', // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 				'global'    => ! empty( $values['global'] ) ? $values['global'] : array(),
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
@@ -40,7 +40,7 @@ switch ( $key ) {
 			Group_Control_Text_Stroke::get_type(),
 			array(
 				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'text_stroke',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Stroke', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Stroke', 'rb-addons-for-elementor' ),
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
 			)
@@ -53,7 +53,7 @@ switch ( $key ) {
 			Group_Control_Text_Shadow::get_type(),
 			array(
 				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'text_shadow',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Shadow', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Shadow', 'rb-addons-for-elementor' ),
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
 			)
@@ -79,7 +79,7 @@ switch ( $key ) {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'box_shadow',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Box Shadow', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Box Shadow', 'rb-addons-for-elementor' ),
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
 			)
@@ -105,7 +105,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : $key,
 			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'ai'        => false,
 				'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
@@ -119,7 +119,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'textarea',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Textarea', 'rb-elementor-addons' ),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Textarea', 'rb-addons-for-elementor' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::TEXTAREA,
 				'ai'          => false,
@@ -134,7 +134,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'heading',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Heading', 'rb-elementor-addons' ),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Heading', 'rb-addons-for-elementor' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::HEADING,
 				'ai'          => false,
@@ -150,10 +150,10 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'switch',
 			array(
-				'label'        => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Switcher', 'rb-elementor-addons' ),
+				'label'        => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Switcher', 'rb-addons-for-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'rb-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'rb-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'rb-addons-for-elementor' ),
+				'label_off'    => esc_html__( 'Hide', 'rb-addons-for-elementor' ),
 				'return_value' => 'yes',
 				'default'      => ! empty( $values['default'] ) ? $values['default'] : 'yes',
 				'condition'    => ! empty( $values['condition'] ) ? $values['condition'] : array(),
@@ -166,7 +166,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'custom_link',
 			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Custom Link', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::URL,
 				'ai'        => false,
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
@@ -179,7 +179,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'img',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Upload Image', 'rb-elementor-addons' ),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Upload Image', 'rb-addons-for-elementor' ),
 				'type'        => Controls_Manager::MEDIA,
 				'label_block' => true,
 				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
@@ -195,13 +195,10 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'icon',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Icon', 'rb-elementor-addons' ),
-				'type'        => Controls_Manager::ICONS,
-				'label_block' => true,
-				'skin'        => 'inline',
-				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : array(),
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Icon', 'rb-addons-for-elementor' ),
+				'type'      => Controls_Manager::ICONS,
+				'default'   => ! empty( $values['default'] ) ? $values['default'] : array(),
+				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			)
 		);
 		break;
@@ -215,22 +212,22 @@ switch ( $key ) {
 	case 'border_right_color':
 		// Map to friendly labels.
 		$label_map = array(
-			'color'              => esc_html__( 'Color', 'rb-elementor-addons' ),
-			'bg_color'           => esc_html__( 'Background Color', 'rb-elementor-addons' ),
-			'border_color'       => esc_html__( 'Border Color', 'rb-elementor-addons' ),
-			'fill'               => esc_html__( 'Fill Color', 'rb-elementor-addons' ),
-			'fill_color'         => esc_html__( 'Color', 'rb-elementor-addons' ),
-			'border_right_color' => esc_html__( 'Border Right Color', 'rb-elementor-addons' ),
-		);
+			'color'              => esc_html__( 'Color', 'rb-addons-for-elementor' ),
+			'bg_color'           => esc_html__( 'Background Color', 'rb-addons-for-elementor' ),
+			'border_color'       => esc_html__( 'Border Color', 'rb-addons-for-elementor' ),
+			'fill'               => esc_html__( 'Fill Color', 'rb-addons-for-elementor' ),
+			'fill_color'         => esc_html__( 'Color', 'rb-addons-for-elementor' ),
+			'border_right_color' => esc_html__( 'Border Right Color', 'rb-addons-for-elementor' ),
+		); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-		$label_text = $label_map[ $key ] ?? esc_html__( 'Color', 'rb-elementor-addons' );
+		$label_text = $label_map[ $key ] ?? esc_html__( 'Color', 'rb-addons-for-elementor' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		// Identify CSS selectors.
 		if ( 'fill_color' === $key ) {
 			$selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}'     => 'color: {{VALUE}};',
 				! empty( $values['select_class_2'] ) ? $values['select_class_2'] : '{{WRAPPER}}' => 'fill: {{VALUE}};',
-			);
+			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		} else {
 			$css_property = match ( $key ) {
 				'color'                 => 'color',
@@ -239,11 +236,11 @@ switch ( $key ) {
 				'fill'                  => 'fill',
 				'border_right_color'    => 'border-right-color',
 				default                 => 'color',
-			};
+			}; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 			$selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
-			);
+			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 
 		// Build control arguments.
@@ -253,7 +250,7 @@ switch ( $key ) {
 			'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			'selectors' => $selectors,
 			'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
-		);
+		); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : $key,
@@ -293,12 +290,12 @@ switch ( $key ) {
 	case 'icon_img_size_2':
 	case 'border_right_width':
 		// Common vars.
-		$css_property  = str_replace( '_', '-', $key );
-		$is_unitless   = in_array( $key, array( 'order', 'z_index', 'flex_grow', 'flex_shrink' ), true );
-		$is_transition = in_array( $key, array( 'transition_duration', 'transition_delay' ), true );
-		$is_icon       = ( 'icon_size' === $key );
-		$is_icon_img   = ( 'icon_img_size' === $key );
-		$is_icon_img_2 = ( 'icon_img_size_2' === $key );
+		$css_property  = str_replace( '_', '-', $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_unitless   = in_array( $key, array( 'order', 'z_index', 'flex_grow', 'flex_shrink' ), true ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_transition = in_array( $key, array( 'transition_duration', 'transition_delay' ), true ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_icon       = ( 'icon_size' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_icon_img   = ( 'icon_img_size' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_icon_img_2 = ( 'icon_img_size_2' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		// Default units & range.
 		if ( $is_transition ) {
@@ -364,18 +361,18 @@ switch ( $key ) {
 		// -------------------------------------------------
 		// Detect type
 		// -------------------------------------------------
-		$is_link_type   = ( 'link_type' === $key );
-		$is_heading_tag = ( 'heading_tag' === $key );
-		$is_align       = ( 'align' === $key );
-		$is_justify     = ( 'item_align' === $key );
-		$is_multi       = ( 'multi_align' === $key );
+		$is_link_type   = ( 'link_type' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_heading_tag = ( 'heading_tag' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_align       = ( 'align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_justify     = ( 'item_align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$is_multi       = ( 'multi_align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		// -------------------------------------------------
 		// Decide control method
 		// -------------------------------------------------
 		$method = ( $is_heading_tag || $is_link_type )
 			? 'add_control'
-			: 'add_responsive_control';
+			: 'add_responsive_control'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		// -------------------------------------------------
 		// Build options
@@ -384,43 +381,43 @@ switch ( $key ) {
 
 			$options = array(
 				'none'    => array(
-					'title' => esc_html__( 'None', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'None', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-ban',
 				),
 				'default' => array(
-					'title' => esc_html__( 'Default', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'Default', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-link',
 				),
 				'page'    => array(
-					'title' => esc_html__( 'Page', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'Page', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-post-list',
 				),
 				'custom'  => array(
-					'title' => esc_html__( 'Custom', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'Custom', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-editor-external-link',
 				),
 			);
 
 		} elseif ( $is_heading_tag ) {
 
-			$options = rbelad_heading_tags();
+			$options = rbelad_heading_tags(); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		} else {
 
-			$options = ! empty( $values['options'] ) ? $values['options'] : array();
+			$options = ! empty( $values['options'] ) ? $values['options'] : array(); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 
 		// -------------------------------------------------
 		// Label
 		// -------------------------------------------------
 		if ( ! empty( $values['label'] ) ) {
-			$label_text = $values['label'];
+			$label_text = $values['label']; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		} elseif ( $is_link_type ) {
-			$label_text = esc_html__( 'Link Type', 'rb-elementor-addons' );
+			$label_text = esc_html__( 'Link Type', 'rb-addons-for-elementor' );
 		} elseif ( $is_heading_tag ) {
-			$label_text = esc_html__( 'HTML Tag', 'rb-elementor-addons' );
+			$label_text = esc_html__( 'HTML Tag', 'rb-addons-for-elementor' );
 		} else {
-			$label_text = esc_html__( 'Alignment', 'rb-elementor-addons' );
+			$label_text = esc_html__( 'Alignment', 'rb-addons-for-elementor' );
 		}
 
 		// -------------------------------------------------
@@ -430,13 +427,13 @@ switch ( $key ) {
 
 		if ( ! $is_link_type && ( $is_align || $is_justify ) ) {
 
-			$css_property = $is_align ? 'text-align' : 'justify-content';
+			$css_property = $is_align ? 'text-align' : 'justify-content'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 			$selectors = array(
 				! empty( $values['select_class'] )
 					? $values['select_class']
 					: '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
-			);
+			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		} elseif ( ! $is_link_type && $is_multi ) {
 
@@ -447,7 +444,7 @@ switch ( $key ) {
 				! empty( $values['select_class_2'] )
 					? $values['select_class_2']
 					: '{{WRAPPER}}' => 'justify-content: {{VALUE}};',
-			);
+			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 
 		// -------------------------------------------------
@@ -463,14 +460,14 @@ switch ( $key ) {
 			'condition' => ! empty( $values['condition'] )
 				? $values['condition']
 				: array(),
-		);
+		); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		if ( ! empty( $selectors ) ) {
-			$control_args['selectors'] = $selectors;
+			$control_args['selectors'] = $selectors; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 
 		if ( $is_link_type ) {
-			$control_args['toggle'] = false;
+			$control_args['toggle'] = false; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 
 		// -------------------------------------------------
@@ -496,27 +493,27 @@ switch ( $key ) {
 
 	// Flex Direction (separate choose control).
 	case 'flex_direction':
-		$end   = is_rtl() ? 'left' : 'right';
-		$start = is_rtl() ? 'right' : 'left';
+		$end   = is_rtl() ? 'left' : 'right'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$start = is_rtl() ? 'right' : 'left'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		$control_args = array(
-			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Flex Direction', 'rb-elementor-addons' ),
+			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Flex Direction', 'rb-addons-for-elementor' ),
 			'type'                 => Controls_Manager::CHOOSE,
 			'options'              => array(
 				'row'            => array(
-					'title' => esc_html__( 'Row - horizontal', 'elementor' ),
+					'title' => esc_html__( 'Row - horizontal', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-arrow-' . $end,
 				),
 				'column'         => array(
-					'title' => esc_html__( 'Column - vertical', 'elementor' ),
+					'title' => esc_html__( 'Column - vertical', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-arrow-down',
 				),
 				'row-reverse'    => array(
-					'title' => esc_html__( 'Row - reversed', 'elementor' ),
+					'title' => esc_html__( 'Row - reversed', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-arrow-' . $start,
 				),
 				'column-reverse' => array(
-					'title' => esc_html__( 'Column - reversed', 'elementor' ),
+					'title' => esc_html__( 'Column - reversed', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-arrow-up',
 				),
 			),
@@ -544,15 +541,15 @@ switch ( $key ) {
 	// Display Layout (separate choose control).
 	case 'display_layout':
 		$control_args = array(
-			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Display Layout', 'rb-elementor-addons' ),
+			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Display Layout', 'rb-addons-for-elementor' ),
 			'type'                 => Controls_Manager::CHOOSE,
 			'options'              => array(
 				'inline' => array(
-					'title' => esc_html__( 'Inline', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'Inline', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-ellipsis-h',
 				),
 				'block'  => array(
-					'title' => esc_html__( 'Block', 'rb-elementor-addons' ),
+					'title' => esc_html__( 'Block', 'rb-addons-for-elementor' ),
 					'icon'  => 'eicon-editor-list-ul',
 				),
 			),
@@ -579,12 +576,12 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'choose_design',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Choose Design', 'rb-elementor-addons' ),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Choose Design', 'rb-addons-for-elementor' ),
 				'type'        => Controls_Manager::VISUAL_CHOICE,
 				'label_block' => true,
 				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
 				'default'     => ! empty( $values['default'] ) ? $values['default'] : 'style-1',
-				'columns'     => ! empty( $values['columns'] ) ? $values['columns'] : 1,
+				'columns'     => ! empty( $values['columns'] ) ? $values['columns'] : 2,
 				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selectors'   => ! empty( $values['selectors'] ) ? $values['selectors'] : array(),
 			)
@@ -642,13 +639,13 @@ switch ( $key ) {
 
 		// Label mapping.
 		$label_map  = array(
-			'select_option'      => esc_html__( 'Select Option', 'rb-elementor-addons' ),
-			'page_link'          => esc_html__( 'Select Page', 'rb-elementor-addons' ),
-			'timing_function'    => esc_html__( 'Timing Function', 'rb-elementor-addons' ),
-			'border_style_right' => esc_html__( 'Border Style Right', 'rb-elementor-addons' ),
-			'html_tag'           => esc_html__( 'HTML Tag', 'rb-elementor-addons' ), // <-- New label
+			'select_option'      => esc_html__( 'Select Option', 'rb-addons-for-elementor' ),
+			'page_link'          => esc_html__( 'Select Page', 'rb-addons-for-elementor' ),
+			'timing_function'    => esc_html__( 'Timing Function', 'rb-addons-for-elementor' ),
+			'border_style_right' => esc_html__( 'Border Style Right', 'rb-addons-for-elementor' ),
+			'html_tag'           => esc_html__( 'HTML Tag', 'rb-addons-for-elementor' ), // <-- New label
 		);
-		$label_text = $label_map[ $key ] ?? esc_html__( 'Select Option', 'rb-elementor-addons' );
+		$label_text = $label_map[ $key ] ?? esc_html__( 'Select Option', 'rb-addons-for-elementor' );
 
 		// Decide options.
 		if ( ! empty( $values['options'] ) ) {
@@ -713,7 +710,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			! empty( $values['id'] ) ? $values['id'] : 'transition_property',
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Transition Property', 'rb-elementor-addons' ),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Transition Property', 'rb-addons-for-elementor' ),
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'label_block' => true,
@@ -733,7 +730,7 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'number',
 			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Number', 'rb-elementor-addons' ),
+				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Number', 'rb-addons-for-elementor' ),
 				'type'      => ! empty( $values['type'] ) ? $values['type'] : Controls_Manager::NUMBER,
 				'default'   => ! empty( $values['default'] ) ? $values['default'] : 5,
 				'min'       => ! empty( $values['min'] ) ? $values['min'] : 1,
@@ -747,21 +744,21 @@ switch ( $key ) {
 
 	// Transform Controls.
 	case 'transform_controls':
-		$id_prefix   = ! empty( $values['id'] ) ? $values['id'] : $key;
-		$flip_x      = '-webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1);';
-		$flip_y      = '-webkit-transform: scaleY(-1); -ms-transform: scaleY(-1); transform: scaleY(-1);';
-		$skew_y      = '-webkit-transform: skewY({{SIZE}}deg); -ms-transform: skewY({{SIZE}}deg); transform: skewY({{SIZE}}deg);';
-		$skew_x      = '-webkit-transform: skewX({{SIZE}}deg); -ms-transform: skewX({{SIZE}}deg); transform: skewX({{SIZE}}deg);';
-		$scale_x     = '-webkit-transform: scaleX({{SIZE}}); -ms-transform: scaleX({{SIZE}}); transform: scaleX({{SIZE}});';
-		$scale_y     = '-webkit-transform: scaleY({{SIZE}}); -ms-transform: scaleY({{SIZE}}); transform: scaleY({{SIZE}});';
-		$scale_xy    = '-webkit-transform: scale({{SIZE}}); -ms-transform: scale({{SIZE}}); transform: scale({{SIZE}});';
-		$translate_x = '-webkit-transform: translateX({{SIZE}}{{UNIT}}); -ms-transform: translateX({{SIZE}}{{UNIT}}); transform: translateX({{SIZE}}{{UNIT}});';
-		$translate_y = '-webkit-transform: translateY({{SIZE}}{{UNIT}}); -ms-transform: translateY({{SIZE}}{{UNIT}}); transform: translateY({{SIZE}}{{UNIT}});';
-		$perspective = '-webkit-transform: perspective({{SIZE}}px); transform: perspective({{SIZE}}px);';
-		$rotate_x    = '-webkit-transform: rotateX({{SIZE}}deg); -ms-transform: rotateX({{SIZE}}deg); transform: rotateX({{SIZE}}deg);';
-		$rotate_y    = '-webkit-transform: rotateY({{SIZE}}deg); -ms-transform: rotateY({{SIZE}}deg); transform: rotateY({{SIZE}}deg);';
-		$rotate_z    = '-webkit-transform: rotateZ({{SIZE}}deg); -ms-transform: rotateZ({{SIZE}}deg); transform: rotateZ({{SIZE}}deg);';
-		$rotate_3d   = '-webkit-transform: rotateX(1deg) perspective(20px); -ms-transform: rotateX(1deg) perspective(20px); transform: rotateX(1deg) perspective(20px);';
+		$id_prefix   = ! empty( $values['id'] ) ? $values['id'] : $key; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$flip_x      = '-webkit-transform: scaleX(-1); -ms-transform: scaleX(-1); transform: scaleX(-1);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$flip_y      = '-webkit-transform: scaleY(-1); -ms-transform: scaleY(-1); transform: scaleY(-1);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$skew_y      = '-webkit-transform: skewY({{SIZE}}deg); -ms-transform: skewY({{SIZE}}deg); transform: skewY({{SIZE}}deg);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$skew_x      = '-webkit-transform: skewX({{SIZE}}deg); -ms-transform: skewX({{SIZE}}deg); transform: skewX({{SIZE}}deg);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$scale_x     = '-webkit-transform: scaleX({{SIZE}}); -ms-transform: scaleX({{SIZE}}); transform: scaleX({{SIZE}});'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$scale_y     = '-webkit-transform: scaleY({{SIZE}}); -ms-transform: scaleY({{SIZE}}); transform: scaleY({{SIZE}});'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$scale_xy    = '-webkit-transform: scale({{SIZE}}); -ms-transform: scale({{SIZE}}); transform: scale({{SIZE}});'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$translate_x = '-webkit-transform: translateX({{SIZE}}{{UNIT}}); -ms-transform: translateX({{SIZE}}{{UNIT}}); transform: translateX({{SIZE}}{{UNIT}});'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$translate_y = '-webkit-transform: translateY({{SIZE}}{{UNIT}}); -ms-transform: translateY({{SIZE}}{{UNIT}}); transform: translateY({{SIZE}}{{UNIT}});'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$perspective = '-webkit-transform: perspective({{SIZE}}px); transform: perspective({{SIZE}}px);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$rotate_x    = '-webkit-transform: rotateX({{SIZE}}deg); -ms-transform: rotateX({{SIZE}}deg); transform: rotateX({{SIZE}}deg);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$rotate_y    = '-webkit-transform: rotateY({{SIZE}}deg); -ms-transform: rotateY({{SIZE}}deg); transform: rotateY({{SIZE}}deg);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$rotate_z    = '-webkit-transform: rotateZ({{SIZE}}deg); -ms-transform: rotateZ({{SIZE}}deg); transform: rotateZ({{SIZE}}deg);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$rotate_3d   = '-webkit-transform: rotateX(1deg) perspective(20px); -ms-transform: rotateX(1deg) perspective(20px); transform: rotateX(1deg) perspective(20px);'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 		/** -------------------------
 		 *  ROTATE POPOVER
@@ -769,7 +766,7 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_rotate_popover_tab',
 			array(
-				'label' => esc_html__( 'Rotate', 'elementor' ),
+				'label' => esc_html__( 'Rotate', 'rb-addons-for-elementor' ),
 				'type'  => Controls_Manager::POPOVER_TOGGLE,
 			)
 		);
@@ -779,7 +776,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_rotateZ_effect_tab',
 			array(
-				'label'     => esc_html__( 'Rotate', 'elementor' ) . ' (deg)',
+				'label'     => esc_html__( 'Rotate', 'rb-addons-for-elementor' ) . ' (deg)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -799,10 +796,10 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_rotate_3d_tab',
 			array(
-				'label'     => esc_html__( '3D Rotate', 'elementor' ),
+				'label'     => esc_html__( '3D Rotate', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'label_on'  => esc_html__( 'On', 'elementor' ),
-				'label_off' => esc_html__( 'Off', 'elementor' ),
+				'label_on'  => esc_html__( 'On', 'rb-addons-for-elementor' ),
+				'label_off' => esc_html__( 'Off', 'rb-addons-for-elementor' ),
 				'selectors' => array(
 					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $rotate_3d,
 				),
@@ -815,7 +812,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_rotateX_effect_tab',
 			array(
-				'label'     => esc_html__( 'Rotate X', 'elementor' ) . ' (deg)',
+				'label'     => esc_html__( 'Rotate X', 'rb-addons-for-elementor' ) . ' (deg)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -836,7 +833,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_rotateY_effect_tab',
 			array(
-				'label'     => esc_html__( 'Rotate Y', 'elementor' ) . ' (deg)',
+				'label'     => esc_html__( 'Rotate Y', 'rb-addons-for-elementor' ) . ' (deg)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -857,7 +854,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_perspective_effect_tab',
 			array(
-				'label'     => esc_html__( 'Perspective', 'elementor' ) . ' (px)',
+				'label'     => esc_html__( 'Perspective', 'rb-addons-for-elementor' ) . ' (px)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array( 'max' => 1000 ),
@@ -880,7 +877,7 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_translate_popover_tab',
 			array(
-				'label' => esc_html__( 'Offset', 'elementor' ),
+				'label' => esc_html__( 'Offset', 'rb-addons-for-elementor' ),
 				'type'  => Controls_Manager::POPOVER_TOGGLE,
 			)
 		);
@@ -890,7 +887,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_translateX_effect_tab',
 			array(
-				'label'      => esc_html__( 'Offset X', 'elementor' ),
+				'label'      => esc_html__( 'Offset X', 'rb-addons-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vw', 'custom' ),
 				'range'      => array(
@@ -915,7 +912,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_translateY_effect_tab',
 			array(
-				'label'      => esc_html__( 'Offset Y', 'elementor' ),
+				'label'      => esc_html__( 'Offset Y', 'rb-addons-for-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'em', 'rem', 'vh', 'custom' ),
 				'range'      => array(
@@ -945,7 +942,7 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_scale_popover_tab',
 			array(
-				'label' => esc_html__( 'Scale', 'elementor' ),
+				'label' => esc_html__( 'Scale', 'rb-addons-for-elementor' ),
 				'type'  => Controls_Manager::POPOVER_TOGGLE,
 			)
 		);
@@ -955,7 +952,7 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_keep_proportions_tab',
 			array(
-				'label'   => esc_html__( 'Keep Proportions', 'elementor' ),
+				'label'   => esc_html__( 'Keep Proportions', 'rb-addons-for-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			)
@@ -964,7 +961,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_scale_effect_tab',
 			array(
-				'label'     => esc_html__( 'Scale', 'elementor' ),
+				'label'     => esc_html__( 'Scale', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -985,7 +982,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_scaleX_effect_tab',
 			array(
-				'label'     => esc_html__( 'Scale X', 'elementor' ),
+				'label'     => esc_html__( 'Scale X', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1006,7 +1003,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_scaleY_effect_tab',
 			array(
-				'label'     => esc_html__( 'Scale Y', 'elementor' ),
+				'label'     => esc_html__( 'Scale Y', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1032,7 +1029,7 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_skew_popover_tab',
 			array(
-				'label' => esc_html__( 'Skew', 'elementor' ),
+				'label' => esc_html__( 'Skew', 'rb-addons-for-elementor' ),
 				'type'  => Controls_Manager::POPOVER_TOGGLE,
 			)
 		);
@@ -1042,7 +1039,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_skewX_effect_tab',
 			array(
-				'label'     => esc_html__( 'Skew X', 'elementor' ) . ' (deg)',
+				'label'     => esc_html__( 'Skew X', 'rb-addons-for-elementor' ) . ' (deg)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1062,7 +1059,7 @@ switch ( $key ) {
 		$this->add_responsive_control(
 			$id_prefix . '_transform_skewY_effect_tab',
 			array(
-				'label'     => esc_html__( 'Skew Y', 'elementor' ) . ' (deg)',
+				'label'     => esc_html__( 'Skew Y', 'rb-addons-for-elementor' ) . ' (deg)',
 				'type'      => Controls_Manager::SLIDER,
 				'range'     => array(
 					'px' => array(
@@ -1087,11 +1084,11 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_flipX_effect_tab',
 			array(
-				'label'     => esc_html__( 'Flip Horizontal', 'elementor' ),
+				'label'     => esc_html__( 'Flip Horizontal', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'transform' => array(
-						'title' => esc_html__( 'Flip Horizontal', 'elementor' ),
+						'title' => esc_html__( 'Flip Horizontal', 'rb-addons-for-elementor' ),
 						'icon'  => 'eicon-flip eicon-tilted',
 					),
 				),
@@ -1104,11 +1101,11 @@ switch ( $key ) {
 		$this->add_control(
 			$id_prefix . '_transform_flipY_effect_tab',
 			array(
-				'label'     => esc_html__( 'Flip Vertical', 'elementor' ),
+				'label'     => esc_html__( 'Flip Vertical', 'rb-addons-for-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
 					'transform' => array(
-						'title' => esc_html__( 'Flip Vertical', 'elementor' ),
+						'title' => esc_html__( 'Flip Vertical', 'rb-addons-for-elementor' ),
 						'icon'  => 'eicon-flip',
 					),
 				),
@@ -1117,7 +1114,5 @@ switch ( $key ) {
 				),
 			)
 		);
-
 		break;
-
 }

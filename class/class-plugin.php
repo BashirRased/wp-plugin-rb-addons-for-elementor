@@ -61,38 +61,8 @@ class Plugin {
 				'include_files',
 			)
 		);
-		// Elementor Editor Icons.
-		add_action(
-			'elementor/editor/after_enqueue_scripts',
-			function () {
-				wp_enqueue_style(
-					'rbelad-icons',
-					RBELAD_ASSETS . 'css/rbelad-fonts.css',
-					array(),
-					RBELAD_VERSION
-				);
-			}
-		);
 
-		// Admin Dashboard Icons.
-		add_action(
-			'admin_enqueue_scripts',
-			function () {
-				wp_enqueue_style(
-					'rbelad-icons',
-					RBELAD_ASSETS . 'css/rbelad-fonts.css',
-					array(),
-					RBELAD_VERSION
-				);
-			}
-		);
-		add_action(
-			'elementor/editor/after_enqueue_scripts',
-			array(
-				Assets_Manager::class,
-				'elementor_editor_assets',
-			)
-		);
+		// Register Widgets.
 		add_action(
 			'elementor/widgets/register',
 			array(
@@ -120,10 +90,9 @@ class Plugin {
 	 * @return void
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain(
-			'rb-elementor-addons',
-			false,
-			dirname( plugin_basename( RBELAD_PLUGIN_FILE ) ) . '/languages'
+		load_textdomain(
+			'rb-addons-for-elementor',
+			WP_LANG_DIR . '/plugins/rb-addons-for-elementor-' . determine_locale() . '.mo'
 		);
 	}
 
@@ -187,6 +156,9 @@ class Plugin {
 		if ( file_exists( $trait_style . 'item-alignment-trait.php' ) ) {
 			require_once $trait_style . 'item-alignment-trait.php';
 		}
+		if ( file_exists( $trait_style . 'item-size-trait.php' ) ) {
+			require_once $trait_style . 'item-size-trait.php';
+		}
 
 		// Trait - renders.
 		$trait_render = RBELAD_TRAIT_RENDER;
@@ -194,13 +166,8 @@ class Plugin {
 			require_once $trait_render . 'link-type-trait.php';
 		}
 
-		// Admin Dashboard.
-		if ( is_admin() ) {
-			add_filter(
-				'admin_body_class',
-				array( Dashboard::class, 'admin_body_class' )
-			);
-		}
+		Dashboard::init();
+		Assets_Manager::init();
 	}
 
 	/**

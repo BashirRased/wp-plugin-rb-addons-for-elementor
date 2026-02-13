@@ -17,15 +17,19 @@ trait Link_Style {
 	 * @param string $class_1 CSS selector for general class.
 	 * @param string $link_class_hover_1 CSS selector for link hover class.
 	 * @param string $link_class_focus_1 CSS selector for link focus class.
+	 * @param string $link_default_color Default color set for link.
+	 * @param string $link_default_color_hover Default color set for link.
 	 *
 	 * @return void
 	 */
-	protected function register_link_style( $prefix, $class_1, $link_class_hover_1, $link_class_focus_1 ) {
+	protected function register_link_style( $prefix, $class_1, $link_class_hover_1, $link_class_focus_1, $link_default_color, $link_default_color_hover ) {
 		// Force all values to strings to prevent "object cannot be converted to string".
-		$prefix             = is_string( $prefix ) ? $prefix : '';
-		$class_1            = is_string( $class_1 ) ? $class_1 : '';
-		$link_class_hover_1 = is_string( $link_class_hover_1 ) ? $link_class_hover_1 : '';
-		$link_class_focus_1 = is_string( $link_class_focus_1 ) ? $link_class_focus_1 : '';
+		$prefix                   = is_string( $prefix ) ? $prefix : '';
+		$class_1                  = is_string( $class_1 ) ? $class_1 : '';
+		$link_class_hover_1       = is_string( $link_class_hover_1 ) ? $link_class_hover_1 : '';
+		$link_class_focus_1       = is_string( $link_class_focus_1 ) ? $link_class_focus_1 : '';
+		$link_default_color       = is_string( $link_default_color ) ? $link_default_color : '';
+		$link_default_color_hover = is_string( $link_default_color_hover ) ? $link_default_color_hover : '';
 
 		// =============================
 		// Link Style
@@ -36,7 +40,7 @@ trait Link_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_link_heading',
-						'label' => esc_html__( 'Link Color', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Link Color', 'rb-addons-for-elementor' ),
 					),
 				),
 			)
@@ -53,7 +57,7 @@ trait Link_Style {
 			$this->start_controls_tab(
 				$prefix . '_link_normal_tab',
 				array(
-					'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Normal', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(
@@ -62,8 +66,8 @@ trait Link_Style {
 					'controls' => array(
 						'color' => array(
 							'id'           => $prefix . '_color',
-							'default'      => RBELAD_BLACK_COLOR,
 							'select_class' => $class_1 . ( $link_class_hover_1 ? ', ' . $link_class_hover_1 : '' ),
+							'default'      => $link_default_color ? $link_default_color : '',
 						),
 					),
 				)
@@ -76,7 +80,7 @@ trait Link_Style {
 			$this->start_controls_tab(
 				$prefix . '_link_hover_tab',
 				array(
-					'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Hover', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(
@@ -85,8 +89,8 @@ trait Link_Style {
 					'controls' => array(
 						'color' => array(
 							'id'           => $prefix . '_hover_color',
-							'default'      => RBELAD_PRIMARY_COLOR,
 							'select_class' => $link_class_hover_1 ? $link_class_hover_1 : '' . ( $link_class_focus_1 ? ', ' . $link_class_focus_1 : '' ),
+							'default'      => $link_default_color_hover ? $link_default_color_hover : '',
 						),
 					),
 				)

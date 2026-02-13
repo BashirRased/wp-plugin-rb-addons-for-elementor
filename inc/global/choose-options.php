@@ -21,27 +21,27 @@ if ( ! function_exists( 'rbelad_heading_tags' ) ) {
 	function rbelad_heading_tags() {
 		$heading_tag_list = array(
 			'h1' => array(
-				'title' => esc_html__( 'H1', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H1', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h1',
 			),
 			'h2' => array(
-				'title' => esc_html__( 'H2', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H2', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h2',
 			),
 			'h3' => array(
-				'title' => esc_html__( 'H3', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H3', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h3',
 			),
 			'h4' => array(
-				'title' => esc_html__( 'H4', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H4', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h4',
 			),
 			'h5' => array(
-				'title' => esc_html__( 'H5', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H5', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h5',
 			),
 			'h6' => array(
-				'title' => esc_html__( 'H6', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'H6', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-editor-h6',
 			),
 		);
@@ -61,19 +61,19 @@ if ( ! function_exists( 'rbelad_align_justify' ) ) {
 	function rbelad_align_justify() {
 		$alignment = array(
 			'left'    => array(
-				'title' => esc_html__( 'Left', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'Left', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-text-align-left',
 			),
 			'center'  => array(
-				'title' => esc_html__( 'Center', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'Center', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-text-align-center',
 			),
 			'right'   => array(
-				'title' => esc_html__( 'Right', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'Right', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-text-align-right',
 			),
 			'justify' => array(
-				'title' => esc_html__( 'Justified', 'rb-elementor-addons' ),
+				'title' => esc_html__( 'Justified', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-text-align-justify',
 			),
 		);
@@ -92,10 +92,10 @@ if ( ! function_exists( 'rbelad_border_style' ) ) {
 	 */
 	function rbelad_border_style() {
 		$border_style = array(
-			'none'   => esc_html__( 'None', 'rb-elementor-addons' ),
-			'solid'  => esc_html__( 'Solid', 'rb-elementor-addons' ),
-			'dashed' => esc_html__( 'Dashed', 'rb-elementor-addons' ),
-			'dotted' => esc_html__( 'Dotted', 'rb-elementor-addons' ),
+			'none'   => esc_html__( 'None', 'rb-addons-for-elementor' ),
+			'solid'  => esc_html__( 'Solid', 'rb-addons-for-elementor' ),
+			'dashed' => esc_html__( 'Dashed', 'rb-addons-for-elementor' ),
+			'dotted' => esc_html__( 'Dotted', 'rb-addons-for-elementor' ),
 		);
 		return $border_style;
 	}
@@ -112,10 +112,10 @@ if ( ! function_exists( 'rbelad_flex_direction' ) ) {
 	 */
 	function rbelad_flex_direction() {
 		$border_style = array(
-			'column'         => esc_html__( 'Column', 'rb-elementor-addons' ),
-			'column-reverse' => esc_html__( 'Column Reverse', 'rb-elementor-addons' ),
-			'row'            => esc_html__( 'Row', 'rb-elementor-addons' ),
-			'row-reverse'    => esc_html__( 'Row Reverse', 'rb-elementor-addons' ),
+			'column'         => esc_html__( 'Column', 'rb-addons-for-elementor' ),
+			'column-reverse' => esc_html__( 'Column Reverse', 'rb-addons-for-elementor' ),
+			'row'            => esc_html__( 'Row', 'rb-addons-for-elementor' ),
+			'row-reverse'    => esc_html__( 'Row Reverse', 'rb-addons-for-elementor' ),
 		);
 		return $border_style;
 	}
@@ -132,12 +132,12 @@ if ( ! function_exists( 'rbelad_transition_function' ) ) {
 	 */
 	function rbelad_transition_function() {
 		$transition_function = array(
-			''            => esc_html__( 'Default', 'rb-elementor-addons' ),
-			'ease'        => esc_html__( 'Ease', 'rb-elementor-addons' ),
-			'ease-in'     => esc_html__( 'Ease In', 'rb-elementor-addons' ),
-			'ease-out'    => esc_html__( 'Ease Out', 'rb-elementor-addons' ),
-			'ease-in-out' => esc_html__( 'Ease In Out', 'rb-elementor-addons' ),
-			'linear'      => esc_html__( 'Linear', 'rb-elementor-addons' ),
+			''            => esc_html__( 'Default', 'rb-addons-for-elementor' ),
+			'ease'        => esc_html__( 'Ease', 'rb-addons-for-elementor' ),
+			'ease-in'     => esc_html__( 'Ease In', 'rb-addons-for-elementor' ),
+			'ease-out'    => esc_html__( 'Ease Out', 'rb-addons-for-elementor' ),
+			'ease-in-out' => esc_html__( 'Ease In Out', 'rb-addons-for-elementor' ),
+			'linear'      => esc_html__( 'Linear', 'rb-addons-for-elementor' ),
 		);
 		return $transition_function;
 	}
@@ -154,13 +154,13 @@ if ( ! function_exists( 'rbelad_transition_property' ) ) {
 	 */
 	function rbelad_transition_property() {
 		$transition_property = array(
-			''                 => esc_html__( 'Default', 'rb-elementor-addons' ),
-			'none'             => esc_html__( 'None', 'rb-elementor-addons' ),
-			'all'              => esc_html__( 'All', 'rb-elementor-addons' ),
-			'color'            => esc_html__( 'Color', 'rb-elementor-addons' ),
-			'background-color' => esc_html__( 'Background Color', 'rb-elementor-addons' ),
-			'width'            => esc_html__( 'Width', 'rb-elementor-addons' ),
-			'transform'        => esc_html__( 'Transform', 'rb-elementor-addons' ),
+			''                 => esc_html__( 'Default', 'rb-addons-for-elementor' ),
+			'none'             => esc_html__( 'None', 'rb-addons-for-elementor' ),
+			'all'              => esc_html__( 'All', 'rb-addons-for-elementor' ),
+			'color'            => esc_html__( 'Color', 'rb-addons-for-elementor' ),
+			'background-color' => esc_html__( 'Background Color', 'rb-addons-for-elementor' ),
+			'width'            => esc_html__( 'Width', 'rb-addons-for-elementor' ),
+			'transform'        => esc_html__( 'Transform', 'rb-addons-for-elementor' ),
 		);
 		return $transition_property;
 	}
@@ -177,9 +177,9 @@ if ( ! function_exists( 'rbelad_icon_shape' ) ) {
 	 */
 	function rbelad_icon_shape() {
 		$icon_shape = array(
-			'triangle' => esc_html__( 'Triangle', 'rb-elementor-addons' ),
-			'circle'   => esc_html__( 'Circle', 'rb-elementor-addons' ),
-			'square'   => esc_html__( 'Square', 'rb-elementor-addons' ),
+			'triangle' => esc_html__( 'Triangle', 'rb-addons-for-elementor' ),
+			'circle'   => esc_html__( 'Circle', 'rb-addons-for-elementor' ),
+			'square'   => esc_html__( 'Square', 'rb-addons-for-elementor' ),
 		);
 		return $icon_shape;
 	}
@@ -242,35 +242,35 @@ if ( ! function_exists( 'rbelad_social_icon_list' ) ) {
 	function rbelad_social_icon_list() {
 		$social_icon_list = array(
 			array(
-				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Facebook', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Facebook', 'rb-addons-for-elementor' ),
 				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-facebook-f',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Twitter', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Twitter', 'rb-addons-for-elementor' ),
 				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-x-twitter',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'LinkedIn', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'LinkedIn', 'rb-addons-for-elementor' ),
 				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-linkedin-in',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Pinterest', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Pinterest', 'rb-addons-for-elementor' ),
 				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-pinterest-p',
 					'library' => 'fa-brands',
 				),
 			),
 			array(
-				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Instagram', 'rb-elementor-addons' ),
+				'rbelpro_social_icon_general_content_icon_title' => esc_html__( 'Instagram', 'rb-addons-for-elementor' ),
 				'rbelpro_social_icon_general_content_font_icon'  => array(
 					'value'   => 'fab fa-instagram',
 					'library' => 'fa-brands',

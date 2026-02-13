@@ -36,7 +36,7 @@ trait Transition_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_transition_heading',
-						'label' => esc_html__( 'Transition Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Transition Style', 'rb-addons-for-elementor' ),
 					),
 				),
 			)
@@ -53,7 +53,7 @@ trait Transition_Style {
 			$this->start_controls_tab(
 				$prefix . '_transition_normal_tab',
 				array(
-					'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Normal', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(
@@ -62,28 +62,18 @@ trait Transition_Style {
 					'controls' => array(
 						'transition_property' => array(
 							'id'           => $prefix . '_transition_property',
-							'default'      => 'all',
 							'select_class' => $class_1,
 						),
 						'timing_function'     => array(
 							'id'           => $prefix . '_timing_function',
-							'default'      => 'ease-in-out',
 							'select_class' => $class_1,
 						),
 						'transition_duration' => array(
 							'id'           => $prefix . '_transition_duration',
-							'default'      => array(
-								'unit' => 's',
-								'size' => 0.5,
-							),
 							'select_class' => $class_1,
 						),
 						'transition_delay'    => array(
 							'id'           => $prefix . '_transition_delay',
-							'default'      => array(
-								'unit' => 's',
-								'size' => 0,
-							),
 							'select_class' => $class_1,
 						),
 					),
@@ -97,7 +87,7 @@ trait Transition_Style {
 			$this->start_controls_tab(
 				$prefix . '_transition_hover_tab',
 				array(
-					'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Hover', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(

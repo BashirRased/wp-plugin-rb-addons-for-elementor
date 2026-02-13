@@ -1,55 +1,75 @@
 === RB Addons for Elementor ===
 Contributors: bashirrased2017
-Tags: elementor, addons, widgets, page builder
-Requires at least: 5.8
-Tested up to: 6.8
+Tags: elementor, addons, widgets, page builder, custom widgets
+Requires at least: 6.6
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Custom Elementor widgets and features to enhance your page builder experience.
+Supercharge your Elementor workflow with a collection of lightweight, high-performance custom widgets designed for modern web design.
 
 == Description ==
 
-RB Addons for Elementor brings custom widgets and advanced design controls to Elementor. Boost your website with modern, responsive, and dynamic elements.
+**RB Addons for Elementor** is a powerful yet lightweight extension that adds creative, professional-grade widgets to your favorite page builder. Whether you are a developer or a designer, these tools give you the flexibility to build stunning layouts without touching a single line of code.
+
+This plugin is built with performance in mind, ensuring that your site remains fast and responsive while gaining advanced design capabilities.
+
+### 🚀 7+ FREE ELEMENTOR WIDGETS
+RB Addons provides a essential toolkit to bridge the gap between standard Elementor widgets and professional design needs:
+
+* **Button:** Go beyond the basics with unique hover effects and styling options.
+* **Button Group:** Perfectly align multiple call-to-action buttons in a single container.
+* **Divider:** Break up your content with stylish, customizable separators.
+* **Dual Text:** Highlight key phrases by styling two parts of a headline differently.
+* **List Style:** Create beautiful lists with custom icons, badges, and labels.
+* **Scroll Down:** Add interactive "anchor" buttons to guide users down your page.
+* **Rating Star:** Display social proof or reviews with fully customizable star icons.
+
+### Why Choose RB Addons?
+* **Clean Code:** Built following the latest WordPress and Elementor coding standards.
+* **SEO Friendly:** Lightweight output that doesn't bloat your page.
+* **Fully Responsive:** Every widget looks perfect on mobile, tablet, and desktop.
+* **Security First:** Every file includes security headers to prevent unauthorized access.
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/rb-elementor-addons` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Navigate to Elementor > RB Addons to configure settings.
+1. Log in to your WordPress Dashboard.
+2. Go to **Plugins > Add New** and search for "RB Addons for Elementor".
+3. Click **Install Now** and then **Activate**.
+4. (Optional) Navigate to **Elementor > RB Addons** to manage settings.
 
 == Frequently Asked Questions ==
 
-= Is this plugin free? =
-Yes, RB Addons for Elementor is completely free and open-source.
+= Does this work with the free version of Elementor? =
+Absolutely! RB Addons is designed to work perfectly with both Elementor Free and Elementor Pro.
 
-= Do I need Elementor installed? =
-Yes, this plugin requires Elementor to be installed and activated.
+= Is it beginner-friendly? =
+Yes. If you know how to drag and drop in Elementor, you can use RB Addons.
+
+= Will it slow down my site? =
+No. We use a modular loading system to ensure only the necessary code is loaded.
 
 == Screenshots ==
 
-1. Widget panel showing RB widgets.
-2. Example usage on a page.
+1. The RB Addons widget panel integrated directly into the Elementor sidebar.
+2. A live example of the Dual Text and Button Group widgets in action.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release with general and pro widgets.
-
-= 1.0.1 =
-* Added `Requires Plugins` header in main file.
-* Removed unneeded folder: `rb-elementor-addons/assets/.sass-cache`.
-* Correctly defined required files.
-* Changed prefix from `rb` to `rbelad` (unique & conflict-free).
-* Added `if ( ! defined( 'ABSPATH' ) ) exit;` to every PHP file for security.
-* Checked with **Plugin Check**, **PHPCS** and **WPCS** → 100% passed.
+= 1.0.3 =
+* New: Published 7 core widgets with "Smart Style" traits.
+* Tweak: Optimized CSS output for faster loading.
 
 = 1.0.2 =
-* Changed Plugin Name.
-* Changed Plugin Slug.
+* Tweak: Rebranded Plugin Name and Slug for better consistency.
 
-== Credits ==
+= 1.0.1 =
+* Security: Added ABSPATH checks to all PHP files.
+* Fix: Removed `.sass-cache` folder to reduce plugin size.
+* Dev: Updated prefix to `rbelad` to prevent function conflicts.
+* Audit: Passed 100% on Plugin Check, PHPCS, and WPCS.
 
-Built with ❤️ by Bashir Rased.
+= 1.0.0 =
+* Initial release.

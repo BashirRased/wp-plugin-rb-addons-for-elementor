@@ -9,12 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$settings = $this->get_settings_for_display();
+$settings = $this->get_settings_for_display(); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Wrapper HTML.
-$html = '';
-$this->add_render_attribute( 'wrapper_attr', 'class', 'rbelad-list-style' );
-$wrapper_attr = $this->get_render_attribute_string( 'wrapper_attr' );
+$html = ''; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$this->add_render_attribute( 'wrapper_attr', 'class', 'rbelad-list-style-widget' );
+$wrapper_attr = $this->get_render_attribute_string( 'wrapper_attr' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 $list_item_array = array();
 foreach ( $settings['rbelad_list_style_general_content_list_style_repeater'] as $index => $item ) {
@@ -30,19 +30,19 @@ foreach ( $settings['rbelad_list_style_general_content_list_style_repeater'] as 
 	// Add dynamic class per item.
 	$this->add_render_attribute( $item_key, 'class', 'rbelad-list-item' );
 	$this->add_render_attribute( $item_key, 'class', 'elementor-repeater-item-' . esc_attr( $item['_id'] ) );
-	$item_attr = $this->get_render_attribute_string( $item_key );
+	$item_attr = $this->get_render_attribute_string( $item_key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 	// Icon HTML.
 	$this->add_render_attribute( 'item_icon_attr' . $index, 'class', 'rbelad-list-item-icon' );
-	$item_icon_attr = $this->get_render_attribute_string( 'item_icon_attr' . $index );
+	$item_icon_attr = $this->get_render_attribute_string( 'item_icon_attr' . $index ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 	if ( 'yes' === $item['rbelad_list_style_general_content_icon_switch'] ) {
 		if ( 'icon' === $item['rbelad_list_style_general_content_icon_type'] && ! empty( $item['rbelad_list_style_general_content_font_icon'] ) ) {
-			$item_icon = rbelad_render_icon( $item, 'icon', 'rbelad_list_style_general_content_font_icon' );
-			$icon_html = sprintf( '<span %1$s>%2$s</span>', $item_icon_attr, $item_icon );
+			$item_icon = rbelad_render_icon( $item, 'icon', 'rbelad_list_style_general_content_font_icon' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+			$icon_html = sprintf( '<span %1$s>%2$s</span>', $item_icon_attr, $item_icon ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		} elseif ( 'image' === $item['rbelad_list_style_general_content_icon_type'] && ! empty( $item['rbelad_list_style_general_content_icon_image']['url'] ) ) {
-			$item_icon = '<img src="' . esc_url( $item['rbelad_list_style_general_content_icon_image']['url'] ) . '">';
-			$icon_html = sprintf( '<span %1$s>%2$s</span>', $item_icon_attr, $item_icon );
+			$item_icon = '<img src="' . esc_url( $item['rbelad_list_style_general_content_icon_image']['url'] ) . '">'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+			$icon_html = sprintf( '<span %1$s>%2$s</span>', $item_icon_attr, $item_icon ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
 	}
 
@@ -50,27 +50,27 @@ foreach ( $settings['rbelad_list_style_general_content_list_style_repeater'] as 
 	$this->add_render_attribute( 'item_label_attr' . $index, 'class', 'rbelad-list-item-label' );
 	$item_label_attr = $this->get_render_attribute_string( 'item_label_attr' . $index );
 	if ( ! empty( $item['rbelad_list_style_general_content_label_text'] ) ) {
-		$label_html = sprintf( '<span %1$s>%2$s</span>', $item_label_attr, $item['rbelad_list_style_general_content_label_text'] );
+		$label_html = sprintf( '<span %1$s>%2$s</span>', $item_label_attr, $item['rbelad_list_style_general_content_label_text'] ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	}
 
 	// Separator HTML.
 	$this->add_render_attribute( 'item_separator_attr' . $index, 'class', 'rbelad-list-item-separator' );
 	$item_separator_attr = $this->get_render_attribute_string( 'item_separator_attr' . $index );
 	if ( 'text' === $item['rbelad_list_style_general_content_separator_type'] && ! empty( $item['rbelad_list_style_general_content_separator_text'] ) ) {
-		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $item['rbelad_list_style_general_content_separator_text'] );
+		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $item['rbelad_list_style_general_content_separator_text'] ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	} elseif ( 'icon' === $item['rbelad_list_style_general_content_separator_type'] && ! empty( $item['rbelad_list_style_general_content_separator_font_icon'] ) ) {
-		$separator_icon = rbelad_render_icon( $item, 'icon', 'separator_font_icon' );
-		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $separator_icon );
+		$separator_icon = rbelad_render_icon( $item, 'icon', 'separator_font_icon' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $separator_icon ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	} elseif ( 'image' === $item['rbelad_list_style_general_content_separator_type'] && ! empty( $item['rbelad_list_style_general_content_separator_icon_image']['url'] ) ) {
-		$separator_icon = '<img src="' . esc_url( $item['rbelad_list_style_general_content_separator_icon_image']['url'] ) . '">';
-		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $separator_icon );
+		$separator_icon = '<img src="' . esc_url( $item['rbelad_list_style_general_content_separator_icon_image']['url'] ) . '">'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$separator_html = sprintf( '<span %1$s>%2$s</span>', $item_separator_attr, $separator_icon ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	}
 
 	// Info HTML.
 	$this->add_render_attribute( 'item_info_attr' . $index, 'class', 'rbelad-list-item-info' );
-	$item_info_attr = $this->get_render_attribute_string( 'item_info_attr' . $index );
+	$item_info_attr = $this->get_render_attribute_string( 'item_info_attr' . $index ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	if ( ! empty( $item['rbelad_list_style_general_content_info_text'] ) ) {
-		$info_html = sprintf( '<span %1$s>%2$s</span>', $item_info_attr, $item['rbelad_list_style_general_content_info_text'] );
+		$info_html = sprintf( '<span %1$s>%2$s</span>', $item_info_attr, $item['rbelad_list_style_general_content_info_text'] ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 	}
 
 	$list_item_array[] = sprintf(
@@ -80,14 +80,14 @@ foreach ( $settings['rbelad_list_style_general_content_list_style_repeater'] as 
 		$label_html,
 		$separator_html,
 		$info_html
-	);
+	); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 }
 
-$item_html = implode( '', $list_item_array );
-$html      = sprintf( '<ul %1$s>%2$s</ul>', $wrapper_attr, $item_html );
+$item_html = implode( '', $list_item_array ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$html      = sprintf( '<ul %1$s>%2$s</ul>', $wrapper_attr, $item_html ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 /** WP kses allowed tags */
-$allowed_tags = wp_kses_allowed_html( 'post' );
+$allowed_tags = wp_kses_allowed_html( 'post' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Allow SVG + Font Awesome attributes.
 $allowed_tags['svg']  = array(
@@ -99,11 +99,11 @@ $allowed_tags['svg']  = array(
 	'height'      => true,
 	'viewbox'     => true, // note: lowercase here.
 	'fill'        => true,
-);
+); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 $allowed_tags['path'] = array(
 	'd'    => true,
 	'fill' => true,
-);
+); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Echo with custom allowed tags.
 echo wp_kses( $html, $allowed_tags );

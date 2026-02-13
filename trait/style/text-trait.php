@@ -33,11 +33,10 @@ trait Text_Style {
 				'controls' => array(
 					'heading'     => array(
 						'id'    => $prefix . '_text_heading',
-						'label' => esc_html__( 'Text Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Text Style', 'rb-addons-for-elementor' ),
 					),
 					'typography'  => array(
 						'name'         => $prefix . '_typography',
-						'global'       => array( 'default' => RBELAD_PRIMARY_TEXT ),
 						'select_class' => $class_1,
 					),
 					'text_stroke' => array(

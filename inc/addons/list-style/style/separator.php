@@ -10,20 +10,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 // Controls variables.
-$prefix = 'rbelad_lis_style_separator_';
-$cls_1  = '{{WRAPPER}} .rbelad-list-item-separator';
-$cls_2  = '{{WRAPPER}} .rbelad-list-item-separator svg';
-$cls_3  = '{{WRAPPER}} .rbelad-list-item-separator img';
-$cls_4  = '{{WRAPPER}} .rbelad-list-item-separator i';
+$prefix = 'rbelad_lis_style_separator_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1  = '{{WRAPPER}} .rbelad-list-item-separator'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_2  = '{{WRAPPER}} .rbelad-list-item-separator svg'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_3  = '{{WRAPPER}} .rbelad-list-item-separator img'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_4  = '{{WRAPPER}} .rbelad-list-item-separator i'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section_separator',
 	array(
-		'label' => esc_html__( 'Separator', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'Separator', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
@@ -74,12 +73,12 @@ $this->add_style_controls(
 			// Font Size.
 			'icon_img_size'        => array(
 				'id'           => $prefix . 'separator_img_size',
-				'label'        => esc_html__( 'Image Icon Size', 'rb-elementor-addons' ),
+				'label'        => esc_html__( 'Image Icon Size', 'rb-addons-for-elementor' ),
 				'select_class' => $cls_3,
 			),
 			'icon_size'            => array(
 				'id'             => $prefix . 'separator_font_size',
-				'label'          => esc_html__( 'Font Icon Size', 'rb-elementor-addons' ),
+				'label'          => esc_html__( 'Font Icon Size', 'rb-addons-for-elementor' ),
 				'select_class'   => $cls_4,
 				'select_class_2' => $cls_2,
 			),

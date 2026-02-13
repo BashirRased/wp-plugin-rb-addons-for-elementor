@@ -32,7 +32,7 @@ trait Display_Style {
 				'controls' => array(
 					'heading'        => array(
 						'id'    => $prefix . '_display_heading',
-						'label' => esc_html__( 'Display Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Display Style', 'rb-addons-for-elementor' ),
 					),
 					'display_layout' => array(
 						'id'           => $prefix . '_display_layout',

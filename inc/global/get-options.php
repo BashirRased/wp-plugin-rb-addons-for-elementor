@@ -238,6 +238,25 @@ function rbelad_get_allowed_html( $level = 'basic' ) {
 				'id'    => array(),
 				'style' => array(),
 			),
+			'svg'     => array(
+				'class'           => array(),
+				'aria-hidden'     => array(),
+				'aria-labelledby' => array(),
+				'role'            => array(),
+				'xmlns'           => array(),
+				'width'           => array(),
+				'height'          => array(),
+				'viewbox'         => array(),
+			),
+			'path'    => array(
+				'd'         => array(),
+				'fill'      => array(),
+				'transform' => array(),
+			),
+			'g'       => array(
+				'fill'      => array(),
+				'transform' => array(),
+			),
 		);
 		$allowed_html = array_merge( $allowed_html, $tags );
 	}
@@ -285,7 +304,7 @@ function rbelad_get_allowed_html_desc( $level = 'basic' ) {
 		/* translators: %1$s: list of allowed HTML tags wrapped in code tags */
 		esc_html__(
 			'This input field has support for the following HTML tags: %1$s',
-			'rb-elementor-addons'
+			'rb-addons-for-elementor'
 		),
 		'<code>' . esc_html( $tags_str ) . '</code>'
 	);
@@ -294,7 +313,7 @@ function rbelad_get_allowed_html_desc( $level = 'basic' ) {
 /**
  * Admin Dashboard Icon
  */
-function rbelad_get_custom_icon() {
+function rbelad_get_dashboard_icon() {
 	return 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjAgMjA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNC44LDEwLjNoLTEuOVYxM2gxLjhjMC41LDAsMC45LTAuMSwxLjEtMC4zYzAuMy0wLjIsMC40LTAuNiwwLjQtMUMxNi4yLDEwLjgsMTUuNywxMC4zLDE0LjgsMTAuM3oiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNS42LDYuNEgzLjl2M2gxLjdjMC41LDAsMC45LTAuMSwxLjItMC40czAuNC0wLjYsMC40LTEuMVM3LjEsNy4xLDYuOCw2LjhDNi42LDYuNSw2LjIsNi40LDUuNiw2LjR6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2LDcuN2MwLTAuNS0wLjEtMC44LTAuNC0xcy0wLjctMC4zLTEuMy0wLjNoLTEuNHYyLjVoMS41QzE1LjQsOC45LDE2LDguNSwxNiw3Ljd6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwLDBDNC41LDAsMCw0LjUsMCwxMHM0LjUsMTAsMTAsMTBzMTAtNC41LDEwLTEwUzE1LjUsMCwxMCwweiBNOS44LDE0LjdINy41TDUuNiwxMUgzLjl2My43aC0ydi0xMGgzLjcNCgkJYzEuMiwwLDIuMSwwLjMsMi43LDAuOGMwLjYsMC41LDEsMS4zLDEsMi4yYzAsMC43LTAuMSwxLjMtMC40LDEuN2MtMC4zLDAuNS0wLjcsMC44LTEuMywxLjFsMi4yLDQuMVYxNC43eiBNMTQuNywxNC43aC0zLjh2LTEwDQoJCWgzLjVjMS4yLDAsMi4xLDAuMiwyLjgsMC43YzAuNiwwLjUsMC45LDEuMiwwLjksMmMwLDAuNS0wLjEsMC45LTAuNCwxLjNjLTAuMywwLjQtMC42LDAuNi0xLjEsMC44YzAuNSwwLjEsMC45LDAuNCwxLjIsMC44DQoJCWMwLjMsMC40LDAuNCwwLjksMC40LDEuNGMwLDEtMC4zLDEuNy0wLjksMi4yQzE2LjcsMTQuNCwxNS44LDE0LjYsMTQuNywxNC43eiIvPg0KPC9nPg0KPC9zdmc+DQo=';
 }
 
@@ -405,7 +424,7 @@ function rbelad_show_plugin_missing_alert( $plugin_name ) {
 			'<div %1$s><strong>%2$s</strong> %3$s</div>',
 			'style="margin: 1rem;padding: 1rem 1.25rem;border-left: 5px solid #f5c848;color: #856404;background-color: #fff3cd;"',
 			esc_html( $plugin_name ),
-			esc_html__( 'plugin is missing! Please install and activate it.', 'rb-elementor-addons' )
+			esc_html__( 'plugin is missing! Please install and activate it.', 'rb-addons-for-elementor' )
 		);
 	}
 }
@@ -433,12 +452,12 @@ function rbelad_get_plugin_missing_info( $args = array() ) {
 
 	if ( ! empty( $plugin_file ) && file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
 		// translators: %s: Plugin title.
-		$elementor_info['title']     = sprintf( esc_html__( 'Activate %s', 'rb-elementor-addons' ), esc_html( $plugin_title ) );
+		$elementor_info['title']     = sprintf( esc_html__( 'Activate %s', 'rb-addons-for-elementor' ), esc_html( $plugin_title ) );
 		$elementor_info['url']       = wp_nonce_url( 'plugins.php?action=activate&plugin=' . $plugin_file . '&plugin_status=all&paged=1', 'activate-plugin_' . $plugin_file );
 		$elementor_info['installed'] = true;
 	} else {
 		// translators: %s: Plugin title.
-		$elementor_info['title'] = sprintf( esc_html__( 'Install %s', 'rb-elementor-addons' ), esc_html( $plugin_title ) );
+		$elementor_info['title'] = sprintf( esc_html__( 'Install %s', 'rb-addons-for-elementor' ), esc_html( $plugin_title ) );
 		$elementor_info['url']   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=' . $plugin_name ), 'install-plugin_' . $plugin_name );
 	}
 

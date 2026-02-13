@@ -41,25 +41,25 @@ class Utilities {
 
 		if ( ! empty( $demo_url ) ) {
 			$links .= '<a href="' . esc_url( $demo_url ) . '" target="_blank">'
-				. esc_html__( 'Live Demo', 'rb-elementor-addons' )
+				. esc_html__( 'Live Demo', 'rb-addons-for-elementor' )
 				. '</a> ';
 		}
 
 		if ( ! empty( $import_url ) ) {
 			$links .= '<a href="' . esc_url( $import_url ) . '" target="_blank">'
-				. esc_html__( 'Import Demos', 'rb-elementor-addons' )
+				. esc_html__( 'Import Demos', 'rb-addons-for-elementor' )
 				. '</a>';
 		}
 
 		if ( ! empty( $doc_url ) ) {
 			$links .= '<a href="' . esc_url( $doc_url ) . '" target="_blank">'
-				. esc_html__( 'Documentation', 'rb-elementor-addons' )
+				. esc_html__( 'Documentation', 'rb-addons-for-elementor' )
 				. '</a>';
 		}
 
 		if ( ! empty( $tutorial_url ) ) {
 			$links .= '<a href="' . esc_url( $tutorial_url ) . '" target="_blank">'
-				. esc_html__( 'Video Tutorial', 'rb-elementor-addons' )
+				. esc_html__( 'Video Tutorial', 'rb-addons-for-elementor' )
 				. '</a>';
 		}
 

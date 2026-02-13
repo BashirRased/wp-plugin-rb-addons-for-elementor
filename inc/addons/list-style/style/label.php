@@ -10,17 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
 // Controls variables.
-$prefix = 'rbelad_lis_style_label_';
-$cls_1  = '{{WRAPPER}} .rbelad-list-item-label';
+$prefix = 'rbelad_lis_style_label_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1  = '{{WRAPPER}} .rbelad-list-item-label'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
 	$prefix . 'section_label',
 	array(
-		'label' => esc_html__( 'Label', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'Label', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );

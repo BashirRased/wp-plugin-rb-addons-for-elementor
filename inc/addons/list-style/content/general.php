@@ -10,22 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
-$prefix = 'rbelad_list_style_general_content_';
+$prefix = 'rbelad_list_style_general_content_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Content.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
 );
-
-// Widgets Buttons.
-Utilities::add_library_buttons( $this, 'list-style' );
 
 // All repeater content add here.
 $this->add_repeater_controls(
@@ -34,15 +30,15 @@ $this->add_repeater_controls(
 		'controls'    => array(
 			'switch'   => array(
 				'id'      => $prefix . 'icon_switch',
-				'label'   => esc_html__( 'Icon Show', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Icon Show', 'rb-addons-for-elementor' ),
 				'default' => 'no',
 			),
 			'select'   => array(
 				'id'        => $prefix . 'icon_type',
-				'label'     => esc_html__( 'Icon Type', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Icon Type', 'rb-addons-for-elementor' ),
 				'options'   => array(
-					'icon'  => esc_html__( 'Icon', 'rb-elementor-addons' ),
-					'image' => esc_html__( 'Image', 'rb-elementor-addons' ),
+					'icon'  => esc_html__( 'Icon', 'rb-addons-for-elementor' ),
+					'image' => esc_html__( 'Image', 'rb-addons-for-elementor' ),
 				),
 				'default'   => 'icon',
 				'condition' => array(
@@ -51,7 +47,7 @@ $this->add_repeater_controls(
 			),
 			'icon'     => array(
 				'id'        => $prefix . 'font_icon',
-				'label'     => esc_html__( 'Font Icon', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Font Icon', 'rb-addons-for-elementor' ),
 				'default'   => array(
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
@@ -63,7 +59,7 @@ $this->add_repeater_controls(
 			),
 			'img'      => array(
 				'id'        => $prefix . 'icon_image',
-				'label'     => esc_html__( 'Icon Image', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Icon Image', 'rb-addons-for-elementor' ),
 				'condition' => array(
 					$prefix . 'icon_switch' => 'yes',
 					$prefix . 'icon_type'   => 'image',
@@ -71,30 +67,30 @@ $this->add_repeater_controls(
 			),
 			'text'     => array(
 				'id'      => $prefix . 'label_text',
-				'label'   => esc_html__( 'Label Text', 'rb-elementor-addons' ),
-				'default' => esc_html__( 'Name', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Label Text', 'rb-addons-for-elementor' ),
+				'default' => esc_html__( 'Name', 'rb-addons-for-elementor' ),
 			),
 			'select_2' => array(
 				'id'      => $prefix . 'separator_type',
-				'label'   => esc_html__( 'Separator Type', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Separator Type', 'rb-addons-for-elementor' ),
 				'options' => array(
-					'text'  => esc_html__( 'Text', 'rb-elementor-addons' ),
-					'icon'  => esc_html__( 'Icon', 'rb-elementor-addons' ),
-					'image' => esc_html__( 'Image', 'rb-elementor-addons' ),
+					'text'  => esc_html__( 'Text', 'rb-addons-for-elementor' ),
+					'icon'  => esc_html__( 'Icon', 'rb-addons-for-elementor' ),
+					'image' => esc_html__( 'Image', 'rb-addons-for-elementor' ),
 				),
 				'default' => 'text',
 			),
 			'text_2'   => array(
 				'id'        => $prefix . 'separator_text',
-				'label'     => esc_html__( 'Separator Text', 'rb-elementor-addons' ),
-				'default'   => esc_html__( ':', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Separator Text', 'rb-addons-for-elementor' ),
+				'default'   => esc_html__( ':', 'rb-addons-for-elementor' ),
 				'condition' => array(
 					$prefix . 'separator_type' => 'text',
 				),
 			),
 			'icon_2'   => array(
 				'id'        => $prefix . 'separator_font_icon',
-				'label'     => esc_html__( 'Separator Font Icon', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Separator Font Icon', 'rb-addons-for-elementor' ),
 				'default'   => array(
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
@@ -105,64 +101,64 @@ $this->add_repeater_controls(
 			),
 			'img_2'    => array(
 				'id'        => $prefix . 'separator_icon_image',
-				'label'     => esc_html__( 'Separator Icon Image', 'rb-elementor-addons' ),
+				'label'     => esc_html__( 'Separator Icon Image', 'rb-addons-for-elementor' ),
 				'condition' => array(
 					$prefix . 'separator_type' => 'image',
 				),
 			),
 			'text_3'   => array(
 				'id'      => $prefix . 'info_text',
-				'label'   => esc_html__( 'Info Text', 'rb-elementor-addons' ),
-				'default' => esc_html__( 'Bashir Rased', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Info Text', 'rb-addons-for-elementor' ),
+				'default' => esc_html__( 'Bashir Rased', 'rb-addons-for-elementor' ),
 			),
 		),
 		'id'          => $prefix . 'list_style_repeater',
-		'label'       => esc_html__( 'List Item', 'rb-elementor-addons' ),
+		'label'       => esc_html__( 'List Item', 'rb-addons-for-elementor' ),
 		'default'     => array(
 			array(
 				$prefix . 'font_icon'      => array(
 					'value'   => 'fas fa-user',
 					'library' => 'fa-solid',
 				),
-				$prefix . 'label_text'     => esc_html__( 'Name', 'rb-elementor-addons' ),
-				$prefix . 'separator_text' => esc_html__( ':', 'rb-elementor-addons' ),
-				$prefix . 'info_text'      => esc_html__( 'Bashir Rased', 'rb-elementor-addons' ),
+				$prefix . 'label_text'     => esc_html__( 'Name', 'rb-addons-for-elementor' ),
+				$prefix . 'separator_text' => esc_html__( ':', 'rb-addons-for-elementor' ),
+				$prefix . 'info_text'      => esc_html__( 'Bashir Rased', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'font_icon'      => array(
 					'value'   => 'fas fa-calendar-alt',
 					'library' => 'fa-solid',
 				),
-				$prefix . 'label_text'     => esc_html__( 'Date of Birth', 'rb-elementor-addons' ),
-				$prefix . 'separator_text' => esc_html__( ':', 'rb-elementor-addons' ),
-				$prefix . 'info_text'      => esc_html__( '05 November 1994', 'rb-elementor-addons' ),
+				$prefix . 'label_text'     => esc_html__( 'Date of Birth', 'rb-addons-for-elementor' ),
+				$prefix . 'separator_text' => esc_html__( ':', 'rb-addons-for-elementor' ),
+				$prefix . 'info_text'      => esc_html__( '05 November 1994', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'font_icon'      => array(
 					'value'   => 'fas fa-phone-volume',
 					'library' => 'fa-solid',
 				),
-				$prefix . 'label_text'     => esc_html__( 'Mobile', 'rb-elementor-addons' ),
-				$prefix . 'separator_text' => esc_html__( ':', 'rb-elementor-addons' ),
-				$prefix . 'info_text'      => esc_html__( '+88 01841 909870, +88 01934 109870', 'rb-elementor-addons' ),
+				$prefix . 'label_text'     => esc_html__( 'Mobile', 'rb-addons-for-elementor' ),
+				$prefix . 'separator_text' => esc_html__( ':', 'rb-addons-for-elementor' ),
+				$prefix . 'info_text'      => esc_html__( '+88 01841 909870, +88 01934 109870', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'font_icon'      => array(
 					'value'   => 'fas fa-envelope',
 					'library' => 'fa-solid',
 				),
-				$prefix . 'label_text'     => esc_html__( 'E-mail', 'rb-elementor-addons' ),
-				$prefix . 'separator_text' => esc_html__( ':', 'rb-elementor-addons' ),
-				$prefix . 'info_text'      => esc_html__( 'info@bashirrased.com, bashir.rased@gmail.com', 'rb-elementor-addons' ),
+				$prefix . 'label_text'     => esc_html__( 'E-mail', 'rb-addons-for-elementor' ),
+				$prefix . 'separator_text' => esc_html__( ':', 'rb-addons-for-elementor' ),
+				$prefix . 'info_text'      => esc_html__( 'info@bashirrased.com, bashir.rased@gmail.com', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'font_icon'      => array(
 					'value'   => 'fas fa-map-marker-alt',
 					'library' => 'fa-solid',
 				),
-				$prefix . 'label_text'     => esc_html__( 'Address', 'rb-elementor-addons' ),
-				$prefix . 'separator_text' => esc_html__( ':', 'rb-elementor-addons' ),
-				$prefix . 'info_text'      => esc_html__( 'Shonir Akhra, Jatrabari, Dhaka-1362.', 'rb-elementor-addons' ),
+				$prefix . 'label_text'     => esc_html__( 'Address', 'rb-addons-for-elementor' ),
+				$prefix . 'separator_text' => esc_html__( ':', 'rb-addons-for-elementor' ),
+				$prefix . 'info_text'      => esc_html__( 'Shonir Akhra, Jatrabari, Dhaka-1362.', 'rb-addons-for-elementor' ),
 			),
 		),
 		'title_field' => '{{{ rbelad_list_style_general_content_label_text }}}',

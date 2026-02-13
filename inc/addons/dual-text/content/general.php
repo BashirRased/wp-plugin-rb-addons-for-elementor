@@ -10,22 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
-$prefix = 'rbelad_dual_text_general_content_';
+$prefix = 'rbelad_dual_text_general_content_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Content.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
 );
-
-// Widgets Buttons.
-Utilities::add_library_buttons( $this, 'dual-text' );
 
 // All repeater content add here.
 $this->add_repeater_controls(
@@ -34,28 +30,28 @@ $this->add_repeater_controls(
 		'controls'    => array(
 			'switch'   => array(
 				'id'      => $prefix . 'title_highlight',
-				'label'   => esc_html__( 'Text Highlight', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Text Highlight', 'rb-addons-for-elementor' ),
 				'default' => 'no',
 			),
 			'textarea' => array(
 				'id'    => $prefix . 'title_text',
-				'label' => esc_html__( 'Text', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Text', 'rb-addons-for-elementor' ),
 			),
 		),
 		'id'          => $prefix . 'title_repeater',
-		'label'       => esc_html__( 'Dual Text Item', 'rb-elementor-addons' ),
+		'label'       => esc_html__( 'Dual Text Item', 'rb-addons-for-elementor' ),
 		'default'     => array(
 			array(
 				$prefix . 'title_highlight' => 'no',
-				$prefix . 'title_text'      => esc_html__( 'Hi! I\'m ', 'rb-elementor-addons' ),
+				$prefix . 'title_text'      => esc_html__( 'Hi! I\'m ', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'title_highlight' => 'yes',
-				$prefix . 'title_text'      => esc_html__( 'Bashir Rased', 'rb-elementor-addons' ),
+				$prefix . 'title_text'      => esc_html__( 'Bashir Rased', 'rb-addons-for-elementor' ),
 			),
 			array(
 				$prefix . 'title_highlight' => 'no',
-				$prefix . 'title_text'      => esc_html__( '. Welcome, to my portfolio website.', 'rb-elementor-addons' ),
+				$prefix . 'title_text'      => esc_html__( '. Welcome, to my portfolio website.', 'rb-addons-for-elementor' ),
 			),
 		),
 		'title_field' => '{{{ rbelad_dual_text_general_content_title_text }}}',

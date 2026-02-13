@@ -36,7 +36,7 @@ trait Border_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_border_heading',
-						'label' => esc_html__( 'Border Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Border Style', 'rb-addons-for-elementor' ),
 					),
 				),
 			)
@@ -53,12 +53,12 @@ trait Border_Style {
 		$this->start_controls_tab(
 			$prefix . '_border_normal_tab',
 			array(
-				'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Normal', 'rb-addons-for-elementor' ),
 			)
 		);
 
 		$this->add_style_controls(
-			$prefix . '_border_color',
+			$prefix . '_border_section',
 			array(
 				'controls' => array(
 					'border'        => array(
@@ -85,25 +85,24 @@ trait Border_Style {
 		$this->start_controls_tab(
 			$prefix . '_border_hover_tab',
 			array(
-				'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+				'label' => esc_html__( 'Hover', 'rb-addons-for-elementor' ),
 			)
 		);
 
 		$this->add_style_controls(
-			$prefix . '_border_color_hover',
+			$prefix . '_border_section_hover',
 			array(
 				'controls' => array(
-					'border_color'  => array(
-						'id'           => $prefix . '_hover_border_color',
-						'default'      => RBELAD_PRIMARY_COLOR,
+					'border'        => array(
+						'name'         => $prefix . '_border_hover',
 						'select_class' => $class_hover_1 ? $class_hover_1 : '' . ( $class_focus_1 ? ', ' . $class_focus_1 : '' ),
 					),
 					'border_radius' => array(
-						'id'           => $prefix . '_hover_border_radius',
+						'id'           => $prefix . '_border_radius_hover',
 						'select_class' => $class_hover_1 ? $class_hover_1 : '' . ( $class_focus_1 ? ', ' . $class_focus_1 : '' ),
 					),
 					'box_shadow'    => array(
-						'name'         => $prefix . '_hover_box_shadow',
+						'name'         => $prefix . '_box_shadow_hover',
 						'select_class' => $class_hover_1 ? $class_hover_1 : '' . ( $class_focus_1 ? ', ' . $class_focus_1 : '' ),
 					),
 				),

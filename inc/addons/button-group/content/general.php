@@ -10,37 +10,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Elementor\Controls_Manager;
-use RBELAD_Elementor_Addons\Utilities;
 
 // Controls variables.
-$prefix = 'rbelad_button_group_general_content_';
+$prefix = 'rbelad_button_group_general_content_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Content.
 $this->start_controls_section(
 	$prefix . 'section',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
 );
 
-// Widgets Buttons.
-Utilities::add_library_buttons( $this, 'button-group' );
+// Widgets Styles.
+$choose_design_options = $this->get_choose_design_options( 'button-group' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // All content add here.
 $this->add_style_controls(
 	$prefix . 'style_1',
 	array(
 		'controls' => array(
-			// Select Style.
-			'select_option' => array(
-				'id'      => $prefix . 'choose_style',
-				'options' => array(
-					'style-1' => esc_html__( 'Style - 01', 'rb-elementor-addons' ),
-					'style-2' => esc_html__( 'Style - 02', 'rb-elementor-addons' ),
-					'style-3' => esc_html__( 'Style - 03', 'rb-elementor-addons' ),
-				),
-				'default' => 'style-1',
+			// Choose Design.
+			'choose_design' => array(
+				'id'      => $prefix . 'choose_design',
+				'options' => $choose_design_options, // dynamically generated.
+				'default' => array_key_first( $choose_design_options ), // first style as default.
 			),
 		),
 	),
@@ -53,16 +48,16 @@ $this->add_repeater_controls(
 		'controls'    => array(
 			'text'        => array(
 				'id'      => $prefix . 'btn_text',
-				'label'   => esc_html__( 'Button Text', 'rb-elementor-addons' ),
-				'default' => esc_html__( 'Button', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Button Text', 'rb-addons-for-elementor' ),
+				'default' => esc_html__( 'Button', 'rb-addons-for-elementor' ),
 			),
 			'select'      => array(
 				'id'      => $prefix . 'link_type',
-				'label'   => esc_html__( 'Link Type', 'rb-elementor-addons' ),
+				'label'   => esc_html__( 'Link Type', 'rb-addons-for-elementor' ),
 				'options' => array(
-					'none'   => esc_html__( 'None', 'rb-elementor-addons' ),
-					'page'   => esc_html__( 'Page Link', 'rb-elementor-addons' ),
-					'custom' => esc_html__( 'Custom Link', 'rb-elementor-addons' ),
+					'none'   => esc_html__( 'None', 'rb-addons-for-elementor' ),
+					'page'   => esc_html__( 'Page Link', 'rb-addons-for-elementor' ),
+					'custom' => esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
 				),
 				'default' => 'custom',
 			),
@@ -80,13 +75,13 @@ $this->add_repeater_controls(
 			),
 		),
 		'id'          => $prefix . 'repeater',
-		'label'       => esc_html__( 'Social Icon Item', 'rb-elementor-addons' ),
+		'label'       => esc_html__( 'Social Icon Item', 'rb-addons-for-elementor' ),
 		'default'     => array(
 			array(
-				$prefix . 'btn_text' => esc_html__( 'Download CV', 'rb-elementor-addons' ),
+				$prefix . 'btn_text' => esc_html__( 'Download CV', 'rb-addons-for-elementor' ),
 			),
 			array(
-				$prefix . 'btn_text' => esc_html__( 'Contact Me', 'rb-elementor-addons' ),
+				$prefix . 'btn_text' => esc_html__( 'Contact Me', 'rb-addons-for-elementor' ),
 			),
 		),
 		'title_field' => '{{{ rbelad_button_group_general_content_btn_text }}}',

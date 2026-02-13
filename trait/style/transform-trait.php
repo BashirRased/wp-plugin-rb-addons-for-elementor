@@ -36,7 +36,7 @@ trait Transform_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_transform_heading',
-						'label' => esc_html__( 'Transform Style', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Transform Style', 'rb-addons-for-elementor' ),
 					),
 				),
 			)
@@ -53,7 +53,7 @@ trait Transform_Style {
 			$this->start_controls_tab(
 				$prefix . '_transform_normal_tab',
 				array(
-					'label' => esc_html__( 'Normal', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Normal', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(
@@ -75,7 +75,7 @@ trait Transform_Style {
 			$this->start_controls_tab(
 				$prefix . '_transform_hover_tab',
 				array(
-					'label' => esc_html__( 'Hover', 'rb-elementor-addons' ),
+					'label' => esc_html__( 'Hover', 'rb-addons-for-elementor' ),
 				)
 			);
 			$this->add_style_controls(

@@ -12,15 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = 'rbelad_divider_general_';
-$cls_1  = '{{WRAPPER}} .rbelad-divider';
-$cls_2  = '{{WRAPPER}} .rbelad-divider-container';
+$section_prefix = $this->get_section_prefix( 'style_section_' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$prefix         = $section_prefix . 'general'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_1          = '{{WRAPPER}} .rbelad-divider-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$cls_2          = '{{WRAPPER}} .rbelad-divider-widget-container'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
-	$prefix . 'section_style',
+	$prefix . 'general',
 	array(
-		'label' => esc_html__( 'General', 'rb-elementor-addons' ),
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
@@ -72,7 +73,7 @@ $this->add_style_controls(
 			),
 
 			// Text Align.
-			'item_align'          => array(
+			'item_align'             => array(
 				'id'           => $prefix . 'item_align',
 				'options'      => rbelad_align_justify(),
 				'default'      => is_rtl() ? 'right' : 'left',

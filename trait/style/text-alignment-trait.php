@@ -33,7 +33,7 @@ trait Text_Alignment_Style {
 				'controls' => array(
 					'heading' => array(
 						'id'    => $prefix . '_text_align_heading',
-						'label' => esc_html__( 'Text Alignment', 'rb-elementor-addons' ),
+						'label' => esc_html__( 'Text Alignment', 'rb-addons-for-elementor' ),
 					),
 					'align'   => array(
 						'id'           => $prefix . '_align',
