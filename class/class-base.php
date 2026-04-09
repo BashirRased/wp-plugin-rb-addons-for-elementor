@@ -2,7 +2,8 @@
 /**
  * Widgets ID, Title, Category & Wrapper Classes.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -17,8 +18,6 @@ defined( 'ABSPATH' ) || die();
  *
  * Provides common functionality for all custom widgets,
  * including naming, titles, icons, and category assignment.
- *
- * @package RBELAD_Elementor_Addons
  */
 abstract class Base extends Widget_Base {
 	/**
@@ -78,8 +77,9 @@ abstract class Base extends Widget_Base {
 	 * @return string Icon class name for Elementor editor.
 	 */
 	public function get_icon() {
-		$slug = $this->get_name();
-		return 'rbelad-icon ' . $slug;
+		$slug                = $this->get_name();
+		$slug_without_prefix = preg_replace( '/^rbelad-/', '', $slug );
+		return 'rbelad-wf rbelad-wf-' . $slug_without_prefix;
 	}
 
 	/**
@@ -118,14 +118,26 @@ abstract class Base extends Widget_Base {
 	}
 
 	/**
-	 * Get a unique section prefix for the widget.
+	 * Get a unique section prefix for the widget content tab.
 	 *
 	 * @param string $section Section name.
 	 * @return string Section prefix.
 	 */
-	public function get_section_prefix( string $section ): string {
+	public function get_section_content_prefix( string $section ): string {
 		$slug = $this->get_name(); // rbelad-archive-description.
 		$slug = str_replace( '-', '_', $slug ); // rbelad_archive_description.
-		return $slug . '_' . $section;
+		return $slug . '_content_' . $section;
+	}
+
+	/**
+	 * Get a unique section prefix for the widget style tab.
+	 *
+	 * @param string $section Section name.
+	 * @return string Section prefix.
+	 */
+	public function get_section_style_prefix( string $section ): string {
+		$slug = $this->get_name(); // rbelad-archive-description.
+		$slug = str_replace( '-', '_', $slug ); // rbelad_archive_description.
+		return $slug . '_style_' . $section;
 	}
 }

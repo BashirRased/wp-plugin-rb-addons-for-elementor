@@ -2,7 +2,8 @@
 /**
  * Button Widget.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
@@ -18,8 +19,6 @@ defined( 'ABSPATH' ) || die();
 
 /**
  * Button class.
- *
- * @package RBELAD_Elementor_Addons
  */
 class Button extends Base {
 	/**
@@ -31,15 +30,6 @@ class Button extends Base {
 	use Transition_Style;
 	use Link_Style;
 	use Background_Style;
-
-	/**
-	 * Enqueue css files
-	 */
-	public function get_style_depends() {
-		return array(
-			'rbelad-button',
-		);
-	}
 
 	/**
 	 * Register widget search keywords
@@ -114,64 +104,6 @@ class Button extends Base {
 	 * Register render display control
 	 */
 	protected function render() {
-		global $settings; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		global $design_choose; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		global $link_type; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		global $btn_attr; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		$settings = $this->get_settings_for_display();
-		$design   = $settings['rbelad_button_general_content_choose_design'] ?? 'style-1'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$file     = RBELAD_WIDGETS . '/button/render/' . $design . '.php'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		/**
-		 * --------------------------------------------------
-		 * Button classes (design)
-		 * --------------------------------------------------
-		 */
-		$design_choose = ! empty( $settings['rbelad_button_general_content_choose_design'] )
-			? $settings['rbelad_button_general_content_choose_design']
-			: 'style-1'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		$choose_design_class = 'rbelad-button-widget-' . $design_choose; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		$this->add_render_attribute(
-			'rbelad_btn_attr',
-			'class',
-			'rbelad-button-widget-item'
-		);
-		$this->add_render_attribute(
-			'rbelad_btn_attr',
-			'class',
-			$choose_design_class
-		);
-
-		/**
-		 * --------------------------------------------------
-		 * Button link handling
-		 * --------------------------------------------------
-		 */
-		$link_type = $settings['rbelad_button_general_content_link_type'] ?? ''; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		if (
-			'custom' === $link_type &&
-			! empty( $settings['rbelad_button_general_content_custom_link']['url'] )
-		) {
-			$this->add_link_attributes(
-				'rbelad_btn_attr',
-				$settings['rbelad_button_general_content_custom_link']
-			);
-		} elseif ( 'page' === $link_type && ! empty( $settings['rbelad_button_general_content_page_link'] ) ) {
-			$this->add_render_attribute( 'rbelad_btn_attr', 'href', esc_url( get_permalink( $settings['rbelad_button_general_content_page_link'] ) ) );
-			$this->add_render_attribute( 'rbelad_btn_attr', 'target', '_self' );
-			$this->add_render_attribute( 'rbelad_btn_attr', 'rel', 'nofollow' );
-		}
-
-		$btn_attr = $this->get_render_attribute_string( 'rbelad_btn_attr' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		if ( file_exists( $file ) ) {
-			require $file;
-		} else {
-			require RBELAD_WIDGETS . '/button/render/style-1.php';
-		}
+		require RBELAD_WIDGETS . '/button/render/design-1.php';
 	}
 }

@@ -2,7 +2,8 @@
 /**
  * Divider widget style controls.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,76 +13,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$section_prefix = $this->get_section_prefix( 'style_section_' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-$prefix         = $section_prefix . 'general'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-$cls_1          = '{{WRAPPER}} .rbelad-divider-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-$cls_2          = '{{WRAPPER}} .rbelad-divider-widget-container'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$prefix = $this->get_section_style_prefix( 'general' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+$class_1                = '{{WRAPPER}} .rbelad-divider-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_hover_1          = '{{WRAPPER}} .rbelad-divider-widget:hover'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_focus_1          = '{{WRAPPER}} .rbelad-divider-widget:focus'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_2                = '{{WRAPPER}} .rbelad-divider-widget-container'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$bg_default_color       = RBELAD_PRIMARY_COLOR; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$bg_default_color_hover = RBELAD_PRIMARY_COLOR; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Item Height & Width Values.
+$default_width_size  = 100; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_width_unit  = '%'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_height_size = 1; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
-	$prefix . 'general',
+	$prefix,
 	array(
 		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
 
-// All content add here.
-$this->add_style_controls(
-	$prefix . 'style_1',
+// Item Size.
+$this->register_item_size_style(
+	$prefix,
+	$class_1,
 	array(
-		'controls' => array(
-			// Border & Border Radius.
-			'border'                 => array(
-				'id'             => $prefix . 'border',
-				'fields_options' => array(
-					'border' => array( 'default' => 'solid' ),
-					'width'  => array(
-						'default' => array(
-							'top'      => '1',
-							'right'    => '0',
-							'bottom'   => '0',
-							'left'     => '0',
-							'isLinked' => false,
-						),
-					),
-					'color'  => array(
-						'default' => RBELAD_PRIMARY_COLOR,
-					),
-				),
-				'select_class'   => $cls_1,
-			),
-			'border_radius'          => array(
-				'id'           => $prefix . 'border_radius',
-				'select_class' => $cls_1,
-			),
-			'border_separator'       => array(
-				'id' => $prefix . 'border_separator',
-			),
-
-			// Width & Height.
-			'width'                  => array(
-				'id'           => $prefix . 'width',
-				'default'      => array(
-					'unit' => '%',
-					'size' => 100,
-				),
-				'select_class' => $cls_1,
-			),
-			'width_height_separator' => array(
-				'id' => $prefix . 'width_height_separator',
-			),
-
-			// Text Align.
-			'item_align'             => array(
-				'id'           => $prefix . 'item_align',
-				'options'      => rbelad_align_justify(),
-				'default'      => is_rtl() ? 'right' : 'left',
-				'select_class' => $cls_2,
-			),
-		),
+		'unit' => $default_width_unit,
+		'size' => $default_width_size,
+	),
+	array(),
+	array(),
+	array(
+		'size' => $default_height_size,
 	),
 );
+
+// Background Style.
+$this->register_bg_style(
+	$prefix,
+	array(
+		'class_1'       => $class_1,
+		'class_hover_1' => $class_hover_1,
+		'class_focus_1' => $class_focus_1,
+	),
+	array(
+		'bg_color'       => $bg_default_color,
+		'bg_color_hover' => $bg_default_color_hover,
+	)
+);
+
+// Item Alignment.
+$this->register_item_alignment_style( $prefix, $class_2 );
 
 // End Section Tab.
 $this->end_controls_section();

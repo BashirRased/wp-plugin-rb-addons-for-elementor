@@ -2,19 +2,35 @@
 /**
  * Scroll Down Widget.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
+
+use RBELAD_Elementor_Addons\Traits\Background_Style;
+use RBELAD_Elementor_Addons\Traits\Border_Style;
+use RBELAD_Elementor_Addons\Traits\Item_Alignment_Style;
+use RBELAD_Elementor_Addons\Traits\Item_Size_Style;
+use RBELAD_Elementor_Addons\Traits\Spacing_Style;
+use RBELAD_Elementor_Addons\Traits\Top_Style;
 
 defined( 'ABSPATH' ) || die();
 
 /**
  * Scroll_Down class.
- *
- * @package RBELAD_Elementor_Addons
  */
 class Scroll_Down extends Base {
+	/**
+	* Use all trait.
+	*/
+	use Background_Style;
+	use Item_Size_Style;
+	use Border_Style;
+	use Top_Style;
+	use Item_Alignment_Style;
+	use Spacing_Style;
+
 	/**
 	 * Register widget search keywords
 	 */
@@ -63,6 +79,7 @@ class Scroll_Down extends Base {
 	protected function register_style_tab() {
 		$this->__general_style();
 		$this->__dropdown_ball_style();
+		$this->__wrap_style();
 	}
 
 	/**
@@ -77,6 +94,13 @@ class Scroll_Down extends Base {
 	 */
 	protected function __dropdown_ball_style() {
 		require RBELAD_WIDGETS . '/scroll-down/style/dropdown-ball.php';
+	}
+
+	/**
+	 * Style - Wrap
+	 */
+	protected function __wrap_style() {
+		require RBELAD_WIDGETS . '/scroll-down/style/wrap.php';
 	}
 
 	/**

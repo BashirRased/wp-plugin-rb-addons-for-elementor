@@ -12,13 +12,13 @@
 	display: inline-block;
 }
 
-.rbelad-d-inline-flex {
-	display: inline-flex;
+.rbelad-d-flex {
+	display: flex;
 	flex-wrap: wrap;
 }
 
-.rbelad-d-flex {
-	display: flex;
+.rbelad-d-inline-flex {
+	display: inline-flex;
 	flex-wrap: wrap;
 }
 
@@ -88,11 +88,6 @@
 	list-style: none;
 }
 
-.rbelad-wrap-list-style .rbelad-list-style-widget .rbelad-list-item {
-	display: flex;
-	align-items: center;
-}
-
 .rbelad-wrap-list-style .rbelad-list-style-widget .rbelad-list-item .rbelad-list-item-icon {
 	display: inline-flex;
 	align-items: center;
@@ -106,6 +101,11 @@
 }
 
 /* Scroll Down Widget */
+.rbelad-wrap-scroll-down .rbelad-scroll-down-widget-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .rbelad-wrap-scroll-down .rbelad-scroll-down-widget {
 	cursor: pointer;
 	position: relative;

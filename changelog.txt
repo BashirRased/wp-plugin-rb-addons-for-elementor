@@ -1,0 +1,15 @@
+= 1.0.3 =
+* New: Published 7 core widgets with "Smart Style" traits.
+* Tweak: Optimized CSS output for faster loading.
+
+= 1.0.2 =
+* Tweak: Rebranded Plugin Name and Slug for better consistency.
+
+= 1.0.1 =
+* Security: Added ABSPATH checks to all PHP files.
+* Fix: Removed `.sass-cache` folder to reduce plugin size.
+* Dev: Updated prefix to `rbelad` to prevent function conflicts.
+* Audit: Passed 100% on Plugin Check, PHPCS, and WPCS.
+
+= 1.0.0 =
+* Initial release.

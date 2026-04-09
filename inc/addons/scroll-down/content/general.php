@@ -2,7 +2,8 @@
 /**
  * Scroll Down widget content controls.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -50,6 +51,9 @@ $this->add_style_controls(
 			// Custom Link.
 			'custom_link'   => array(
 				'id'        => $prefix . 'custom_link',
+				'default'   => array(
+					'url' => esc_url( '#' ),
+				),
 				'condition' => array(
 					$prefix . 'link_type' => 'custom',
 				),

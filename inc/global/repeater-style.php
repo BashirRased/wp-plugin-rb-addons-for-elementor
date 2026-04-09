@@ -2,7 +2,8 @@
 /**
  * All repeater controls load file.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

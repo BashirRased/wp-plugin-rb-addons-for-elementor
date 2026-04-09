@@ -2,7 +2,8 @@
 /**
  * Scroll Down widget output.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,5 +30,5 @@ if ( 'custom' === $settings['rbelad_scroll_down_general_content_link_type'] && !
 	$wrapper_attr = $this->get_render_attribute_string( 'wrapper_attr' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 }
 
-$html = sprintf( '<a %1$s></a>', $wrapper_attr ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$html = sprintf( '<div class="rbelad-scroll-down-widget-container"><a %1$s></a></div>', $wrapper_attr ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 echo wp_kses_post( $html );

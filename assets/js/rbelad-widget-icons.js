@@ -1,0 +1,28 @@
+{
+	"icons": [
+		'animated-headline',
+		'button',
+		'button-group',
+		'contact-form-7',
+		'countdown',
+		'divider',
+		'flip-box',
+		'heading',
+		'icon-list',
+		'image',
+		'info-box',
+		'lottie',
+		'pdf-view',
+		'profile-card',
+		'rating',
+		'rb-addons',
+		'scroll-down',
+		'search',
+		'section-header',
+		'share-buttons',
+		'social-icons',
+		'team-member',
+		'text-editor',
+		'video',
+	]
+}

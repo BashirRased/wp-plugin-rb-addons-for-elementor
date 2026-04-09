@@ -2,7 +2,8 @@
 /**
  * Scroll Down widget - General style controls.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,78 +13,97 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = 'rbelad_scroll_down_general_'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-$cls_1  = '{{WRAPPER}} .rbelad-scroll-down-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$prefix = $this->get_section_style_prefix( 'general' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Classes.
+$class         = '{{WRAPPER}} .rbelad-scroll-down-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_1       = $class; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_hover_1 = $class . ':hover'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$class_focus_1 = $class . ':focus'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Item Height & Width Values.
+$default_width_size  = 30; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_height_size = 50; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Border Default Values.
+$default_border_type          = 'solid'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_top           = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_right         = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_bottom        = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_left          = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_color         = RBELAD_PRIMARY_COLOR; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_top    = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_right  = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_bottom = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_left   = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
+// Border Default Hover & Focus Values.
+$default_border_type_hover          = 'solid'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_top_hover           = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_right_hover         = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_bottom_hover        = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_left_hover          = '2'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_color_hover         = RBELAD_PRIMARY_COLOR; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_top_hover    = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_right_hover  = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_bottom_hover = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$default_border_radius_left_hover   = '50'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
-	$prefix . 'section',
+	$prefix,
 	array(
 		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
 
-// All content add here.
-$this->add_style_controls(
-	$prefix . 'style_1',
+// Item Size.
+$this->register_item_size_style(
+	$prefix,
+	$class_1,
 	array(
-		'controls' => array(
-			// Width & Height.
-			'width'                  => array(
-				'id'           => $prefix . 'width',
-				'default'      => array(
-					'unit' => 'px',
-					'size' => 30,
-				),
-				'select_class' => $cls_1,
-			),
-			'height'                 => array(
-				'id'           => $prefix . 'height',
-				'default'      => array(
-					'unit' => 'px',
-					'size' => 50,
-				),
-				'select_class' => $cls_1,
-			),
-			'width_height_separator' => array(
-				'id' => $prefix . 'width_height_separator',
-			),
-
-			// Border & Border Radius.
-			'border'                 => array(
-				'id'             => $prefix . 'border',
-				'fields_options' => array(
-					'border' => array( 'default' => 'solid' ),
-					'width'  => array(
-						'default' => array(
-							'top'      => '2',
-							'right'    => '2',
-							'bottom'   => '2',
-							'left'     => '2',
-							'isLinked' => true,
-						),
-					),
-					'color'  => array(
-						'default' => RBELAD_PRIMARY_COLOR,
-					),
-				),
-				'select_class'   => $cls_1,
-			),
-			'border_radius'          => array(
-				'id'           => $prefix . 'border_radius',
-				'default'      => array(
-					'top'      => 50,
-					'right'    => 50,
-					'bottom'   => 50,
-					'left'     => 50,
-					'unit'     => 'px',
-					'isLinked' => true,
-				),
-				'select_class' => $cls_1,
-			),
-		),
+		'size' => $default_width_size,
 	),
+	array(),
+	array(),
+	array(
+		'size' => $default_height_size,
+	),
+);
+
+// Border Style.
+$this->register_border_style(
+	$prefix,
+	array(
+		'class_1'       => $class_1,
+		'class_hover_1' => $class_hover_1,
+		'class_focus_1' => $class_focus_1,
+	),
+	array(
+		'type'          => $default_border_type,
+		'top'           => $default_border_top,
+		'right'         => $default_border_right,
+		'bottom'        => $default_border_bottom,
+		'left'          => $default_border_left,
+		'color'         => $default_border_color,
+		'radius_top'    => $default_border_radius_top,
+		'radius_right'  => $default_border_radius_right,
+		'radius_bottom' => $default_border_radius_bottom,
+		'radius_left'   => $default_border_radius_left,
+	),
+	array(
+		'type'          => $default_border_type_hover,
+		'top'           => $default_border_top_hover,
+		'right'         => $default_border_right_hover,
+		'bottom'        => $default_border_bottom_hover,
+		'left'          => $default_border_left_hover,
+		'color'         => $default_border_color_hover,
+		'radius_top'    => $default_border_radius_top_hover,
+		'radius_right'  => $default_border_radius_right_hover,
+		'radius_bottom' => $default_border_radius_bottom_hover,
+		'radius_left'   => $default_border_radius_left_hover,
+	)
 );
 
 // End Section Tab.

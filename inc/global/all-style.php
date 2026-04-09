@@ -2,7 +2,8 @@
 /**
  * All style controls
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,7 +15,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Text_Shadow;
 
@@ -22,11 +22,11 @@ switch ( $key ) {
 	// Typography.
 	case 'typography':
 		$this->add_group_control(
-			Group_Control_Typography::get_type(),
+			Group_Control_Typography_Extended::get_type(),
 			array(
 				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'global_typography',
 				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Typography', 'rb-addons-for-elementor' ),
-				$control_args['default'] = ! empty( $values['default'] ) ? $values['default'] : '', // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+				'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
 				'global'    => ! empty( $values['global'] ) ? $values['global'] : array(),
 				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
@@ -105,11 +105,12 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : $key,
 			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text', 'rb-addons-for-elementor' ),
-				'type'      => Controls_Manager::TEXT,
-				'ai'        => false,
-				'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text', 'rb-addons-for-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'ai'          => false,
+				'default'     => ! empty( $values['default'] ) ? $values['default'] : '',
+				'placeholder' => ! empty( $values['placeholder'] ) ? $values['placeholder'] : '',
+				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			)
 		);
 		break;
@@ -166,24 +167,46 @@ switch ( $key ) {
 		$this->add_control(
 			! empty( $values['id'] ) ? $values['id'] : 'custom_link',
 			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
-				'type'      => Controls_Manager::URL,
-				'ai'        => false,
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
+				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
+				'type'        => Controls_Manager::URL,
+				'ai'          => false,
+				'placeholder' => ! empty( $values['placeholder'] ) ? $values['placeholder'] : esc_html__( 'Enter your URL', 'rb-addons-for-elementor' ),
+				'options'     => array( 'url', 'is_external', 'nofollow', 'custom_attributes' ),
+				'default'     => array(
+					'url'               => ! empty( $values['default']['url'] ) ? $values['default']['url'] : '',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				),
+				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			)
 		);
 		break;
 
-	// Upload Image.
+	// Upload Media (Image / Video).
 	case 'img':
+	case 'video':
+		$is_video   = ( 'video' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+		$media_type = $is_video ? 'video' : 'image'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+
 		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'img',
+			! empty( $values['id'] ) ? $values['id'] : $key,
 			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Upload Image', 'rb-addons-for-elementor' ),
+				'label'       => ! empty( $values['label'] )
+					? $values['label']
+					: ( $is_video
+						? esc_html__( 'Upload Video', 'rb-addons-for-elementor' )
+						: esc_html__( 'Upload Image', 'rb-addons-for-elementor' )
+					),
 				'type'        => Controls_Manager::MEDIA,
+				'media_type'  => $media_type,
 				'label_block' => true,
-				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
-				'default'     => array( 'url' => Utils::get_placeholder_image_src() ),
+				'default'     => ! empty( $values['default'] )
+					? $values['default']
+					: ( ! $is_video
+						? array( 'url' => Utils::get_placeholder_image_src() )
+						: array()
+					),
 				'ai'          => false,
 				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
 			)
@@ -278,10 +301,8 @@ switch ( $key ) {
 	case 'bottom':
 	case 'left':
 	case 'right':
-	case 'gap':
 	case 'column_gap':
 	case 'row_gap':
-	case 'font_size':
 	case 'order':
 	case 'transition_duration':
 	case 'transition_delay':
@@ -629,11 +650,13 @@ switch ( $key ) {
 	// All Select-Type Controls (custom, pages, timing, border-style, HTML tags).
 	case 'select_option':
 	case 'page_link':
+	case 'post_link':
 	case 'timing_function':
 	case 'border_style_right':
 	case 'html_tag': // <-- New case
 		$is_timing = ( 'timing_function' === $key );
 		$is_page   = ( 'page_link' === $key );
+		$is_post   = ( 'post_link' === $key );
 		$is_border = ( 'border_style_right' === $key );
 		$is_html   = ( 'html_tag' === $key ); // <-- New flag
 
@@ -641,6 +664,7 @@ switch ( $key ) {
 		$label_map  = array(
 			'select_option'      => esc_html__( 'Select Option', 'rb-addons-for-elementor' ),
 			'page_link'          => esc_html__( 'Select Page', 'rb-addons-for-elementor' ),
+			'post_link'          => esc_html__( 'Select Post', 'rb-addons-for-elementor' ),
 			'timing_function'    => esc_html__( 'Timing Function', 'rb-addons-for-elementor' ),
 			'border_style_right' => esc_html__( 'Border Style Right', 'rb-addons-for-elementor' ),
 			'html_tag'           => esc_html__( 'HTML Tag', 'rb-addons-for-elementor' ), // <-- New label
@@ -651,7 +675,19 @@ switch ( $key ) {
 		if ( ! empty( $values['options'] ) ) {
 			$options = $values['options'];
 		} elseif ( $is_page ) {
-			$options = rbelad_get_all_type_post_links();
+			$options = rbelad_get_all_pages();
+
+			// Set first item as default if not provided.
+			if ( empty( $values['default'] ) && ! empty( $options ) ) {
+				$values['default'] = array_key_first( $options );
+			}
+		} elseif ( $is_post ) {
+			$options = rbelad_get_all_posts();
+
+			// Set first item as default if not provided.
+			if ( empty( $values['default'] ) && ! empty( $options ) ) {
+				$values['default'] = array_key_first( $options );
+			}
 		} elseif ( $is_timing ) {
 			$options = rbelad_transition_function();
 		} elseif ( $is_html ) {

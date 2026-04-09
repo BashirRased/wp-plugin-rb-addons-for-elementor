@@ -2,7 +2,8 @@
 /**
  * Elementor widgets manage.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons;
@@ -11,8 +12,6 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Widget_Manager Class.
- *
- * @package RBELAD_Elementor_Addons
  */
 class Widget_Manager {
 	/**
@@ -41,93 +40,132 @@ class Widget_Manager {
 	 */
 	public static function get_free_widgets_map() {
 		$addons = array(
+			// Basic Addons.
+			'heading'         => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'image'           => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'text-editor'     => array(
+				'cat' => 'rbelad_addons_basic', // Next version.
+			),
+			'video'           => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'button'          => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'button-group'    => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'divider'         => array(
+				'cat' => 'rbelad_addons_basic',
+			),
+			'spacer'          => array(
+				'cat' => 'rbelad_addons_basic', // Next version.
+			),
+			'google-maps'     => array(
+				'cat' => 'rbelad_addons_basic', // Next version.
+			),
+			'icon'            => array(
+				'cat' => 'rbelad_addons_basic', // Next version.
+			),
+
 			// General Addons.
-			'button'       => array(
-				'cat'    => 'rbelad_addons_general',
-				'styles' => array(
-					'style-1' => array(
-						'name'      => esc_html__( 'Style - 01', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-1.png' ),
-					),
-					'style-2' => array(
-						'name'      => esc_html__( 'Style - 02', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-2.png' ),
-					),
-					'style-3' => array(
-						'name'      => esc_html__( 'Style - 03', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-3.png' ),
-					),
-					'style-4' => array(
-						'name'      => esc_html__( 'Style - 04', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-4.png' ),
-					),
-					'style-5' => array(
-						'name'      => esc_html__( 'Style - 05', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-5.png' ),
-					),
-					'style-6' => array(
-						'name'      => esc_html__( 'Style - 06', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button', 'style-6.png' ),
-					),
-				),
-			),
-			'button-group' => array(
-				'cat'    => 'rbelad_addons_general',
-				'styles' => array(
-					'style-1' => array(
-						'name'      => esc_html__( 'Style - 01', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-1.png' ),
-					),
-					'style-2' => array(
-						'name'      => esc_html__( 'Style - 02', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-2.png' ),
-					),
-					'style-3' => array(
-						'name'      => esc_html__( 'Style - 03', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-3.png' ),
-					),
-					'style-4' => array(
-						'name'      => esc_html__( 'Style - 04', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-4.png' ),
-					),
-					'style-5' => array(
-						'name'      => esc_html__( 'Style - 05', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-5.png' ),
-					),
-					'style-6' => array(
-						'name'      => esc_html__( 'Style - 06', 'rb-addons-for-elementor' ),
-						'is_active' => true,
-						'thumb'     => self::get_widget_thumbnail_url( 'button-group', 'style-6.png' ),
-					),
-				),
-			),
-			'divider'      => array(
+			'tabs'            => array(
 				'cat' => 'rbelad_addons_general',
 			),
-			'dual-text'    => array(
+			'info-box'        => array(
+				'cat' => 'rbelad_addons_general', // Next version.
+			),
+			'image-carousel'  => array(
 				'cat' => 'rbelad_addons_general',
 			),
-			'list-style'   => array(
+			'image-gallery'   => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'icon-list'       => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'counter'         => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'progress'        => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'testimonial'     => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'social-icons'    => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'alert'           => array(
+				'cat' => 'rbelad_addons_general', // Next version.
+			),
+			'audio'           => array(
+				'cat' => 'rbelad_addons_general', // Next version.
+			),
+			'shortcode'       => array(
+				'cat' => 'rbelad_addons_general', // Next version.
+			),
+			'html'            => array(
+				'cat' => 'rbelad_addons_general', // Next version.
+			),
+			'rating'          => array(
+				'cat' => 'rbelad_addons_general',
+			),
+			'text-path'       => array(
 				'cat' => 'rbelad_addons_general',
 			),
 
 			// Creative Addons.
-			'scroll-down'  => array(
+			'scroll-down'     => array(
 				'cat' => 'rbelad_addons_creative',
 			),
-			'rating-star'  => array(
-				'cat' => 'rbelad_addons_creative',
+
+			// Site Addons.
+			'site-logo'       => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'site-title'      => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'menu'            => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'breadcrumbs'     => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'page-title'      => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'featured-iImage' => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'post-meta'       => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'post-excerpt'    => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'read-more'       => array(
+				'cat' => 'rbelad_addons_site', // Next version.
+			),
+			'author-box'      => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'post-comments'   => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'post-navigation' => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'archive-title'   => array(
+				'cat' => 'rbelad_addons_site',
+			),
+			'archive-posts'   => array(
+				'cat' => 'rbelad_addons_site',
 			),
 		);
 		$return = array();
@@ -135,7 +173,9 @@ class Widget_Manager {
 		foreach ( $addons as $slug => $data ) {
 			$return[ $slug ] = array_merge(
 				$data,
-				array()
+				array(
+					'is_active' => true,
+				)
 			);
 		}
 
@@ -146,30 +186,79 @@ class Widget_Manager {
 	 * All pro widgets list
 	 */
 	public static function get_pro_widgets_map() {
-		// Widgets variables.
-		$demo_url     = 'https://bashir-rased.com/rb-addons-for-elementor/demos/';
-		$doc_url      = 'https://bashir-rased.com/rb-addons-for-elementor/docs/';
-		$import_url   = 'https://bashir-rased.com/rb-addons-for-elementor/blocks/';
-		$tutorial_url = 'https://www.youtube.com/watch?v=';
-
 		$addons = array(
-			// Creative Addons.
-			'social-icon'      => array(
-				'cat' => 'rbelad_pro_creative',
-			),
-			'page-list'        => array(
-				'cat' => 'rbelad_pro_creative',
-			),
-
 			// Slider & Carousel Addons.
-			'auto-typing'      => array(
-				'cat' => 'rbelad_pro_slider',
+			'search'               => array(
+				'cat' => 'rbelad_pro_general',
 			),
-			'pdf-view'         => array(
-				'cat' => 'rbelad_pro_slider',
+			'contact-form-7'       => array(
+				'cat' => 'rbelad_pro_general',
 			),
-			'lottie-animation' => array(
-				'cat' => 'rbelad_pro_slider',
+			'animated-headline'    => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'flip-box'             => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'countdown'            => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'share-buttons'        => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'pdf-view'             => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'lottie'               => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'team-member'          => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'profile-card'         => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'post-grid'            => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'post-carousel'        => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'portfolio'            => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'price-table'          => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'price-list'           => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'blockquote'           => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'testimonial-carousel' => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'logo-grid'            => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'logo-carousel'        => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'scrolling-image'      => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'business-hour'        => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'news-ticker'          => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'toggle'               => array(
+				'cat' => 'rbelad_pro_general',
+			),
+			'subscription-form'    => array(
+				'cat' => 'rbelad_pro_general',
 			),
 		);
 		$return = array();
@@ -178,11 +267,7 @@ class Widget_Manager {
 			$return[ $slug ] = array_merge(
 				$data,
 				array(
-					'demo'     => $demo_url . $slug,
-					'doc'      => $doc_url . $slug,
-					'import'   => $import_url . $slug,
-					'tutorial' => $tutorial_url . $slug,
-					'is_pro'   => true,
+					'is_pro' => true,
 				)
 			);
 		}
@@ -198,14 +283,36 @@ class Widget_Manager {
 	}
 
 	/**
+	 * Get default active widgets
+	 */
+	public static function get_default_active_widgets() {
+		$all_widgets = self::get_all_widgets_map();
+
+		$active_widgets = array_filter(
+			$all_widgets,
+			function ( $widget ) {
+				return isset( $widget['is_active'] ) && true === $widget['is_active'];
+			}
+		);
+
+		return array_keys( $active_widgets );
+	}
+
+	/**
 	 * Return enabled widgets list.
 	 */
 	public static function get_widgets() {
-		$all_widgets     = array_keys( self::get_all_widgets_map() );
+
 		$enabled_widgets = get_option( 'rbelad_enabled_widgets' );
+
+		// If no saved option → use default active widgets.
 		if ( ! is_array( $enabled_widgets ) || empty( $enabled_widgets ) ) {
-			return $all_widgets;
+			return self::get_default_active_widgets();
 		}
+
+		// Only return valid widgets.
+		$all_widgets = array_keys( self::get_all_widgets_map() );
+
 		return array_values( array_intersect( $enabled_widgets, $all_widgets ) );
 	}
 
@@ -225,54 +332,6 @@ class Widget_Manager {
 	}
 
 	/**
-	 * Get widget demo URL by name.
-	 *
-	 * @param string $widget_name Widget slug or class name.
-	 *
-	 * @return string Demo URL.
-	 */
-	public static function get_widget_demo( $widget_name ) {
-		$map = self::get_all_widgets_map();
-		return $map[ $widget_name ]['demo'] ?? '';
-	}
-
-	/**
-	 * Get widget tutorial URL by name.
-	 *
-	 * @param string $widget_name Widget slug or class name.
-	 *
-	 * @return string Tutorial URL.
-	 */
-	public static function get_widget_tutorial( $widget_name ) {
-		$map = self::get_all_widgets_map();
-		return $map[ $widget_name ]['tutorial'] ?? '';
-	}
-
-	/**
-	 * Get widget documentation URL by name.
-	 *
-	 * @param string $widget_name Widget slug or class name.
-	 *
-	 * @return string Documentation URL.
-	 */
-	public static function get_widget_doc( $widget_name ) {
-		$map = self::get_all_widgets_map();
-		return $map[ $widget_name ]['doc'] ?? '';
-	}
-
-	/**
-	 * Get widget import blocks URL by name.
-	 *
-	 * @param string $widget_name Widget slug or class name.
-	 *
-	 * @return string Import Blocks URL.
-	 */
-	public static function get_widget_import( $widget_name ) {
-		$map = self::get_all_widgets_map();
-		return $map[ $widget_name ]['import'] ?? '';
-	}
-
-	/**
 	 * Register Elementor widget categories.
 	 *
 	 * @param \Elementor\Elements_Manager $elements_manager Elementor elements manager instance.
@@ -281,30 +340,36 @@ class Widget_Manager {
 	 */
 	public static function register_categories( \Elementor\Elements_Manager $elements_manager ) {
 		$elements_manager->add_category(
+			'rbelad_addons_basic',
+			array(
+				'title' => esc_html__( 'RB Addons - Basic', 'rb-addons-for-elementor' ),
+			)
+		);
+		$elements_manager->add_category(
 			'rbelad_addons_general',
 			array(
-				'title' => esc_html__( 'RB General Addons', 'rb-addons-for-elementor' ),
+				'title' => esc_html__( 'RB Addons - General', 'rb-addons-for-elementor' ),
 			)
 		);
 
 		$elements_manager->add_category(
 			'rbelad_addons_creative',
 			array(
-				'title' => esc_html__( 'RB Creative Addons', 'rb-addons-for-elementor' ),
+				'title' => esc_html__( 'RB Addons - Creative', 'rb-addons-for-elementor' ),
 			)
 		);
 
 		$elements_manager->add_category(
-			'rbelad_pro_creative',
+			'rbelad_addons_site',
 			array(
-				'title' => esc_html__( 'RB Creative Pro', 'rb-addons-for-elementor' ),
+				'title' => esc_html__( 'RB Addons - Site', 'rb-addons-for-elementor' ),
 			)
 		);
 
 		$elements_manager->add_category(
-			'rbelad_pro_slider',
+			'rbelad_pro_general',
 			array(
-				'title' => esc_html__( 'RB Slider Pro', 'rb-addons-for-elementor' ),
+				'title' => esc_html__( 'RB Pro - General', 'rb-addons-for-elementor' ),
 			)
 		);
 	}

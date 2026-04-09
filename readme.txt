@@ -4,7 +4,7 @@ Tags: elementor, addons, widgets, page builder, custom widgets
 Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,15 @@ RB Addons provides a essential toolkit to bridge the gap between standard Elemen
 * **Fully Responsive:** Every widget looks perfect on mobile, tablet, and desktop.
 * **Security First:** Every file includes security headers to prevent unauthorized access.
 
+## Privacy Policy 
+RB Addons for Elementor uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
+
+Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
+
+Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
+
 == Installation ==
 
 1. Log in to your WordPress Dashboard.
@@ -57,6 +66,10 @@ No. We use a modular loading system to ensure only the necessary code is loaded.
 2. A live example of the Dual Text and Button Group widgets in action.
 
 == Changelog ==
+
+= 1.0.4 =
+* Remove: Remove Plugin WordPress Admin Menu for templary.
+* Remove: Remove Plugin WordPress Admin Menu for templary.
 
 = 1.0.3 =
 * New: Published 7 core widgets with "Smart Style" traits.

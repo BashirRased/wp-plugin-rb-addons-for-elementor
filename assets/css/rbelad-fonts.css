@@ -28,7 +28,7 @@
 .elementor-panel .elementor-element .icon .rbelad-icon::after {
     position: absolute;
     top: 5px;
-    right: 6px;
+    left: 6px;
     content: "\e90a";
     font-size: 20px;
 	color: #f93601;

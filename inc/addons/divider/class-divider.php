@@ -2,19 +2,31 @@
 /**
  * Divider Widget.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 namespace RBELAD_Elementor_Addons\Widgets;
+
+use RBELAD_Elementor_Addons\Traits\Background_Style;
+use RBELAD_Elementor_Addons\Traits\Border_Style;
+use RBELAD_Elementor_Addons\Traits\Item_Alignment_Style;
+use RBELAD_Elementor_Addons\Traits\Item_Size_Style;
 
 defined( 'ABSPATH' ) || die();
 
 /**
  * Divider class.
- *
- * @package RBELAD_Elementor_Addons
  */
 class Divider extends Base {
+	/**
+	 * Use all trait.
+	 */
+	use Item_Size_Style;
+	use Border_Style;
+	use Item_Alignment_Style;
+	use Background_Style;
+
 	/**
 	 * Register widget search keywords
 	 */

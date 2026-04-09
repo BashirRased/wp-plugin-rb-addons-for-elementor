@@ -2,7 +2,8 @@
 /**
  * All repeater controls load file.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -318,6 +319,38 @@ function rbelad_get_dashboard_icon() {
 }
 
 /**
+ * Load All Post Type Links
+ */
+if ( ! function_exists( 'rbelad_get_all_type_post_links' ) ) {
+	/**
+	 * Get a list of all type_post_links.
+	 *
+	 * Retrieves all WordPress type_post_links and returns an array where the keys are
+	 * page IDs and the values are the page titles.
+	 *
+	 * @return array List of type_post_links with ID as key and title as value.
+	 */
+	function rbelad_get_all_type_post_links() {
+		$post_link = get_posts(
+			array(
+				'post_type'      => 'any',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'posts_per_page' => -1,
+			)
+		);
+
+		$all_type_post_links = array();
+		if ( ! empty( $post_link ) && ! is_wp_error( $post_link ) ) {
+			foreach ( $post_link as $link ) {
+				$all_type_post_links[ $link->ID ] = $link->post_title;
+			}
+		}
+		return $all_type_post_links;
+	}
+}
+
+/**
  * Load All Page
  */
 if ( ! function_exists( 'rbelad_get_all_pages' ) ) {
@@ -350,34 +383,34 @@ if ( ! function_exists( 'rbelad_get_all_pages' ) ) {
 }
 
 /**
- * Load All Post Type Links
+ * Load All Post
  */
-if ( ! function_exists( 'rbelad_get_all_type_post_links' ) ) {
+if ( ! function_exists( 'rbelad_get_all_posts' ) ) {
 	/**
-	 * Get a list of all type_post_links.
+	 * Get a list of all posts.
 	 *
-	 * Retrieves all WordPress type_post_links and returns an array where the keys are
-	 * page IDs and the values are the page titles.
+	 * Retrieves all WordPress posts and returns an array where the keys are
+	 * post IDs and the values are the post titles.
 	 *
-	 * @return array List of type_post_links with ID as key and title as value.
+	 * @return array List of posts with ID as key and title as value.
 	 */
-	function rbelad_get_all_type_post_links() {
-		$post_link = get_posts(
+	function rbelad_get_all_posts() {
+		$post_list = get_posts(
 			array(
-				'post_type'      => 'any',
+				'post_type'      => 'post',
 				'orderby'        => 'date',
 				'order'          => 'DESC',
 				'posts_per_page' => -1,
 			)
 		);
 
-		$all_type_post_links = array();
-		if ( ! empty( $post_link ) && ! is_wp_error( $post_link ) ) {
-			foreach ( $post_link as $link ) {
-				$all_type_post_links[ $link->ID ] = $link->post_title;
+		$posts = array();
+		if ( ! empty( $post_list ) && ! is_wp_error( $post_list ) ) {
+			foreach ( $post_list as $post ) {
+				$posts[ $post->ID ] = $post->post_title;
 			}
 		}
-		return $all_type_post_links;
+		return $posts;
 	}
 }
 

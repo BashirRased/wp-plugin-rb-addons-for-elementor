@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'RB-Elementor-Widget';
+  src:  url('../fonts/rbelad-widget-icons/RB-Elementor-Widget.eot?g083ae');
+  src:  url('../fonts/rbelad-widget-icons/RB-Elementor-Widget.eot?g083ae#iefix') format('embedded-opentype'),
+    url('../fonts/rbelad-widget-icons/RB-Elementor-Widget.ttf?g083ae') format('truetype'),
+    url('../fonts/rbelad-widget-icons/RB-Elementor-Widget.woff?g083ae') format('woff'),
+    url('../fonts/rbelad-widget-icons/RB-Elementor-Widget.svg?g083ae#RB-Elementor-Widget') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.rbelad-wf {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'RB-Elementor-Widget' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.elementor-panel .elementor-element .icon .rbelad-wf::after {
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    content: "\e90f";
+    font-size: 20px;
+	color: #f93601;
+}
+
+.elementor-navigator__element__element-type .rbelad-wf-animated-headline::after,
+.elementor-navigator__element__element-type .rbelad-wf-button::after,
+.elementor-navigator__element__element-type .rbelad-wf-button-group::after,
+.elementor-navigator__element__element-type .rbelad-wf-contact-form-7::after,
+.elementor-navigator__element__element-type .rbelad-wf-countdown::after,
+.elementor-navigator__element__element-type .rbelad-wf-divider::after,
+.elementor-navigator__element__element-type .rbelad-wf-flip-box::after,
+.elementor-navigator__element__element-type .rbelad-wf-heading::after,
+.elementor-navigator__element__element-type .rbelad-wf-icon-list::after,
+.elementor-navigator__element__element-type .rbelad-wf-image::after,
+.elementor-navigator__element__element-type .rbelad-wf-info-box::after,
+.elementor-navigator__element__element-type .rbelad-wf-lottie::after,
+.elementor-navigator__element__element-type .rbelad-wf-pdf-view::after,
+.elementor-navigator__element__element-type .rbelad-wf-profile-card::after,
+.elementor-navigator__element__element-type .rbelad-wf-rating::after,
+.elementor-navigator__element__element-type .rbelad-wf-scroll-down::after,
+.elementor-navigator__element__element-type .rbelad-wf-search::after,
+.elementor-navigator__element__element-type .rbelad-wf-section-header::after,
+.elementor-navigator__element__element-type .rbelad-wf-share-buttons::after,
+.elementor-navigator__element__element-type .rbelad-wf-team-member::after,
+.elementor-navigator__element__element-type .rbelad-wf-text-editor::after,
+.elementor-navigator__element__element-type .rbelad-wf-video::after,
+.elementor-navigator__element__element-type .rbelad-wf-social-icons::after {
+	content: "\e90f";
+	right: 10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+    font-size: 16px;
+	color: #f93601;
+}
+
+.rbelad-wf-animated-headline:before {
+  content: "\e900";
+}
+.rbelad-wf-button:before {
+  content: "\e901";
+}
+.rbelad-wf-button-group:before {
+  content: "\e902";
+}
+.rbelad-wf-contact-form-7:before {
+  content: "\e903";
+}
+.rbelad-wf-countdown:before {
+  content: "\e904";
+}
+.rbelad-wf-divider:before {
+  content: "\e905";
+}
+.rbelad-wf-flip-box:before {
+  content: "\e906";
+}
+.rbelad-wf-heading:before {
+  content: "\e907";
+}
+.rbelad-wf-icon-list:before {
+  content: "\e908";
+}
+.rbelad-wf-image:before {
+  content: "\e909";
+}
+.rbelad-wf-info-box:before {
+  content: "\e90a";
+}
+.rbelad-wf-lottie:before {
+  content: "\e90b";
+}
+.rbelad-wf-pdf-view:before {
+  content: "\e90c";
+}
+.rbelad-wf-profile-card:before {
+  content: "\e90d";
+}
+.rbelad-wf-rating:before {
+  content: "\e90e";
+}
+.rbelad-wf-rb-addons:before {
+  content: "\e90f";
+}
+.rbelad-wf-scroll-down:before {
+  content: "\e910";
+}
+.rbelad-wf-search:before {
+  content: "\e911";
+}
+.rbelad-wf-section-header:before {
+  content: "\e912";
+}
+.rbelad-wf-share-buttons:before {
+  content: "\e913";
+}
+.rbelad-wf-social-icons:before {
+  content: "\e914";
+}
+.rbelad-wf-team-member:before {
+  content: "\e915";
+}
+.rbelad-wf-text-editor:before {
+  content: "\e916";
+}
+.rbelad-wf-video:before {
+  content: "\e917";
+}

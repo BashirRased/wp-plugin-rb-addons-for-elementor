@@ -2,7 +2,8 @@
 /**
  * Button Group widget content controls.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,24 +22,6 @@ $this->start_controls_section(
 		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
 		'tab'   => Controls_Manager::TAB_CONTENT,
 	)
-);
-
-// Widgets Styles.
-$choose_design_options = $this->get_choose_design_options( 'button-group' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-// All content add here.
-$this->add_style_controls(
-	$prefix . 'style_1',
-	array(
-		'controls' => array(
-			// Choose Design.
-			'choose_design' => array(
-				'id'      => $prefix . 'choose_design',
-				'options' => $choose_design_options, // dynamically generated.
-				'default' => array_key_first( $choose_design_options ), // first style as default.
-			),
-		),
-	),
 );
 
 // All repeater content add here.

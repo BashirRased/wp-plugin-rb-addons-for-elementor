@@ -1,0 +1,68 @@
+1. Admin Dashboard
+2. Template Libery
+3. Dashboard Review Notice
+4. Solve Appsero Error
+5. 
+
+
+
+
+
+
+
+
+
+
+2. 
+3. Background Color Style
+4. Border Style
+5. 
+
+Layout
+1. Display Style
+
+Box
+
+Textgraphy
+	- Text Alignment Style
+
+Icon
+
+Image
+
+Link
+
+Color
+
+Effects
+
+Position
+
+
+
+
+// Spacing Style.
+$this->register_spacing_style(
+	$prefix,
+	$class_2,
+	array(),
+	array()
+);
+
+Case List
+case 'select_option'
+case 'custom_link'
+case 'switch'
+
+case 'image'
+case 'video'
+
+if ( $enverto ) {
+
+} elseif ( $portfolio ) {
+
+} elseif ( $pc_file_backup ) {
+
+} elseif ( $pc_file_sorting ) {
+
+}

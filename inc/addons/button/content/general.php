@@ -2,7 +2,8 @@
 /**
  * Button widget content controls.
  *
- * @package RBELAD_Elementor_Addons
+ * @package    RB_Plugins
+ * @subpackage RBELAD_Elementor_Addons
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,34 +24,17 @@ $this->start_controls_section(
 	)
 );
 
-// Widgets Styles.
-$choose_design_options = $this->get_choose_design_options( 'button' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
 // All content add here.
 $this->add_style_controls(
 	$prefix . 'style_1',
 	array(
 		'controls' => array(
-			// Choose Design.
-			'choose_design' => array(
-				'id'      => $prefix . 'choose_design',
-				'options' => $choose_design_options, // dynamically generated.
-				'default' => array_key_first( $choose_design_options ), // first style as default.
-			),
-		),
-	),
-);
-
-// All content add here.
-$this->add_style_controls(
-	$prefix . 'style_2',
-	array(
-		'controls' => array(
 			// Text.
 			'text'          => array(
-				'id'      => $prefix . 'btn_text',
-				'label'   => esc_html__( 'Button Text', 'rb-addons-for-elementor' ),
-				'default' => esc_html__( 'Button', 'rb-addons-for-elementor' ),
+				'id'          => $prefix . 'btn_text',
+				'label'       => esc_html__( 'Button Text', 'rb-addons-for-elementor' ),
+				'default'     => esc_html__( 'Click here', 'rb-addons-for-elementor' ),
+				'placeholder' => esc_html__( 'Click here', 'rb-addons-for-elementor' ),
 			),
 
 			// Link Type.
