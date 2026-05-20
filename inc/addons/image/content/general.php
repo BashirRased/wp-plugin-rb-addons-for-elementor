@@ -25,83 +25,90 @@ $this->start_controls_section(
 );
 
 // All content add here.
-$this->add_style_controls(
-	$prefix . '_style_1',
+$this->add_content_controls(
+	$prefix . '_content_1',
 	array(
 		'controls' => array(
 			// Image.
-			'img'           => array(
+			'img'             => array(
 				'id' => $prefix . '_img',
 			),
 
 			// Image Size.
-			'img_size'      => array(
-				'id' => $prefix . '_img_size',
+			'img_size'        => array(
+				'name' => $prefix . '_img',
 			),
 
-			// Link Type.
-			'select_option' => array(
-				'id'      => $prefix . '_link_type',
-				'options' => array(
-					'none'   => esc_html__( 'None', 'rb-addons-for-elementor' ),
-					'page'   => esc_html__( 'Page Link', 'rb-addons-for-elementor' ),
-					'post'   => esc_html__( 'Post Link', 'rb-addons-for-elementor' ),
-					'custom' => esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
-				),
-				'default' => 'none',
-			),
-
-			// Select Page.
-			'page_link'     => array(
-				'id'        => $prefix . '_page_link',
-				'condition' => array(
-					$prefix . '_link_type' => 'page',
-				),
-			),
-
-			// Select Post.
-			'post_link'     => array(
-				'id'        => $prefix . '_post_link',
-				'condition' => array(
-					$prefix . '_link_type' => 'post',
-				),
-			),
-
-			// Custom Link.
-			'custom_link'   => array(
-				'id'        => $prefix . '_custom_link',
-				'condition' => array(
-					$prefix . '_link_type' => 'custom',
-				),
-			),
-		),
-	),
-);
-
-// All content add here.
-$this->add_style_controls(
-	$prefix . '_style_2',
-	array(
-		'controls' => array(
-			// Image Caption Type.
-			'select_option' => array(
-				'id'      => $prefix . '_img_caption',
-				'label'   => esc_html__( 'Caption', 'rb-addons-for-elementor' ),
-				'options' => array(
+			// Select Option.
+			'select_option'   => array(
+				'id'        => $prefix . '_caption_source',
+				'label'     => esc_html__( 'Caption', 'rb-addons-for-elementor' ),
+				'options'   => array(
 					'none'       => esc_html__( 'None', 'rb-addons-for-elementor' ),
 					'attachment' => esc_html__( 'Attachment Caption', 'rb-addons-for-elementor' ),
 					'custom'     => esc_html__( 'Custom Caption', 'rb-addons-for-elementor' ),
 				),
-				'default' => 'none',
+				'default'   => 'none',
+				'condition' => array(
+					$prefix . '_img!' => '',
+				),
 			),
 
-			// Image Custom Caption.
-			'text'          => array(
-				'id'          => $prefix . '_img_caption_text',
+			// Text.
+			'text'            => array(
+				'id'          => $prefix . '_custom_caption',
 				'label'       => esc_html__( 'Custom Caption', 'rb-addons-for-elementor' ),
-				'placeholder' => esc_html__( 'Enter your image caption', 'rb-addons-for-elementor' ),
+				'placeholder' => esc_html__( 'Enter your image caption', 'elementor' ),
 				'condition'   => array(
-					$prefix . '_img_caption' => 'custom',
+					$prefix . '_img!'           => '',
+					$prefix . '_caption_source' => 'custom',
+				),
+			),
+
+			// Select Option.
+			'select_option_2' => array(
+				'id'        => $prefix . '_select_link',
+				'label'     => esc_html__( 'Link', 'rb-addons-for-elementor' ),
+				'options'   => array(
+					'none'   => esc_html__( 'None', 'rb-addons-for-elementor' ),
+					'file'   => esc_html__( 'Media File', 'rb-addons-for-elementor' ),
+					'custom' => esc_html__( 'Custom URL', 'rb-addons-for-elementor' ),
+				),
+				'default'   => 'none',
+				'condition' => array(
+					$prefix . '_img!' => '',
+				),
+			),
+
+			// Custom Link.
+			'custom_link'     => array(
+				'id'        => $prefix . '_custom_caption',
+				'label'     => esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
+				'condition' => array(
+					$prefix . '_img!'           => '',
+					$prefix . '_caption_source' => 'custom',
+				),
+			),
+
+			// Select Option.
+			'select_option_3' => array(
+				'id'          => $prefix . '_open_lightbox',
+				'label'       => esc_html__( 'Lightbox', 'rb-addons-for-elementor' ),
+				'description' => sprintf(
+					/* translators: 1: Link open tag, 2: Link close tag. */
+					esc_html__( 'Manage your site’s lightbox settings in the %1$sLightbox panel%2$s.', 'rb-addons-for-elementor' ),
+					'<a href="javascript: $e.run( \'panel/global/open\' ).then( () => $e.route( \'panel/global/settings-lightbox\' ) )">',
+					'</a>'
+				),
+				'default'     => 'default',
+				'options'     => array(
+					'default' => esc_html__( 'Default', 'rb-addons-for-elementor' ),
+					'yes'     => esc_html__( 'Yes', 'rb-addons-for-elementor' ),
+					'no'      => esc_html__( 'No', 'rb-addons-for-elementor' ),
+				),
+				'condition'   => array(
+					$prefix . '_img!'        => '',
+					$prefix . '_select_link' => 'file',
 				),
 			),
 		),

@@ -1,6 +1,6 @@
 <?php
 /**
- * Dual Text widget content controls.
+ * Heading widget content controls.
  *
  * @package    RB_Plugins
  * @subpackage RBELAD_Elementor_Addons
@@ -24,58 +24,39 @@ $this->start_controls_section(
 	)
 );
 
-// All repeater content add here.
-$this->add_repeater_controls(
-	$prefix . '_repeater',
-	array(
-		'controls'    => array(
-			'switch'   => array(
-				'id'      => $prefix . '_title_highlight',
-				'label'   => esc_html__( 'Text Highlight', 'rb-addons-for-elementor' ),
-				'default' => 'no',
-			),
-			'textarea' => array(
-				'id'    => $prefix . '_title_text',
-				'label' => esc_html__( 'Text', 'rb-addons-for-elementor' ),
-			),
-		),
-		'id'          => $prefix . '_title_repeater',
-		'label'       => esc_html__( 'Dual Text Item', 'rb-addons-for-elementor' ),
-		'default'     => array(
-			array(
-				$prefix . '_title_highlight' => 'no',
-				$prefix . '_title_text'      => esc_html__( 'Hi! I\'m ', 'rb-addons-for-elementor' ),
-			),
-			array(
-				$prefix . '_title_highlight' => 'yes',
-				$prefix . '_title_text'      => esc_html__( 'Bashir Rased', 'rb-addons-for-elementor' ),
-			),
-			array(
-				$prefix . '_title_highlight' => 'no',
-				$prefix . '_title_text'      => esc_html__( '. Welcome, to my portfolio website.', 'rb-addons-for-elementor' ),
-			),
-		),
-		'title_field' => '{{{ ' . $prefix . '_title_text }}}',
-	),
-);
-
 // All content add here.
-$this->add_style_controls(
-	$prefix . '_style_1',
+$this->add_content_controls(
+	$prefix . '_content_1',
 	array(
 		'controls' => array(
+			// Textarea.
+			'textarea' => array(
+				'id'          => $prefix . '_heading',
+				'label'       => esc_html__( 'Title', 'rb-addons-for-elementor' ),
+				'default'     => esc_html__( 'Your Heading Text', 'rb-addons-for-elementor' ),
+				'placeholder' => esc_html__( 'Enter your title', 'rb-addons-for-elementor' ),
+			),
+
 			// HTML Tag.
-			'html_tag'    => array(
+			'html_tag' => array(
 				'id'      => $prefix . '_html_tag',
 				'default' => 'h4',
 			),
-
-			// Custom Link.
-			'custom_link' => array(
-				'id' => $prefix . '_link',
-			),
 		),
 	),
+);
+
+$this->rbelad_select_link_type(
+	$prefix . '_content_2',
+	array(
+		'controls' => array(
+			array(
+				'name'    => $prefix . '_link_type',
+				'label'   => esc_html__( 'Link Type', 'rb-addons-for-elementor' ),
+				'default' => 'custom_link',
+			),
+		),
+	)
 );
 
 // End Section Tab.

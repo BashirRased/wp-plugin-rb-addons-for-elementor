@@ -10,222 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-use Elementor\Utils;
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Text_Stroke;
-use Elementor\Group_Control_Text_Shadow;
 
 switch ( $key ) {
-	// Typography.
-	case 'typography':
-		$this->add_group_control(
-			Group_Control_Typography_Extended::get_type(),
-			array(
-				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'global_typography',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Typography', 'rb-addons-for-elementor' ),
-				'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
-				'global'    => ! empty( $values['global'] ) ? $values['global'] : array(),
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
-			)
-		);
-		break;
-
-	// Text Stroke.
-	case 'text_stroke':
-		$this->add_group_control(
-			Group_Control_Text_Stroke::get_type(),
-			array(
-				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'text_stroke',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Stroke', 'rb-addons-for-elementor' ),
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
-			)
-		);
-		break;
-
-	// Text Shadow.
-	case 'text_shadow':
-		$this->add_group_control(
-			Group_Control_Text_Shadow::get_type(),
-			array(
-				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'text_shadow',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text Shadow', 'rb-addons-for-elementor' ),
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
-			)
-		);
-		break;
-
-	// Border.
-	case 'border':
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			array(
-				'name'           => ! empty( $values['name'] ) ? $values['name'] : 'border',
-				'fields_options' => ! empty( $values['fields_options'] ) ? $values['fields_options'] : array(),
-				'condition'      => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selector'       => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
-			)
-		);
-		break;
-
-	// Box Shadow.
-	case 'box_shadow':
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'box_shadow',
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Box Shadow', 'rb-addons-for-elementor' ),
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selector'  => ! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}',
-			)
-		);
-		break;
-
-	// Image Size.
-	case 'img_size':
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			array(
-				'name'      => ! empty( $values['name'] ) ? $values['name'] : 'img_size',
-				'default'   => ! empty( $values['default'] ) ? $values['default'] : 'thumbnail',
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Text.
-	case 'text':
-	case 'text_2':
-	case 'text_3':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : $key,
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Text', 'rb-addons-for-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'ai'          => false,
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : '',
-				'placeholder' => ! empty( $values['placeholder'] ) ? $values['placeholder'] : '',
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Textarea.
-	case 'textarea':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'textarea',
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Textarea', 'rb-addons-for-elementor' ),
-				'label_block' => true,
-				'type'        => Controls_Manager::TEXTAREA,
-				'ai'          => false,
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : '',
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Heading.
-	case 'heading':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'heading',
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Heading', 'rb-addons-for-elementor' ),
-				'label_block' => true,
-				'type'        => Controls_Manager::HEADING,
-				'ai'          => false,
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : '',
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'classes'     => 'rbelad-editor-heading-control',
-			)
-		);
-		break;
-
-	// Switcher.
-	case 'switch':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'switch',
-			array(
-				'label'        => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Switcher', 'rb-addons-for-elementor' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'rb-addons-for-elementor' ),
-				'label_off'    => esc_html__( 'Hide', 'rb-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default'      => ! empty( $values['default'] ) ? $values['default'] : 'yes',
-				'condition'    => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Custom Link.
-	case 'custom_link':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'custom_link',
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
-				'type'        => Controls_Manager::URL,
-				'ai'          => false,
-				'placeholder' => ! empty( $values['placeholder'] ) ? $values['placeholder'] : esc_html__( 'Enter your URL', 'rb-addons-for-elementor' ),
-				'options'     => array( 'url', 'is_external', 'nofollow', 'custom_attributes' ),
-				'default'     => array(
-					'url'               => ! empty( $values['default']['url'] ) ? $values['default']['url'] : '',
-					'is_external'       => true,
-					'nofollow'          => true,
-					'custom_attributes' => '',
-				),
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Upload Media (Image / Video).
-	case 'img':
-	case 'video':
-		$is_video   = ( 'video' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$media_type = $is_video ? 'video' : 'image'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : $key,
-			array(
-				'label'       => ! empty( $values['label'] )
-					? $values['label']
-					: ( $is_video
-						? esc_html__( 'Upload Video', 'rb-addons-for-elementor' )
-						: esc_html__( 'Upload Image', 'rb-addons-for-elementor' )
-					),
-				'type'        => Controls_Manager::MEDIA,
-				'media_type'  => $media_type,
-				'label_block' => true,
-				'default'     => ! empty( $values['default'] )
-					? $values['default']
-					: ( ! $is_video
-						? array( 'url' => Utils::get_placeholder_image_src() )
-						: array()
-					),
-				'ai'          => false,
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
-	// Upload Icon.
-	case 'icon':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'icon',
-			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Icon', 'rb-addons-for-elementor' ),
-				'type'      => Controls_Manager::ICONS,
-				'default'   => ! empty( $values['default'] ) ? $values['default'] : array(),
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
 	// All Color Controls.
 	case 'color':
 	case 'bg_color':
@@ -247,21 +34,21 @@ switch ( $key ) {
 
 		// Identify CSS selectors.
 		if ( 'fill_color' === $key ) {
-			$selectors = array(
+			$rbelad_selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}'     => 'color: {{VALUE}};',
 				! empty( $values['select_class_2'] ) ? $values['select_class_2'] : '{{WRAPPER}}' => 'fill: {{VALUE}};',
 			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		} else {
 			$css_property = match ( $key ) {
-				'color'                 => 'color',
-				'bg_color'              => 'background-color',
-				'border_color'          => 'border-color',
-				'fill'                  => 'fill',
-				'border_right_color'    => 'border-right-color',
-				default                 => 'color',
+				'color'              => 'color',
+				'bg_color'           => 'background-color',
+				'border_color'       => 'border-color',
+				'fill'               => 'fill',
+				'border_right_color' => 'border-right-color',
+				default              => 'color',
 			}; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
-			$selectors = array(
+			$rbelad_selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
 			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		}
@@ -271,7 +58,7 @@ switch ( $key ) {
 			'label'     => ! empty( $values['label'] ) ? $values['label'] : $label_text,
 			'type'      => Controls_Manager::COLOR,
 			'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			'selectors' => $selectors,
+			'selectors' => $rbelad_selectors,
 			'default'   => ! empty( $values['default'] ) ? $values['default'] : '',
 		); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
@@ -282,34 +69,12 @@ switch ( $key ) {
 		break;
 
 	// All Slider Controls (normal, transition, icon).
-	case 'width':
-	case 'min_width':
-	case 'max_width':
-	case 'height':
-	case 'min_height':
-	case 'max_height':
-	case 'line_height':
-	case 'margin_top':
-	case 'margin_right':
-	case 'margin_bottom':
-	case 'margin_left':
-	case 'padding_top':
-	case 'padding_right':
-	case 'padding_bottom':
-	case 'padding_left':
-	case 'top':
-	case 'bottom':
-	case 'left':
-	case 'right':
-	case 'column_gap':
-	case 'row_gap':
 	case 'order':
 	case 'transition_duration':
 	case 'transition_delay':
 	case 'icon_size':
 	case 'icon_img_size':
 	case 'icon_img_size_2':
-	case 'border_right_width':
 		// Common vars.
 		$css_property  = str_replace( '_', '-', $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 		$is_unitless   = in_array( $key, array( 'order', 'z_index', 'flex_grow', 'flex_shrink' ), true ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
@@ -343,18 +108,18 @@ switch ( $key ) {
 
 		// Build selectors.
 		if ( $is_icon ) {
-			$selectors = array(
-				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'font-size: {{SIZE}}{{UNIT}};',
+			$rbelad_selectors = array(
+				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}'     => 'font-size: {{SIZE}}{{UNIT}};',
 				! empty( $values['select_class_2'] ) ? $values['select_class_2'] : '{{WRAPPER}}' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 			);
 		} elseif ( $is_icon_img || $is_icon_img_2 ) {
-			$selectors = array(
+			$rbelad_selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 			);
 		} else {
-			$selectors = array(
+			$rbelad_selectors = array(
 				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' =>
-					$css_property . ': {{SIZE}}' . ( $is_unitless ? '' : '{{UNIT}}' ) . ';',
+				$css_property . ': {{SIZE}}' . ( $is_unitless ? '' : '{{UNIT}}' ) . ';',
 			);
 		}
 
@@ -368,196 +133,10 @@ switch ( $key ) {
 				'range'      => $range,
 				'default'    => ! empty( $values['default'] ) ? $values['default'] : array(),
 				'condition'  => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selectors'  => $selectors,
+				'selectors'  => $rbelad_selectors,
 			)
 		);
 		break;
-
-	// All Choose Controls.
-	case 'link_type':
-	case 'heading_tag':
-	case 'align':
-	case 'item_align':
-	case 'multi_align':
-		// -------------------------------------------------
-		// Detect type
-		// -------------------------------------------------
-		$is_link_type   = ( 'link_type' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$is_heading_tag = ( 'heading_tag' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$is_align       = ( 'align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$is_justify     = ( 'item_align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$is_multi       = ( 'multi_align' === $key ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		// -------------------------------------------------
-		// Decide control method
-		// -------------------------------------------------
-		$method = ( $is_heading_tag || $is_link_type )
-			? 'add_control'
-			: 'add_responsive_control'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		// -------------------------------------------------
-		// Build options
-		// -------------------------------------------------
-		if ( $is_link_type ) {
-
-			$options = array(
-				'none'    => array(
-					'title' => esc_html__( 'None', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-ban',
-				),
-				'default' => array(
-					'title' => esc_html__( 'Default', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-link',
-				),
-				'page'    => array(
-					'title' => esc_html__( 'Page', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-post-list',
-				),
-				'custom'  => array(
-					'title' => esc_html__( 'Custom', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-editor-external-link',
-				),
-			);
-
-		} elseif ( $is_heading_tag ) {
-
-			$options = rbelad_heading_tags(); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		} else {
-
-			$options = ! empty( $values['options'] ) ? $values['options'] : array(); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		}
-
-		// -------------------------------------------------
-		// Label
-		// -------------------------------------------------
-		if ( ! empty( $values['label'] ) ) {
-			$label_text = $values['label']; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		} elseif ( $is_link_type ) {
-			$label_text = esc_html__( 'Link Type', 'rb-addons-for-elementor' );
-		} elseif ( $is_heading_tag ) {
-			$label_text = esc_html__( 'HTML Tag', 'rb-addons-for-elementor' );
-		} else {
-			$label_text = esc_html__( 'Alignment', 'rb-addons-for-elementor' );
-		}
-
-		// -------------------------------------------------
-		// Selectors (alignment only)
-		// -------------------------------------------------
-		$selectors = array();
-
-		if ( ! $is_link_type && ( $is_align || $is_justify ) ) {
-
-			$css_property = $is_align ? 'text-align' : 'justify-content'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-			$selectors = array(
-				! empty( $values['select_class'] )
-					? $values['select_class']
-					: '{{WRAPPER}}' => $css_property . ': {{VALUE}};',
-			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		} elseif ( ! $is_link_type && $is_multi ) {
-
-			$selectors = array(
-				! empty( $values['select_class'] )
-					? $values['select_class']
-					: '{{WRAPPER}}' => 'text-align: {{VALUE}};',
-				! empty( $values['select_class_2'] )
-					? $values['select_class_2']
-					: '{{WRAPPER}}' => 'justify-content: {{VALUE}};',
-			); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		}
-
-		// -------------------------------------------------
-		// Control arguments
-		// -------------------------------------------------
-		$control_args = array(
-			'label'     => $label_text,
-			'type'      => Controls_Manager::CHOOSE,
-			'options'   => $options,
-			'default'   => ! empty( $values['default'] )
-				? $values['default']
-				: ( $is_heading_tag ? 'h2' : ( $is_link_type ? 'none' : '' ) ),
-			'condition' => ! empty( $values['condition'] )
-				? $values['condition']
-				: array(),
-		); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		if ( ! empty( $selectors ) ) {
-			$control_args['selectors'] = $selectors; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		}
-
-		if ( $is_link_type ) {
-			$control_args['toggle'] = false; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		}
-
-		// -------------------------------------------------
-		// Add control
-		// -------------------------------------------------
-		if ( 'add_control' === $method ) {
-
-			$this->add_control(
-				! empty( $values['id'] ) ? $values['id'] : $key,
-				$control_args
-			);
-
-		} else {
-
-			$this->add_responsive_control(
-				! empty( $values['id'] ) ? $values['id'] : $key,
-				$control_args
-			);
-		}
-
-		break;
-
-
-	// Flex Direction (separate choose control).
-	case 'flex_direction':
-		$end   = is_rtl() ? 'left' : 'right'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-		$start = is_rtl() ? 'right' : 'left'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
-
-		$control_args = array(
-			'label'                => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Flex Direction', 'rb-addons-for-elementor' ),
-			'type'                 => Controls_Manager::CHOOSE,
-			'options'              => array(
-				'row'            => array(
-					'title' => esc_html__( 'Row - horizontal', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-arrow-' . $end,
-				),
-				'column'         => array(
-					'title' => esc_html__( 'Column - vertical', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-arrow-down',
-				),
-				'row-reverse'    => array(
-					'title' => esc_html__( 'Row - reversed', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-arrow-' . $start,
-				),
-				'column-reverse' => array(
-					'title' => esc_html__( 'Column - reversed', 'rb-addons-for-elementor' ),
-					'icon'  => 'eicon-arrow-up',
-				),
-			),
-			'default'              => ! empty( $values['default'] ) ? $values['default'] : '',
-			'condition'            => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			'selectors_dictionary' => array(
-				'row'            => 'flex-direction: row;',
-				'column'         => 'flex-direction: column;',
-				'row-reverse'    => 'flex-direction: row-reverse;',
-				'column-reverse' => 'flex-direction: column-reverse;',
-			),
-			'selectors'            => array(
-				! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => '{{VALUE}};',
-			),
-			'responsive'           => true,
-		);
-
-		$this->add_responsive_control(
-			! empty( $values['id'] ) ? $values['id'] : $key,
-			$control_args
-		);
-		break;
-
 
 	// Display Layout (separate choose control).
 	case 'display_layout':
@@ -592,116 +171,26 @@ switch ( $key ) {
 		);
 		break;
 
-	// Choose Design.
-	case 'choose_design':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'choose_design',
-			array(
-				'label'       => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Choose Design', 'rb-addons-for-elementor' ),
-				'type'        => Controls_Manager::VISUAL_CHOICE,
-				'label_block' => true,
-				'options'     => ! empty( $values['options'] ) ? $values['options'] : array(),
-				'default'     => ! empty( $values['default'] ) ? $values['default'] : 'style-1',
-				'columns'     => ! empty( $values['columns'] ) ? $values['columns'] : 2,
-				'condition'   => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selectors'   => ! empty( $values['selectors'] ) ? $values['selectors'] : array(),
-			)
-		);
-		break;
-
-	// Dimensions Controls.
-	case 'margin':
-	case 'padding':
-	case 'border_radius':
-		$css_property = str_replace( '_', '-', $key );
-		$this->add_responsive_control(
-			! empty( $values['id'] ) ? $values['id'] : $key,
-			array(
-				'label'      => ! empty( $values['label'] ) ? $values['label'] : esc_html( ucwords( str_replace( '_', ' ', $key ) ) ), // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%', 'em', 'rem' ),
-				'default'    => ! empty( $values['default'] ) ? $values['default'] : array(),
-				'condition'  => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selectors'  => array(
-					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => $css_property . ': {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
-		);
-		break;
-
-	// Divider Controls.
-	case 'align_separator':
-	case 'typography_separator':
-	case 'color_separator':
-	case 'width_height_separator':
-	case 'flex_separator':
-	case 'border_separator':
-	case 'spacing_separator':
-	case 'transition_separator':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : $key,
-			array(
-				'type'      => Controls_Manager::DIVIDER,
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-			)
-		);
-		break;
-
 	// All Select-Type Controls (custom, pages, timing, border-style, HTML tags).
-	case 'select_option':
 	case 'page_link':
 	case 'post_link':
 	case 'timing_function':
 	case 'border_style_right':
-	case 'html_tag': // <-- New case
 		$is_timing = ( 'timing_function' === $key );
-		$is_page   = ( 'page_link' === $key );
-		$is_post   = ( 'post_link' === $key );
 		$is_border = ( 'border_style_right' === $key );
-		$is_html   = ( 'html_tag' === $key ); // <-- New flag
 
 		// Label mapping.
 		$label_map  = array(
-			'select_option'      => esc_html__( 'Select Option', 'rb-addons-for-elementor' ),
-			'page_link'          => esc_html__( 'Select Page', 'rb-addons-for-elementor' ),
-			'post_link'          => esc_html__( 'Select Post', 'rb-addons-for-elementor' ),
 			'timing_function'    => esc_html__( 'Timing Function', 'rb-addons-for-elementor' ),
 			'border_style_right' => esc_html__( 'Border Style Right', 'rb-addons-for-elementor' ),
-			'html_tag'           => esc_html__( 'HTML Tag', 'rb-addons-for-elementor' ), // <-- New label
 		);
 		$label_text = $label_map[ $key ] ?? esc_html__( 'Select Option', 'rb-addons-for-elementor' );
 
 		// Decide options.
 		if ( ! empty( $values['options'] ) ) {
 			$options = $values['options'];
-		} elseif ( $is_page ) {
-			$options = rbelad_get_all_pages();
-
-			// Set first item as default if not provided.
-			if ( empty( $values['default'] ) && ! empty( $options ) ) {
-				$values['default'] = array_key_first( $options );
-			}
-		} elseif ( $is_post ) {
-			$options = rbelad_get_all_posts();
-
-			// Set first item as default if not provided.
-			if ( empty( $values['default'] ) && ! empty( $options ) ) {
-				$values['default'] = array_key_first( $options );
-			}
 		} elseif ( $is_timing ) {
 			$options = rbelad_transition_function();
-		} elseif ( $is_html ) {
-			$options = array(
-				'h1'   => 'H1',
-				'h2'   => 'H2',
-				'h3'   => 'H3',
-				'h4'   => 'H4',
-				'h5'   => 'H5',
-				'h6'   => 'H6',
-				'div'  => 'div',
-				'span' => 'span',
-				'p'    => 'p',
-			);
 		} else {
 			$options = array();
 		}
@@ -757,23 +246,6 @@ switch ( $key ) {
 				'selectors'   => array(
 					! empty( $values['select_class'] ) ? $values['select_class'] : '{{WRAPPER}}' => 'transition-property: {{VALUE}};',
 				),
-			)
-		);
-		break;
-
-	// Max Items.
-	case 'number':
-		$this->add_control(
-			! empty( $values['id'] ) ? $values['id'] : 'number',
-			array(
-				'label'     => ! empty( $values['label'] ) ? $values['label'] : esc_html__( 'Number', 'rb-addons-for-elementor' ),
-				'type'      => ! empty( $values['type'] ) ? $values['type'] : Controls_Manager::NUMBER,
-				'default'   => ! empty( $values['default'] ) ? $values['default'] : 5,
-				'min'       => ! empty( $values['min'] ) ? $values['min'] : 1,
-				'max'       => ! empty( $values['max'] ) ? $values['max'] : 20,
-				'step'      => ! empty( $values['step'] ) ? $values['step'] : 1,
-				'condition' => ! empty( $values['condition'] ) ? $values['condition'] : array(),
-				'selectors' => ! empty( $values['selectors'] ) ? $values['selectors'] : array(),
 			)
 		);
 		break;
@@ -1006,7 +478,7 @@ switch ( $key ) {
 					),
 				),
 				'condition' => array(
-					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_scale_popover_tab!'    => '',
 					$id_prefix . '_transform_keep_proportions_tab!' => '',
 				),
 				'selectors' => array(
@@ -1027,7 +499,7 @@ switch ( $key ) {
 					),
 				),
 				'condition' => array(
-					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_scale_popover_tab!'   => '',
 					$id_prefix . '_transform_keep_proportions_tab' => '',
 				),
 				'selectors' => array(
@@ -1048,7 +520,7 @@ switch ( $key ) {
 					),
 				),
 				'condition' => array(
-					$id_prefix . '_transform_scale_popover_tab!' => '',
+					$id_prefix . '_transform_scale_popover_tab!'   => '',
 					$id_prefix . '_transform_keep_proportions_tab' => '',
 				),
 				'selectors' => array(

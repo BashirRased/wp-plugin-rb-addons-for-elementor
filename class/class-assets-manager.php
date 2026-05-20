@@ -19,11 +19,12 @@ class Assets_Manager {
 	 * Initialize hooks.
 	 */
 	public static function init() {
+
 		// Frontend styles.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_frontend_styles' ) );
 
 		// Elementor editor assets.
-		add_action( 'elementor/editor/after_enqueue_scripts', array( __CLASS__, 'editor_scripts' ) );
+		add_action( 'elementor/editor/after_enqueue_scripts', array( __CLASS__, 'editor_assets' ) );
 	}
 
 	/**
@@ -31,42 +32,49 @@ class Assets_Manager {
 	 */
 	public static function enqueue_frontend_styles() {
 		wp_enqueue_style(
-			'rbelad-widget-icons',
-			RBELAD_ASSETS . 'css/rbelad-widget-icons.css',
+			'rbelad-general-icons',
+			RBELAD_CSS . 'rbelad-general-icons.css',
 			array(),
-			time()
+			RBELAD_DEV_VERSION
 		);
 	}
 
 	/**
 	 * Elementor editor assets (CSS + JS).
 	 */
-	public static function editor_scripts() {
-		// Editor CSS.
+	public static function editor_assets() {
+
+		// =========================
+		// Styles
+		// =========================
 		wp_enqueue_style(
-			'rbelad-editor',
-			RBELAD_ASSETS . 'css/editor.css',
+			'rbelad-general-icons',
+			RBELAD_CSS . 'rbelad-general-icons.css',
 			array(),
-			time()
+			RBELAD_DEV_VERSION
 		);
 
-		// Editor JS.
+		wp_enqueue_style(
+			'rbelad-editor',
+			RBELAD_CSS . 'editor.css',
+			array(),
+			RBELAD_DEV_VERSION
+		);
+
+		// =========================
+		// Scripts
+		// =========================
 		wp_enqueue_script(
 			'rbelad-editor',
-			RBELAD_ASSETS . 'js/editor.js',
-			array( 'elementor-editor', 'jquery' ),
-			time(),
+			RBELAD_JS . 'editor.js',
+			array( 'elementor-editor', 'jquery', 'underscore' ), // fixed dependency.
+			RBELAD_DEV_VERSION,
 			true
 		);
 
-		// Icons.
-		wp_enqueue_style(
-			'rbelad-widget-icons',
-			RBELAD_ASSETS . 'css/rbelad-widget-icons.css',
-			array(),
-			time()
-		);
-
+		// =========================
+		// Localize Data (SAFE)
+		// =========================
 		$localize_data = array(
 			'placeholder_widgets' => array(),
 			'hasPro'              => function_exists( 'rbelad_has_pro' ) && rbelad_has_pro(),
@@ -81,21 +89,48 @@ class Assets_Manager {
 
 				'promotionDialogBtnTxt'  => esc_html__( 'Upgrade Now', 'rb-addons-for-elementor' ),
 			),
-		);
-
-		// Add category titles and icons.
-		$localize_data['pro_categories'] = array(
-			'rbelad_pro_general' => array(
-				'title' => esc_html__( 'RB Pro - General', 'rb-addons-for-elementor' ),
-				'icon'  => 'eicon-lock',
+			'pro_categories'      => array(
+				'rbelad_pro_general' => array(
+					'title' => esc_html__( 'RB Pro - General', 'rb-addons-for-elementor' ),
+					'icon'  => 'eicon-lock',
+				),
 			),
 		);
 
-		// ONLY when FREE version.
+		// =========================
+		// Safe Widget Data Load
+		// =========================
 		if ( ! $localize_data['hasPro'] ) {
-			$localize_data['placeholder_widgets'] = Widget_Manager::get_pro_widgets_map();
+
+			try {
+
+				if ( class_exists( __NAMESPACE__ . '\\Widget_Manager' ) ) {
+
+					$data = Widget_Manager::get_pro_widgets_map();
+
+					// Ensure valid array.
+					if ( is_array( $data ) ) {
+						$localize_data['placeholder_widgets'] = $data;
+					} else {
+						$localize_data['placeholder_widgets'] = array();
+					}
+				}
+			} catch ( \Throwable $e ) {
+
+				// Prevent fatal crash in editor.
+				$localize_data['placeholder_widgets'] = array();
+
+				// Log only in debug mode.
+				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+					error_log( 'RBELAD Widgets Error: ' . $e->getMessage() );
+				}
+			}
 		}
 
+		// =========================
+		// Pass to JS
+		// =========================
 		wp_localize_script(
 			'rbelad-editor',
 			'RBELAD_EDITOR',

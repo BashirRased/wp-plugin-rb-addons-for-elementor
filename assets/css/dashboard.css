@@ -1,0 +1,140 @@
+[class*="col-"] {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/** Review Notice */
+.rbelad-review-notice-title {
+	margin: 0;
+	font-size: 1.0625rem;
+	line-height: 1.2;
+	color: #1d2327;
+}
+
+/** Free Widgets & Pro Widgets Page */
+.rbelad-widgets-item {
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid var(--color-tm-gray-4);
+	border-radius: 5px;
+}
+
+.rbelad-widgets-item-title {
+	font-size: 14px;
+	color: var(--color-tm-gray-7);
+	text-transform: capitalize;
+}
+
+.rbelad-widgets-item-icon {
+	font-size: 20px;
+	color: var(--color-tm-black);
+}
+
+.rbelad-widgets-item:hover .rbelad-widgets-item-icon {
+	color: var(--color-primary);
+}
+
+.rbelad-widgets-item-btn-toggle {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 40px;
+	height: 24px;
+	border-radius: 100px;
+	background-color: #e8e8e8;
+	-webkit-box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .05);
+	box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, .05)
+}
+
+.rbelad-widgets-item-btn-toggle__check,
+.rbelad-widgets-item-btn-toggle__switch,
+.rbelad-widgets-item-btn-toggle__track {
+	position: absolute;
+	display: block
+}
+
+.rbelad-widgets-item-btn-toggle__check[type="checkbox"] {
+	top: 0;
+	left: 0;
+	z-index: 6;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+
+.rbelad-widgets-item-btn-toggle__check.disabled,
+.rbelad-widgets-item-btn-toggle__check:disabled {
+	z-index: 0;
+	opacity: 0
+}
+
+.rbelad-widgets-item-btn-toggle__check:checked~.rbelad-widgets-item-btn-toggle__track {
+	-webkit-box-shadow: inset 0 0 0 20px #562dd4;
+	box-shadow: inset 0 0 0 20px #562dd4
+}
+
+.rbelad-widgets-item-btn-toggle__check:checked~.rbelad-widgets-item-btn-toggle__switch {
+	right: 2px;
+	left: 18px;
+	-webkit-transition: .35s cubic-bezier(.785, .135, .15, .86);
+	transition: .35s cubic-bezier(.785, .135, .15, .86);
+	-webkit-transition-delay: .05s, 0s;
+	transition-delay: .05s, 0s;
+	-webkit-transition-property: left, right;
+	transition-property: left, right
+}
+
+.rbelad-widgets-item-btn-toggle__switch,
+.rbelad-widgets-item-btn-toggle__track {
+	-webkit-transition: .35s cubic-bezier(.785, .135, .15, .86);
+	transition: .35s cubic-bezier(.785, .135, .15, .86)
+}
+
+.rbelad-widgets-item-btn-toggle__switch {
+	top: 2px;
+	right: 18px;
+	bottom: 2px;
+	left: 2px;
+	z-index: 1;
+	border-radius: 36px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	-webkit-transition-delay: 0s, .05s;
+	transition-delay: 0s, .05s;
+	-webkit-transition-property: left, right;
+	transition-property: left, right
+}
+
+.rbelad-widgets-item-btn-toggle__track {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 40px;
+	-webkit-box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .01);
+	box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .01)
+}
+
+/** Credentials Page */
+.rbelad-dashboard-credentials__item_list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	row-gap: 20px;
+	padding: 20px 0;
+}
+
+.rbelad-dashboard-credentials__item {
+	padding: 20px;
+	border: 1px solid var(--color-tm-gray-4);
+	border-radius: 5px;
+}
+
+.rbelad-dashboard-credentials__item-title {
+	margin: 0;
+	color: #444;
+	font-weight: 400;
+	font-size: 13px;
+}

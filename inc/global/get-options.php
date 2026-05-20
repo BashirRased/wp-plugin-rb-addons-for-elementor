@@ -496,3 +496,66 @@ function rbelad_get_plugin_missing_info( $args = array() ) {
 
 	return $elementor_info;
 }
+
+/**
+ * Text align default.
+ */
+function rbelad_default_text_align() {
+	return is_rtl() ? 'right' : 'left';
+}
+
+/**
+ * Mailchimp - Get Lists
+ *
+ * @return array
+ */
+function rbelad_mailchimp_lists() {
+
+	$api_key = get_option( 'rbelad_mailchimp_api_key', '' );
+
+	$mailchimp_list = array(
+		'def' => esc_html__( 'Select List', 'rb-addons-for-elementor' ),
+	);
+
+	if ( empty( $api_key ) || strpos( $api_key, '-' ) === false ) {
+		return $mailchimp_list;
+	}
+
+	$dc = substr( $api_key, strpos( $api_key, '-' ) + 1 );
+
+	$url = 'https://' . $dc . '.api.mailchimp.com/3.0/lists';
+
+	$args = array(
+		'timeout' => 15,
+		'headers' => array(
+			'Authorization' => 'Basic ' . base64_encode( 'user:' . $api_key ),
+		),
+	);
+
+	$response = wp_remote_get( $url, $args );
+
+	if ( is_wp_error( $response ) ) {
+		return $mailchimp_list;
+	}
+
+	$body = json_decode( wp_remote_retrieve_body( $response ) );
+
+	if ( ! empty( $body->lists ) && is_array( $body->lists ) ) {
+		foreach ( $body->lists as $list ) {
+
+			if ( empty( $list->id ) || empty( $list->name ) ) {
+				continue;
+			}
+
+			$count = isset( $list->stats->member_count ) ? (int) $list->stats->member_count : 0;
+
+			$mailchimp_list[ $list->id ] = sprintf(
+				'%s (%d)',
+				esc_html( $list->name ),
+				$count
+			);
+		}
+	}
+
+	return $mailchimp_list;
+}

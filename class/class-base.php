@@ -74,12 +74,16 @@ abstract class Base extends Widget_Base {
 	/**
 	 * Get the widget icon.
 	 *
-	 * @return string Icon class name for Elementor editor.
+	 * @return string Widget icon class.
 	 */
-	public function get_icon() {
-		$slug                = $this->get_name();
-		$slug_without_prefix = preg_replace( '/^rbelad-/', '', $slug );
-		return 'rbelad-wf rbelad-wf-' . $slug_without_prefix;
+	public function get_icon(): string {
+		$slug_without_prefix = preg_replace(
+			'/^rbelad-/',
+			'',
+			$this->get_name()
+		);
+
+		return Widget_Manager::get_widget_icon( $slug_without_prefix );
 	}
 
 	/**
@@ -112,9 +116,26 @@ abstract class Base extends Widget_Base {
 	 * @return string Wrapper class attribute value.
 	 */
 	public function get_html_wrapper_class() {
-		$slug                = $this->get_name();
+		$slug = $this->get_name();
+
 		$slug_without_prefix = preg_replace( '/^rbelad-/', '', $slug );
-		return 'rbelad-wrap rbelad-wrap-' . $slug_without_prefix . ' ' . $this->get_custom_wrapper_class();
+
+		$classes = array(
+			'rbelad-wrap',
+			'rbelad-wrap-' . $slug_without_prefix,
+			'rbel-widget',
+			'rbel-widget-' . $slug,
+		);
+
+		// Add custom class if exists.
+		if ( method_exists( $this, 'get_custom_wrapper_class' ) ) {
+			$custom = $this->get_custom_wrapper_class();
+			if ( ! empty( $custom ) ) {
+				$classes[] = $custom;
+			}
+		}
+
+		return implode( ' ', array_filter( $classes ) );
 	}
 
 	/**
@@ -139,5 +160,42 @@ abstract class Base extends Widget_Base {
 		$slug = $this->get_name(); // rbelad-archive-description.
 		$slug = str_replace( '-', '_', $slug ); // rbelad_archive_description.
 		return $slug . '_style_' . $section;
+	}
+
+	/**
+	 * Add style controls.
+	 *
+	 * @param string $prefix The prefix of the controls.
+	 * @param array  $args   The element selector, controls list and more.
+	 */
+	protected function add_style_controls( string $prefix, array $args ) {
+
+		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
+
+		if ( ! empty( $controls ) && is_array( $controls ) ) {
+			foreach ( $controls as $key => $values ) {
+				require RBELAD_GLOBAL . '/all-style.php';
+			}
+		}
+	}
+
+	/**
+	 * Add content controls.
+	 *
+	 * @param string $prefix The prefix of the controls.
+	 * @param array  $args   The element selector, controls list and more.
+	 */
+	protected function add_content_controls( string $prefix, array $args ) {
+		require RBELAD_GLOBAL . '/all-content.php';
+	}
+
+	/**
+	 * Add repeater controls.
+	 *
+	 * @param string $prefix The prefix of the controls.
+	 * @param array  $args The element selector, controls list and more.
+	 */
+	protected function add_repeater_controls( string $prefix, array $args ) {
+		require RBELAD_GLOBAL . '/repeater-style.php';
 	}
 }

@@ -74,6 +74,16 @@ function rbelad_has_pro() {
 }
 
 /**
+ * Get RBELAD dashboard link.
+ *
+ * @param string $suffix Optional query string suffix for the dashboard URL.
+ * @return string
+ */
+function rbelad_get_dashboard_link( $suffix = '&tab=home' ) {
+	return add_query_arg( array( 'page' => 'rbelad-dashboard' . $suffix ), admin_url( 'admin.php' ) );
+}
+
+/**
  * Check elementor version
  *
  * @param string $operator '<'.
@@ -88,9 +98,19 @@ function rbelad_is_elementor_version( $operator = '<', $version = '2.6.0' ) {
  * Add CSS & JS Files
  */
 function rbelad_addons_styles() {
-	wp_enqueue_style( 'rbelad-addons-style', RBELAD_ASSETS . 'css/style.css', null, time(), 'all' );
+	wp_enqueue_style( 'rbelad-addons-layout', RBELAD_CSS . 'layout.css', null, time(), 'all' );
+	wp_enqueue_style( 'rbelad-addons-style', RBELAD_CSS . 'style.css', null, time(), 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'rbelad_addons_styles' );
+
+/**
+ * List of rbelad icons
+ *
+ * @return array
+ */
+function rbelad_get_all_icons() {
+	return \RBELAD_Elementor_Addons\Icons_Manager::get_rbelad_icons();
+}
 
 /**
  * Elementor extended background overlay.
@@ -101,19 +121,3 @@ require RBELAD_EXTENDS . '/background-overlay.php';
  * Register extended background size.
  */
 require RBELAD_EXTENDS . '/background-size.php';
-
-/**
- * Register extended typography control.
- *
- * @param \Elementor\Controls_Manager $controls_manager Controls manager.
- */
-function rbelad_register_typography_control( $controls_manager ) {
-
-	require_once RBELAD_EXTENDS . '/class-group-control-typography-extended.php';
-
-	$controls_manager->add_group_control(
-		Group_Control_Typography_Extended::get_type(),
-		new Group_Control_Typography_Extended()
-	);
-}
-add_action( 'elementor/controls/controls_registered', 'rbelad_register_typography_control' );

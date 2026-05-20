@@ -98,31 +98,29 @@ class Review {
 
 		?>
 		<div class="notice notice-info rbelad-review-notice">
-			<p>
-				<strong>
-					<?php esc_html_e( 'Enjoying RB Addons for Elementor?', 'rb-addons-for-elementor' ); ?>
-				</strong>
+			<h3 class="rbelad-review-notice-title">
+				<?php esc_html_e( 'Enjoying RB Addons for Elementor?', 'rb-addons-for-elementor' ); ?>
+			</h3>
+
+			<p class="rbelad-review-notice-desc">
+				<?php esc_html_e( 'Thank you for choosing RB Addons for Elementor. If you have found our plugin useful and makes you smile, please consider giving us a 5-star rating on WordPress.org. It would mean the world to us.', 'rb-addons-for-elementor' ); ?>
 			</p>
 
-			<p>
-				<?php esc_html_e( 'If you like our plugin, please consider giving us a 5-star review. Your support helps us grow!', 'rb-addons-for-elementor' ); ?>
-			</p>
-
-			<p>
-				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" class="button button-primary">
-					<?php esc_html_e( 'Leave a Review', 'rb-addons-for-elementor' ); ?>
+			<p class="rbelad-review-notice-btns">
+				<a href="<?php echo esc_url( $review_url ); ?>" target="_blank" class="rbelad-review-notice-btn review">
+					<?php esc_html_e( '👍 Yes, You Deserve It!', 'rb-addons-for-elementor' ); ?>
 				</a>
 
-				<a href="<?php echo esc_url( $rated ); ?>" class="button">
-					<?php esc_html_e( 'Already Rated', 'rb-addons-for-elementor' ); ?>
+				<a href="<?php echo esc_url( $rated ); ?>" class="rbelad-review-notice-btn rated">
+					<?php esc_html_e( '🙌 Already Rated!', 'rb-addons-for-elementor' ); ?>
 				</a>
 
-				<a href="<?php echo esc_url( $remind_me ); ?>" class="button">
-					<?php esc_html_e( 'Remind Me Later', 'rb-addons-for-elementor' ); ?>
+				<a href="<?php echo esc_url( $remind_me ); ?>" class="rbelad-review-notice-btn remind">
+					<?php esc_html_e( '🔔 Remind Me Later', 'rb-addons-for-elementor' ); ?>
 				</a>
 
-				<a href="<?php echo esc_url( $dont_disturb ); ?>" class="button">
-					<?php esc_html_e( 'No Thanks', 'rb-addons-for-elementor' ); ?>
+				<a href="<?php echo esc_url( $dont_disturb ); ?>" class="rbelad-review-notice-btn review distrub">
+					<?php esc_html_e( '💔 No Thanks', 'rb-addons-for-elementor' ); ?>
 				</a>
 			</p>
 		</div>

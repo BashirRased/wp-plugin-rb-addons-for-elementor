@@ -46,6 +46,7 @@ class Video extends Base {
 	protected function register_content_tab() {
 		$this->__general_content();
 		$this->__setting_content();
+		$this->__image_overlay_content();
 	}
 
 	/**
@@ -63,6 +64,13 @@ class Video extends Base {
 	}
 
 	/**
+	 * Content - Image Overlay
+	 */
+	protected function __image_overlay_content() {
+		require RBELAD_WIDGETS . '/video/content/image-overlay.php';
+	}
+
+	/**
 	 * Widget style tab
 	 */
 	protected function register_style_tab() {
@@ -74,21 +82,6 @@ class Video extends Base {
 	 */
 	protected function __general_style() {
 		require RBELAD_WIDGETS . '/video/style/general.php';
-	}
-
-	/**
-	 * Add style controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_style_controls( string $prefix, array $args ) {
-		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
-		if ( ! empty( $controls ) && is_array( $controls ) ) {
-			foreach ( $controls as $key => $values ) {
-				require RBELAD_GLOBAL . '/all-style.php';
-			}
-		}
 	}
 
 	/**

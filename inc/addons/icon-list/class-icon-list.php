@@ -8,37 +8,12 @@
 
 namespace RBELAD_Elementor_Addons\Widgets;
 
-use RBELAD_Elementor_Addons\Traits\Background_Style;
-use RBELAD_Elementor_Addons\Traits\Border_Style;
-use RBELAD_Elementor_Addons\Traits\Color_Style;
-use RBELAD_Elementor_Addons\Traits\Icon_Size_Style;
-use RBELAD_Elementor_Addons\Traits\Icon_Style;
-use RBELAD_Elementor_Addons\Traits\Image_Size_Style;
-use RBELAD_Elementor_Addons\Traits\Item_Size_Style;
-use RBELAD_Elementor_Addons\Traits\Spacing_Style;
-use RBELAD_Elementor_Addons\Traits\Text_Alignment_Style;
-use RBELAD_Elementor_Addons\Traits\Text_Style;
-
 defined( 'ABSPATH' ) || die();
 
 /**
  * Icon_List class.
  */
 class Icon_List extends Base {
-	/**
-	 * Use all trait.
-	 */
-	use Color_Style;
-	use Text_Style;
-	use Text_Alignment_Style;
-	use Spacing_Style;
-	use Border_Style;
-	use Background_Style;
-	use Icon_Style;
-	use Icon_Size_Style;
-	use Item_Size_Style;
-	use Image_Size_Style;
-
 	/**
 	 * Register widget search keywords
 	 */
@@ -136,31 +111,6 @@ class Icon_List extends Base {
 	 */
 	protected function __wrapper_style() {
 		require RBELAD_WIDGETS . '/icon-list/style/wrapper.php';
-	}
-
-	/**
-	 * Add style controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_style_controls( string $prefix, array $args ) {
-		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
-		if ( ! empty( $controls ) && is_array( $controls ) ) {
-			foreach ( $controls as $key => $values ) {
-				require RBELAD_GLOBAL . '/all-style.php';
-			}
-		}
-	}
-
-	/**
-	 * Add repeater controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_repeater_controls( string $prefix, array $args ) {
-		require RBELAD_GLOBAL . '/repeater-style.php';
 	}
 
 	/**

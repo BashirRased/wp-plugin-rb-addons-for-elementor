@@ -28,6 +28,7 @@ define( 'RBELAD_PLUGIN_FILE', __FILE__ );
 define( 'RBELAD_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'RBELAD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'RBELAD_VERSION', '1.0.4' );
+define( 'RBELAD_DEV_VERSION', RBELAD_VERSION . time() );
 
 // Extra helpful constants.
 define( 'RBELAD_ASSETS', trailingslashit( RBELAD_PLUGIN_URL . 'assets' ) );
@@ -38,10 +39,10 @@ define( 'RBELAD_INC', trailingslashit( RBELAD_PLUGIN_DIR . 'inc' ) );
 define( 'RBELAD_WIDGETS', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/addons' ) );
 define( 'RBELAD_GLOBAL', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/global' ) );
 define( 'RBELAD_EXTENDS', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/extends' ) );
-define( 'RBELAD_TRAIT_CONTENT', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/trait/content/' ) );
-define( 'RBELAD_TRAIT_STYLE', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/trait/style/' ) );
-define( 'RBELAD_TRAIT_RENDER', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/trait/render/' ) );
+define( 'RBELAD_TRAIT_STYLE', trailingslashit( RBELAD_PLUGIN_DIR . 'trait/style/' ) );
+define( 'RBELAD_TRAIT_CONTENT', trailingslashit( RBELAD_PLUGIN_DIR . 'trait/content/' ) );
 define( 'RBELAD_CLASS', trailingslashit( RBELAD_PLUGIN_DIR . 'class' ) );
+define( 'RBELAD_ADMIN', trailingslashit( RBELAD_PLUGIN_DIR . 'admin/' ) );
 
 /**
  * Main Elementor Class

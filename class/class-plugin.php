@@ -13,6 +13,7 @@ use RBELAD_Elementor_Addons\Widget_Manager;
 use RBELAD_Elementor_Addons\Assets_Manager;
 use RBELAD_Elementor_Addons\Dashboard;
 use RBELAD_Elementor_Addons\Review;
+use RBELAD_Elementor_Addons\Icons_Manager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -20,33 +21,28 @@ defined( 'ABSPATH' ) || exit;
  * Plugin Class.
  */
 class Plugin {
+
 	/**
 	 * Main plugin instance.
-	 *
-	 * Ensures only one instance of the plugin is loaded.
 	 *
 	 * @var self|null
 	 */
 	private static $instance = null;
 
 	/**
-	 * Instance
+	 * Appsero client instance.
 	 *
-	 * @access public
-	 *
-	 * @var Client The instance of the class.
+	 * @var object|null
 	 */
 	public $appsero = null;
 
 	/**
-	 * Get the singleton instance of the plugin.
-	 *
-	 * If no instance exists, creates one and initializes it.
+	 * Get plugin instance.
 	 *
 	 * @return self
 	 */
 	public static function instance() {
-		if ( is_null( self::$instance ) ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 			self::$instance->init();
 		}
@@ -54,32 +50,28 @@ class Plugin {
 	}
 
 	/**
-	 * Initialize the plugin.
-	 *
-	 * Hooks into WordPress and Elementor actions to register
-	 * assets, widgets, categories, and page settings controls.
+	 * Initialize plugin.
 	 *
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_action( 'init', array( $this, 'include_files' ) );
 
-		// Register Widgets.
+		add_action( 'plugins_loaded', array( $this, 'i18n' ) );
+
+		// Load files early (important for hooks like icons).
+		add_action( 'init', array( $this, 'include_files' ), 5 );
+
+		// Elementor hooks.
 		add_action(
 			'elementor/widgets/register',
-			array(
-				Widget_Manager::class,
-				'register_widgets',
-			)
+			array( Widget_Manager::class, 'register_widgets' )
 		);
+
 		add_action(
 			'elementor/elements/categories_registered',
-			array(
-				Widget_Manager::class,
-				'register_categories',
-			)
+			array( Widget_Manager::class, 'register_categories' )
 		);
+
 		$this->add_page_settings_controls();
 
 		$this->appsero_tracking_init();
@@ -88,13 +80,182 @@ class Plugin {
 	}
 
 	/**
-	 * Initialize the appsero tracker
+	 * Register all plugin hooks.
+	 *
+	 * @return void
+	 */
+	public static function hook_manager() {
+
+		// Admin hooks.
+		if ( is_admin() ) {
+			add_filter(
+				'plugin_action_links_' . plugin_basename( RBELAD_PLUGIN_FILE ),
+				array( Dashboard::class, 'add_action_links' )
+			);
+
+			add_action(
+				'in_admin_header',
+				array( Dashboard::class, 'remove_all_notices' ),
+				PHP_INT_MAX
+			);
+
+			add_action(
+				'wp_ajax_rbelad_save_dashboard',
+				array( Dashboard::class, 'save_data' )
+			);
+
+			add_action(
+				'rbelad_save_dashboard_data',
+				array( Dashboard::class, 'save_credentials_data' )
+			);
+		}
+
+		// Review system.
+		if ( is_user_logged_in() ) {
+			add_action(
+				'admin_init',
+				array( Review::class, 'rbelad_check_installation_time' )
+			);
+
+			add_action(
+				'admin_init',
+				array( Review::class, 'rbelad_handle_actions' )
+			);
+		}
+
+		/**
+		 * Register Icons here.
+		 */
+		add_filter(
+			'elementor/icons_manager/additional_tabs',
+			array( Icons_Manager::class, 'add_rbelad_icons_tab' )
+		);
+	}
+
+	/**
+	 * Load PHP files from a directory list.
+	 *
+	 * @param array  $files List of file paths.
+	 * @param string $base  Base directory path.
+	 *
+	 * @return void
+	 */
+	private function load_style_directory( array $files, string $base ) {
+
+		foreach ( $files as $file ) {
+
+			$file_path = $base . $file;
+
+			if ( file_exists( $file_path ) ) {
+				require_once $file_path;
+			}
+		}
+	}
+
+	/**
+	 * Load PHP files from a directory list.
+	 *
+	 * @param array  $files List of file paths.
+	 * @param string $base  Base directory path.
+	 *
+	 * @return void
+	 */
+	private function load_content_directory( array $files, string $base ) {
+
+		foreach ( $files as $file ) {
+
+			$file_path = $base . $file;
+
+			if ( file_exists( $file_path ) ) {
+				require_once $file_path;
+			}
+		}
+	}
+
+	/**
+	 * Include required files.
+	 *
+	 * @return void
+	 */
+	public function include_files() {
+
+		/**
+		 * Core classes.
+		 */
+		$classes = array(
+			'class-widget-manager.php',
+			'class-base.php',
+			'class-assets-manager.php',
+			'class-icons-manager.php',
+			'class-dashboard.php',
+			'class-review.php',
+			'class-credentials-manager.php',
+			'class-font-list.php',
+			'class-theme-builder.php',
+		);
+
+		foreach ( $classes as $file ) {
+			$file_path = RBELAD_CLASS . $file;
+
+			if ( file_exists( $file_path ) ) {
+				require_once $file_path;
+			}
+		}
+
+		/**
+		 * Trait styles.
+		 */
+		$this->load_style_directory(
+			array(
+				'custom-typography.php',
+			),
+			RBELAD_TRAIT_STYLE
+		);
+
+		/**
+		 * Trait contents.
+		 */
+		$this->load_content_directory(
+			array(
+				'select-link.php',
+			),
+			RBELAD_TRAIT_CONTENT
+		);
+
+		/**
+		 * Hooks AFTER loading classes.
+		 */
+		self::hook_manager();
+
+		/**
+		 * Init core systems.
+		 */
+		Assets_Manager::init();
+		Dashboard::init();
+	}
+
+	/**
+	 * Load text domain.
+	 *
+	 * @return void
+	 */
+	public function i18n() {
+		load_plugin_textdomain(
+			'rb-addons-for-elementor',
+			false,
+			dirname( plugin_basename( RBELAD_PLUGIN_FILE ) ) . '/languages/'
+		);
+	}
+
+	/**
+	 * Initialize Appsero tracking.
 	 *
 	 * @return void
 	 */
 	protected function appsero_tracking_init() {
+
 		if ( ! class_exists( 'Appsero\Client' ) ) {
-			include_once RBELAD_PLUGIN_DIR . 'appsero/class-client.php';
+			require_once RBELAD_PLUGIN_DIR . 'appsero/class-client.php';
 		}
 
 		$this->appsero = new \Appsero\Client(
@@ -105,125 +266,13 @@ class Plugin {
 
 		$this->appsero->set_textdomain( 'rb-addons-for-elementor' );
 
-		// Active insights.
 		$this->appsero->insights()
 			->add_plugin_data()
 			->init();
 	}
 
 	/**
-	 * Load the plugin textdomain for translation.
-	 *
-	 * This checks the global WordPress languages directory for a matching
-	 * translation file based on the current locale, and loads it.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain() {
-		load_textdomain(
-			'rb-addons-for-elementor',
-			WP_LANG_DIR . '/plugins/rb-addons-for-elementor-' . determine_locale() . '.mo'
-		);
-	}
-
-	/**
-	 * Include core plugin class files.
-	 *
-	 * Loads the base class, widget manager, assets manager,
-	 * traits, and any other required files.
-	 *
-	 * @return void
-	 */
-	public function include_files() {
-		// Core classes.
-		include_once RBELAD_CLASS . 'class-widget-manager.php';
-		include_once RBELAD_CLASS . 'class-base.php';
-		include_once RBELAD_CLASS . 'class-assets-manager.php';
-		include_once RBELAD_CLASS . 'class-icons-manager.php';
-		include_once RBELAD_CLASS . 'class-dashboard.php';
-		include_once RBELAD_CLASS . 'class-review.php';
-
-		// Hook AFTER include.
-		add_action( 'admin_init', array( Review::class, 'rbelad_check_installation_time' ) );
-		add_action( 'admin_init', array( Review::class, 'rbelad_handle_actions' ) );
-
-		// Trait - contents.
-		$trait_content = RBELAD_TRAIT_CONTENT;
-		if ( file_exists( $trait_content . 'link-type-trait.php' ) ) {
-			require_once $trait_content . 'link-type-trait.php';
-		}
-		if ( file_exists( $trait_content . 'heading-tag-trait.php' ) ) {
-			require_once $trait_content . 'heading-tag-trait.php';
-		}
-
-		// Trait - styles.
-		$trait_style = RBELAD_TRAIT_STYLE;
-		if ( file_exists( $trait_style . 'display-trait.php' ) ) {
-			require_once $trait_style . 'display-trait.php';
-		}
-		if ( file_exists( $trait_style . 'top-trait.php' ) ) {
-			require_once $trait_style . 'top-trait.php';
-		}
-		if ( file_exists( $trait_style . 'gap-trait.php' ) ) {
-			require_once $trait_style . 'gap-trait.php';
-		}
-		if ( file_exists( $trait_style . 'icon-trait.php' ) ) {
-			require_once $trait_style . 'icon-trait.php';
-		}
-		if ( file_exists( $trait_style . 'icon-size-trait.php' ) ) {
-			require_once $trait_style . 'icon-size-trait.php';
-		}
-		if ( file_exists( $trait_style . 'img-size-trait.php' ) ) {
-			require_once $trait_style . 'img-size-trait.php';
-		}
-		if ( file_exists( $trait_style . 'text-trait.php' ) ) {
-			require_once $trait_style . 'text-trait.php';
-		}
-		if ( file_exists( $trait_style . 'color-trait.php' ) ) {
-			require_once $trait_style . 'color-trait.php';
-		}
-		if ( file_exists( $trait_style . 'link-trait.php' ) ) {
-			require_once $trait_style . 'link-trait.php';
-		}
-		if ( file_exists( $trait_style . 'bg-trait.php' ) ) {
-			require_once $trait_style . 'bg-trait.php';
-		}
-		if ( file_exists( $trait_style . 'border-trait.php' ) ) {
-			require_once $trait_style . 'border-trait.php';
-		}
-		if ( file_exists( $trait_style . 'spacing-trait.php' ) ) {
-			require_once $trait_style . 'spacing-trait.php';
-		}
-		if ( file_exists( $trait_style . 'transform-trait.php' ) ) {
-			require_once $trait_style . 'transform-trait.php';
-		}
-		if ( file_exists( $trait_style . 'transition-trait.php' ) ) {
-			require_once $trait_style . 'transition-trait.php';
-		}
-		if ( file_exists( $trait_style . 'text-alignment-trait.php' ) ) {
-			require_once $trait_style . 'text-alignment-trait.php';
-		}
-		if ( file_exists( $trait_style . 'item-alignment-trait.php' ) ) {
-			require_once $trait_style . 'item-alignment-trait.php';
-		}
-		if ( file_exists( $trait_style . 'item-size-trait.php' ) ) {
-			require_once $trait_style . 'item-size-trait.php';
-		}
-
-		// Trait - renders.
-		$trait_render = RBELAD_TRAIT_RENDER;
-		if ( file_exists( $trait_render . 'link-type-trait.php' ) ) {
-			require_once $trait_render . 'link-type-trait.php';
-		}
-
-		Assets_Manager::init();
-		Dashboard::init();
-	}
-
-	/**
-	 * Add custom page settings controls in Elementor editor.
-	 *
-	 * Loads the Page_Settings class and registers it with Elementor.
+	 * Register Elementor page settings.
 	 *
 	 * @return void
 	 */
@@ -233,5 +282,5 @@ class Plugin {
 	}
 }
 
-// Bootstrap the plugin.
+// Bootstrap plugin.
 Plugin::instance();

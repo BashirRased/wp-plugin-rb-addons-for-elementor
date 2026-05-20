@@ -1,22 +1,35 @@
-jQuery(window).on("elementor:init", function () {
+(function ($) {
 
-  elementor.on("panel:init", function () {
+  "use strict";
 
-    if (typeof elementor === "undefined" || !elementor.hooks) {
+  /**
+   * Elementor Editor Init (SAFE)
+   */
+  $(window).on("elementor/editor/init", function () {
+
+    // Safety check
+    if (typeof window.elementor === "undefined" || !elementor.hooks) {
       return;
     }
 
+    /**
+     * Modify Elements Panel (widgets + categories)
+     */
     elementor.hooks.addFilter("panel/elements/regionViews", function (regionViews) {
 
-      // Return if pro active.
-      if (RBELAD_EDITOR.hasPro || _.isEmpty(RBELAD_EDITOR.placeholder_widgets)) {
+      // Stop if Pro active or no placeholders
+      if (
+        typeof RBELAD_EDITOR === "undefined" ||
+        RBELAD_EDITOR.hasPro ||
+        _.isEmpty(RBELAD_EDITOR.placeholder_widgets)
+      ) {
         return regionViews;
       }
 
       var elementsCollection   = regionViews.elements.options.collection;
       var categoriesCollection = regionViews.categories.options.collection;
 
-      var categoriesMap = {}; // group holder
+      var categoriesMap = {};
 
       // ============================================
       // STEP 1: Add fake widgets + group by category
@@ -25,7 +38,6 @@ jQuery(window).on("elementor:init", function () {
 
         var cat = widget.cat || "rbelad_pro_fallback";
 
-        // Create widget model
         var model = elementsCollection.add({
           name: "rbelad-" + name,
           title: widget.title || name.replace(/-/g, " "),
@@ -34,7 +46,6 @@ jQuery(window).on("elementor:init", function () {
           editable: false
         });
 
-        // Group by category
         if (!categoriesMap[cat]) {
           categoriesMap[cat] = [];
         }
@@ -62,51 +73,17 @@ jQuery(window).on("elementor:init", function () {
       });
 
       // ============================================
-      // STEP 3: Add category upgrade button
+      // STEP 3: Lock widget behavior (SAFE override)
       // ============================================
-      var CategoryView = regionViews.categories.view.prototype;
+      var ElementViewExtension = {
 
-      regionViews.categories.view = regionViews.categories.view.extend({
-        childView: CategoryView.childView.extend({
-
-          onRender: function () {
-            CategoryView.childView.prototype.onRender.apply(this, arguments);
-
-            var catSlug = this.model.get("name");
-
-            // Only add upgrade for PRO placeholder categories
-            if (RBELAD_EDITOR.pro_categories && RBELAD_EDITOR.pro_categories[catSlug]) {
-
-              var $heading = this.$el.find(".elementor-panel-heading-title");
-
-              // Avoid duplicate
-              if ($heading.siblings(".elementor-panel-heading-promotion").length === 0) {
-
-                var $promo = jQuery(
-                  '<span class="elementor-panel-heading-promotion">' +
-                    '<a href="https://your-site.com/pricing" target="_blank">' +
-                    '<i class="eicon-upgrade-crown"></i>Upgrade' +
-                    '</a>' +
-                  '</span>'
-                );
-
-                $heading.after($promo);
-              }
-            }
-          }
-
-        })
-      });
-
-      // ============================================
-      // STEP 4: Lock behavior override for widgets
-      // ============================================
-      var ElementView = {
         className: function () {
           var className = this.constructor.__super__.className.call(this);
+
           if (!this.isEditable() && this.isRBWidget()) {
             className += " rbelad-locked-widget";
           }
+
           return className;
         },
 
@@ -118,30 +95,70 @@ jQuery(window).on("elementor:init", function () {
         onMouseDown: function () {
 
           if (!this.isRBWidget()) {
-            this.constructor.__super__.onMouseDown.call(this);
+            this.constructor.__super__.onMouseDown.apply(this, arguments);
             return;
           }
 
-          elementor.promotion.showDialog({
-            title: RBELAD_EDITOR.i18n.promotionDialogHeader.replace('%s', this.model.get("title")),
-            content: RBELAD_EDITOR.i18n.promotionDialogMessage.replace('%s', this.model.get("title")),
-            actionButton: {
-              url: "https://your-site.com/pricing",
-              text: RBELAD_EDITOR.i18n.promotionDialogBtnTxt,
-              classes: ["elementor-button", "rbelad-go-pro"]
-            }
-          });
+          if (elementor && elementor.promotion) {
+            elementor.promotion.showDialog({
+              title: RBELAD_EDITOR.i18n.promotionDialogHeader.replace('%s', this.model.get("title")),
+              content: RBELAD_EDITOR.i18n.promotionDialogMessage.replace('%s', this.model.get("title")),
+              actionButton: {
+                url: "https://your-site.com/pricing",
+                text: RBELAD_EDITOR.i18n.promotionDialogBtnTxt,
+                classes: ["elementor-button", "rbelad-go-pro"]
+              }
+            });
+          }
+
         }
       };
 
-      // Apply widget override
       regionViews.elements.view = regionViews.elements.view.extend({
-        childView: regionViews.elements.view.prototype.childView.extend(ElementView)
+        childView: regionViews.elements.view.prototype.childView.extend(ElementViewExtension)
       });
 
       return regionViews;
     });
 
+    /**
+     * STEP 4: Add category promotion UI (SAFE - no override)
+     */
+    elementor.hooks.addAction(
+      "panel/elements/category/afterRender",
+      function (view) {
+
+        if (
+          typeof RBELAD_EDITOR === "undefined" ||
+          !RBELAD_EDITOR.pro_categories
+        ) {
+          return;
+        }
+
+        var catSlug = view.model.get("name");
+
+        if (!RBELAD_EDITOR.pro_categories[catSlug]) {
+          return;
+        }
+
+        var $heading = view.$el.find(".elementor-panel-heading-title");
+
+        if ($heading.length && !$heading.siblings(".elementor-panel-heading-promotion").length) {
+
+          var $promo = $(
+            '<span class="elementor-panel-heading-promotion">' +
+              '<a href="https://your-site.com/pricing" target="_blank">' +
+                '<i class="eicon-upgrade-crown"></i> Upgrade' +
+              '</a>' +
+            '</span>'
+          );
+
+          $heading.after($promo);
+        }
+
+      }
+    );
+
   });
 
-});
+})(jQuery);

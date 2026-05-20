@@ -25,10 +25,23 @@ $this->start_controls_section(
 );
 
 // All content add here.
-$this->add_style_controls(
-	$prefix . 'style_1',
+$this->add_content_controls(
+	$prefix . '_content_1',
 	array(
 		'controls' => array(
+			// Link Type.
+			'select_option' => array(
+				'id'      => $prefix . '_btn_type',
+				'default' => '',
+				'options' => array(
+					''        => esc_html__( 'Default', 'rb-addons-for-elementor' ),
+					'info'    => esc_html__( 'Info', 'rb-addons-for-elementor' ),
+					'success' => esc_html__( 'Success', 'rb-addons-for-elementor' ),
+					'warning' => esc_html__( 'Warning', 'rb-addons-for-elementor' ),
+					'danger'  => esc_html__( 'Danger', 'rb-addons-for-elementor' ),
+				),
+			),
+
 			// Text.
 			'text'          => array(
 				'id'          => $prefix . 'btn_text',
@@ -37,33 +50,28 @@ $this->add_style_controls(
 				'placeholder' => esc_html__( 'Click here', 'rb-addons-for-elementor' ),
 			),
 
-			// Link Type.
-			'select_option' => array(
-				'id'      => $prefix . 'link_type',
-				'options' => array(
-					'page'   => esc_html__( 'Page Link', 'rb-addons-for-elementor' ),
-					'custom' => esc_html__( 'Custom Link', 'rb-addons-for-elementor' ),
-				),
-				'default' => 'custom',
-			),
-
-			// Select Page.
-			'page_link'     => array(
-				'id'        => $prefix . 'page_link',
-				'condition' => array(
-					$prefix . 'link_type' => 'page',
-				),
-			),
-
-			// Custom Link.
-			'custom_link'   => array(
-				'id'        => $prefix . 'custom_link',
-				'condition' => array(
-					$prefix . 'link_type' => 'custom',
-				),
+			// Icon.
+			'icon'          => array(
+				'id'               => $prefix . 'btn_icon',
+				'label'            => esc_html__( 'Button Icon', 'rb-addons-for-elementor' ),
+				'fa4compatibility' => 'icon',
+				'skin'             => 'inline',
 			),
 		),
 	),
+);
+
+$this->rbelad_select_link_type(
+	$prefix . 'style_2',
+	array(
+		'controls' => array(
+			array(
+				'name'    => $prefix . '_link_type',
+				'label'   => esc_html__( 'Button Link Type', 'rb-addons-for-elementor' ),
+				'default' => 'custom_link',
+			),
+		),
+	)
 );
 
 // End Section Tab.

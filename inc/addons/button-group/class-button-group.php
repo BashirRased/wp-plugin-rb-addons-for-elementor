@@ -8,29 +8,12 @@
 
 namespace RBELAD_Elementor_Addons\Widgets;
 
-use RBELAD_Elementor_Addons\Traits\Background_Style;
-use RBELAD_Elementor_Addons\Traits\Border_Style;
-use RBELAD_Elementor_Addons\Traits\Link_Style;
-use RBELAD_Elementor_Addons\Traits\Spacing_Style;
-use RBELAD_Elementor_Addons\Traits\Text_Style;
-use RBELAD_Elementor_Addons\Traits\Transition_Style;
-
 defined( 'ABSPATH' ) || die();
 
 /**
  * Button_Group class.
  */
 class Button_Group extends Base {
-	/**
-	* Use all trait.
-	*/
-	use Text_Style;
-	use Spacing_Style;
-	use Border_Style;
-	use Transition_Style;
-	use Link_Style;
-	use Background_Style;
-
 	/**
 	 * Enqueue css files
 	 */
@@ -94,31 +77,6 @@ class Button_Group extends Base {
 	 */
 	protected function __general_style() {
 		require RBELAD_WIDGETS . '/button-group/style/general.php';
-	}
-
-	/**
-	 * Add style controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_style_controls( string $prefix, array $args ) {
-		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
-		if ( ! empty( $controls ) && is_array( $controls ) ) {
-			foreach ( $controls as $key => $values ) {
-				require RBELAD_GLOBAL . '/all-style.php';
-			}
-		}
-	}
-
-	/**
-	 * Add repeater controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_repeater_controls( string $prefix, array $args ) {
-		require RBELAD_GLOBAL . '/repeater-style.php';
 	}
 
 	/**

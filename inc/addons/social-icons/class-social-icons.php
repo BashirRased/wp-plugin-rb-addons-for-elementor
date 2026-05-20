@@ -70,31 +70,6 @@ class Social_Icons extends Base {
 	}
 
 	/**
-	 * Add style controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_style_controls( string $prefix, array $args ) {
-		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
-		if ( ! empty( $controls ) && is_array( $controls ) ) {
-			foreach ( $controls as $key => $values ) {
-				require RBELAD_GLOBAL . '/all-style.php';
-			}
-		}
-	}
-
-	/**
-	 * Add repeater controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_repeater_controls( string $prefix, array $args ) {
-		require RBELAD_GLOBAL . '/repeater-style.php';
-	}
-
-	/**
 	 * Register render display control
 	 */
 	protected function render() {

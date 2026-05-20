@@ -8,15 +8,8 @@
 
 namespace RBELAD_Elementor_Addons\Widgets;
 
-use RBELAD_Elementor_Addons\Traits\Display_Style;
-use RBELAD_Elementor_Addons\Traits\Text_Style;
-use RBELAD_Elementor_Addons\Traits\Link_Style;
-use RBELAD_Elementor_Addons\Traits\Background_Style;
-use RBELAD_Elementor_Addons\Traits\Border_Style;
-use RBELAD_Elementor_Addons\Traits\Spacing_Style;
-use RBELAD_Elementor_Addons\Traits\Transform_Style;
-use RBELAD_Elementor_Addons\Traits\Transition_Style;
-use RBELAD_Elementor_Addons\Traits\Text_Alignment_Style;
+use RBELAD_Elementor_Addons\Traits\RBELAD_Custom_Typography_Trait;
+use RBELAD_Elementor_Addons\Traits\RBELAD_Select_Link_Type_Trait;
 
 defined( 'ABSPATH' ) || die();
 
@@ -25,17 +18,10 @@ defined( 'ABSPATH' ) || die();
  */
 class Heading extends Base {
 	/**
-	 * Use all trait.
+	 * Use Trait Styles
 	 */
-	use Display_Style;
-	use Text_Style;
-	use Link_Style;
-	use Background_Style;
-	use Border_Style;
-	use Spacing_Style;
-	use Transform_Style;
-	use Transition_Style;
-	use Text_Alignment_Style;
+	use RBELAD_Custom_Typography_Trait;
+	use RBELAD_Select_Link_Type_Trait;
 
 	/**
 	 * Register widget search keywords
@@ -43,14 +29,14 @@ class Heading extends Base {
 	public function get_keywords() {
 		return array(
 			'heading',
-			'dual text',
+			'Heading',
 			'dual heading widget',
 			'dual color heading',
 			'split text heading',
 			'two-tone text widget',
 			'Elementor dual heading',
 			'Elementor text styling widget',
-			'custom dual text Elementor',
+			'custom Heading Elementor',
 			'rb',
 			'rb addons',
 			'rb elementor addons',
@@ -83,47 +69,14 @@ class Heading extends Base {
 	 * Widget style tab
 	 */
 	protected function register_style_tab() {
-		$this->__title_style();
-		$this->__text_highlight_style();
+		$this->__general_style();
 	}
 
 	/**
 	 * Style - Title
 	 */
-	protected function __title_style() {
-		require RBELAD_WIDGETS . '/heading/style/title.php';
-	}
-
-	/**
-	 * Style - Text Highlight
-	 */
-	protected function __text_highlight_style() {
-		require RBELAD_WIDGETS . '/heading/style/text-highlight.php';
-	}
-
-	/**
-	 * Add style controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_style_controls( string $prefix, array $args ) {
-		$controls = ! empty( $args['controls'] ) ? $args['controls'] : array();
-		if ( ! empty( $controls ) && is_array( $controls ) ) {
-			foreach ( $controls as $key => $values ) {
-				require RBELAD_GLOBAL . '/all-style.php';
-			}
-		}
-	}
-
-	/**
-	 * Add repeater controls.
-	 *
-	 * @param string $prefix The prefix of the controls.
-	 * @param array  $args The element selector, controls list and more.
-	 */
-	private function add_repeater_controls( string $prefix, array $args ) {
-		require RBELAD_GLOBAL . '/repeater-style.php';
+	protected function __general_style() {
+		require RBELAD_WIDGETS . '/heading/style/general.php';
 	}
 
 	/**
@@ -131,5 +84,14 @@ class Heading extends Base {
 	 */
 	protected function render() {
 		require RBELAD_WIDGETS . '/heading/render/design-1.php';
+	}
+
+	/**
+	 * =========================
+	 * LIVE PREVIEW (JS)
+	 * =========================
+	 */
+	protected function content_template() {
+		require RBELAD_WIDGETS . '/heading/template/design-1.php';
 	}
 }

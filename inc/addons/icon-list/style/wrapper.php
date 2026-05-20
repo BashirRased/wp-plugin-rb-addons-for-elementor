@@ -13,9 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Controls_Manager;
 
 // Controls variables.
-$prefix = $this->get_section_style_prefix( 'wrapper' );
-
-$class_1 = '{{WRAPPER}} .rbelad-list-style-widget'; // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
+$prefix = $this->get_section_style_prefix( 'wrapper' ); // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals
 
 // Start Section Tab - Style.
 $this->start_controls_section(
@@ -25,9 +23,6 @@ $this->start_controls_section(
 		'tab'   => Controls_Manager::TAB_STYLE,
 	)
 );
-
-// Text Aligment.
-$this->register_text_alignment_style( $prefix, $class_1 );
 
 // End Section Tab.
 $this->end_controls_section();

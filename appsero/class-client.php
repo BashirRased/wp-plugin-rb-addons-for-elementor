@@ -152,7 +152,7 @@ class Client {
 
 		// initialize the new updater.
 		if ( method_exists( '\Appsero\Updater', 'init' ) ) {
-			\Appsero\Updater::init( $this );
+			Appsero\Updater::init( $this );
 		}
 	}
 

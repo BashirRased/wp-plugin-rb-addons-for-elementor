@@ -42,130 +42,169 @@ class Widget_Manager {
 		$addons = array(
 			// Basic Addons.
 			'heading'         => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-heading',
 			),
 			'image'           => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-image',
 			),
 			'text-editor'     => array(
-				'cat' => 'rbelad_addons_basic', // Next version.
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-text-editor',
 			),
 			'video'           => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-play',
 			),
 			'button'          => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-button',
 			),
 			'button-group'    => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-button-group',
 			),
 			'divider'         => array(
-				'cat' => 'rbelad_addons_basic',
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-divider',
 			),
 			'spacer'          => array(
-				'cat' => 'rbelad_addons_basic', // Next version.
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-spacer',
 			),
 			'google-maps'     => array(
-				'cat' => 'rbelad_addons_basic', // Next version.
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-location-9',
 			),
 			'icon'            => array(
-				'cat' => 'rbelad_addons_basic', // Next version.
+				'cat'  => 'rbelad_addons_basic',
+				'icon' => 'rbelad-gf-icon rbelad-gf-star-4',
 			),
 
 			// General Addons.
 			'tabs'            => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-tabs',
 			),
 			'info-box'        => array(
-				'cat' => 'rbelad_addons_general', // Next version.
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-content-box',
 			),
 			'image-carousel'  => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-image-carousel',
 			),
 			'image-gallery'   => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-image-gallery',
 			),
 			'icon-list'       => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-list',
 			),
 			'counter'         => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-alerm-clock',
 			),
 			'progress'        => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-progress',
 			),
 			'testimonial'     => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-testimonial',
 			),
 			'social-icons'    => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-social-icons',
 			),
 			'alert'           => array(
-				'cat' => 'rbelad_addons_general', // Next version.
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-notification',
 			),
 			'audio'           => array(
-				'cat' => 'rbelad_addons_general', // Next version.
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-audio',
 			),
 			'shortcode'       => array(
-				'cat' => 'rbelad_addons_general', // Next version.
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-code',
 			),
 			'html'            => array(
-				'cat' => 'rbelad_addons_general', // Next version.
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-html',
 			),
 			'rating'          => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-rating',
 			),
 			'text-path'       => array(
-				'cat' => 'rbelad_addons_general',
+				'cat'  => 'rbelad_addons_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-text-path',
 			),
 
 			// Creative Addons.
 			'scroll-down'     => array(
-				'cat' => 'rbelad_addons_creative',
+				'cat'  => 'rbelad_addons_creative',
+				'icon' => 'rbelad-gf-icon rbelad-gf-scroll-down',
 			),
 
 			// Site Addons.
 			'site-logo'       => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-site-logo',
 			),
 			'site-title'      => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-site-title',
 			),
 			'menu'            => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-menu',
 			),
 			'breadcrumbs'     => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-breadcrumbs',
 			),
 			'page-title'      => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-page-title',
 			),
-			'featured-iImage' => array(
-				'cat' => 'rbelad_addons_site',
+			'featured-image'  => array(
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-image-2',
 			),
 			'post-meta'       => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-post-edit',
 			),
 			'post-excerpt'    => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-post-excerpt',
 			),
 			'read-more'       => array(
-				'cat' => 'rbelad_addons_site', // Next version.
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-read-more',
 			),
 			'author-box'      => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-profile-card-2',
 			),
 			'post-comments'   => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-comments',
 			),
 			'post-navigation' => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-navigation',
 			),
 			'archive-title'   => array(
 				'cat' => 'rbelad_addons_site',
 			),
 			'archive-posts'   => array(
-				'cat' => 'rbelad_addons_site',
+				'cat'  => 'rbelad_addons_site',
+				'icon' => 'rbelad-gf-icon rbelad-gf-post-grid-2',
 			),
 		);
 		$return = array();
@@ -189,76 +228,101 @@ class Widget_Manager {
 		$addons = array(
 			// Slider & Carousel Addons.
 			'search'               => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-search-4',
 			),
 			'contact-form-7'       => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-contact-form-7',
 			),
 			'animated-headline'    => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-animated-text',
 			),
 			'flip-box'             => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-flip-box',
 			),
 			'countdown'            => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-alerm-clock-2',
 			),
 			'share-buttons'        => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-share-share-1',
 			),
 			'pdf-view'             => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-pdf',
 			),
 			'lottie'               => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-lottie',
 			),
 			'team-member'          => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-team-1',
 			),
 			'profile-card'         => array(
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-profile-card-2',
+			),
+			'step-flow'            => array(
 				'cat' => 'rbelad_pro_general',
 			),
 			'post-grid'            => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-post-grid',
 			),
 			'post-carousel'        => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-post-carousel',
 			),
 			'portfolio'            => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-portfolio',
 			),
 			'price-table'          => array(
 				'cat' => 'rbelad_pro_general',
 			),
 			'price-list'           => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-price',
 			),
 			'blockquote'           => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-quote-left',
 			),
 			'testimonial-carousel' => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-testimonial-carousel',
 			),
 			'logo-grid'            => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo',
 			),
 			'logo-carousel'        => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo-carousel',
 			),
 			'scrolling-image'      => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo-image-carousel-2',
 			),
 			'business-hour'        => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo-business-hour',
 			),
 			'news-ticker'          => array(
 				'cat' => 'rbelad_pro_general',
 			),
 			'toggle'               => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo-toggle',
 			),
 			'subscription-form'    => array(
-				'cat' => 'rbelad_pro_general',
+				'cat'  => 'rbelad_pro_general',
+				'icon' => 'rbelad-gf-icon rbelad-gf-logo-mailchimp',
 			),
 		);
 		$return = array();
@@ -332,6 +396,50 @@ class Widget_Manager {
 	}
 
 	/**
+	 * Get widget icon by name.
+	 *
+	 * @param string $widget_name Widget slug or class name.
+	 *
+	 * @return string Widget icon class.
+	 */
+	public static function get_widget_icon( $widget_name ) {
+		$map = self::get_all_widgets_map();
+
+		if ( isset( $map[ $widget_name ]['icon'] ) ) {
+			return $map[ $widget_name ]['icon'];
+		}
+
+		return 'eicon-code';
+	}
+
+	/**
+	 * Get total enabled widgets count by category.
+	 *
+	 * Counts only active/enabled widgets assigned to a specific category.
+	 *
+	 * @param string $category_slug Widget category slug.
+	 *
+	 * @return int Number of widgets in the category.
+	 */
+	private static function get_category_count( $category_slug ) {
+		$widgets = self::get_widgets(); // enabled widgets only.
+		$map     = self::get_all_widgets_map();
+
+		$count = 0;
+
+		foreach ( $widgets as $widget_slug ) {
+			if (
+				isset( $map[ $widget_slug ]['cat'] ) &&
+				$map[ $widget_slug ]['cat'] === $category_slug
+			) {
+				++$count;
+			}
+		}
+
+		return $count;
+	}
+
+	/**
 	 * Register Elementor widget categories.
 	 *
 	 * @param \Elementor\Elements_Manager $elements_manager Elementor elements manager instance.
@@ -342,34 +450,55 @@ class Widget_Manager {
 		$elements_manager->add_category(
 			'rbelad_addons_basic',
 			array(
-				'title' => esc_html__( 'RB Addons - Basic', 'rb-addons-for-elementor' ),
+				'title' => sprintf(
+					/* translators: %d: Number of widgets in Basic category */
+					esc_html__( 'RB Addons - Basic (%d)', 'rb-addons-for-elementor' ),
+					self::get_category_count( 'rbelad_addons_basic' )
+				),
 			)
 		);
+
 		$elements_manager->add_category(
 			'rbelad_addons_general',
 			array(
-				'title' => esc_html__( 'RB Addons - General', 'rb-addons-for-elementor' ),
+				'title' => sprintf(
+					/* translators: %d: Number of widgets in Basic category */
+					esc_html__( 'RB Addons - General (%d)', 'rb-addons-for-elementor' ),
+					self::get_category_count( 'rbelad_addons_general' )
+				),
 			)
 		);
 
 		$elements_manager->add_category(
 			'rbelad_addons_creative',
 			array(
-				'title' => esc_html__( 'RB Addons - Creative', 'rb-addons-for-elementor' ),
+				'title' => sprintf(
+					/* translators: %d: Number of widgets in Creative category */
+					esc_html__( 'RB Addons - Creative (%d)', 'rb-addons-for-elementor' ),
+					self::get_category_count( 'rbelad_addons_creative' )
+				),
 			)
 		);
 
 		$elements_manager->add_category(
 			'rbelad_addons_site',
 			array(
-				'title' => esc_html__( 'RB Addons - Site', 'rb-addons-for-elementor' ),
+				'title' => sprintf(
+					/* translators: %d: Number of widgets in Site category */
+					esc_html__( 'RB Addons - Site (%d)', 'rb-addons-for-elementor' ),
+					self::get_category_count( 'rbelad_addons_site' )
+				),
 			)
 		);
 
 		$elements_manager->add_category(
 			'rbelad_pro_general',
 			array(
-				'title' => esc_html__( 'RB Pro - General', 'rb-addons-for-elementor' ),
+				'title' => sprintf(
+					/* translators: %d: Number of widgets in Site category */
+					esc_html__( 'RB Pro - General (%d)', 'rb-addons-for-elementor' ),
+					self::get_category_count( 'rbelad_addons_site' )
+				),
 			)
 		);
 	}
