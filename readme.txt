@@ -1,88 +1,80 @@
 === RB Addons for Elementor ===
 Contributors: bashirrased2017
-Tags: elementor, addons, widgets, page builder, custom widgets
-Requires at least: 6.6
+Tags: elementor, widgets, addons, page builder, custom widgets
+Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Supercharge your Elementor workflow with a collection of lightweight, high-performance custom widgets designed for modern web design.
+RB Addons for Elementor is a lightweight and powerful Elementor addon plugin that adds custom widgets and extensions for building modern websites.
 
 == Description ==
 
-**RB Addons for Elementor** is a powerful yet lightweight extension that adds creative, professional-grade widgets to your favorite page builder. Whether you are a developer or a designer, these tools give you the flexibility to build stunning layouts without touching a single line of code.
+RB Addons for Elementor is a custom Elementor addon plugin that provides additional widgets and design elements for Elementor page builder.
 
-This plugin is built with performance in mind, ensuring that your site remains fast and responsive while gaining advanced design capabilities.
+This plugin is being developed step-by-step and will include 50+ widgets in future updates.
 
-### 🚀 7+ FREE ELEMENTOR WIDGETS
-RB Addons provides a essential toolkit to bridge the gap between standard Elementor widgets and professional design needs:
+= Current Features (v2.0.0) =
+* Custom Widget Manager System
+* Basic widgets structure
+* Scalable architecture for 50+ widgets
+* Elementor integration ready
 
-* **Button:** Go beyond the basics with unique hover effects and styling options.
-* **Button Group:** Perfectly align multiple call-to-action buttons in a single container.
-* **Divider:** Break up your content with stylish, customizable separators.
-* **Dual Text:** Highlight key phrases by styling two parts of a headline differently.
-* **List Style:** Create beautiful lists with custom icons, badges, and labels.
-* **Scroll Down:** Add interactive "anchor" buttons to guide users down your page.
-* **Rating Star:** Display social proof or reviews with fully customizable star icons.
+= Included Widgets (Initial Release) =
+* Heading Widget
+* Image Widget
+* Button Widget
+* Text Editor Widget
+* Video Widget
+* Divider Widget
+* Spacer Widget
+* Google Maps Widget
+* Icon Widget
 
-### Why Choose RB Addons?
-* **Clean Code:** Built following the latest WordPress and Elementor coding standards.
-* **SEO Friendly:** Lightweight output that doesn't bloat your page.
-* **Fully Responsive:** Every widget looks perfect on mobile, tablet, and desktop.
-* **Security First:** Every file includes security headers to prevent unauthorized access.
-
-## Privacy Policy 
-RB Addons for Elementor uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
-
-Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
-
-Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
-
-Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
+= Future Roadmap =
+* Feature Box Widgets
+* Pricing Table Widgets
+* Testimonial Widgets
+* Advanced Carousel Widgets
+* Admin Dashboard (like Happy Addons)
+* Free/Pro widget system
+* AJAX & API system
+* Icon library manager
+* Template library integration
 
 == Installation ==
 
-1. Log in to your WordPress Dashboard.
-2. Go to **Plugins > Add New** and search for "RB Addons for Elementor".
-3. Click **Install Now** and then **Activate**.
-4. (Optional) Navigate to **Elementor > RB Addons** to manage settings.
+1. Upload the plugin folder to /wp-content/plugins/
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Make sure Elementor plugin is installed and activated
+4. Go to Elementor editor and find "RB Addons" widgets
 
 == Frequently Asked Questions ==
 
-= Does this work with the free version of Elementor? =
-Absolutely! RB Addons is designed to work perfectly with both Elementor Free and Elementor Pro.
+= Does it require Elementor? =
+Yes, this plugin depends on Elementor.
 
-= Is it beginner-friendly? =
-Yes. If you know how to drag and drop in Elementor, you can use RB Addons.
+= Is it free? =
+Yes, currently it is fully free.
 
-= Will it slow down my site? =
-No. We use a modular loading system to ensure only the necessary code is loaded.
-
-== Screenshots ==
-
-1. The RB Addons widget panel integrated directly into the Elementor sidebar.
-2. A live example of the Dual Text and Button Group widgets in action.
+= How many widgets will be added? =
+The roadmap includes 50+ widgets in future updates.
 
 == Changelog ==
 
-= 1.0.4 =
-* Remove: Remove Plugin WordPress Admin Menu for templary.
-* Remove: Remove Plugin WordPress Admin Menu for templary.
+= 2.0.0 =
+* Initial structure release
+* Widget manager system added
+* Basic widgets added (Heading, Image, Button, etc.)
+* Elementor integration setup
 
-= 1.0.3 =
-* New: Published 7 core widgets with "Smart Style" traits.
-* Tweak: Optimized CSS output for faster loading.
+== Upgrade Notice ==
 
-= 1.0.2 =
-* Tweak: Rebranded Plugin Name and Slug for better consistency.
+= 2.0.0 =
+First stable development version with scalable widget architecture.
 
-= 1.0.1 =
-* Security: Added ABSPATH checks to all PHP files.
-* Fix: Removed `.sass-cache` folder to reduce plugin size.
-* Dev: Updated prefix to `rbelad` to prevent function conflicts.
-* Audit: Passed 100% on Plugin Check, PHPCS, and WPCS.
+== License ==
 
-= 1.0.0 =
-* Initial release.
+This plugin is licensed under the GNU General Public License v2 or later.

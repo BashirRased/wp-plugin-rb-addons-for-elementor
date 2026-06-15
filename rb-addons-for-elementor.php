@@ -1,74 +1,159 @@
 <?php
 /**
  * Plugin Name: RB Addons for Elementor
- * Plugin URI:  https://github.com/BashirRased/wp-plugin-rb-addons-for-elementor
- * Description: Supercharge your Elementor workflow with a collection of lightweight, high-performance custom widgets designed for modern web design.
- * Version:     1.0.4
- * Author:      Bashir Rased
- * Author URI:  https://bashirrased.com/
- * Text Domain: rb-addons-for-elementor
- * Domain Path: /languages
- * License:     GPL-2.0-or-later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Plugin URI: https://github.com/BashirRased/wp-plugin-rb-addons-for-elementor
+ * Description: Powerful Elementor widgets and extensions for building modern websites.
+ * Version: 2.0.0
+ * Author: Bashir Rased
+ * Author URI: https://bashirrased.dev/
  * Requires Plugins: elementor
- * Requires PHP: 7.4
- * Requires at least: 6.6
+ * Requires at least: 6.5
  * Tested up to: 6.9
+ * Requires PHP: 7.4
+ * Elementor tested up to: 4.1
+ * Elementor Pro tested up to: 4.1
+ * License: GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: rb-addons-for-elementor
+ * Domain Path: /languages/
  *
- * @package    RB_Plugins
- * @subpackage RBELAD_Elementor_Addons
+ * @package    RBELAD_Elementor_Addons
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Plugin constants.
+ */
+define( 'RBELAD_VERSION', '2.0.0' );
+
+define( 'RBELAD_FILE', __FILE__ );
+define( 'RBELAD_BASENAME', plugin_basename( RBELAD_FILE ) );
+
+define( 'RBELAD_PATH', plugin_dir_path( RBELAD_FILE ) );
+define( 'RBELAD_URL', plugin_dir_url( RBELAD_FILE ) );
+
+define( 'RBELAD_ASSETS_PATH', RBELAD_PATH . 'assets/' );
+define( 'RBELAD_ASSETS_URL', RBELAD_URL . 'assets/' );
+
+define( 'RBELAD_CLASSES_PATH', RBELAD_PATH . 'classes/' );
+
+define( 'RBELAD_WIDGET_PATH', RBELAD_PATH . 'widgets/' );
+define( 'RBELAD_WIDGET_URL', RBELAD_URL . 'widgets/' );
+
+define( 'RBELAD_GLOBAL_PATH', RBELAD_PATH . 'global/' );
+define( 'RBELAD_GLOBAL_URL', RBELAD_URL . 'global/' );
+
+define( 'RBELAD_MINIMUM_PHP_VERSION', '7.4' );
+define( 'RBELAD_MINIMUM_WP_VERSION', '6.5' );
+define( 'RBELAD_MINIMUM_ELEMENTOR_VERSION', '3.7.0' );
+
+/**
+ * Bootstrap plugin.
+ *
+ * @return void
+ */
+function rbelad_init() {
+
+	// PHP Version Check.
+	if ( version_compare( PHP_VERSION, RBELAD_MINIMUM_PHP_VERSION, '<' ) ) {
+		add_action( 'admin_notices', 'rbelad_php_notice' );
+		return;
+	}
+
+	// Elementor Check.
+	if ( ! did_action( 'elementor/loaded' ) ) {
+		add_action( 'admin_notices', 'rbelad_elementor_notice' );
+		return;
+	}
+
+	// Elementor Version Check.
+	if ( version_compare( ELEMENTOR_VERSION, RBELAD_MINIMUM_ELEMENTOR_VERSION, '<' ) ) {
+		add_action( 'admin_notices', 'rbelad_elementor_version_notice' );
+		return;
+	}
+
+	require_once RBELAD_CLASSES_PATH . 'class-plugin.php';
+
+	\RBELAD_Elementor_Addons\Plugin::instance()->init();
 }
 
-// Define main file constant once.
-define( 'RBELAD_PLUGIN_FILE', __FILE__ );
-define( 'RBELAD_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'RBELAD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'RBELAD_VERSION', '1.0.4' );
-define( 'RBELAD_DEV_VERSION', RBELAD_VERSION . time() );
-
-// Extra helpful constants.
-define( 'RBELAD_ASSETS', trailingslashit( RBELAD_PLUGIN_URL . 'assets' ) );
-define( 'RBELAD_ICONS', trailingslashit( RBELAD_PLUGIN_URL . 'assets/icons' ) );
-define( 'RBELAD_CSS', trailingslashit( RBELAD_PLUGIN_URL . 'assets/css/' ) );
-define( 'RBELAD_JS', trailingslashit( RBELAD_PLUGIN_URL . 'assets/js/' ) );
-define( 'RBELAD_INC', trailingslashit( RBELAD_PLUGIN_DIR . 'inc' ) );
-define( 'RBELAD_WIDGETS', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/addons' ) );
-define( 'RBELAD_GLOBAL', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/global' ) );
-define( 'RBELAD_EXTENDS', trailingslashit( RBELAD_PLUGIN_DIR . 'inc/extends' ) );
-define( 'RBELAD_TRAIT_STYLE', trailingslashit( RBELAD_PLUGIN_DIR . 'trait/style/' ) );
-define( 'RBELAD_TRAIT_CONTENT', trailingslashit( RBELAD_PLUGIN_DIR . 'trait/content/' ) );
-define( 'RBELAD_CLASS', trailingslashit( RBELAD_PLUGIN_DIR . 'class' ) );
-define( 'RBELAD_ADMIN', trailingslashit( RBELAD_PLUGIN_DIR . 'admin/' ) );
+add_action( 'plugins_loaded', 'rbelad_init', 10 );
 
 /**
- * Main Elementor Class
+ * PHP notice.
+ *
+ * @return void
  */
-require RBELAD_CLASS . '/class-rbelad-elementor-addons.php';
+function rbelad_php_notice() {
+	?>
+	<div class="notice notice-warning">
+		<p>
+			<?php
+			printf(
+				/* translators: 1: Plugin name, 2: Minimum PHP version. */
+				esc_html__( '"%1$s" requires PHP version %2$s or greater.', 'rb-addons-for-elementor' ),
+				esc_html( 'RB Addons for Elementor' ),
+				esc_html( RBELAD_MINIMUM_PHP_VERSION )
+			);
+			?>
+		</p>
+	</div>
+	<?php
+}
 
 /**
- * Get common plugin functions
+ * Elementor missing notice.
+ *
+ * @return void
  */
-require RBELAD_GLOBAL . '/functions.php';
+function rbelad_elementor_notice() {
+	?>
+	<div class="notice notice-warning">
+		<p>
+			<?php
+			/* translators: 1: Plugin name, 2: PHP version */
+			esc_html_e(
+				'RB Addons for Elementor requires Elementor to be installed and activated.',
+				'rb-addons-for-elementor'
+			);
+			?>
+		</p>
+	</div>
+	<?php
+}
 
 /**
- * Get common options
+ * Elementor version notice.
+ *
+ * @return void
  */
-require RBELAD_GLOBAL . '/get-options.php';
+function rbelad_elementor_version_notice() {
+	?>
+	<div class="notice notice-warning">
+		<p>
+			<?php
+			printf(
+				/* translators: 1: Plugin name, 2: Minimum Elementor version. */
+				esc_html__( '"%1$s" requires Elementor version %2$s or greater.', 'rb-addons-for-elementor' ),
+				esc_html( 'RB Addons for Elementor' ),
+				esc_html( RBELAD_MINIMUM_ELEMENTOR_VERSION )
+			);
+			?>
+		</p>
+	</div>
+	<?php
+}
 
 /**
- * Choose style options
+ * Plugin activation.
+ *
+ * @return void
  */
-require RBELAD_GLOBAL . '/choose-options.php';
+function rbelad_activate() {
 
-register_activation_hook(
-	RBELAD_PLUGIN_FILE,
-	function () {
-		if ( ! get_option( 'rbelad_activation_time' ) ) {
-			update_option( 'rbelad_activation_time', time() );
-		}
-	}
-);
+	add_option( 'rbelad_activation_redirect', true );
+	add_option( 'rbelad_activation_time', time() );
+}
+
+register_activation_hook( RBELAD_FILE, 'rbelad_activate' );
