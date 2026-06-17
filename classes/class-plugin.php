@@ -10,6 +10,8 @@ namespace RBELAD_Elementor_Addons;
 use Elementor\Controls_Manager;
 use Elementor\Elements_Manager;
 
+use RBELAD_Elementor_Addons\Elementor\Classes as RBELAD_Classes;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -34,59 +36,122 @@ class Plugin {
 	}
 
 	/**
-	 * Constructor
-	 */
-	private function __construct() {
-		add_action( 'init', array( $this, 'i18n' ) );
-	}
-
-	/**
 	 * Initialize plugin
 	 */
 	public function init() {
 
 		$this->include_files();
 
-		// Elementor hooks.
-		add_action( 'elementor/elements/categories_registered', array( $this, 'add_category' ) );
-		add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
-		add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
+		add_action(
+			'elementor/init',
+			function () {
 
-		// Load extensions on init.
+				// Elementor is now fully loaded → SAFE.
+
+				add_action( 'elementor/elements/categories_registered', array( $this, 'add_category' ) );
+				add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
+				add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
+			},
+			10
+		);
+
 		add_action( 'init', array( $this, 'init_extensions' ) );
 
 		do_action( 'rbelad_loaded' );
 	}
 
 	/**
-	 * Load translations
+	 * Register all plugin hooks.
+	 *
+	 * @return void
 	 */
-	public function i18n() {
-		load_plugin_textdomain(
-			'rb-addons-for-elementor',
-			false,
-			dirname( plugin_basename( RBELAD_FILE ) ) . '/languages/'
-		);
+	public static function hook_manager() {
+		if ( is_user_logged_in() ) {
+			/* Review */
+			add_action( 'admin_init', array( RBELAD_Classes\Review::class, 'rbelad_void_check_installation_time' ) );
+			add_action( 'admin_init', array( RBELAD_Classes\Review::class, 'rbelad_void_spare_me' ), 5 );
+		}
+	}
+
+	/**
+	 * Load PHP files from a directory list.
+	 *
+	 * @param array  $files List of file paths.
+	 * @param string $base  Base directory path.
+	 *
+	 * @return void
+	 */
+	private function load_content_directory( array $files, string $base ) {
+
+		foreach ( $files as $file ) {
+
+			$file_path = $base . $file;
+
+			if ( file_exists( $file_path ) ) {
+				require_once $file_path;
+			}
+		}
+	}
+
+	/**
+	 * Load PHP files from a directory list.
+	 *
+	 * @param array  $files List of file paths.
+	 * @param string $base  Base directory path.
+	 *
+	 * @return void
+	 */
+	private function load_style_directory( array $files, string $base ) {
+
+		foreach ( $files as $file ) {
+
+			$file_path = $base . $file;
+
+			if ( file_exists( $file_path ) ) {
+				require_once $file_path;
+			}
+		}
 	}
 
 	/**
 	 * Include core files
 	 */
 	public function include_files() {
-
-		// Base helpers (later you can expand).
-		if ( file_exists( RBELAD_PATH . 'includes/functions.php' ) ) {
-			require_once RBELAD_PATH . 'includes/functions.php';
-		}
-
 		require_once RBELAD_CLASSES_PATH . 'class-widgets-manager.php';
+		require_once RBELAD_CLASSES_PATH . 'class-review.php';
+		require_once RBELAD_CLASSES_PATH . 'class-font-list.php';
+		require_once RBELAD_CLASSES_PATH . 'class-assets-manager.php';
 
-		// Dashboard (Step 1–4 roadmap).
-		if ( is_admin() ) {
-			if ( file_exists( RBELAD_PATH . 'admin/dashboard.php' ) ) {
-				require_once RBELAD_PATH . 'admin/dashboard.php';
-			}
-		}
+		/**
+		 * Trait contents.
+		 */
+		$this->load_content_directory(
+			array(
+				'select-link.php',
+			),
+			RBELAD_TRAIT_CONTENT_PATH
+		);
+
+		/**
+		 * Trait styles.
+		 */
+		$this->load_style_directory(
+			array(
+				'background.php',
+				'border.php',
+				'color.php',
+				'custom-typography.php',
+				'flex.php',
+				'hover-active-color.php',
+				'hover-color.php',
+				'position.php',
+				'spacing.php',
+				'width-height.php',
+			),
+			RBELAD_TRAIT_STYLE_PATH
+		);
+
+		self::hook_manager();
 	}
 
 	/**
@@ -98,9 +163,17 @@ class Plugin {
 	public function add_category( Elements_Manager $elements_manager ) {
 
 		$elements_manager->add_category(
-			'rbelad_category',
+			'rbelad_addons_basic',
 			array(
-				'title' => esc_html__( 'RB Addons', 'rb-addons-for-elementor' ),
+				'title' => esc_html__( 'RB Addons - Basic', 'rb-addons-for-elementor' ),
+				'icon'  => 'eicon-plug',
+			)
+		);
+
+		$elements_manager->add_category(
+			'rbelad_addons_general',
+			array(
+				'title' => esc_html__( 'RB Addons - General', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-plug',
 			)
 		);

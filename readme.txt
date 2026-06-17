@@ -1,9 +1,11 @@
 === RB Addons for Elementor ===
 Contributors: bashirrased2017
-Tags: elementor, widgets, addons, page builder, custom widgets
+Tags: elementor, elementor addons, elementor widgets
 Requires at least: 6.5
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
+Elementor tested up to: 4.1
+Elementor Pro tested up to: 4.1
 Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -69,6 +71,22 @@ The roadmap includes 50+ widgets in future updates.
 * Widget manager system added
 * Basic widgets added (Heading, Image, Button, etc.)
 * Elementor integration setup
+
+= 1.0.3 =
+* New: Published 7 core widgets with "Smart Style" traits.
+* Tweak: Optimized CSS output for faster loading.
+
+= 1.0.2 =
+* Tweak: Rebranded Plugin Name and Slug for better consistency.
+
+= 1.0.1 =
+* Security: Added ABSPATH checks to all PHP files.
+* Fix: Removed `.sass-cache` folder to reduce plugin size.
+* Dev: Updated prefix to `rbelad` to prevent function conflicts.
+* Audit: Passed 100% on Plugin Check, PHPCS, and WPCS.
+
+= 1.0.0 =
+* Initial release.
 
 == Upgrade Notice ==
 
