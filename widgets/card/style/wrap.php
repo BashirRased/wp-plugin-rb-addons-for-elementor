@@ -74,21 +74,21 @@ $this->add_group_control(
 /**
  * Flex Direction
  */
-$this->add_control(
+$this->add_responsive_control(
 	$prefix . '_flex_direction',
 	array(
 		'label'     => esc_html__( 'Flex Direction', 'rb-addons-for-elementor' ),
 		'type'      => Controls_Manager::CHOOSE,
 		'options'   => array(
-			'row' => array(
+			'row'            => array(
 				'title' => esc_html__( 'Row', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-arrow-right',
 			),
-			'column' => array(
+			'column'         => array(
 				'title' => esc_html__( 'Column', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-arrow-down',
 			),
-			'row-reverse' => array(
+			'row-reverse'    => array(
 				'title' => esc_html__( 'Row Reverse', 'rb-addons-for-elementor' ),
 				'icon'  => 'eicon-arrow-left',
 			),
@@ -130,6 +130,34 @@ $this->add_control(
 		'type'      => Controls_Manager::COLOR,
 		'selectors' => array(
 			'{{WRAPPER}} .rbelad-card__wrap' => 'background-color: {{VALUE}};',
+		),
+	)
+);
+
+$this->add_responsive_control(
+	$prefix . '_columns',
+	array(
+		'label'                => esc_html__( 'Columns', 'rb-addons-for-elementor' ),
+		'type'                 => Controls_Manager::SELECT,
+		'default'              => '2',
+		'options'              => array(
+			'1' => '1 Column',
+			'2' => '2 Columns',
+			'3' => '3 Columns',
+			'4' => '4 Columns',
+			'5' => '5 Columns',
+			'6' => '6 Columns',
+		),
+		'selectors_dictionary' => array(
+			'1' => '100%',
+			'2' => '50%',
+			'3' => '33.333%',
+			'4' => '25%',
+			'5' => '20%',
+			'6' => '16.667%',
+		),
+		'selectors'            => array(
+			'{{WRAPPER}} .rbelad-card__item' => 'width: {{VALUE}};',
 		),
 	)
 );

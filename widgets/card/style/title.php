@@ -86,6 +86,40 @@ $this->add_responsive_control(
 			),
 		),
 		'selectors'  => array(
+			'{{WRAPPER}} .rbelad-card__title' => 'width: {{SIZE}}{{UNIT}};',
+		),
+	)
+);
+
+$this->add_control(
+	$prefix . '_before_title_heading',
+	array(
+		'label'     => esc_html__( 'Title Before', 'rb-addons-for-elementor' ),
+		'type'      => \Elementor\Controls_Manager::HEADING,
+		'separator' => 'before',
+	)
+);
+
+/**
+ * Width Control
+ */
+$this->add_responsive_control(
+	$prefix . '_before_width',
+	array(
+		'label'      => esc_html__( 'Before Width', 'rb-addons-for-elementor' ),
+		'type'       => Controls_Manager::SLIDER,
+		'size_units' => array( 'px', '%', 'vw', 'em', 'rem' ),
+		'range'      => array(
+			'px' => array(
+				'min' => 0,
+				'max' => 1000,
+			),
+			'%'  => array(
+				'min' => 0,
+				'max' => 100,
+			),
+		),
+		'selectors'  => array(
 			'{{WRAPPER}} .rbelad-card__title::before' => 'width: {{SIZE}}{{UNIT}};',
 		),
 	)
@@ -95,9 +129,9 @@ $this->add_responsive_control(
  * Height Control
  */
 $this->add_responsive_control(
-	$prefix . '_height',
+	$prefix . '_before_height',
 	array(
-		'label'      => esc_html__( 'Height', 'rb-addons-for-elementor' ),
+		'label'      => esc_html__( 'Before Height', 'rb-addons-for-elementor' ),
 		'type'       => Controls_Manager::SLIDER,
 		'size_units' => array( 'px', '%', 'vh', 'em', 'rem' ),
 		'range'      => array(
@@ -116,9 +150,9 @@ $this->add_responsive_control(
  * Text Color Control
  */
 $this->add_control(
-	$prefix . '_bg_color',
+	$prefix . '_before_bg_color',
 	array(
-		'label'     => esc_html__( 'Background Color', 'rb-addons-for-elementor' ),
+		'label'     => esc_html__( 'Before Background Color', 'rb-addons-for-elementor' ),
 		'type'      => Controls_Manager::COLOR,
 		'selectors' => array(
 			'{{WRAPPER}} .rbelad-card__title::before' => 'background-color: {{VALUE}};',
@@ -130,7 +164,7 @@ $this->add_control(
  * Height Control
  */
 $this->add_responsive_control(
-	$prefix . '_bottom',
+	$prefix . '_before_bottom',
 	array(
 		'label'      => esc_html__( 'Bottom', 'rb-addons-for-elementor' ),
 		'type'       => Controls_Manager::SLIDER,

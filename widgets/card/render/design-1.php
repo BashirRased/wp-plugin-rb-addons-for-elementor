@@ -96,13 +96,13 @@ $render_after_content = function ( $after_prefix, $settings ) {
 		</div>
 	<?php endif; ?>
 
-	<div class="rbelad-card__img-wrap rbelad-col-6">
+	<div class="rbelad-card__img-wrap rbelad-card__item">
 		<?php if ( ! empty( $settings[ $prefix_img . '_img' ]['url'] ) ) : ?>
 			<img src="<?php echo esc_url( $settings[ $prefix_img . '_img' ]['url'] ); ?>">
 		<?php endif; ?>
 	</div>
 
-	<div class="rbelad-card__content-wrap rbelad-col-6">
+	<div class="rbelad-card__content-wrap rbelad-card__item">
 		<?php if ( ! empty( $settings[ $prefix_title . '_text' ] ) ) : ?>
 			<h3 class="rbelad-card__title">
 				<?php echo esc_html( $settings[ $prefix_title . '_text' ] ); ?>

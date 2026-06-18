@@ -3,7 +3,7 @@
  * Plugin Name: RB Addons for Elementor
  * Plugin URI: https://github.com/BashirRased/wp-plugin-rb-addons-for-elementor
  * Description: Powerful Elementor widgets and extensions for building modern websites.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Bashir Rased
  * Author URI: https://bashirrased.dev/
  * Requires Plugins: elementor

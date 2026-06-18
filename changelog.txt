@@ -1,3 +1,12 @@
+= 2.0.1 =
+* Simple updates for card widget.
+
+= 2.0.0 =
+* Initial structure release
+* Widget manager system added
+* Basic widgets added (Heading, Image, Button, etc.)
+* Elementor integration setup
+
 = 1.0.3 =
 * New: Published 7 core widgets with "Smart Style" traits.
 * Tweak: Optimized CSS output for faster loading.

@@ -161,5 +161,34 @@ $this->add_control(
 	)
 );
 
+/**
+ * Content Alignment
+ */
+$this->add_responsive_control(
+	$prefix . '_left_right',
+	array(
+		'label'                => esc_html__( 'Content Alignment', 'rb-addons-for-elementor' ),
+		'type'                 => Controls_Manager::CHOOSE,
+		'options'              => array(
+			'left'  => array(
+				'title' => esc_html__( 'Left', 'rb-addons-for-elementor' ),
+				'icon'  => 'eicon-arrow-right',
+			),
+			'right' => array(
+				'title' => esc_html__( 'Right', 'rb-addons-for-elementor' ),
+				'icon'  => 'eicon-arrow-left',
+			),
+		),
+		'default'              => 'left',
+		'selectors_dictionary' => array(
+			'left'  => 'left: 0;',
+			'right' => 'right: 0;',
+		),
+		'selectors'            => array(
+			'{{WRAPPER}} .rbelad-card__before-wrap' => '{{VALUE}}',
+		),
+	)
+);
+
 // End Section Tab.
 $this->end_controls_section();

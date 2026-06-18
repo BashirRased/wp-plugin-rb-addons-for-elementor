@@ -6,7 +6,7 @@ Tested up to: 7.0
 Requires PHP: 7.4
 Elementor tested up to: 4.1
 Elementor Pro tested up to: 4.1
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,9 @@ Yes, currently it is fully free.
 The roadmap includes 50+ widgets in future updates.
 
 == Changelog ==
+
+= 2.0.1 =
+* Simple updates for card widget.
 
 = 2.0.0 =
 * Initial structure release

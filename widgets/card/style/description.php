@@ -65,5 +65,30 @@ $this->add_responsive_control(
 	)
 );
 
+/**
+ * Width Control
+ */
+$this->add_responsive_control(
+	$prefix . '_width',
+	array(
+		'label'      => esc_html__( 'Width', 'rb-addons-for-elementor' ),
+		'type'       => Controls_Manager::SLIDER,
+		'size_units' => array( 'px', '%', 'vw', 'em', 'rem' ),
+		'range'      => array(
+			'px' => array(
+				'min' => 0,
+				'max' => 1000,
+			),
+			'%'  => array(
+				'min' => 0,
+				'max' => 100,
+			),
+		),
+		'selectors'  => array(
+			'{{WRAPPER}} .rbelad-card__desc' => 'width: {{SIZE}}{{UNIT}};',
+		),
+	)
+);
+
 // End Section Tab.
 $this->end_controls_section();
