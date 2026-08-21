@@ -1,0 +1,19 @@
+{
+  "icons": [
+	"plugin",
+	"heading",
+	"image",
+	"basic-gallery",
+	"video",
+	"button",
+	"button-group",
+	"divider",
+	"google-maps",
+	"icon",
+	"icon-list",
+	"rating",
+	"alert",
+	"card",
+	"testimonial",
+  ]
+}

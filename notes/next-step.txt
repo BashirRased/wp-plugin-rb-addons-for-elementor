@@ -1,0 +1,90 @@
+Basic Gallery
+=============
+    -----> Content - Done
+    -----> Style - Wrap - Display Block, Inline Block
+    -----> Render - Not Work
+    -----> Problem - Done
+
+Divider
+=======
+    -----> Content - Updated Render
+    -----> Style - Need Updated
+    -----> Render - Need Updated
+    -----> Problem - N/A
+
+Icon
+====
+    -----> Content - Updated with new version
+    -----> Style - Updated with new version + add width controls
+    -----> Render - Updated with new version
+    -----> Problem - N/A
+
+Icon List
+=========
+    -----> Content - Done
+    -----> Style - Total Incomplete
+    -----> Render - Total Incomplete
+    -----> Problem - N/A
+
+Rating
+======
+    -----> Content - Updated with as like elementor
+    -----> Style - Total Incomplete
+    -----> Render - Total Incomplete
+    -----> Problem - N/A
+
+Button Group
+=============
+    -----> Content - Total Incomplete
+    -----> Style - Total Incomplete
+    -----> Render - Total Incomplete
+    -----> Problem - Total Incomplete
+
+Button
+======
+    -----> Content - Add Controls - Button Type, Button Icon, Icon Position
+    -----> Style - Wrap - Display Block, Inline Block Background Color
+    -----> Render - Done
+    -----> Problem - Add Render Icon Function
+    
+Heading
+=======
+    -----> Content - Add Switch for Theme Color, 
+    -----> Style - Done
+    -----> Render - Done
+    -----> Problem - Done 
+
+Image
+=======
+    -----> Content - Done
+    -----> Style - Caption - BG Color
+    -----> Render - Image Size Control
+    -----> Problem - Image Size Control
+
+Video
+=====
+    -----> Content - Add Sections - Video Type, Settings, Thumbnail
+    -----> Style - Total Incomplete
+    -----> Render - Need Updated with new content section
+    -----> Problem - support as like elementor
+
+Google Maps
+=============
+    -----> Content - Need Updated Future
+    -----> Style - Need Updated Future
+    -----> Render - Need Updated Future
+    -----> Problem - N/A
+
+Card
+=====
+    -----> Content - Need Updated
+    -----> Style - Need Updated
+    -----> Render - Need Updated
+    -----> Problem - Text Edit, Image Size, Icon Render
+
+Testimonial
+===========
+    -----> Content - Need Updated
+    -----> Style - Total Incomplete
+    -----> Render - Total Incomplete
+    -----> Problem - Text Edit, Image Size, Icon Render

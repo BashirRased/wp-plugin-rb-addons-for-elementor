@@ -1,0 +1,144 @@
+'img',
+'img_size',
+'video',
+'gallery',
+'select_option',
+'select_option_2',
+'select_option_3',
+'text',
+'text_2',
+'text_3',
+'textarea',
+'switch',
+'switch_2',
+'switch_3',
+'switch_4',
+'switch_5',
+'switch_6',
+'switch_7',
+'switch_8',
+'switch_9',
+'switch_10',
+'icon',
+'icon_simple',
+'icon_img_text',
+'select_link_type',
+
+<?php
+/**
+ * Alert widget content controls.
+ *
+ * @package RBELAD_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+use Elementor\Controls_Manager;
+
+// Controls variables.
+$rbelad_prefix = $this->get_section_content_prefix( 'general' );
+
+// Start Section Tab - Content.
+$this->start_controls_section(
+	$rbelad_prefix,
+	array(
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
+		'tab'   => Controls_Manager::TAB_CONTENT,
+	)
+);
+
+// All content add here.
+$this->add_content_controls(
+	$rbelad_prefix . '_content_1',
+	array(
+		'controls' => array(
+			// Select Option.
+			'select_option' => array(
+                'id'      => $rbelad_prefix . '_select_option',
+			),
+		),
+	),
+);
+
+// End Section Tab.
+$this->end_controls_section();
+
+
+
+'rbelad_typography',
+'height_width',
+'text_alignment',
+'border',
+'spacing',
+'bg_color',
+'position',
+'icon_size',
+'display',
+'box_style',
+'icon_style',
+'text_color',
+'column'
+
+
+<?php
+/**
+ * Button widget style controls.
+ *
+ * @package RBELAD_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+use Elementor\Controls_Manager;
+
+// Controls variables.
+$rbelad_prefix  = $this->get_section_style_prefix( 'general' );
+$rbelad_class_1 = '{{WRAPPER}} .rbelad-button__link';
+
+// Start Section Tab - Style.
+$this->start_controls_section(
+	$rbelad_prefix,
+	array(
+		'label' => esc_html__( 'General', 'rb-addons-for-elementor' ),
+		'tab'   => Controls_Manager::TAB_STYLE,
+	)
+);
+
+// All style add here.
+$this->add_style_controls(
+	$rbelad_prefix . '_style_1',
+	array(
+		'controls' => array(
+			// Typography.
+			'rbelad_typography' => array(
+				'id'           => $rbelad_prefix . '_rbelad_typography',
+				'select_class' => $rbelad_class_1,
+			),
+		),
+	),
+);
+
+$this->end_controls_section();
+
+
+
+
+<?php
+/**
+ * Button widget design - 1.
+ *
+ * @package RBELAD_Elementor_Addons
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$rbelad_settings = $this->get_settings_for_display();
+$rbelad_prefix   = $this->get_section_content_prefix( 'general' );
+?>
+<div class="rbelad-button__wrap">
