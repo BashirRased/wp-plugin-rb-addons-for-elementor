@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'rbelad-widget-icons';
+  src: url('../fonts/rbelad-widget-icons.woff') format('woff'),
+    url('../fonts/rbelad-widget-icons.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.rbelad-wi {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'rbelad-widget-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.elementor-panel .elementor-element .icon,
+.elementor-navigator__item {
+  position: relative;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.elementor-panel .elementor-element .icon .rbelad-wi::after {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  content: "\e907";
+  font-size: 20px;
+  color: #979797;
+  font-family: "rbelad-widget-icons";
+  font-weight: 400;
+}
+
+.elementor-navigator__item:has(.rbelad-wi)::after {
+  position: absolute;
+  top: 9px;
+  right: 34px;
+  content: "\e907";
+  font-size: 14px;
+  color: #979797;
+  font-family: "rbelad-widget-icons";
+  font-weight: 400;
+  z-index: 99;
+}
+
+.elementor-panel .elementor-element:hover .icon .rbelad-wi::after,
+.elementor-panel .elementor-element:focus .icon .rbelad-wi::after,
+.elementor-navigator__item:hover::after,
+.elementor-navigator__item:focus::after {
+  color: #f93601;
+}
+
+.rbelad-wi-icon:before {
+  content: "\e90f";
+}
+
+.rbelad-wi-card:before {
+  content: "\e90d";
+}
+
+.rbelad-wi-testimonial:before {
+  content: "\e90e";
+}
+
+.rbelad-wi-star:before {
+  content: "\e900";
+}
+
+.rbelad-wi-rating:before {
+  content: "\e901";
+}
+
+.rbelad-wi-google-maps:before {
+  content: "\e902";
+}
+
+.rbelad-wi-divider:before {
+  content: "\e903";
+}
+
+.rbelad-wi-button-group:before {
+  content: "\e904";
+}
+
+.rbelad-wi-button:before {
+  content: "\e905";
+}
+
+.rbelad-wi-icon-list:before {
+  content: "\e906";
+}
+
+.rbelad-wi-plugin:before {
+  content: "\e907";
+}
+
+.rbelad-wi-video:before {
+  content: "\e908";
+}
+
+.rbelad-wi-heading:before {
+  content: "\e909";
+}
+
+.rbelad-wi-image:before {
+  content: "\e90a";
+}
+
+.rbelad-wi-basic-gallery:before {
+  content: "\e90b";
+}
+
+.rbelad-wi-alert:before {
+  content: "\e90c";
+}

@@ -1,0 +1,54 @@
+== Changelog ==
+
+= 2.0.2 =
+    * Added 13 widgets across Basic and General categories.
+
+= Basic Widgets =
+    * Heading
+    * Image
+    * Basic Gallery
+    * Video
+    * Button
+    * Button Group
+    * Divider
+    * Google Maps
+    * Icon
+    * Icon List
+    * Rating
+
+= General Widgets =
+    * Card
+    * Testimonial
+
+= 2.0.1 =
+    * Simple updates for Card Widget.
+
+= 2.0.0 =
+    * Initial structure release
+    * Widget manager system added
+    * Basic widgets added (Heading, Image, Button, etc.)
+    * Elementor integration setup
+
+= 1.0.3 =
+    * New: Published 7 core widgets with "Smart Style" traits.
+    * Tweak: Optimized CSS output for faster loading.
+
+= 1.0.2 =
+    * Tweak: Rebranded Plugin Name and Slug for better consistency.
+
+= 1.0.1 =
+    * Security: Added ABSPATH checks to all PHP files.
+    * Fix: Removed `.sass-cache` folder to reduce plugin size.
+    * Dev: Updated prefix to `rbelad` to prevent function conflicts.
+    * Audit: Passed 100% on Plugin Check, PHPCS, and WPCS.
+
+= 1.0.0 =
+    * Initial release.
+
+== Upgrade Notice ==
+
+= 2.0.2 =
+    Added the latest widget manager updates and expanded the available widget list.
+
+= 2.0.0 =
+    First stable development version with scalable widget architecture.
